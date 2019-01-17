@@ -16,15 +16,17 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 library(png)
+library(jpeg)
 library(grid)
 library(gridExtra)
 ```
 
 # {.unnumbered}
-```{r 1ere, echo = FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/Couverture/1ere.png")
+```{r 1ere, echo = FALSE, out.width = '100%',fig.asp=1, fig.align='center' }
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/Couverture/1ere.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
-
 
 
 

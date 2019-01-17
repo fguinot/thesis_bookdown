@@ -1,6 +1,6 @@
 # Statistical context
 
-This chapter is intended to introduce statistical learning and hypothesis testing. We will present some state-of-the-art linear statistical methods and also a thorough introduction to splines and generalized additive models. The understanding of these methods is required to grasp the statistical concepts used in the methodology presented in Chapter 4 and 5. 
+This chapter is intended to introduce statistical learning and hypothesis testing. We will present some state-of-the-art linear statistical methods and also a thorough introduction to splines and generalized additive models. The understanding of these methods is required to grasp the statistical concepts used in the methodology presented in Chapter \@ref(LEOS) and \@ref(sicomore). 
 
 ## Notations
 

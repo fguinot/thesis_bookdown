@@ -1,5 +1,5 @@
 
-# Selection of interaction effects in compressed multiple omics representation
+# Selection of interaction effects in compressed multiple omics representation {#sicomore}
 
 This chapter is organized as follows. Section \@ref(modelsicomore)
 introduces the setting related to linear models of interactions and
@@ -443,8 +443,10 @@ representation in Figure \@ref(fig:hierarchy)(c).
 
 (ref:hierarchy) Dimension reduction strategy. (a) Original hierarchical tree with an example for 5 variables. (b) Expanded representation of the tree with all possible weighted groups derived from the original hierarchy. (c) Compressed representation of the tree after construction of the supervariables.
 
-```{r hierarchy, echo=FALSE, fig.cap='(ref:hierarchy)', out.width='100%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/hierarchy.png")
+```{r hierarchy, echo=FALSE, fig.cap='(ref:hierarchy)', out.width='100%',fig.asp=.4, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/hierarchy.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 #### Expanding the hierarchy {.unnumbered}
@@ -579,8 +581,10 @@ them using centered log-ratios.
 
 (ref:X) Examples of hierarchical structures}: correlations observed on (a) genomic data $\mathbf{x}^\mathit{G}$ and (b) metagenomic data $\mathbf{x}^\mathit{M}$.
 
-```{r X, echo=FALSE, fig.cap='(ref:X)', out.width='100%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/X.png")
+```{r X, echo=FALSE, fig.cap='(ref:X)', out.width='100%',fig.asp=.55, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/X.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 ### Generation of the phenotype
@@ -716,8 +720,10 @@ estimated interaction matrix $\hat{\boldsymbol{\theta}}$ compute for each model.
 all possible interactions $\{gm\}$, we then determined the
 following confusion matrix:
 
-```{r tabconfusionfig, echo=FALSE, fig.align="center", out.width='50%',fig.asp=.75}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_confusion.png")
+```{r tabconfusionfig, echo=FALSE, fig.align="center", out.width='50%',fig.asp=.35}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_confusion.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 ```{r tabconfusion, echo=FALSE, tidy=FALSE}
 tab.cap <- c("Confusion matrix for the hypothesis test on interaction parameter $\\theta$")
@@ -734,8 +740,10 @@ given in Figure \@ref(fig:ggheatheta) for $I=5$ blocks in interaction.
 
 (ref:ggheatheta) Illustration of the true interaction matrix $\boldsymbol{\theta}$ with $I = 5$, $\sigma = 0.5$ and $n=100$. Each non-zero value in this matrix is considered as a true interaction between two variables.
 
-```{r ggheatheta, echo=FALSE, fig.cap='(ref:ggheatheta)', out.width='90%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/ggheat_theta.png")
+```{r ggheatheta, echo=FALSE, fig.cap='(ref:ggheatheta)', out.width='90%',fig.asp=.55, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/ggheat_theta.jpg"
+img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 For all methods, we correct for multiple testing by controlling the
@@ -780,20 +788,26 @@ set of simulation parameters ($I = 5$, $\sigma = 0.5$, $n=100$).
 
 (ref:theta2by2) Confusion matrices of interactions $\theta_{gm}$ for each compared algorithm with the following simulation parameters: $I = 5$, $\sigma = 0.5$, $n=100$. We can see in this example that MLGL and SICOMORE behaves similarly with very large genomic regions identified while HCAR tends to work with smaller genomic and metagenomic regions.
 
-```{r theta2by2, echo=FALSE, fig.cap='(ref:theta2by2)', out.width='100%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/theta2by2.png")
+```{r theta2by2, echo=FALSE, fig.cap='(ref:theta2by2)', out.width='100%',fig.asp=.6, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/theta2by2.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 (ref:precisionBONF) Boxplots of precision for each couple of parameters $N$ (number of examples in rows) and $\epsilon$ (difficulty of the problem in columns) for $I=7$.
 
-```{r precisionBONF, echo=FALSE, fig.cap='(ref:precisionBONF)', out.width='100%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/precision_simureal_BONF-3.png")
+```{r precisionBONF, echo=FALSE, fig.cap='(ref:precisionBONF)', out.width='100%',fig.asp=.65, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/precision_simureal_BONF-3.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 (ref:recallBONF) Boxplots of recall for each couple of parameters $N$ (in rows) and $\epsilon$ (in columns) for $I=7$.
 
-```{r recallBONF, echo=FALSE, fig.cap='(ref:recallBONF)', out.width='100%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/precision_simureal_BONF-3.png")
+```{r recallBONF, echo=FALSE, fig.cap='(ref:recallBONF)', out.width='100%',fig.asp=.65, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/precision_simureal_BONF-3.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 ### Computational time
@@ -812,8 +826,10 @@ others by varying $D^{\mathit{G}}$ (we fixed $D^{\mathit{M}} = 100$ and $n = 200
 repeated the number of evaluation five times for each $D^{\mathit{G}}$ and
 averaged the calculation time.
 
-```{r tabcomptimefig, echo=FALSE, fig.align="center", out.width='50%',fig.asp=.75}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_confusion.png")
+```{r tabcomptimefig, echo=FALSE, fig.align="center", out.width='50%',fig.asp=.35}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_confusion.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 ```{r tabcomptime, echo=FALSE, tidy=FALSE}
 tab.cap <- c("Results of averaged calculation time (in minutes) over 5 replicates for varying $D^{\\mathit{G}}$")
@@ -861,8 +877,10 @@ The distributions of the phenotypic values are shown in Figure
 
 (ref:histopheno) Distribution of the phenotypic values for the BMtot, RTR and SNU traits.
 
-```{r histopheno, echo=FALSE, fig.cap='(ref:histopheno)', out.width='100%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/histo_pheno_INRA.png")
+```{r histopheno, echo=FALSE, fig.cap='(ref:histopheno)', out.width='100%',fig.asp=.4, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/histo_pheno_INRA.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 In addition to the phenotypic measurement, the rhizosphere of each
@@ -875,8 +893,10 @@ found in the rhizosphere of the plants (repartition shown in Figure
 
 (ref:piechart1) Distribution of the phenotypic values for the BMtot, RTR and SNU traits.
 
-```{r piechart1, echo=FALSE, fig.cap='(ref:piechart1)', out.width='80%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/piechart1.png")
+```{r piechart1, echo=FALSE, fig.cap='(ref:piechart1)', out.width='80%',fig.asp=.6, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/piechart1.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 Finally, 154 accession were genotyped with a DNA microarray chip for a
@@ -894,7 +914,9 @@ structure (Figure \@ref(fig:heatmapchr4)).
 (ref:heatmapchr4) Heatmap of LD level among SNP of chromosome 4 (position 17448921 to 22706884).
 
 ```{r heatmapchr4, echo=FALSE, fig.cap='(ref:heatmapchr4)', out.width='80%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/cowplot_heatmap_chr4_17448921-chr4_22706884.png")
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/cowplot_heatmap_chr4_17448921-chr4_22706884.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 ### Analysis
@@ -940,8 +962,10 @@ setting different parameters:
 
 #### Results on Total Biomass
 
-```{r tabBMtotfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_biomass.png")
+```{r tabBMtotfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.25}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_biomass.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 ```{r tabBMtot, echo=FALSE, tidy=FALSE}
 tab.cap <- c("Results from SICOMORE analysis on total biomass")
@@ -953,8 +977,10 @@ when we applied a BH correction chromosome by chromosome (column 3)
 instead of correcting on the all set of p-value, all chromosome
 confounded:
 
-```{r tabresBMtotfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resBMtot.png")
+```{r tabresBMtotfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.15}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resBMtot.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 ```{r tabresBMtot, echo=FALSE, tidy=FALSE}
 tab.cap <- c("Results from SICOMORE analysis on total biomass")
@@ -964,8 +990,10 @@ knitr::kable(c(), caption = tab.cap, booktabs=TRUE, format="html")
 
 ### Results on Root Shoot Ratio
 
-```{r tabRTRfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_RTR.png")
+```{r tabRTRfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.25}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_RTR.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 ```{r tabRTR, echo=FALSE, tidy=FALSE}
 tab.cap <- c("Results from SICOMORE analysis on Root Shoot Ratio.")
@@ -981,20 +1009,26 @@ we applied a phylogenetic clustering.
 
 1.  Option 1 (hierarchical clustering on Metagenomic data and subset of SNP data):
 
-```{r tabresRTR1, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resRTR1.png")
+```{r tabresRTR1, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.35}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resRTR1.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```      
       
 2.  Option 4 (phylogenetic clustering on Metagenomic data and subset of SNP data):
 
-```{r tabresRTR2, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resRTR2.png")
+```{r tabresRTR2, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.5}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resRTR2.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```  
 
 ### Results on Specific Nitrogen Uptake
 
-```{r tabSNUfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_SNU.png")
+```{r tabSNUfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.25}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_SNU.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 ```{r tabSNU, echo=FALSE, tidy=FALSE}
 tab.cap <- c("Results from SICOMORE analysis on Specific Nitrogen Uptake.")
@@ -1006,8 +1040,10 @@ found between 2 groups of microbial species and 2 groups of SNP when
 assessing all the genomic data (Option 4) and applying the BH correction
 on the all set of p-value:
 
-```{r tabresSNU, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resSNU.png")
+```{r tabresSNU, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.25}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resSNU.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```  
 
 The 140 microbial species found in the interactions with chromosome 2
@@ -1017,8 +1053,10 @@ phylum represented with a vast majority of Proteobacteria.
 
 (ref:piechart2) Microbial phylum found in interaction with chromosome 2 and chromosome 5 of *Medicago truncatula* for the Specific Nitrogen Uptake phenotype.
 
-```{r piechart2, echo=FALSE, fig.cap='(ref:piechart2)', out.width='70%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/piechart2.png")
+```{r piechart2, echo=FALSE, fig.cap='(ref:piechart2)', out.width='70%',fig.asp=.6, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/piechart2.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 

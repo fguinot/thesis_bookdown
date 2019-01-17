@@ -1,6 +1,6 @@
 # Genome-Wide Association Studies
 
-This chapter focuses on Genome-Wide Associations Studies. It aims at explaining the principles and limitations of such studies. Section \@ref(genoquality) exposes the critical points to consider in terms of genotyping quality control to avoid false positives. Section \@ref(OR) introduces the concepts of disease penetrances and odds ratio generally used in genetic epidemiology. Section \@ref(popstructure) places emphasis on the problem of population structure in GWAS. In section \@ref(SMA) is explained the classical single marker approach used in GWAS while Section \@ref(multiloc) focuses on multi-marker methods to which we will refer in Chapter 4 and 5. 
+This chapter focuses on Genome-Wide Associations Studies. It aims at explaining the principles and limitations of such studies. Section \@ref(genoquality) exposes the critical points to consider in terms of genotyping quality control to avoid false positives. Section \@ref(OR) introduces the concepts of disease penetrances and odds ratio generally used in genetic epidemiology. Section \@ref(popstructure) places emphasis on the problem of population structure in GWAS. In section \@ref(SMA) is explained the classical single marker approach used in GWAS while Section \@ref(multiloc) focuses on multi-marker methods to which we will refer in Chapter \@ref(LEOS) and \@ref(sicomore). 
 
 ## Introduction
 
@@ -122,8 +122,10 @@ against the corresponding ordered expected values (see Figure
 
 (ref:qqplot) Example of Quantile-Quantile plot (Q-Q plot) representing the distribution of the test statistic for a classical GWAS study (results from GWAS analysis on Bipolar disorder data coming from the Welcome Trust Case-Control Consortium [@burton_genome-wide_2007]). In this example we can see that the smallest *p*-value is equal to $4.5.10^{-5}$ and there are relatively few data points in the tail. Thus, based solely on the study of this distribution, there is therefore no reason to suspect genotyping errors.
 
-```{r qqplot, echo=FALSE, fig.cap='(ref:qqplot)', out.width='60%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/qqplot_example.png")
+```{r qqplot, echo=FALSE, fig.cap='(ref:qqplot)', out.width='70%',fig.asp=.75, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/qqplot_example.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 ## Disease penetrance and odds ratio {#OR}
@@ -153,8 +155,10 @@ phenotype and genotype is the *relative risk* (RR), which compares the
 disease penetrances between individuals carrying different genotypes
 (Table \@ref(tab:penetrancetab)).
 
-```{r penetrancetabfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/penetrance_tab.png")
+```{r penetrancetabfig, echo=FALSE, fig.align="center", out.width='70%', fig.asp=.5}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/penetrance_tab.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, nrow=1)
 ```
 ```{r penetrancetab, echo=FALSE, tidy=FALSE}
 tab.cap <- c("Disease penetrances for genotype $A/A$, $A/a$ and $a/a$ and the associated relative risks for genotypes $A/a$ and $a/a$ with $f_0$ the disease penetrance of baseline genotype $A/A$ and $\\gamma$ the genetic penetrance parameter.")
@@ -196,8 +200,10 @@ possible to represent the data as a $2 \times k$ contingency table of
 disease status by either allele ($k = 2$) or genotype ($k = 3$) count
 (Table \@ref(tab:contingencytab)).
 
-```{r contingencytabfig, echo=FALSE, fig.align="center", out.width='90%'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/contingency_tab.png")
+```{r contingencytabfig, echo=FALSE, fig.align="center", out.width='90%', fig.asp=.35}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/contingency_tab.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 ```{r contingencytab, echo=FALSE, tidy=FALSE}
 tab.cap <- c("$2 \\times 3$ contingency table of genotype counts and $2 \\times 2$ contingency table of allelic counts for a single locus with alleles $A$ and $a$. The genotype count $n_{ij}$ corresponds to the observed frequency of individuals carrying $i$ copies of the minor allele $a$ with phenotype $j=1$ for cases and $j=0$ for controls. The allelic count $m_{ij}$ can be summarized in different ways according to the disease penetrance models: for the dominant model, $i=0$ if an individual is $A/A$ and $i=1$ otherwise, for a recessive model $i=0$ if an individual is $A/A$ or $A/a$ and $i=1$ otherwise.")
@@ -227,8 +233,10 @@ alleles are those most commonly identified.
 
 (ref:penetrancefig) Relationship between allele frequency and penetrance on disease representation.
 
-```{r penetrancefig, echo=FALSE, fig.cap='(ref:penetrancefig)', out.width='75%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/penetrance.jpg")
+```{r penetrancefig, echo=FALSE, fig.cap='(ref:penetrancefig)', out.width='80%',fig.asp=.55, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/penetrance.jpg"
+img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 ## Single Marker Analysis {#SMA}
@@ -316,8 +324,10 @@ representing the additive component of the $i$th genotype (see Table
 \@ref(tab:SNPcode) for the SNP coding in different disease penetrance
 models).
 
-```{r SNPcodefig, echo=FALSE, out.width='75%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/SNPcode.png")
+```{r SNPcodefig, echo=FALSE, out.width='75%',fig.asp=.32, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/SNPcode.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 ```{r SNPcode, echo=FALSE, tidy=FALSE}
 tab.cap <- c("Coding of additive, dominance and recessive components of SNP genotypes.")

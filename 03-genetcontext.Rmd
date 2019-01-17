@@ -1,6 +1,6 @@
 # Basic concepts of molecular genetics
 
-The purpose of this chapter is to provide the basic concepts in genetics necessary to the understanding of the Genome-Wide Associations Studies. The first section focuses on the description of the genome, sequencing analysis and introduces the notion of genetic mapping. The second section brings some concepts in population genetics necessary to a good understanding of linkage disequilibrium and association studies. The last section gives the definition of linkage disequilibrium and its origins. This section also explains the notion of haplotype structure, which is a key feature of the human genome that we leveraged with the methodology described in Chapter 4. 
+The purpose of this chapter is to provide the basic concepts in genetics necessary to the understanding of the Genome-Wide Associations Studies. The first section focuses on the description of the genome, sequencing analysis and introduces the notion of genetic mapping. The second section brings some concepts in population genetics necessary to a good understanding of linkage disequilibrium and association studies. The last section gives the definition of linkage disequilibrium and its origins. This section also explains the notion of haplotype structure, which is a key feature of the human genome that we leveraged with the methodology described in Chapter \@ref(LEOS). 
 
 ## Genome description{#genome}
 
@@ -50,8 +50,10 @@ and adding a phosphate group converts it into a nucleotide.
 
 (ref:dna) Double-Helix structure of DNA molecule. \copyright University of Leicester / Licence Creative commons
 
-```{r dna, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='(ref:dna)', out.width='50%'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/dna.png")
+```{r dna, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='(ref:dna)', out.width='70%'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/dna.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 What makes DNA such a unique molecule is its famous double-helix
@@ -80,8 +82,10 @@ illustrated and explained in Figure \@ref(fig:sanger).
 
 (ref:sanger) Chain termination DNA sequencing [@brown2007genomes]. (A) Use of universal primers for the synthesis of DNA complementary of a single-stranded template. (B) Incorporation of small amount of fluorescent dideoxynucleotides (ddATP, ddTTp, ddCTP and ddGTP), each with a different fluorescent label. (C) The ddNTP block the synthesis of DNA because they have a hydrogen atom rather than a hydroxyl group attached to the 3’ carbon. (D) Each labelled DNA strand passes through a polyacrylamide gel electrophoresis, migrating more or less according to their length, and after separation a fluorescent detector is capable of discriminating the labels attached to the ddNTP. (E) The information is passed to the imaging system and a sequence of DNA is printed out. The sequence is represented by a series of peaks, one for each nucleotide position. 
 
-```{r sanger, echo = FALSE, fig.cap='(ref:sanger)', out.width='85%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/sanger_sequencing.jpg")
+```{r sanger, echo = FALSE, fig.cap='(ref:sanger)', out.width='100%',fig.asp=.75, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/sanger_sequencing.jpg"
+img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 Pyrosequencing is a method generally used for the rapid determination of
@@ -97,8 +101,10 @@ deoxynucleotide are incorporated can be followed (see Figure
 
 (ref:pyro) Pyrosequencing [@brown2007genomes]. Each deoxynucleotide is added individually, along with a nucleotidase enzyme that degrades the deoxynucleotide if it is not synthesized. The incorporation is detected by a flash of chemiluminescence induced by the pyrophosphate released from the deoxynucleotide. The order in which the deoxynucleotide are added to the growing strand can therefore be followed.
 
-```{r pyro, echo = FALSE, fig.cap='(ref:pyro)', out.width='60%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/pyrosequencing.jpg")
+```{r pyro, echo = FALSE, fig.cap='(ref:pyro)', out.width='80%',fig.asp=.75, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/pyrosequencing.jpg"
+img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 ### Sequence assembly
@@ -136,8 +142,10 @@ contig method (Figure \@ref(fig:genomeassembly)):
 
 (ref:genomeassembly) Clone contig and whole-genome shotgun for sequence assembly [@brown2007genomes]. To illustrate both techniques, a genome map of linear DNA molecule of 2.5 Mb has been represented together with the location of 8 known markers(A-H). On the left, the clone contig approach starts with a segment of DNA whose position on the genome is known since it contains the markers A and B. The segment is sequenced by the shotgun method and the master sequence placed at its known position on the map. On the right, the whole-genome shotgun method involves random sequence of the entire genome resulting in pieces of contiguous sequence. If a contiguous sequence contains a marker then it can be positioned on the map.
 
-```{r genomeassembly, echo = FALSE, fig.cap='(ref:genomeassembly)', out.width='80%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/genome_assembly.jpg")
+```{r genomeassembly, echo = FALSE, fig.cap='(ref:genomeassembly)', out.width='90%',fig.asp=.75, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/genome_assembly.jpg"
+img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 
@@ -181,8 +189,10 @@ polymorphism is extremely frequent in the human genome (a few millions).
 
 (ref:snp) Schematic representation of a single nucleotide polymorphism. \copyright David Hall / Licence \textit{Creative Commons}
 
-```{r snp, echo=FALSE, fig.cap='(ref:snp)', out.width='50%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/snp.jpg")
+```{r snp, echo=FALSE, fig.cap='(ref:snp)', out.width='60%',fig.asp=.75, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/snp.jpg"
+img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 The vast majority of SNP are biallelic because they originate from a
@@ -218,8 +228,10 @@ density of up to 300,000 oligonucleotides per $cm^2$ is possible and
 
 (ref:microarray) Visualization of the hybridization of a fluorescent labelled probe to a microarray. The DNA to be tested is labelled with a fluorescent marker and put onto the surface of the microarray. Hybridization is detected by examining with a fluorescence microscope the position at which the fluorescent signal is emitted indicating which oligonucleotides have hybridized with the target DNA [@brown2007genomes].
 
-```{r microarray, echo=FALSE, fig.cap='(ref:microarray)', out.width='60%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/microarray.jpg")
+```{r microarray, echo=FALSE, fig.cap='(ref:microarray)', out.width='70%',fig.asp=.75, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/microarray.jpg"
+img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 Today, DNA microarrays are used in clinical diagnostic tests for some
@@ -355,8 +367,10 @@ population neither subject to selection nor mutation.
 
 (ref:drift) Illustration of genetic drift in finite, small, populations. The plots show the evolution of allelic frequencies for 2 alleles $A$ and $a$ at 1 locus over 1000 generations for 3 population sizes (100, 500 and 1000). The 2 alleles are set to have the same proportions in the 3 populations at generation 1 ($p = q = 1/2$) and the frequencies of both allele evolve to be either fixed or extinct more or less quickly depending on the size of the population.
 
-```{r drift, echo = FALSE, fig.cap='(ref:drift)', out.width='60%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/drift.jpg")
+```{r drift, echo = FALSE, fig.cap='(ref:drift)', out.width='80%',fig.asp=.75, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/drift.jpg"
+img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 ### Concept of heritability
@@ -598,8 +612,10 @@ different populations (as given by the software Haploview
 
 (ref:LDhaploview) Plots of pairwise linkage disequilibrium for polymorphisms in the ACE (Angiotensin I Converting Enzyme) genomic region genotyped in three populations by the International HapMap Project. CEU, Utah residents with ancestry from northern and western Europe; ACB, African Caribbean in Barbados; JPT, Japanese in Tokyo; white, $r^2$ = 0; black, $r^2$ = 1; HapMap Release 22; chromosome 17 NCBI Build 37.
 
-```{r LDhaploview, echo = FALSE, fig.cap='(ref:LDhaploview)', out.width='65%', fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/LD_haploview_ACE.jpg")
+```{r LDhaploview, echo = FALSE, fig.cap='(ref:LDhaploview)', out.width='80%', fig.asp=.75, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/LD_haploview_ACE.jpg"
+img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 ### Origins of linkage disequilibrium
@@ -766,8 +782,10 @@ blocks.
 
 (ref:haploprop) Proportion of sequence contained in haplotype blocks of various sizes from [@wall2003haplotype]. (a) European-American sample; (b) African-American sample; (c) East Asian sample; (d) Sub-Saharan African sample.
 
-```{r haploprop, echo = FALSE, fig.cap='(ref:haploprop)', out.width='60%', fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/haplo_prop.jpg")
+```{r haploprop, echo = FALSE, fig.cap='(ref:haploprop)', out.width='80%', fig.asp=.75, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/haplo_prop.jpg"
+img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 In Figure \@ref(fig:haplostructure) are represented the values of $|D'|$
@@ -780,8 +798,10 @@ by equally large regions with little or no LD.
 
 (ref:haplostructure) Pairwise $\mid D' \mid$ plots for representative regions from different population samples from [@wall2003haplotype]. Each square in the triangle plots the level of linkage disequilibrium (LD) between a pair of sites in a region; comparisons between neighbouring sites lie along the diagonal. Red color indicates strong LD, green indicates weak LD and light brown indicates intermediate or uninformative LD. The long diagonal line indicates the physical length of the region, and the short black lines plot the position of each marker in this region.
 
-```{r haplostructure, echo = FALSE, fig.cap='(ref:haplostructure)', out.width='75%', fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/haplo_structure.jpg")
+```{r haplostructure, echo = FALSE, fig.cap='(ref:haplostructure)', out.width='8%', fig.asp=.75, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/haplo_structure.jpg"
+img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 [^1]: Polyacrylamide gel electrophoresis (PAGE) is a technique widely

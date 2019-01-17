@@ -1,6 +1,6 @@
 # Learning the Optimal in GWAS through hierarchical SNP aggregation {#LEOS}
 
-The present chapter proposes a block-wise approach for GWAS analysis which leverages the LD structure among the genomic variants to reduce the number of hypothesis testing. We named this method **LEOS** for **LE**arning the **O**ptimal **S**cale in GWAS. Section \@ref(introleos) introduces some related works that have been studied to develop our methodology. The method is presented in Section \@ref(leosmethod). In Section \@ref(numsim), we compare our method in different scenarios with the baseline approach, i.e. univariate hypothesis testing [@purcell_2007_plink] and with the logistic kernel machine method presented in Section \@ref(rare-variant) on both synthetic and real datasets from the Wellcome Trust Case Control Consortium @[burton_genome-wide_2007] and on ankylosing spondylitis data [@IGAS_2013_identification]. Finally, an example of an application using the generalized additive models in the context of GWAS is exposed in Section \@ref(leos_gam).
+The present chapter proposes a block-wise approach for GWAS analysis which leverages the LD structure among the genomic variants to reduce the number of hypothesis testing. We named this method **LEOS** for **LE**arning the **O**ptimal **S**cale in GWAS. Section \@ref(introleos) introduces some related works that have been studied to develop our methodology. The method is presented in Section \@ref(leosmethod). In Section \@ref(numsim), we compare our method in different scenarios with the baseline approach, i.e. univariate hypothesis testing [@purcell_2007_plink] and with the logistic kernel machine method presented in Section \@ref(rare-variant) on both synthetic and real datasets from the Wellcome Trust Case Control Consortium @[burton_genome-wide_2007] and on ankylosing spondylitis data [@IGAS_2013_identification]. Finally, an example of an application using the generalized additive models in the context of GWAS is exposed in Section \@ref(leosgam).
 
 ## Related work {#introleos}
 
@@ -129,8 +129,10 @@ are sums of elements in pencil-shaped areas, they are called *forward pencil* an
 
 (ref:penciltrick) Example of forward pencils (in yellow and green) and backward pencils (in green and blue), and illustration of Equation \@ref(eq:pencilsums) for cluster $K=\{u, \dots , v-1\}$. Left: cluster smaller than bandwidth ($k \leq h$); right: cluster larger than bandwidth $k \geq h$.
 
-```{r penciltrick, echo=FALSE, fig.cap='(ref:penciltrick)', out.width='90%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/pencil-trick.png")
+```{r penciltrick, echo=FALSE, fig.cap='(ref:penciltrick)', out.width='90%',fig.asp=.55, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/pencil-trick.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 The advantage of computing the sums $P$ and $\bar{P}$ is that they can
@@ -227,8 +229,10 @@ covariates in $\tilde{\mathbf{X}}$ as *aggregated-SNP* variables.
 
 (ref:step2) Schematic view of Step 2 of the algorithm to calculate the matrix of predictors $\tilde{\mathbf{X}}^s$ at a given level $s$ of the hierarchy.
 
-```{r step2, echo=FALSE, fig.cap='(ref:step2)', out.width='100%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/step2.png")
+```{r step2, echo=FALSE, fig.cap='(ref:step2)', out.width='100%',fig.asp=.6, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/step2.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 ### Step 3. Optimal number of groups estimation {#cutree}
@@ -282,9 +286,10 @@ The algorithm we propose can be summarized as follows:
     number of groups $G^{s^*}$) as the level which maximizes the
     prediction accuracy criterion.
 
-```{r algocutlevel, echo=FALSE, fig.align='center', fig.asp=.75, out.width='60%'}
-img <-  rasterGrob(as.raster(readPNG("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/algo_LEOS.png")), interpolate = FALSE)
-grid.arrange(img, ncol=1)
+```{r algocutlevel, echo=FALSE, fig.align='center', fig.asp=.75, out.width='70%'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/algo_LEOS.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 At last, once the optimal number of groups $G^*$ has been determined, we
@@ -519,7 +524,9 @@ simulation scenario *clusSNP* and *singleSNP* described in Section
 (ref:AUCcurvesimu) **Area under ROC curves according to the number of clusters in the *clusSNP* and *singleSNP* scenarios**: the vertical lines indicate the number of aggregated-SNP (clusters) obtained with Algorithm 4, i.e. the level where the prediction error is minimized (AUC-ROC at its maximum).
 
 ```{r AUCcurvesimu, echo=FALSE, fig.cap='(ref:AUCcurvesimu)', out.width='90%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/AUC_curve_simu.png")
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/AUC_curve_simu.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 Our algorithm cuts the hierarchy either at a fairly high level (few
@@ -555,7 +562,9 @@ all (SMA).
 (ref:scatterperfsimu) **Recall vs Precision for each method** (shape and colours in plot). In rows are the simulation scenarios. In columns, we evaluate performance using Benjamini-Hochberg threshold (left) and bonferroni correction threshold (right). The second row illustrates the performance to retrieve the true causal genomic region under the *SNPclus* scenario, thus only group-based approaches are considered (SASA, SKAT*tree* and SKAT*notree*). The numbers inside the points correspond to the number of causal predictors and each point is the average value of 5 replicates.
 
 ```{r scatterperfsimu, echo=FALSE, fig.cap='(ref:scatterperfsimu)', out.width='90%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/scatter_perf_simu.png")
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/scatter_perf_simu.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 The results represented in Figure \@ref(fig:scatterperfsimu) show that
@@ -624,8 +633,10 @@ represented in Figure \@ref(fig:histomaf).
 
 (ref:histomaf) Histograms of Minor Allele Frequencies (MAF) distribution in each datasets. (BD) Bipolar disorders; (CAD) Coronary artery disease; (IBD) Inflammatory bowel disease; (HT) Hypertension; (RA) Rheumatoid arthritis; (T1D) Type I diabetes; (T2D) Type II diabetes.
 
-```{r histomaf, echo=FALSE, fig.cap='(ref:histomaf)', out.width='90%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/histomaf.png")
+```{r histomaf, echo=FALSE, fig.cap='(ref:histomaf)', out.width='90%',fig.asp=.5, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/histomaf.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 We applied our cut level algorithm to find relevant clusters of SNP and
@@ -649,8 +660,10 @@ clusters of SNP, suggesting a shared LD pattern among patients.
 
 (ref:WTCCC) AUC-ROC for different cut levels in a HAC-tree of 7 WTCCC diseases after quality control filters. Each point corresponds to an AUC value computed on a test set from a logistic ridge regression model for a given level in the constrained-HAC tree.
 
-```{r WTCCC, echo=FALSE, fig.cap='(ref:WTCCC)', out.width='90%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/WTCCC.png")
+```{r WTCCC, echo=FALSE, fig.cap='(ref:WTCCC)', out.width='90%',fig.asp=.45, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/WTCCC.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 In contrast, the AUC-ROC from the AS data (Figure \@ref(fig:spondy))
@@ -663,8 +676,10 @@ the numerical simulations, especially under the *clusSNP* scenario.
 
 (ref:spondy) AUC-ROC for different cut levels in a HAC-tree of the spondylitis arthritis disease (Immunochip micro-array). Each point corresponds to an AUC value computed on a test set from a logistic ridge regression model for a given level in the constrained-HAC tree.
 
-```{r spondy, echo=FALSE, fig.cap='(ref:spondy)', out.width='90%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/spondy.png")
+```{r spondy, echo=FALSE, fig.cap='(ref:spondy)', out.width='90%',fig.asp=.45, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/spondy.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 
@@ -679,8 +694,10 @@ pattern between blocks of SNP in AS and simulated data, implying that
 the optimal number of clusters identified by the algorithm is dependent
 on the LD level among variables.
 
-```{r markerdensityfig, echo=FALSE, fig.align="center", out.width='60%',fig.asp=.75}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/marker_density.png")
+```{r markerdensityfig, echo=FALSE, fig.align="center", out.width='60%',fig.asp=.4}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/marker_density.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 ```{r markerdensity, echo=FALSE, tidy=FALSE}
 tab.cap <- c("Comparison of marker density and averaged LD level between markers in a region of 300 SNP for the different datasets.")
@@ -689,8 +706,10 @@ knitr::kable(c(), caption = tab.cap, booktabs=TRUE, format="html")
 
 (ref:ggheat) Comparison of linkage disequilibrium level among SNP for 3 different types of dataset: WTCCC, simulated and ankylosing spondylitis datasets. LD computation is based on $R^2$ between SNP.
 
-```{r ggheat, echo=FALSE, fig.cap='(ref:ggheat)', out.width='90%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/ggheat.png")
+```{r ggheat, echo=FALSE, fig.cap='(ref:ggheat)', out.width='90%',fig.asp=.4, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/ggheat.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 #### GWAS analysis on AS and WTCCC datasets
@@ -708,7 +727,9 @@ different predictors is plotted along their position on the genome.
 (ref:manhattanspondy) Manhattan plots showing results of GWAS analysis on ankylosing spondylitis data. For each Manhattan plot, the Benjamini-Hochberg (BH) threshold is represented by the blue line and the Bonferroni threshold by the red line. According to the BH threshold, there are: (A) 64 significantly associated aggregated-SNP; (B) 602 significantly associated single SNP; (C) 80 significantly associated groups of SNP and (D) 138 significantly associated groups of SNP.
 
 ```{r manhattanspondy, echo=FALSE, fig.cap='(ref:manhattanspondy)', out.width='100%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/manhattan_spondy.png")
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/manhattan_spondy.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 Either method highlight a region on chromosome 6 strongly associated
@@ -727,8 +748,10 @@ only.
 
 (ref:qqplotWTCCC) Q-Q plots of group-based genome-wide analysis on WTCCC data using the SASA approach.  For each Manhattan plot, the Benjamini-Hochberg (BH) threshold is represented by the green dotted line and the Bonferroni threshold by the red dashed line. (A) Bipolar disorder - 13 significant clusters of SNP; (B) Coronary artery disease - 4 significant clusters of SNP; (C) Inflammatory bowel disease - 356 significant clusters of SNP ; (D) Hypertension - 47 significant clusters of SNP ; (E) Rheumatoid arthritis - 202 significant clusters of SNP ; (F) Type I diabetes - 358 significant clusters of SNP ; (G) Type II diabetes - 28 significant clusters of SNP.
     
-```{r qqplotWTCCC, echo=FALSE, fig.cap='(ref:qqplotWTCCC)', out.width='100%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/qqplot_WTCCC.png")
+```{r qqplotWTCCC, echo=FALSE, fig.cap='(ref:qqplotWTCCC)', out.width='100%',fig.asp=.55, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/qqplot_WTCCC.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 ## Generalized additive models in GWAS {#leosgam}
@@ -774,8 +797,10 @@ applied at the single-SNP level rather than the *aggregated*-SNP.
 
 (ref:AUCgam) AUC-ROC plot illustrating the predictive power of four statistical learning approaches for several levels of a hierarchical clustering applied on the ankylosing spondylitis dataset.
     
-```{r AUCgam, echo=FALSE, fig.cap='(ref:AUCgam)', out.width='90%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/AUCROC_gam.png")
+```{r AUCgam, echo=FALSE, fig.cap='(ref:AUCgam)', out.width='90%',fig.asp=.65, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/AUCROC_gam.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 We observe a similar pattern between the ridge regression curve and the
@@ -800,8 +825,10 @@ have been identified.
 
 (ref:manhattangam) Manhattan plot of *p*-value calculated for 2750 aggregated-SNP using cubic smoothing splines.
 
-```{r manhattangam, echo=FALSE, fig.cap='(ref:manhattangam)', out.width='90%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/manhattan_gam.png")
+```{r manhattangam, echo=FALSE, fig.cap='(ref:manhattangam)', out.width='90%',fig.asp=.5, fig.align='center'}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/manhattan_gam.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 #### Fitted values of the most significant aggregated-SNP
@@ -816,8 +843,10 @@ which could be interesting to investigate.
 
 (ref:fittedgamspondy) Representation of the smooth fits for the 23 most significant *aggregated*-SNP using cubic smoothing splines.
 
-```{r fittedgamspondy, echo=FALSE, fig.cap='(ref:fittedgamspondy)', out.width='90%',fig.asp=.75, fig.align='center'}
-knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/fitted_gam_spondy.png")
+```{r fittedgamspondy, echo=FALSE, fig.cap='(ref:fittedgamspondy)', out.width='100%',fig.asp=.75, fig.align='center', warning=FALSE}
+path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/fitted_gam_spondy.png"
+img <-  grid::rasterGrob(as.raster(png::readPNG(path)), interpolate = FALSE)
+gridExtra::grid.arrange(img, ncol=1)
 ```
 
 We observe that the significant regions identified on chromosome 6 have
