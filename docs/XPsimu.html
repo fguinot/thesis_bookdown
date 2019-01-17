@@ -176,7 +176,7 @@
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="discussions.html"><a href="discussions.html"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><a href="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><i class="fa fa-check"></i><b>5</b> Selection of interaction effects in compressed multiple omics representation</a><ul>
+<li class="chapter" data-level="5" data-path="sicomore.html"><a href="sicomore.html"><i class="fa fa-check"></i><b>5</b> Selection of interaction effects in compressed multiple omics representation</a><ul>
 <li class="chapter" data-level="5.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="introduction-3.html"><a href="introduction-3.html#background-1"><i class="fa fa-check"></i><b>5.1.1</b> Background</a></li>
 <li class="chapter" data-level="5.1.2" data-path="introduction-3.html"><a href="introduction-3.html#combining-genome-and-metagenome-analyses."><i class="fa fa-check"></i><b>5.1.2</b> Combining genome and metagenome analyses.</a></li>
@@ -286,7 +286,7 @@ we calculated the proportions in each random variable and transformed
 them using centered log-ratios.</p>
 
 <div class="figure" style="text-align: center"><span id="fig:X"></span>
-<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/X.png" alt="Examples of hierarchical structures}: correlations observed on (a) genomic data \(\mathbf{x}^\mathit{G}\) and (b) metagenomic data \(\mathbf{x}^\mathit{M}\)." width="100%" />
+<img src="book_files/figure-html/X-1.png" alt="Examples of hierarchical structures}: correlations observed on (a) genomic data \(\mathbf{x}^\mathit{G}\) and (b) metagenomic data \(\mathbf{x}^\mathit{M}\)." width="100%" />
 <p class="caption">
 Figure 5.2: Examples of hierarchical structures}: correlations observed on (a) genomic data <span class="math inline">\(\mathbf{x}^\mathit{G}\)</span> and (b) metagenomic data <span class="math inline">\(\mathbf{x}^\mathit{M}\)</span>.
 </p>
@@ -418,7 +418,7 @@ matrix <span class="math inline">\(\boldsymbol{\theta}\)</span> that we used to 
 estimated interaction matrix <span class="math inline">\(\hat{\boldsymbol{\theta}}\)</span> compute for each model. For
 all possible interactions <span class="math inline">\(\{gm\}\)</span>, we then determined the
 following confusion matrix:</p>
-<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_confusion.png" width="50%" style="display: block; margin: auto;" />
+<img src="book_files/figure-html/tabconfusionfig-1.png" width="50%" style="display: block; margin: auto;" />
 <table>
 <caption>
 <span id="tab:tabconfusion">Table 5.1: </span>Confusion matrix for the hypothesis test on interaction parameter <span class="math inline">\(\theta\)</span>
@@ -437,7 +437,7 @@ interaction. An example of the interaction matrix <span class="math inline">\(\b
 given in Figure <a href="XPsimu.html#fig:ggheatheta">5.3</a> for <span class="math inline">\(I=5\)</span> blocks in interaction.</p>
 
 <div class="figure" style="text-align: center"><span id="fig:ggheatheta"></span>
-<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/ggheat_theta.png" alt="Illustration of the true interaction matrix \(\boldsymbol{\theta}\) with \(I = 5\), \(\sigma = 0.5\) and \(n=100\). Each non-zero value in this matrix is considered as a true interaction between two variables." width="90%" />
+<img src="book_files/figure-html/ggheatheta-1.png" alt="Illustration of the true interaction matrix \(\boldsymbol{\theta}\) with \(I = 5\), \(\sigma = 0.5\) and \(n=100\). Each non-zero value in this matrix is considered as a true interaction between two variables." width="90%" />
 <p class="caption">
 Figure 5.3: Illustration of the true interaction matrix <span class="math inline">\(\boldsymbol{\theta}\)</span> with <span class="math inline">\(I = 5\)</span>, <span class="math inline">\(\sigma = 0.5\)</span> and <span class="math inline">\(n=100\)</span>. Each non-zero value in this matrix is considered as a true interaction between two variables.
 </p>
@@ -481,21 +481,21 @@ interaction <span class="math inline">\(\theta_{gm}\)</span> for each compared a
 set of simulation parameters (<span class="math inline">\(I = 5\)</span>, <span class="math inline">\(\sigma = 0.5\)</span>, <span class="math inline">\(n=100\)</span>).</p>
 
 <div class="figure" style="text-align: center"><span id="fig:theta2by2"></span>
-<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/theta2by2.png" alt="Confusion matrices of interactions \(\theta_{gm}\) for each compared algorithm with the following simulation parameters: \(I = 5\), \(\sigma = 0.5\), \(n=100\). We can see in this example that MLGL and SICOMORE behaves similarly with very large genomic regions identified while HCAR tends to work with smaller genomic and metagenomic regions." width="100%" />
+<img src="book_files/figure-html/theta2by2-1.png" alt="Confusion matrices of interactions \(\theta_{gm}\) for each compared algorithm with the following simulation parameters: \(I = 5\), \(\sigma = 0.5\), \(n=100\). We can see in this example that MLGL and SICOMORE behaves similarly with very large genomic regions identified while HCAR tends to work with smaller genomic and metagenomic regions." width="100%" />
 <p class="caption">
 Figure 5.4: Confusion matrices of interactions <span class="math inline">\(\theta_{gm}\)</span> for each compared algorithm with the following simulation parameters: <span class="math inline">\(I = 5\)</span>, <span class="math inline">\(\sigma = 0.5\)</span>, <span class="math inline">\(n=100\)</span>. We can see in this example that MLGL and SICOMORE behaves similarly with very large genomic regions identified while HCAR tends to work with smaller genomic and metagenomic regions.
 </p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:precisionBONF"></span>
-<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/precision_simureal_BONF-3.png" alt="Boxplots of precision for each couple of parameters \(N\) (number of examples in rows) and \(\epsilon\) (difficulty of the problem in columns) for \(I=7\)." width="100%" />
+<img src="book_files/figure-html/precisionBONF-1.png" alt="Boxplots of precision for each couple of parameters \(N\) (number of examples in rows) and \(\epsilon\) (difficulty of the problem in columns) for \(I=7\)." width="100%" />
 <p class="caption">
 Figure 5.5: Boxplots of precision for each couple of parameters <span class="math inline">\(N\)</span> (number of examples in rows) and <span class="math inline">\(\epsilon\)</span> (difficulty of the problem in columns) for <span class="math inline">\(I=7\)</span>.
 </p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:recallBONF"></span>
-<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/precision_simureal_BONF-3.png" alt="Boxplots of recall for each couple of parameters \(N\) (in rows) and \(\epsilon\) (in columns) for \(I=7\)." width="100%" />
+<img src="book_files/figure-html/recallBONF-1.png" alt="Boxplots of recall for each couple of parameters \(N\) (in rows) and \(\epsilon\) (in columns) for \(I=7\)." width="100%" />
 <p class="caption">
 Figure 5.6: Boxplots of recall for each couple of parameters <span class="math inline">\(N\)</span> (in rows) and <span class="math inline">\(\epsilon\)</span> (in columns) for <span class="math inline">\(I=7\)</span>.
 </p>
@@ -515,7 +515,7 @@ performance in terms of Recall or Precision.</p>
 others by varying <span class="math inline">\(D^{\mathit{G}}\)</span> (we fixed <span class="math inline">\(D^{\mathit{M}} = 100\)</span> and <span class="math inline">\(n = 200\)</span>). We
 repeated the number of evaluation five times for each <span class="math inline">\(D^{\mathit{G}}\)</span> and
 averaged the calculation time.</p>
-<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_confusion.png" width="50%" style="display: block; margin: auto;" />
+<img src="book_files/figure-html/tabcomptimefig-1.png" width="50%" style="display: block; margin: auto;" />
 <table>
 <caption>
 <span id="tab:tabcomptime">Table 5.2: </span>Results of averaged calculation time (in minutes) over 5 replicates for varying <span class="math inline">\(D^{\mathit{G}}\)</span>
