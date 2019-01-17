@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>5.3 Method | book.utf8.md</title>
+  <meta name="description" content="PdD thesis">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="5.3 Method | book.utf8.md />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="PdD thesis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5.3 Method | book.utf8.md />
+  
+  <meta name="twitter:description" content="PdD thesis" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="modelsicomore.html">
+<link rel="next" href="XPsimu.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistical learning for omics association and interactions studies based on blockwise feature compression</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>General introduction</a></li>
+<li class="chapter" data-level="1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
+<li class="chapter" data-level="1.1" data-path="genome.html"><a href="genome.html"><i class="fa fa-check"></i><b>1.1</b> Genome description</a></li>
+<li class="chapter" data-level="1.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html"><i class="fa fa-check"></i><b>1.2</b> Genome sequencing</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="genome-sequencing.html"><a href="genome-sequencing.html#DNAseq"><i class="fa fa-check"></i><b>1.2.1</b> DNA sequencing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html#sequence-assembly"><i class="fa fa-check"></i><b>1.2.2</b> Sequence assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html"><i class="fa fa-check"></i><b>1.3</b> DNA polymorphism</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#restriction-fragment-length-polymorphisms-rflp"><i class="fa fa-check"></i><b>1.3.1</b> Restriction Fragment Length Polymorphisms (RFLP)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#simple-sequence-length-polymorphisms-sslp"><i class="fa fa-check"></i><b>1.3.2</b> Simple Sequence Length Polymorphisms (SSLP)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#single-nucleotide-polymorphisms-snp"><i class="fa fa-check"></i><b>1.3.3</b> Single Nucleotide Polymorphisms (SNP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="linkage.html"><a href="linkage.html"><i class="fa fa-check"></i><b>1.4</b> Linkage and partial linkage for genetic mapping</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html"><i class="fa fa-check"></i><b>1.5</b> Basic concepts in population genetics</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#HWE"><i class="fa fa-check"></i><b>1.5.1</b> Hardy-Weinberg equilibrium in large population</a></li>
+<li class="chapter" data-level="1.5.2" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#genetic-drift-in-small-population"><i class="fa fa-check"></i><b>1.5.2</b> Genetic drift in small population</a></li>
+<li class="chapter" data-level="1.5.3" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#concept-of-heritability"><i class="fa fa-check"></i><b>1.5.3</b> Concept of heritability</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="LD.html"><a href="LD.html"><i class="fa fa-check"></i><b>1.6</b> Linkage disequilibrium</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="LD.html"><a href="LD.html#definition"><i class="fa fa-check"></i><b>1.6.1</b> Definition</a></li>
+<li class="chapter" data-level="1.6.2" data-path="LD.html"><a href="LD.html#measure-of-ld"><i class="fa fa-check"></i><b>1.6.2</b> Measure of LD</a></li>
+<li class="chapter" data-level="1.6.3" data-path="LD.html"><a href="LD.html#estimation-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.3</b> Estimation of linkage disequilibrium</a></li>
+<li class="chapter" data-level="1.6.4" data-path="LD.html"><a href="LD.html#origins-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.4</b> Origins of linkage disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="haplo.html"><a href="haplo.html"><i class="fa fa-check"></i><b>1.7</b> Structure of haplotype blocks in the human genome</a><ul>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#definition-of-haplotype-blocks"><i class="fa fa-check"></i>Definition of haplotype blocks</a></li>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#patterns-in-human-genome"><i class="fa fa-check"></i>Patterns in human genome</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-context.html"><a href="statistical-context.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
+<li class="chapter" data-level="2.1" data-path="notations.html"><a href="notations.html"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
+<li class="chapter" data-level="2.2" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html"><i class="fa fa-check"></i><b>2.2</b> Concepts of statistical learning</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>2.2.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="parametric.html"><a href="parametric.html"><i class="fa fa-check"></i><b>2.3</b> Parametric methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="parametric.html"><a href="parametric.html#linmod"><i class="fa fa-check"></i><b>2.3.1</b> Linear models</a></li>
+<li class="chapter" data-level="2.3.2" data-path="parametric.html"><a href="parametric.html#penalized"><i class="fa fa-check"></i><b>2.3.2</b> Penalized linear regression</a></li>
+<li class="chapter" data-level="2.3.3" data-path="parametric.html"><a href="parametric.html#glm"><i class="fa fa-check"></i><b>2.3.3</b> Generalized linear models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="non-parametric.html"><a href="non-parametric.html"><i class="fa fa-check"></i><b>2.4</b> Splines and generalized additive models: Moving beyond linearit</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="non-parametric.html"><a href="non-parametric.html#introduction"><i class="fa fa-check"></i><b>2.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.4.2" data-path="non-parametric.html"><a href="non-parametric.html#splines"><i class="fa fa-check"></i><b>2.4.2</b> Regression splines</a></li>
+<li class="chapter" data-level="2.4.3" data-path="non-parametric.html"><a href="non-parametric.html#mathrmb-splines"><i class="fa fa-check"></i><b>2.4.3</b> <span class="math inline">\(\mathrm{B}\)</span>-splines</a></li>
+<li class="chapter" data-level="2.4.4" data-path="non-parametric.html"><a href="non-parametric.html#smoothing"><i class="fa fa-check"></i><b>2.4.4</b> Cubic smoothing splines</a></li>
+<li class="chapter" data-level="2.4.5" data-path="non-parametric.html"><a href="non-parametric.html#gam"><i class="fa fa-check"></i><b>2.4.5</b> Generalized additive models (GAM)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="non-parametric.html"><a href="non-parametric.html#hgam"><i class="fa fa-check"></i><b>2.4.6</b> High-dimensional generalized additive models (HGAM)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html"><i class="fa fa-check"></i><b>2.5</b> Combining cluster analysis and variable selection</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#CAH"><i class="fa fa-check"></i><b>2.5.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="2.5.2" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#HCAR"><i class="fa fa-check"></i><b>2.5.2</b> Hierarchical Clustering and Averaging Regression</a></li>
+<li class="chapter" data-level="2.5.3" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#MLGL"><i class="fa fa-check"></i><b>2.5.3</b> Multi-Layer Group-Lasso (MLGL)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>2.6</b> Statistical testing of significance</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="hypothesis.html"><a href="hypothesis.html#introduction-1"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.6.2" data-path="hypothesis.html"><a href="hypothesis.html#chi2"><i class="fa fa-check"></i><b>2.6.2</b> <span class="math inline">\(\chi^2\)</span> test</a></li>
+<li class="chapter" data-level="2.6.3" data-path="hypothesis.html"><a href="hypothesis.html#LRT"><i class="fa fa-check"></i><b>2.6.3</b> Likelihood ratio test</a></li>
+<li class="chapter" data-level="2.6.4" data-path="hypothesis.html"><a href="hypothesis.html#pvalGAM"><i class="fa fa-check"></i><b>2.6.4</b> Calculation of <em>p</em>-values in GAM</a></li>
+<li class="chapter" data-level="2.6.5" data-path="hypothesis.html"><a href="hypothesis.html#multiple"><i class="fa fa-check"></i><b>2.6.5</b> Multiple testing comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html"><i class="fa fa-check"></i><b>3</b> Genome-Wide Association Studies</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="genoquality.html"><a href="genoquality.html"><i class="fa fa-check"></i><b>3.2</b> Genotype quality control</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="genoquality.html"><a href="genoquality.html#deviation-from-hwe."><i class="fa fa-check"></i><b>3.2.1</b> Deviation from HWE.</a></li>
+<li class="chapter" data-level="3.2.2" data-path="genoquality.html"><a href="genoquality.html#missing-data."><i class="fa fa-check"></i><b>3.2.2</b> Missing data.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="genoquality.html"><a href="genoquality.html#distribution-of-test-statistics."><i class="fa fa-check"></i><b>3.2.3</b> Distribution of test statistics.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="OR.html"><a href="OR.html"><i class="fa fa-check"></i><b>3.3</b> Disease penetrance and odds ratio</a></li>
+<li class="chapter" data-level="3.4" data-path="SMA.html"><a href="SMA.html"><i class="fa fa-check"></i><b>3.4</b> Single Marker Analysis</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="SMA.html"><a href="SMA.html#pearsons-chi2-statistic"><i class="fa fa-check"></i><b>3.4.1</b> Pearson’s <span class="math inline">\(\chi^2\)</span> statistic</a></li>
+<li class="chapter" data-level="3.4.2" data-path="SMA.html"><a href="SMA.html#cochran-armitage-trend-test"><i class="fa fa-check"></i><b>3.4.2</b> Cochran-Armitage trend test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="SMA.html"><a href="SMA.html#logitGWAS"><i class="fa fa-check"></i><b>3.4.3</b> Logistic regression and likelihood ratio test</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="GWASlimits.html"><a href="GWASlimits.html"><i class="fa fa-check"></i><b>3.5</b> Limitations</a></li>
+<li class="chapter" data-level="3.6" data-path="popstructure.html"><a href="popstructure.html"><i class="fa fa-check"></i><b>3.6</b> Population structure</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="popstructure.html"><a href="popstructure.html#genomic-control"><i class="fa fa-check"></i><b>3.6.1</b> Genomic control</a></li>
+<li class="chapter" data-level="3.6.2" data-path="popstructure.html"><a href="popstructure.html#structured-association"><i class="fa fa-check"></i><b>3.6.2</b> Structured association</a></li>
+<li class="chapter" data-level="3.6.3" data-path="popstructure.html"><a href="popstructure.html#PCC"><i class="fa fa-check"></i><b>3.6.3</b> Principle components correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="multiloc.html"><a href="multiloc.html"><i class="fa fa-check"></i><b>3.7</b> Multi-locus analysis</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="multiloc.html"><a href="multiloc.html#haplotype-based-approaches"><i class="fa fa-check"></i><b>3.7.1</b> Haplotype-based approaches</a></li>
+<li class="chapter" data-level="3.7.2" data-path="multiloc.html"><a href="multiloc.html#rare-variant"><i class="fa fa-check"></i><b>3.7.2</b> Rare-variant association analysis</a></li>
+<li class="chapter" data-level="3.7.3" data-path="multiloc.html"><a href="multiloc.html#adjclust"><i class="fa fa-check"></i><b>3.7.3</b> LD based approach to variable selection in GWAS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="LEOS.html"><a href="LEOS.html"><i class="fa fa-check"></i><b>4</b> Learning the Optimal in GWAS through hierarchical SNP aggregation</a><ul>
+<li class="chapter" data-level="4.1" data-path="introleos.html"><a href="introleos.html"><i class="fa fa-check"></i><b>4.1</b> Related work</a></li>
+<li class="chapter" data-level="4.2" data-path="leosmethod.html"><a href="leosmethod.html"><i class="fa fa-check"></i><b>4.2</b> Method</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="leosmethod.html"><a href="leosmethod.html#CHAC"><i class="fa fa-check"></i><b>4.2.1</b> Step 1. Constrained-HAC</a></li>
+<li class="chapter" data-level="4.2.2" data-path="leosmethod.html"><a href="leosmethod.html#Dstar"><i class="fa fa-check"></i><b>4.2.2</b> Step 2. Dimension reduction function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="leosmethod.html"><a href="leosmethod.html#cutree"><i class="fa fa-check"></i><b>4.2.3</b> Step 3. Optimal number of groups estimation</a></li>
+<li class="chapter" data-level="4.2.4" data-path="leosmethod.html"><a href="leosmethod.html#step4"><i class="fa fa-check"></i><b>4.2.4</b> Step 4. Multiple testing on aggregated-SNP variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="numsim.html"><a href="numsim.html"><i class="fa fa-check"></i><b>4.3</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="numsim.html"><a href="numsim.html#simupheno"><i class="fa fa-check"></i><b>4.3.1</b> Simulation of the case-control phenotype</a></li>
+<li class="chapter" data-level="4.3.2" data-path="numsim.html"><a href="numsim.html#perfeval"><i class="fa fa-check"></i><b>4.3.2</b> Performance evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="results.html"><a href="results.html#results-and-discussions-of-the-numerical-simulations"><i class="fa fa-check"></i><b>4.4.1</b> Results and discussions of the numerical simulations</a></li>
+<li class="chapter" data-level="4.4.2" data-path="results.html"><a href="results.html#performance-results-for-simulated-data."><i class="fa fa-check"></i><b>4.4.2</b> Performance results for simulated data.</a></li>
+<li class="chapter" data-level="4.4.3" data-path="results.html"><a href="results.html#leosappli"><i class="fa fa-check"></i><b>4.4.3</b> Application in Wellcome Trust Case Control Consortium(WTCCC) and Ankylosing Spondylitis (AS) studies</a></li>
+<li class="chapter" data-level="4.4.4" data-path="results.html"><a href="results.html#realdata"><i class="fa fa-check"></i><b>4.4.4</b> Results in WTCCC and AS studies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="leosgam.html"><a href="leosgam.html"><i class="fa fa-check"></i><b>4.5</b> Generalized additive models in GWAS</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="leosgam.html"><a href="leosgam.html#comparison-of-predictive-power"><i class="fa fa-check"></i><b>4.5.1</b> Comparison of predictive power</a></li>
+<li class="chapter" data-level="4.5.2" data-path="leosgam.html"><a href="leosgam.html#results-of-univariate-smoothing-splines-on-aggregated-snp"><i class="fa fa-check"></i><b>4.5.2</b> Results of univariate smoothing splines on aggregated-SNP</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="discussions.html"><a href="discussions.html"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><a href="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><i class="fa fa-check"></i><b>5</b> Selection of interaction effects in compressed multiple omics representation</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="introduction-3.html"><a href="introduction-3.html#background-1"><i class="fa fa-check"></i><b>5.1.1</b> Background</a></li>
+<li class="chapter" data-level="5.1.2" data-path="introduction-3.html"><a href="introduction-3.html#combining-genome-and-metagenome-analyses."><i class="fa fa-check"></i><b>5.1.2</b> Combining genome and metagenome analyses.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="introduction-3.html"><a href="introduction-3.html#taking-structures-into-account-in-association-studies."><i class="fa fa-check"></i><b>5.1.3</b> Taking structures into account in association studies.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="modelsicomore.html"><a href="modelsicomore.html"><i class="fa fa-check"></i><b>5.2</b> Learning with complementary datasets</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="modelsicomore.html"><a href="modelsicomore.html#setting-and-notations"><i class="fa fa-check"></i><b>5.2.1</b> Setting and notations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="modelsicomore.html"><a href="modelsicomore.html#interactions-in-linear-models"><i class="fa fa-check"></i><b>5.2.2</b> Interactions in linear models</a></li>
+<li class="chapter" data-level="5.2.3" data-path="modelsicomore.html"><a href="modelsicomore.html#compressdata"><i class="fa fa-check"></i><b>5.2.3</b> Compact model</a></li>
+<li class="chapter" data-level="5.2.4" data-path="modelsicomore.html"><a href="modelsicomore.html#recoverinteractions"><i class="fa fa-check"></i><b>5.2.4</b> Recovering relevant interactions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="implementation.html"><a href="implementation.html"><i class="fa fa-check"></i><b>5.3</b> Method</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="implementation.html"><a href="implementation.html#preprocess"><i class="fa fa-check"></i><b>5.3.1</b> Preprocessing of the data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="implementation.html"><a href="implementation.html#preprocessing-of-metagenomic-data"><i class="fa fa-check"></i><b>5.3.2</b> Preprocessing of metagenomic data</a></li>
+<li class="chapter" data-level="5.3.3" data-path="implementation.html"><a href="implementation.html#structure"><i class="fa fa-check"></i><b>5.3.3</b> Structuring the data</a></li>
+<li class="chapter" data-level="5.3.4" data-path="implementation.html"><a href="implementation.html#using-the-structure-efficiently"><i class="fa fa-check"></i><b>5.3.4</b> Using the structure efficiently</a></li>
+<li class="chapter" data-level="5.3.5" data-path="implementation.html"><a href="implementation.html#identification-of-relevant-supervariables"><i class="fa fa-check"></i><b>5.3.5</b> Identification of relevant supervariables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="XPsimu.html"><a href="XPsimu.html"><i class="fa fa-check"></i><b>5.4</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="XPsimu.html"><a href="XPsimu.html#data-generation"><i class="fa fa-check"></i><b>5.4.1</b> Data generation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="XPsimu.html"><a href="XPsimu.html#generation-of-the-phenotype"><i class="fa fa-check"></i><b>5.4.2</b> Generation of the phenotype</a></li>
+<li class="chapter" data-level="5.4.3" data-path="XPsimu.html"><a href="XPsimu.html#comparison-of-methods"><i class="fa fa-check"></i><b>5.4.3</b> Comparison of methods</a></li>
+<li class="chapter" data-level="5.4.4" data-path="XPsimu.html"><a href="XPsimu.html#evaluation-metrics"><i class="fa fa-check"></i><b>5.4.4</b> Evaluation metrics</a></li>
+<li class="chapter" data-level="5.4.5" data-path="XPsimu.html"><a href="XPsimu.html#performance-results"><i class="fa fa-check"></i><b>5.4.5</b> Performance results</a></li>
+<li class="chapter" data-level="5.4.6" data-path="XPsimu.html"><a href="XPsimu.html#computational-time"><i class="fa fa-check"></i><b>5.4.6</b> Computational time</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="XPINRA.html"><a href="XPINRA.html"><i class="fa fa-check"></i><b>5.5</b> Application on real data: rhizosphere of <em>Medicago truncatula</em></a><ul>
+<li class="chapter" data-level="5.5.1" data-path="XPINRA.html"><a href="XPINRA.html#material"><i class="fa fa-check"></i><b>5.5.1</b> Material</a></li>
+<li class="chapter" data-level="5.5.2" data-path="XPINRA.html"><a href="XPINRA.html#analysis"><i class="fa fa-check"></i><b>5.5.2</b> Analysis</a></li>
+<li class="chapter" data-level="5.5.3" data-path="XPINRA.html"><a href="XPINRA.html#results-1"><i class="fa fa-check"></i><b>5.5.3</b> Results</a></li>
+<li class="chapter" data-level="5.5.4" data-path="XPINRA.html"><a href="XPINRA.html#results-on-root-shoot-ratio"><i class="fa fa-check"></i><b>5.5.4</b> Results on Root Shoot Ratio</a></li>
+<li class="chapter" data-level="5.5.5" data-path="XPINRA.html"><a href="XPINRA.html#results-on-specific-nitrogen-uptake"><i class="fa fa-check"></i><b>5.5.5</b> Results on Specific Nitrogen Uptake</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="discussions-1.html"><a href="discussions-1.html"><i class="fa fa-check"></i><b>5.6</b> Discussions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i>Conclusions</a><ul>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-leos-algorithm"><i class="fa fa-check"></i>Discussions on LEOS algorithm</a></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-sicomore-algorithm"><i class="fa fa-check"></i>Discussions on SICOMORE algorithm</a></li>
+<li class="chapter" data-level="" data-path="perspectives.html"><a href="perspectives.html"><i class="fa fa-check"></i>Perspectives</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="implementation" class="section level2">
+<h2><span class="header-section-number">5.3</span> Method</h2>
+<p>In this section, we provide some elements to enhance Problem  for
+biological problems involving metagenomic and genomic data. After a
+brief discussion related to the preprocessing of the data, we explain
+how to obtain the group structure on <span class="math inline">\(\mathit{G}\)</span> and <span class="math inline">\(\mathit{M}\)</span> using hierarchical
+clustering strategies and describe how to efficiently take into account
+the different scales of the groups defined by each level of the
+hierarchies. We then present some compressions that may be used to
+summarize the groups. Finally, we propose a linear model testing to
+recover the relevant interactions.</p>
+<p>We entitled the proposed approach SICOMORE for Selection of Interaction
+effects in COmpressed Multiple Omics REpresentations, implemented in the
+R package <code>SICoMORe</code> available at <a href="https://github.com/fguinot/sicomore-pkg" class="uri">https://github.com/fguinot/sicomore-pkg</a>.</p>
+<div id="preprocess" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Preprocessing of the data</h3>
+<p>To tackle problems that involve genomic and metagenomic interactions,
+some prior transformations are mandatory. Also, a first attempt to
+reduce the dimension may be achieved at this step.</p>
+</div>
+<div id="preprocessing-of-metagenomic-data" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Preprocessing of metagenomic data</h3>
+<div id="normalization." class="section level4">
+<h4><span class="header-section-number">5.3.2.1</span> Normalization.</h4>
+<p>In shotgun metagenomics,<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> microorganisms are studied by sequencing
+DNA fragments directly from samples, without the need for cultivation of
+individual isolates <span class="citation">(Sharpton <a href="#ref-sharpton2014introduction">2014</a>)</span>.</p>
+<p>Shotgun metagenomic sequencing data are often produced by analysing the
+presence of genes and their abundances in and between samples from
+different experimental conditions. The gene abundances are then
+estimated by matching each generated sequence read against a
+comprehensive and annotated reference database and by counting the
+number of reads matching each gene in the reference database
+<span class="citation">(Pereira et al. <a href="#ref-pereira2018comparison">2018</a>)</span>.</p>
+<p>Gene abundance data generated by such analysis are however affected by
+systematic variability that significantly increases the variation
+between samples and thereby decrease the ability to identify genes that
+differ in abundance
+<span class="citation">(Jonsson et al. <a href="#ref-jonsson2017variability">2017</a>; Wooley, Godzik, and Friedberg <a href="#ref-wooley2010primer">2010</a>; Pereira et al. <a href="#ref-pereira2018comparison">2018</a>)</span>.
+The process known as normalisation therefore referred to the methods
+designed to remove such systematic variability.</p>
+<p>A wide range of different methods has been applied to normalize shotgun
+metagenomic data. The majority of these normalization methods are based
+on scaling, where a sample-specific factor is estimated and then used to
+correct the gene abundances. For instance, one can simply calculates the
+scaling factor <span class="math inline">\(\psi_i\)</span> as the sum of all reads counts in a sample <span class="math inline">\(i\)</span>:
+<span class="math display">\[\psi_i = \sum_{j=1}^{D_{\mathit{M}}} x_{ij}^{\mathit{M}}.\]</span></p>
+<p>A more robust method to estimate the scaling factor is the Trimmed Mean
+of M-values (TMM) <span class="citation">(Robinson and Oshlack <a href="#ref-robinson2010scaling">2010</a>)</span> which compares the gene
+abundances in the samples against a reference, typically set as one of
+the samples in the study. We note <span class="math inline">\(t_i\)</span> the scaling normalization
+factors for raw library sizes calculated using the TMM normalization
+method for sample <span class="math inline">\(i\)</span>; <span class="math inline">\(l_i = \mathbf{x}_i^{\mathit{M}} t_i\)</span> is then the corresponding
+normalized library size for sample <span class="math inline">\(i\)</span> and
+<span class="math display">\[\psi_i = \frac{l_i}{\sum_{t=1}^n l_t/n},\]</span> is the associated
+normalization scaling factor.</p>
+<p>The raw counts <span class="math inline">\(x_{ij}^{\mathit{M}}\)</span>, with <span class="math inline">\(j \in [1, \dots, D_{\mathit{M}}]\)</span>, are
+then divided by the scaling factor to obtain the normalized counts:
+<span class="math display">\[\tilde{x}_{ij}^{\mathit{M}} = x_{ij}^{\mathit{M}}/\psi_i .\]</span></p>
+</div>
+<div id="transformation." class="section level4">
+<h4><span class="header-section-number">5.3.2.2</span> Transformation.</h4>
+<p>Metagenomic shotgun sequencing results in features which take the form
+of proportions in different samples, referred in the statistical
+literature as compositional data <span class="citation">(Aitchison <a href="#ref-Aitchison:JRSSB82">1982</a>)</span>. These data are
+known to be subject to negative correlation bias
+<span class="citation">(Pearson <a href="#ref-Pearson:RSL1896">1896</a>; Aitchison <a href="#ref-Aitchison:JRSSB82">1982</a>)</span>) and the assumption of
+conditional independence among samples is unlikely to be true for the
+vast majority of metagenomic datasets.</p>
+<p>Several data transformations have been suggested for RNA-seq data, most
+often in the context of exploratory or differential analyses. These
+transformations include log transformation (where a small constant is
+typically added to read counts to avoid 0’s), a variance-stabilizing
+transformation <span class="citation">(Tibshirani <a href="#ref-tibshirani1988estimating">1988</a>; Huber et al. <a href="#ref-huber2003parameter">2003</a>)</span>,
+moderated log counts per million <span class="citation">(Law et al. <a href="#ref-law2014voom">2014</a>)</span>, and a regularized
+log-transformation <span class="citation">(Love, Huber, and Anders <a href="#ref-love2014moderated">2014</a>)</span>.</p>
+<p><span class="citation">(Rau and Maugis-Rabusseau <a href="#ref-rau2017transformation">2017</a>)</span> also proposed to calculate normalized
+expression <em>profiles</em> for each feature, that is, the proportion of
+normalized reads observed for gene <span class="math inline">\(j\)</span> with respect to the sum of all
+samples in gene <span class="math inline">\(j\)</span>:</p>
+<p><span class="math display">\[p_{ij} = \frac{\tilde{x}_{ij}^{\mathit{M}} + 1}{\sum_{t=1}^n \tilde{x}_{tj}^{\mathit{M}} + 1},\]</span>
+where a constant of 1 is added to the numerator and denominator due to
+the presence of 0 counts.</p>
+<p>However, the vector of values <span class="math inline">\(\mathbf{p}_j\)</span> are linearly dependent,
+which imposes constraints on the covariance matrices that can be
+problematic for most standard statistical approaches
+<span class="citation">(Rau and Maugis-Rabusseau <a href="#ref-rau2017transformation">2017</a>)</span>. One solution is to apply the commonly used
+centered log ratio (CLR) transformation for compositional data
+<span class="citation">(Aitchison <a href="#ref-Aitchison:JRSSB82">1982</a>)</span>. It is defined as:
+<span class="math display">\[\text{CLR}(\mathbf{p}_j) = \left[ \ln\left( \frac{p_{1j}}{g(\mathbf{p}_j)}\right) , \dots, 
+\ln\left( \frac{p_{nj}}{g(\mathbf{p}_j)}\right)  \right],\]</span> where
+<span class="math inline">\(g(\mathbf{p}_j)\)</span> is the geometric mean of <span class="math inline">\(\mathbf{p}_j\)</span>.</p>
+</div>
+<div id="a-first-selection-of-variables" class="section level4">
+<h4><span class="header-section-number">5.3.2.3</span> A first selection of variables</h4>
+<p>As seen in Section <a href="modelsicomore.html#modelsicomore">5.2</a>, we assume strong
+dependencies on interactions, which means that an interaction can be
+effective only if the two simple effects making up the interaction are
+involved in the problem. Then, it may be clever to apply a first process
+of selection to discard the inoperative single effects on <span class="math inline">\(\mathit{G}\)</span> and
+<span class="math inline">\(\mathit{M}\)</span> respectively. Different approaches may be envisioned to proceed
+this selection. Among them, screening rules can eliminate variables that
+will not contribute to the optimal solution of a sparse problem sweeping
+all the variables upstream to the optimization. When such a screening is
+appropriate, we may use the work of <span class="citation">(Lee et al. <a href="#ref-Lee:PAMI17">2017</a>)</span> focused on Lasso
+problems, which present a recent overview of these techniques together
+with a screening rule ensemble. Once the screening is done, the
+optimization of a Lasso problem gives the final set of variables.</p>
+</div>
+</div>
+<div id="structure" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Structuring the data</h3>
+<p>Once the data are preprocessed, we can resort to hierarchical clustering
+using Ward criterion with appropriate distances to uncover the tree
+structures.</p>
+<div id="clustering-of-metagenomic-data" class="section level4">
+<h4><span class="header-section-number">5.3.3.1</span> Clustering of metagenomic data</h4>
+<p>A common approach to analyse metagenomic data is to group sequences into
+taxonomic units. The features stemming from metagenome sequencing are
+often modelled as Operational Taxonomic Units (OTU), each OTU
+representing a biological species according to some degree of taxonomic
+similarity. <span class="citation">(Chen et al. <a href="#ref-chen2013OTU">2013</a>)</span> propose a comparison of methods to identify
+OTU that includes hierarchical clustering. While the structure on
+microbial species could be defined according to the underlying
+phylogenetic tree, it also makes sense to use more classical distances,
+such as the Ward criterion, to define a hierarchy based on the
+abundances of OTU. In our application we use an agglomerative
+hierarchical clustering with the Ward criterion (see Section <a href="combining-cluster-analysis-and-variable-selection.html#CAH">2.5.1</a>).</p>
+</div>
+<div id="clustering-of-genomic-markers" class="section level4">
+<h4><span class="header-section-number">5.3.3.2</span> Clustering of genomic markers</h4>
+<p>On the other hand, when the genomic information is available through
+SNP, the tree structure on <span class="math inline">\(\mathit{G}\)</span> will be defined using a Ward spatially
+constrained hierarchical clustering algorithm which integrates the
+linkage disequilibrium as the measure of dissimilarity using the
+<em>adjclust</em> algorithm <span class="citation">(A. Dehman, Ambroise, and Neuvial <a href="#ref-dehman_performance_2015">2015</a>)</span>.</p>
+</div>
+</div>
+<div id="using-the-structure-efficiently" class="section level3">
+<h3><span class="header-section-number">5.3.4</span> Using the structure efficiently</h3>
+<p>Different approaches related to the problem of finding an optimal number
+of clusters may be envisioned to find the optimal cut in a tree
+structure obtained with hierarchical clustering (see for instance
+<span class="citation">(Milligan and Cooper <a href="#ref-Milligan:Ps1985">1985</a>)</span> or <span class="citation">(Gordon <a href="#ref-Gordon:1999">1999</a>)</span>). Whatever the chosen approach, a
+systematic exploration of different levels of the hierarchy is mandatory
+to find this optimal cut. We define an alternative strategy to bypass
+this expensive exploration which consists in:</p>
+<ol style="list-style-type: decimal">
+<li><ol style="list-style-type: lower-alpha">
+<li>Expanding the hierarchy considering all possible groups
+at a single level;</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>Assigning a weight to each group based on gap distances
+between two consecutive groups in the hierarchy;</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>Compressing each group into a supervariable.</li>
+</ol></li>
+</ol>
+<p>The different steps of this strategy are illustrated in
+Figure <a href="implementation.html#fig:hierarchy">5.1</a>, from the original tree structure in
+Figure <a href="implementation.html#fig:hierarchy">5.1</a>(a) to a final flatten, weighted and compressed
+representation in Figure <a href="implementation.html#fig:hierarchy">5.1</a>(c).</p>
+
+<div class="figure" style="text-align: center"><span id="fig:hierarchy"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/hierarchy.png" alt="Dimension reduction strategy. (a) Original hierarchical tree with an example for 5 variables. (b) Expanded representation of the tree with all possible weighted groups derived from the original hierarchy. (c) Compressed representation of the tree after construction of the supervariables." width="100%" />
+<p class="caption">
+Figure 5.1: Dimension reduction strategy. (a) Original hierarchical tree with an example for 5 variables. (b) Expanded representation of the tree with all possible weighted groups derived from the original hierarchy. (c) Compressed representation of the tree after construction of the supervariables.
+</p>
+</div>
+<div id="expanding-the-hierarchy" class="section level4 unnumbered">
+<h4>Expanding the hierarchy</h4>
+<p>To reduce the dimension involved in Problem , the first step consists in
+flattening the respective tree structures obtained on views <span class="math inline">\(\mathit{G}\)</span> and
+<span class="math inline">\(\mathit{M}\)</span> so that only a group structure remains. Thus, each group of
+variables defined at the deepest level may be included in other groups
+of larger scales, as shown in Figure <a href="implementation.html#fig:hierarchy">5.1</a>(b).</p>
+</div>
+<div id="assigning-weights-to-the-groups" class="section level4 unnumbered">
+<h4>Assigning weights to the groups</h4>
+<p>To keep track of the tree structure, we may integrate an additional
+measure quantifying the quality of the groups on two successive levels.
+More specifically, for a tree structure of height <span class="math inline">\(H\)</span> and for
+<span class="math inline">\(1 \leq h \leq H-1\)</span>, we define <span class="math inline">\(s_h\)</span> as the gap between heights <span class="math inline">\(s_h\)</span>
+and <span class="math inline">\(s_{h-1}\)</span>. Following the lines of <span class="citation">(Grimonprez <a href="#ref-grimonprez_selection_2016">2016</a>)</span> for
+the Multi-Layer Group-Lasso described in Section <a href="combining-cluster-analysis-and-variable-selection.html#MLGL">2.5.3</a>, we
+define this quantity as <span class="math inline">\(\displaystyle{\rho_h = 1 / \sqrt{s_h}}\)</span>. The
+process is shown in Figure <a href="implementation.html#fig:hierarchy">5.1</a>(a) and <a href="implementation.html#fig:hierarchy">5.1</a>(c).</p>
+</div>
+<div id="compressing-the-data" class="section level4 unnumbered">
+<h4>Compressing the data</h4>
+<p>To summarize each group of variables, the mean, the median or other
+quantiles may be used as well as more sophisticated representations
+based on eigen values decompositions such as the first factor obtained
+with a PCA. This step is similar to the dimension reduction step of the
+method presented in Section <a href="leosmethod.html#Dstar">4.2.2</a>.</p>
+</div>
+</div>
+<div id="identification-of-relevant-supervariables" class="section level3">
+<h3><span class="header-section-number">5.3.5</span> Identification of relevant supervariables</h3>
+<p>With this compressed representation at hand, we can recover relevant
+interactions with a multiple testing strategy.</p>
+<div id="selection-of-supervariables" class="section level4 unnumbered">
+<h4>Selection of supervariables</h4>
+<p>The compression is a key ingredient to reduce significantly the
+dimension involved in Problem . Yet, we are going a step further with an
+additional feature selection process applied to the compressed
+variables, as suggested at the begin of this section to preprocess the
+data, using screening rules and / or applying a Lasso optimization on
+each view <span class="math inline">\(\mathit{G}\)</span> and <span class="math inline">\(\mathit{M}\)</span>: <span class="math display">\[\begin{aligned}
+  \underset{\boldsymbol{\beta}_{\mathit{G}}}{argmin}  &amp; \;
+                            \sum_{i=1}^n \left(y_i - \tilde{\mathbf{x}}_{i}^{\mathit{G}}
+                            \boldsymbol{\beta}_{\mathit{G}} \right)^2   \  + \
+                            \lambda_{\mathit{G}} \sum_{g=1}^{N_{\mathit{G}}} \rho_g
+                            |\beta_{g}| \,,\end{aligned}\]</span> and
+<span class="math display">\[\begin{aligned}
+  \underset{\boldsymbol{\beta}_{\mathit{M}}}{argmin} &amp; \;
+                           \sum_{i=1}^n \left(y_i - \tilde{\mathbf{x}}_{i}^{\mathit{M}}
+                           \boldsymbol{\beta}_{\mathit{M}} \right)^2  \ + \
+                           \lambda_{\mathit{M}}\sum_{m=1}^{N_{\mathit{M}}} \rho_m 
+                           |\beta_{m}| \,,  \end{aligned}\]</span> with
+penalty factors being defined by
+<span class="math inline">\(\displaystyle{\rho_g = 1 / \sqrt{s_g}}\)</span> and
+<span class="math inline">\(\displaystyle{\rho_m = 1 / \sqrt{s_m}}\)</span> as explained in
+Section <a href="implementation.html#structure">5.3.3</a>.</p>
+</div>
+<div id="linear-model-testing" class="section level4 unnumbered">
+<h4>Linear model testing</h4>
+<p>In a feature selection perspective, the relevant interactions may be
+recovered separately considering each selected group <span class="math inline">\(g \in \mathcal{G}\)</span>
+coupled with each selected group <span class="math inline">\(m \in \mathcal{M}\)</span> in a linear model of
+interaction and by performing an hypothesis test on the interaction
+parameter: <span class="math display">\[\label{eq:compact_single_interaction_model}  
+  y_i = \tilde{x}_i^g \beta_{g}  +
+  \tilde{x}_i^m \beta_{m}  +
+  \left(\tilde{x}_i^g  \cdot
+    \tilde{x}_i^m\right)
+  {\theta_{gm}} + \, \epsilon_i \,.\]</span></p>
+<p>This strategy has the advantage of highlighting all the potential
+interactions between the selected simple effects in an exploratory
+rather than predictive analysis perspective. Also, it may be regarded as
+an alternative shortcut to Problem  in that it involves <span class="math inline">\(N_I\)</span> problems
+of dimension <span class="math inline">\(3\)</span> instead of a potentially large problem of dimension
+<span class="math inline">\(N_{\mathit{G}} + N_{\mathit{M}} + N_I\)</span>. Finally, this scheme of selection preserves
+strong dependencies by construction.</p>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-sharpton2014introduction">
+<p>Sharpton, Thomas J. 2014. “An Introduction to the Analysis of Shotgun Metagenomic Data.” <em>Frontiers in Plant Science</em> 5: 209.</p>
+</div>
+<div id="ref-pereira2018comparison">
+<p>Pereira, Mariana Buongermino, Mikael Wallroth, Viktor Jonsson, and Erik Kristiansson. 2018. “Comparison of Normalization Methods for the Analysis of Metagenomic Gene Abundance Data.” <em>BMC Genomics</em> 19 (1): 274.</p>
+</div>
+<div id="ref-jonsson2017variability">
+<p>Jonsson, Viktor, Tobias Österlund, Olle Nerman, and Erik Kristiansson. 2017. “Variability in Metagenomic Count Data and Its Influence on the Identification of Differentially Abundant Genes.” <em>Journal of Computational Biology</em> 24 (4): 311–26.</p>
+</div>
+<div id="ref-wooley2010primer">
+<p>Wooley, John C, Adam Godzik, and Iddo Friedberg. 2010. “A Primer on Metagenomics.” <em>PLoS Computational Biology</em> 6 (2): e1000667.</p>
+</div>
+<div id="ref-robinson2010scaling">
+<p>Robinson, Mark D, and Alicia Oshlack. 2010. “A Scaling Normalization Method for Differential Expression Analysis of Rna-Seq Data.” <em>Genome Biology</em> 11 (3): R25.</p>
+</div>
+<div id="ref-Aitchison:JRSSB82">
+<p>Aitchison, Jonh. 1982. “The Statistical Analysis of Compositional Data.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 44 (2): 139–77.</p>
+</div>
+<div id="ref-Pearson:RSL1896">
+<p>Pearson, Karl. 1896. “Mathematical Contributions to the Theory of Evolution. On a Form of Spurious Correlation Which May Arise When Indices Are Used in the Measurement of Organs.” <em>Proceedings of the Royal Society of London</em> 60: 489–98.</p>
+</div>
+<div id="ref-tibshirani1988estimating">
+<p>Tibshirani, Robert. 1988. “Estimating Transformations for Regression via Additivity and Variance Stabilization.” <em>Journal of the American Statistical Association</em> 83 (402): 394–405.</p>
+</div>
+<div id="ref-huber2003parameter">
+<p>Huber, Wolfgang, Anja von Heydebreck, Holger Sültmann, Annemarie Poustka, and Martin Vingron. 2003. “Parameter Estimation for the Calibration and Variance Stabilization of Microarray Data.” <em>Statistical Applications in Genetics and Molecular Biology</em> 2 (1).</p>
+</div>
+<div id="ref-law2014voom">
+<p>Law, Charity W, Yunshun Chen, Wei Shi, and Gordon K Smyth. 2014. “Voom: Precision Weights Unlock Linear Model Analysis Tools for Rna-Seq Read Counts.” <em>Genome Biology</em> 15 (2): R29.</p>
+</div>
+<div id="ref-love2014moderated">
+<p>Love, Michael I, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for Rna-Seq Data with Deseq2.” <em>Genome Biology</em> 15 (12): 550.</p>
+</div>
+<div id="ref-rau2017transformation">
+<p>Rau, Andrea, and Cathy Maugis-Rabusseau. 2017. “Transformation and Model Choice for Rna-Seq Co-Expression Analysis.” <em>Briefings in Bioinformatics</em> 19 (3): 425–36.</p>
+</div>
+<div id="ref-Lee:PAMI17">
+<p>Lee, Seunghak, Nico Görnitz, Eric P. Xing, David Heckerman, and Christoph Lippert. 2017. “Ensembles of LAsso Screening Rules.” <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em> PP (99): 1–1.</p>
+</div>
+<div id="ref-chen2013OTU">
+<p>Chen, Wei, Clarence K. Zhang, Yongmei Cheng, Shaowu Zhang, and Hongyu Zhao. 2013. “A Comparison of Methods for Clustering 16S rRNA Sequences into OTUs.” <em>PLoS ONE</em> 8 (8): e70837.</p>
+</div>
+<div id="ref-dehman_performance_2015">
+<p>Dehman, A., C. Ambroise, and P. Neuvial. 2015. “Performance of a Blockwise Approach in Variable Selection Using Linkage Disequilibrium Information.” <em>BMC Bioinformatics</em> 16: 148.</p>
+</div>
+<div id="ref-Milligan:Ps1985">
+<p>Milligan, Glenn W., and Martha C. Cooper. 1985. “An Examination of Procedures for Determining the Number of Clusters in a Data Set.” <em>Psychometrika</em> 50 (2): 159–79.</p>
+</div>
+<div id="ref-Gordon:1999">
+<p>Gordon, Aharon D. 1999. <em>Classification</em>. Monographs on Statistics and Applied Probability. Chapman &amp; Hall.</p>
+</div>
+<div id="ref-grimonprez_selection_2016">
+<p>Grimonprez, Quentin. 2016. “Selection de Groupes de Variables corrÃÂ©lÃÂ©es En Grande Dimension.” PhD thesis, Université de Lille; Lille 1.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="17">
+<li id="fn17"><p>see Section <a href="genome-sequencing.html#DNAseq">1.2.1</a> for details on shotgun sequencing.<a href="implementation.html#fnref17" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modelsicomore.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="XPsimu.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"download": ["book.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

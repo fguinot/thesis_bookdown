@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>2.4 Splines and generalized additive models: Moving beyond linearit | book.utf8.md</title>
+  <meta name="description" content="PdD thesis">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="2.4 Splines and generalized additive models: Moving beyond linearit | book.utf8.md />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="PdD thesis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.4 Splines and generalized additive models: Moving beyond linearit | book.utf8.md />
+  
+  <meta name="twitter:description" content="PdD thesis" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="parametric.html">
+<link rel="next" href="combining-cluster-analysis-and-variable-selection.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistical learning for omics association and interactions studies based on blockwise feature compression</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>General introduction</a></li>
+<li class="chapter" data-level="1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
+<li class="chapter" data-level="1.1" data-path="genome.html"><a href="genome.html"><i class="fa fa-check"></i><b>1.1</b> Genome description</a></li>
+<li class="chapter" data-level="1.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html"><i class="fa fa-check"></i><b>1.2</b> Genome sequencing</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="genome-sequencing.html"><a href="genome-sequencing.html#DNAseq"><i class="fa fa-check"></i><b>1.2.1</b> DNA sequencing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html#sequence-assembly"><i class="fa fa-check"></i><b>1.2.2</b> Sequence assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html"><i class="fa fa-check"></i><b>1.3</b> DNA polymorphism</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#restriction-fragment-length-polymorphisms-rflp"><i class="fa fa-check"></i><b>1.3.1</b> Restriction Fragment Length Polymorphisms (RFLP)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#simple-sequence-length-polymorphisms-sslp"><i class="fa fa-check"></i><b>1.3.2</b> Simple Sequence Length Polymorphisms (SSLP)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#single-nucleotide-polymorphisms-snp"><i class="fa fa-check"></i><b>1.3.3</b> Single Nucleotide Polymorphisms (SNP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="linkage.html"><a href="linkage.html"><i class="fa fa-check"></i><b>1.4</b> Linkage and partial linkage for genetic mapping</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html"><i class="fa fa-check"></i><b>1.5</b> Basic concepts in population genetics</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#HWE"><i class="fa fa-check"></i><b>1.5.1</b> Hardy-Weinberg equilibrium in large population</a></li>
+<li class="chapter" data-level="1.5.2" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#genetic-drift-in-small-population"><i class="fa fa-check"></i><b>1.5.2</b> Genetic drift in small population</a></li>
+<li class="chapter" data-level="1.5.3" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#concept-of-heritability"><i class="fa fa-check"></i><b>1.5.3</b> Concept of heritability</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="LD.html"><a href="LD.html"><i class="fa fa-check"></i><b>1.6</b> Linkage disequilibrium</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="LD.html"><a href="LD.html#definition"><i class="fa fa-check"></i><b>1.6.1</b> Definition</a></li>
+<li class="chapter" data-level="1.6.2" data-path="LD.html"><a href="LD.html#measure-of-ld"><i class="fa fa-check"></i><b>1.6.2</b> Measure of LD</a></li>
+<li class="chapter" data-level="1.6.3" data-path="LD.html"><a href="LD.html#estimation-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.3</b> Estimation of linkage disequilibrium</a></li>
+<li class="chapter" data-level="1.6.4" data-path="LD.html"><a href="LD.html#origins-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.4</b> Origins of linkage disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="haplo.html"><a href="haplo.html"><i class="fa fa-check"></i><b>1.7</b> Structure of haplotype blocks in the human genome</a><ul>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#definition-of-haplotype-blocks"><i class="fa fa-check"></i>Definition of haplotype blocks</a></li>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#patterns-in-human-genome"><i class="fa fa-check"></i>Patterns in human genome</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-context.html"><a href="statistical-context.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
+<li class="chapter" data-level="2.1" data-path="notations.html"><a href="notations.html"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
+<li class="chapter" data-level="2.2" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html"><i class="fa fa-check"></i><b>2.2</b> Concepts of statistical learning</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>2.2.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="parametric.html"><a href="parametric.html"><i class="fa fa-check"></i><b>2.3</b> Parametric methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="parametric.html"><a href="parametric.html#linmod"><i class="fa fa-check"></i><b>2.3.1</b> Linear models</a></li>
+<li class="chapter" data-level="2.3.2" data-path="parametric.html"><a href="parametric.html#penalized"><i class="fa fa-check"></i><b>2.3.2</b> Penalized linear regression</a></li>
+<li class="chapter" data-level="2.3.3" data-path="parametric.html"><a href="parametric.html#glm"><i class="fa fa-check"></i><b>2.3.3</b> Generalized linear models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="non-parametric.html"><a href="non-parametric.html"><i class="fa fa-check"></i><b>2.4</b> Splines and generalized additive models: Moving beyond linearit</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="non-parametric.html"><a href="non-parametric.html#introduction"><i class="fa fa-check"></i><b>2.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.4.2" data-path="non-parametric.html"><a href="non-parametric.html#splines"><i class="fa fa-check"></i><b>2.4.2</b> Regression splines</a></li>
+<li class="chapter" data-level="2.4.3" data-path="non-parametric.html"><a href="non-parametric.html#mathrmb-splines"><i class="fa fa-check"></i><b>2.4.3</b> <span class="math inline">\(\mathrm{B}\)</span>-splines</a></li>
+<li class="chapter" data-level="2.4.4" data-path="non-parametric.html"><a href="non-parametric.html#smoothing"><i class="fa fa-check"></i><b>2.4.4</b> Cubic smoothing splines</a></li>
+<li class="chapter" data-level="2.4.5" data-path="non-parametric.html"><a href="non-parametric.html#gam"><i class="fa fa-check"></i><b>2.4.5</b> Generalized additive models (GAM)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="non-parametric.html"><a href="non-parametric.html#hgam"><i class="fa fa-check"></i><b>2.4.6</b> High-dimensional generalized additive models (HGAM)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html"><i class="fa fa-check"></i><b>2.5</b> Combining cluster analysis and variable selection</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#CAH"><i class="fa fa-check"></i><b>2.5.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="2.5.2" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#HCAR"><i class="fa fa-check"></i><b>2.5.2</b> Hierarchical Clustering and Averaging Regression</a></li>
+<li class="chapter" data-level="2.5.3" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#MLGL"><i class="fa fa-check"></i><b>2.5.3</b> Multi-Layer Group-Lasso (MLGL)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>2.6</b> Statistical testing of significance</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="hypothesis.html"><a href="hypothesis.html#introduction-1"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.6.2" data-path="hypothesis.html"><a href="hypothesis.html#chi2"><i class="fa fa-check"></i><b>2.6.2</b> <span class="math inline">\(\chi^2\)</span> test</a></li>
+<li class="chapter" data-level="2.6.3" data-path="hypothesis.html"><a href="hypothesis.html#LRT"><i class="fa fa-check"></i><b>2.6.3</b> Likelihood ratio test</a></li>
+<li class="chapter" data-level="2.6.4" data-path="hypothesis.html"><a href="hypothesis.html#pvalGAM"><i class="fa fa-check"></i><b>2.6.4</b> Calculation of <em>p</em>-values in GAM</a></li>
+<li class="chapter" data-level="2.6.5" data-path="hypothesis.html"><a href="hypothesis.html#multiple"><i class="fa fa-check"></i><b>2.6.5</b> Multiple testing comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html"><i class="fa fa-check"></i><b>3</b> Genome-Wide Association Studies</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="genoquality.html"><a href="genoquality.html"><i class="fa fa-check"></i><b>3.2</b> Genotype quality control</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="genoquality.html"><a href="genoquality.html#deviation-from-hwe."><i class="fa fa-check"></i><b>3.2.1</b> Deviation from HWE.</a></li>
+<li class="chapter" data-level="3.2.2" data-path="genoquality.html"><a href="genoquality.html#missing-data."><i class="fa fa-check"></i><b>3.2.2</b> Missing data.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="genoquality.html"><a href="genoquality.html#distribution-of-test-statistics."><i class="fa fa-check"></i><b>3.2.3</b> Distribution of test statistics.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="OR.html"><a href="OR.html"><i class="fa fa-check"></i><b>3.3</b> Disease penetrance and odds ratio</a></li>
+<li class="chapter" data-level="3.4" data-path="SMA.html"><a href="SMA.html"><i class="fa fa-check"></i><b>3.4</b> Single Marker Analysis</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="SMA.html"><a href="SMA.html#pearsons-chi2-statistic"><i class="fa fa-check"></i><b>3.4.1</b> Pearson’s <span class="math inline">\(\chi^2\)</span> statistic</a></li>
+<li class="chapter" data-level="3.4.2" data-path="SMA.html"><a href="SMA.html#cochran-armitage-trend-test"><i class="fa fa-check"></i><b>3.4.2</b> Cochran-Armitage trend test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="SMA.html"><a href="SMA.html#logitGWAS"><i class="fa fa-check"></i><b>3.4.3</b> Logistic regression and likelihood ratio test</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="GWASlimits.html"><a href="GWASlimits.html"><i class="fa fa-check"></i><b>3.5</b> Limitations</a></li>
+<li class="chapter" data-level="3.6" data-path="popstructure.html"><a href="popstructure.html"><i class="fa fa-check"></i><b>3.6</b> Population structure</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="popstructure.html"><a href="popstructure.html#genomic-control"><i class="fa fa-check"></i><b>3.6.1</b> Genomic control</a></li>
+<li class="chapter" data-level="3.6.2" data-path="popstructure.html"><a href="popstructure.html#structured-association"><i class="fa fa-check"></i><b>3.6.2</b> Structured association</a></li>
+<li class="chapter" data-level="3.6.3" data-path="popstructure.html"><a href="popstructure.html#PCC"><i class="fa fa-check"></i><b>3.6.3</b> Principle components correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="multiloc.html"><a href="multiloc.html"><i class="fa fa-check"></i><b>3.7</b> Multi-locus analysis</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="multiloc.html"><a href="multiloc.html#haplotype-based-approaches"><i class="fa fa-check"></i><b>3.7.1</b> Haplotype-based approaches</a></li>
+<li class="chapter" data-level="3.7.2" data-path="multiloc.html"><a href="multiloc.html#rare-variant"><i class="fa fa-check"></i><b>3.7.2</b> Rare-variant association analysis</a></li>
+<li class="chapter" data-level="3.7.3" data-path="multiloc.html"><a href="multiloc.html#adjclust"><i class="fa fa-check"></i><b>3.7.3</b> LD based approach to variable selection in GWAS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="LEOS.html"><a href="LEOS.html"><i class="fa fa-check"></i><b>4</b> Learning the Optimal in GWAS through hierarchical SNP aggregation</a><ul>
+<li class="chapter" data-level="4.1" data-path="introleos.html"><a href="introleos.html"><i class="fa fa-check"></i><b>4.1</b> Related work</a></li>
+<li class="chapter" data-level="4.2" data-path="leosmethod.html"><a href="leosmethod.html"><i class="fa fa-check"></i><b>4.2</b> Method</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="leosmethod.html"><a href="leosmethod.html#CHAC"><i class="fa fa-check"></i><b>4.2.1</b> Step 1. Constrained-HAC</a></li>
+<li class="chapter" data-level="4.2.2" data-path="leosmethod.html"><a href="leosmethod.html#Dstar"><i class="fa fa-check"></i><b>4.2.2</b> Step 2. Dimension reduction function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="leosmethod.html"><a href="leosmethod.html#cutree"><i class="fa fa-check"></i><b>4.2.3</b> Step 3. Optimal number of groups estimation</a></li>
+<li class="chapter" data-level="4.2.4" data-path="leosmethod.html"><a href="leosmethod.html#step4"><i class="fa fa-check"></i><b>4.2.4</b> Step 4. Multiple testing on aggregated-SNP variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="numsim.html"><a href="numsim.html"><i class="fa fa-check"></i><b>4.3</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="numsim.html"><a href="numsim.html#simupheno"><i class="fa fa-check"></i><b>4.3.1</b> Simulation of the case-control phenotype</a></li>
+<li class="chapter" data-level="4.3.2" data-path="numsim.html"><a href="numsim.html#perfeval"><i class="fa fa-check"></i><b>4.3.2</b> Performance evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="results.html"><a href="results.html#results-and-discussions-of-the-numerical-simulations"><i class="fa fa-check"></i><b>4.4.1</b> Results and discussions of the numerical simulations</a></li>
+<li class="chapter" data-level="4.4.2" data-path="results.html"><a href="results.html#performance-results-for-simulated-data."><i class="fa fa-check"></i><b>4.4.2</b> Performance results for simulated data.</a></li>
+<li class="chapter" data-level="4.4.3" data-path="results.html"><a href="results.html#leosappli"><i class="fa fa-check"></i><b>4.4.3</b> Application in Wellcome Trust Case Control Consortium(WTCCC) and Ankylosing Spondylitis (AS) studies</a></li>
+<li class="chapter" data-level="4.4.4" data-path="results.html"><a href="results.html#realdata"><i class="fa fa-check"></i><b>4.4.4</b> Results in WTCCC and AS studies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="leosgam.html"><a href="leosgam.html"><i class="fa fa-check"></i><b>4.5</b> Generalized additive models in GWAS</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="leosgam.html"><a href="leosgam.html#comparison-of-predictive-power"><i class="fa fa-check"></i><b>4.5.1</b> Comparison of predictive power</a></li>
+<li class="chapter" data-level="4.5.2" data-path="leosgam.html"><a href="leosgam.html#results-of-univariate-smoothing-splines-on-aggregated-snp"><i class="fa fa-check"></i><b>4.5.2</b> Results of univariate smoothing splines on aggregated-SNP</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="discussions.html"><a href="discussions.html"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><a href="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><i class="fa fa-check"></i><b>5</b> Selection of interaction effects in compressed multiple omics representation</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="introduction-3.html"><a href="introduction-3.html#background-1"><i class="fa fa-check"></i><b>5.1.1</b> Background</a></li>
+<li class="chapter" data-level="5.1.2" data-path="introduction-3.html"><a href="introduction-3.html#combining-genome-and-metagenome-analyses."><i class="fa fa-check"></i><b>5.1.2</b> Combining genome and metagenome analyses.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="introduction-3.html"><a href="introduction-3.html#taking-structures-into-account-in-association-studies."><i class="fa fa-check"></i><b>5.1.3</b> Taking structures into account in association studies.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="modelsicomore.html"><a href="modelsicomore.html"><i class="fa fa-check"></i><b>5.2</b> Learning with complementary datasets</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="modelsicomore.html"><a href="modelsicomore.html#setting-and-notations"><i class="fa fa-check"></i><b>5.2.1</b> Setting and notations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="modelsicomore.html"><a href="modelsicomore.html#interactions-in-linear-models"><i class="fa fa-check"></i><b>5.2.2</b> Interactions in linear models</a></li>
+<li class="chapter" data-level="5.2.3" data-path="modelsicomore.html"><a href="modelsicomore.html#compressdata"><i class="fa fa-check"></i><b>5.2.3</b> Compact model</a></li>
+<li class="chapter" data-level="5.2.4" data-path="modelsicomore.html"><a href="modelsicomore.html#recoverinteractions"><i class="fa fa-check"></i><b>5.2.4</b> Recovering relevant interactions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="implementation.html"><a href="implementation.html"><i class="fa fa-check"></i><b>5.3</b> Method</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="implementation.html"><a href="implementation.html#preprocess"><i class="fa fa-check"></i><b>5.3.1</b> Preprocessing of the data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="implementation.html"><a href="implementation.html#preprocessing-of-metagenomic-data"><i class="fa fa-check"></i><b>5.3.2</b> Preprocessing of metagenomic data</a></li>
+<li class="chapter" data-level="5.3.3" data-path="implementation.html"><a href="implementation.html#structure"><i class="fa fa-check"></i><b>5.3.3</b> Structuring the data</a></li>
+<li class="chapter" data-level="5.3.4" data-path="implementation.html"><a href="implementation.html#using-the-structure-efficiently"><i class="fa fa-check"></i><b>5.3.4</b> Using the structure efficiently</a></li>
+<li class="chapter" data-level="5.3.5" data-path="implementation.html"><a href="implementation.html#identification-of-relevant-supervariables"><i class="fa fa-check"></i><b>5.3.5</b> Identification of relevant supervariables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="XPsimu.html"><a href="XPsimu.html"><i class="fa fa-check"></i><b>5.4</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="XPsimu.html"><a href="XPsimu.html#data-generation"><i class="fa fa-check"></i><b>5.4.1</b> Data generation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="XPsimu.html"><a href="XPsimu.html#generation-of-the-phenotype"><i class="fa fa-check"></i><b>5.4.2</b> Generation of the phenotype</a></li>
+<li class="chapter" data-level="5.4.3" data-path="XPsimu.html"><a href="XPsimu.html#comparison-of-methods"><i class="fa fa-check"></i><b>5.4.3</b> Comparison of methods</a></li>
+<li class="chapter" data-level="5.4.4" data-path="XPsimu.html"><a href="XPsimu.html#evaluation-metrics"><i class="fa fa-check"></i><b>5.4.4</b> Evaluation metrics</a></li>
+<li class="chapter" data-level="5.4.5" data-path="XPsimu.html"><a href="XPsimu.html#performance-results"><i class="fa fa-check"></i><b>5.4.5</b> Performance results</a></li>
+<li class="chapter" data-level="5.4.6" data-path="XPsimu.html"><a href="XPsimu.html#computational-time"><i class="fa fa-check"></i><b>5.4.6</b> Computational time</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="XPINRA.html"><a href="XPINRA.html"><i class="fa fa-check"></i><b>5.5</b> Application on real data: rhizosphere of <em>Medicago truncatula</em></a><ul>
+<li class="chapter" data-level="5.5.1" data-path="XPINRA.html"><a href="XPINRA.html#material"><i class="fa fa-check"></i><b>5.5.1</b> Material</a></li>
+<li class="chapter" data-level="5.5.2" data-path="XPINRA.html"><a href="XPINRA.html#analysis"><i class="fa fa-check"></i><b>5.5.2</b> Analysis</a></li>
+<li class="chapter" data-level="5.5.3" data-path="XPINRA.html"><a href="XPINRA.html#results-1"><i class="fa fa-check"></i><b>5.5.3</b> Results</a></li>
+<li class="chapter" data-level="5.5.4" data-path="XPINRA.html"><a href="XPINRA.html#results-on-root-shoot-ratio"><i class="fa fa-check"></i><b>5.5.4</b> Results on Root Shoot Ratio</a></li>
+<li class="chapter" data-level="5.5.5" data-path="XPINRA.html"><a href="XPINRA.html#results-on-specific-nitrogen-uptake"><i class="fa fa-check"></i><b>5.5.5</b> Results on Specific Nitrogen Uptake</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="discussions-1.html"><a href="discussions-1.html"><i class="fa fa-check"></i><b>5.6</b> Discussions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i>Conclusions</a><ul>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-leos-algorithm"><i class="fa fa-check"></i>Discussions on LEOS algorithm</a></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-sicomore-algorithm"><i class="fa fa-check"></i>Discussions on SICOMORE algorithm</a></li>
+<li class="chapter" data-level="" data-path="perspectives.html"><a href="perspectives.html"><i class="fa fa-check"></i>Perspectives</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="non-parametric" class="section level2">
+<h2><span class="header-section-number">2.4</span> Splines and generalized additive models: Moving beyond linearit</h2>
+<div id="introduction" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Introduction</h3>
+<p>So far, we have been interested in estimating a function <span class="math inline">\(\hat{f}\)</span>
+linear in <span class="math inline">\(\mathbf{X}\)</span>, but in reality, it is unlikely to be true. Linear
+models have the advantage of being easily interpretable and the
+approximation of <span class="math inline">\(f\)</span> by a simple linear function can avoid overfitting.
+On the other hand, when the true function is highly non-linear, they are
+often limited if one wants to be able to model a complex phenomenon or
+to make accurate prediction.</p>
+<p>In this section we will describe some methods that allow to take into
+account the non-linear form of <span class="math inline">\(f\)</span> by working on a linear basis
+expansion of the initial features. The idea is to augment/replace the
+matrix of inputs <span class="math inline">\(\mathbf{X}\)</span> with additional variables, which are
+transformations of <span class="math inline">\(\mathbf{X}\)</span>, and then use linear models in this new space
+of derived input variables.</p>
+<p>We define the linear basis expansion of <span class="math inline">\(x \in \mathbb{R}\)</span> by:
+<span class="math display">\[s(x) = \sum_{k=1}^K \beta_k h_k(x),\]</span> with
+<span class="math inline">\(h_k(x) : \mathbb{R} \mapsto \mathbb{R}\)</span> the <span class="math inline">\(k^{th}\)</span> transformation of
+<span class="math inline">\(x\)</span>, <span class="math inline">\(k \in [1, \dots, K]\)</span>. The function <span class="math inline">\(s(\mathbf{x})\)</span> is also referred as a
+<em>smoother</em> since it produces an estimate of the trend that is less
+variables than the response variable <span class="math inline">\(\mathbf{y}\)</span> itself. We call the estimate
+produced by a smoother a <em>smooth</em>.</p>
+<p>The linear basis expansion offers a wide range of possible
+transformations for <span class="math inline">\(x\)</span> such as:</p>
+<ul>
+<li><p>Third order polynomial transformation:
+<span class="math inline">\(h_1(x) = x, h_2(x) = x^2, h_3(x) = x^3\)</span>,</p></li>
+<li><p>non-linear transformation:
+<span class="math inline">\(h_k(x) = \text{log}(x), \sqrt{x}, \dots\)</span>,</p></li>
+<li><p>Piecewise constant transformation:
+<span class="math inline">\(h_1(x) = I(x &lt; \xi_1), h_2(x) = I(\xi_1 \leq x \leq \xi_2), \dots, h_K(x) = I(x \geq \xi_{K-1})\)</span>.</p></li>
+</ul>
+<p>In the following sections we will present some methods based on the
+linear basis expansion such as the regression splines (Section
+<a href="non-parametric.html#splines">2.4.2</a>, smoothing splines (Section <a href="non-parametric.html#smoothing">2.4.4</a> and
+generalized additive models (Section <a href="non-parametric.html#gam">2.4.5</a>). Note that the
+splines are methods applied to a univariate function <span class="math inline">\(x\)</span> while the
+generalized additive models extend the uses of splines and other
+non-linear functions to the multivariate case.</p>
+</div>
+<div id="splines" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Regression splines</h3>
+<div id="piecewise-polynomials-regression-splines" class="section level4 unnumbered">
+<h4>Piecewise polynomials regression splines</h4>
+<p>Here the data are divided into different regions, each being defined by
+a polynomial function and separated by a sequence of knots,
+<span class="math inline">\(\xi_1, \xi_2, \dots, \xi_K\)</span> and each piece are smoothly joined at those
+knots. For example, with one knot <span class="math inline">\(\xi\)</span>, dividing the data into two
+regions and with third-order polynomial pieces, we can write:</p>
+<p><span class="math display">\[
+s(x)  = \left\{
+    \begin{array}{ll}
+        \beta_{01} + \beta_{11}x + \beta_{21}x^2 + \beta_{31}x^3 + \epsilon \text{ if } x &lt; \xi, \\
+        \beta_{02} + \beta_{12}x + \beta_{22}x^2 + \beta_{32}x^3 + \epsilon \text{ if } x &gt; \xi.  \\
+    \end{array}
+\right.
+\]</span></p>
+<p>Piecewise cubic polynomials are generally used and constrained to be
+continuous and to have continuous first and second derivatives at the
+knots. For any given set of knots, the smooth is computed by multiple
+regression on an appropriate set of basis vectors. These vectors are the
+basis functions representing the family of piecewise cubic polynomials,
+evaluated at the observed values of the predictor <span class="math inline">\(x\)</span>.</p>
+</div>
+<div id="cubic-regression-splines" class="section level4 unnumbered">
+<h4>Cubic regression splines</h4>
+<p>A simple choice of basis functions for piecewise-cubic splines
+(truncated power series basis) derives from the parametric expression
+for the smooth</p>
+<p><span class="math display">\[s(\boldsymbol{x}) = \beta_0 + \beta_1x + \beta_2x^2 + \beta_3x^3 + \sum_{k=1}^{\mathit{K}}\beta_k(x - \xi_k)_+^3, 
+\label{eq:cubic}\]</span></p>
+<p>which have the required properties:</p>
+<ul>
+<li><p><span class="math inline">\(s\)</span> is cubic polynomial in any subinterval <span class="math inline">\([\xi_k,\xi_{k+1}]\)</span>,</p></li>
+<li><p><span class="math inline">\(s\)</span> has two continuous derivatives,</p></li>
+<li><p><span class="math inline">\(s\)</span> has a third derivative that is a step function with jumps at
+<span class="math inline">\(\xi_1,\dots,\xi_{\mathit{K}}\)</span>.</p></li>
+</ul>
+<p>The sequence of knots can be placed over the range of the data or at
+appropriate quantiles of the predictor variable (e.g., 3 interior knots
+at the three quartiles).</p>
+<p>A cubic spline satisfies the following properties:</p>
+<p><span class="math display">\[s(x) \in C^2[\xi_0,\xi_n] = \left\{
+    \begin{array}{ll}
+        s_{0}(x), \hspace{.5cm} \xi_0 \leq x \leq \xi_1, \\
+        s_{1}(x), \hspace{.5cm} \xi_1 \leq x \leq \xi_2, \\
+        \dots\\
+        s_{n-1}(x), \hspace{.5cm} \xi_{n-1} \leq x \leq \xi_n, \\
+    \end{array}
+\right.\]</span> and</p>
+<p><span class="math display">\[s(x): \left\{
+    \begin{array}{ll}
+        s_{k-1}(x_k) = s_k(x_k)  \\
+        s&#39;_{k-1}(x_k) = s&#39;_k(x_k) \\
+        s&#39;&#39;_{k-1}(x_k) = s&#39;&#39;_k(x_k) \\
+    \end{array}
+\right.
+ ,\text{ for } k = 1,2,\dots,(n-1).\]</span></p>
+<p>The choice of a third-order polynomial allows the function <span class="math inline">\(s(x)\)</span> to be
+continuous at the knots.</p>
+</div>
+<div id="natural-splines" class="section level4 unnumbered">
+<h4>Natural splines</h4>
+<p>A variant of polynomial splines are the natural splines: these are
+simply splines with an additional constraint that forces the function to
+be linear beyond the boundary knots. It is common to supply an
+additional knot at each extreme of the data and impose linearity beyond
+them. Then, with <span class="math inline">\(K-2\)</span> interior knots (and two boundary knots), the
+dimension of the space of fits is <span class="math inline">\(K\)</span>. The lesser flexibility at the
+boundaries of natural splines tends to decrease the variance we can get
+when fitting regular regression splines.</p>
+<p>We add the following condition to get a natural cubic spline:
+<span class="math display">\[s&#39;&#39;(\xi_0) = s&#39;&#39;(\xi_n) = 0.\]</span></p>
+<p>Figure <a href="non-parametric.html#fig:natcubspline">2.3</a> illustrates the use of natural cubic splines
+for the construction of an interpolating smooth curve.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:natcubspline"></span>
+<img src="book_files/figure-html/natcubspline-1.png" alt="The black dashed line corresponds to the true distribution \(y = \frac{1}{1+x^2}\) and each \(n = 11\) black dots correspond to observations drawn from this distribution (with a little noise). In (A) we have represented the polynomial functions at each \(K = 11\) knots, constituting the natural cubic splines basis and (B) the truncated polynomials to construct the smoother." width="90%" />
+<p class="caption">
+Figure 2.3: The black dashed line corresponds to the true distribution <span class="math inline">\(y = \frac{1}{1+x^2}\)</span> and each <span class="math inline">\(n = 11\)</span> black dots correspond to observations drawn from this distribution (with a little noise). In (A) we have represented the polynomial functions at each <span class="math inline">\(K = 11\)</span> knots, constituting the natural cubic splines basis and (B) the truncated polynomials to construct the smoother.
+</p>
+</div>
+</div>
+</div>
+<div id="mathrmb-splines" class="section level3">
+<h3><span class="header-section-number">2.4.3</span> <span class="math inline">\(\mathrm{B}\)</span>-splines</h3>
+<p>The <span class="math inline">\(\mathrm{B}\)</span>-spline basis functions provide a numerically superior
+alternative basis to the truncated power series. Their main feature is
+that any given basis function <span class="math inline">\(\mathit{B}_k(x)\)</span> is non-zero over a span
+of at most five distinct knots which means that the resulting basis
+function matrix <span class="math inline">\(\mathbf{B}\)</span> is banded. The <span class="math inline">\(\mathit{B}_k\)</span> are piecewise cubics
+and we need <span class="math inline">\(K + 4\)</span> of them (<span class="math inline">\(K + 2\)</span> for natural splines) if we want to
+span the entire space. The algebraic definition is detailed in
+<span class="citation">(Boor <a href="#ref-de_boor_practical_1975">1975</a>)</span>.</p>
+<p>With the <span class="math inline">\(\mathrm{B}\)</span>-spline basis, the functions are strictly local -
+each basis is only non-zero over the interval between <span class="math inline">\(m+3\)</span> adjacent
+knots, where <span class="math inline">\(m\)</span> is the order of the basis (<span class="math inline">\(m = 2\)</span> for cubic spline).
+To define a <span class="math inline">\(K\)</span> parameters <span class="math inline">\(\mathrm{B}\)</span>-spline basis, we need to define
+<span class="math inline">\(k+m+1\)</span> knots, <span class="math inline">\(x_1 &lt; x_2 &lt; \dots &lt; x_{m+k+1}\)</span>, where the interval over
+which the spline is to be evaluated lies within <span class="math inline">\([x_{m+2},x_k]\)</span> (so that
+the first and last <span class="math inline">\(m+1\)</span> knot locations are essentially arbitrary). An
+<span class="math inline">\((m+1)^{th}\)</span> order <span class="math inline">\(\mathrm{B}\)</span>-spline can be represented as</p>
+<p><span class="math display">\[s(x) = \sum_{k=1}^K B_k^m(x)\beta_k,\]</span> where the <span class="math inline">\(\mathrm{B}\)</span>-spline
+basis functions are most conveniently defined recursively as follows:</p>
+<p><span class="math display">\[B_k^m (x) = \frac{x-x_k}{x_{k+m+1} - x_k}B_k^{k-1}(x) + \frac{x_{k+m+2} - x}{x_{k+m+2}-x_{k+1}}B_{k+1}^{x-1}(\boldsymbol{x}) \hspace{.5cm} \text{for } k=1,\dots,K,\]</span>
+and</p>
+<p><span class="math display">\[B_k^{-1}(x) =  \left\{
+    \begin{array}{ll}
+        1 \hspace{1cm} x_k \leq x &lt; x_{k+1}  \\
+        0 \hspace{1cm} \text{otherwise} \\
+    \end{array}
+\right. .\]</span></p>
+<p>For more detailed computational aspects see Annexe <code>\ref(#Bspline)</code> and
+for a representation of <span class="math inline">\(\mathrm{B}\)</span>-spline functions see Figure
+<a href="non-parametric.html#fig:Bspline">2.4</a>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:Bspline"></span>
+<img src="book_files/figure-html/Bspline-1.png" alt="Quadratic \(\mathrm{B}\)-spline basis function representation (for \(m = 2\) and with \(K=4\) internal knots). Each \(B_k(\boldsymbol{x})\) functions are piecewise cubic and \(K+4 = 8\) of them are need to span the entire space." width="90%" />
+<p class="caption">
+Figure 2.4: <strong>Quadratic <span class="math inline">\(\mathrm{B}\)</span>-spline basis function representation</strong> (for <span class="math inline">\(m = 2\)</span> and with <span class="math inline">\(K=4\)</span> internal knots). Each <span class="math inline">\(B_k(\boldsymbol{x})\)</span> functions are piecewise cubic and <span class="math inline">\(K+4 = 8\)</span> of them are need to span the entire space.
+</p>
+</div>
+</div>
+<div id="smoothing" class="section level3">
+<h3><span class="header-section-number">2.4.4</span> Cubic smoothing splines</h3>
+<p>This smoother is constructed as the solution to an optimization problem:
+among all function <span class="math inline">\(f(x)\)</span> with two continuous derivatives, find one that
+minimizes the penalized residual sum of squares</p>
+<p><span class="math display">\[\sum_{i=1}^n||y_i - s(x_i)||_2^2 + \lambda \int_a^b{s&#39;&#39;(t)}^2dt,
+  \label{eq:cubsmooth}\]</span></p>
+<p>where <span class="math inline">\(\lambda\)</span> is a penalty factor, and
+<span class="math inline">\(a \leq x_1 \leq \dots \leq x_n \leq b\)</span>. The first term measures
+closeness to the data while the second penalizes curvature in the
+function, this criterion insuring a trade-off between bias and variance.
+The first term insures to fit as close as possible the data while the
+second penalizes the wiggliness of the smoothing curve to avoid
+interpolating the data. Large values of <span class="math inline">\(\lambda\)</span> produce smoother
+curves while smaller values produce more wiggly curves.</p>
+<p>As <span class="math inline">\(\lambda \rightarrow \infty\)</span>, the penalty term dominates, forcing
+<span class="math inline">\(s&#39;&#39;(x) = 0\)</span> everywhere and thus the solution is the least-squares line.
+On the contrary, as <span class="math inline">\(\lambda \rightarrow 0\)</span>, the penalty term becomes
+unimportant and the solution tends to an interpolating
+twice-differentiable function.</p>
+<p>Furthermore, it can be shown that this optimization problem has an
+explicit, unique minimizer which proves to be a natural cubic spline
+with knots at the unique value of <span class="math inline">\(x_i\)</span> (see <span class="citation">(Reinsch <a href="#ref-reinsch_smoothing_1967">1967</a>)</span>).</p>
+<p>We consider the smoothing function in the form:
+<span class="math display">\[s(x) = \sum_{k=1}^{K} N_k(x) \beta_k,
+\label{eq:smooth_fun}\]</span> where the <span class="math inline">\(N_k(x)\)</span> are an <span class="math inline">\((K)\)</span>-dimensional set
+of basis functions for representing the family of natural splines. The
+natural cubic splines basis is computed as follow:
+<span class="math display">\[\begin{aligned}
+N_1(x) &amp;= 1,\\
+N_2(x) &amp; = x, \\
+N_{k+2}(x) &amp;= d_k(x) - d_{k-1}(x), \end{aligned}\]</span>
+for
+<span class="math inline">\(k \in [0, \dots, K-1]\)</span> and with</p>
+<p><span class="math display">\[d_k = \frac{(x-\xi_k)^3_+ - (x-\xi_K)^3_+}{\xi_K - \xi_k}\]</span></p>
+<p>At first glance it would seems that the model is over-parametrized since
+there are as many as <span class="math inline">\(K = n\)</span> knots implying as many degrees of freedom.
+However, the penalty term converts into a penalty on the splines
+coefficients themselves, which are shrunk toward the linear fit.</p>
+<p>Using this cubic spline basis for <span class="math inline">\(s(x)\)</span> means that can be written in
+the following minimization problem:
+<span class="math display" id="eq:ridgespline">\[\begin{equation}
+\underset{\boldsymbol{\beta}}{\text{argmin}} ||\mathbf{y} - \mathbf{N} \boldsymbol{\beta}||^2 + \lambda \boldsymbol{\beta}^T \mathbf{W} \boldsymbol{\beta}
+\tag{2.2}
+\end{equation}\]</span>
+where
+<span class="math display">\[\begin{aligned}
+N_{ik} &amp;= N_k(x_i), \\
+W_{kk&#39;} &amp;= \int_0^1 N&#39;&#39;_k(x) N&#39;&#39;_{k&#39;}(x)dx,\end{aligned}\]</span> with
+<span class="math inline">\(\mathbf{W} \in \mathbb{R}^{n \times n}\)</span> the penalty matrix and
+<span class="math inline">\(\mathbf{} \in \mathbb{R}^{n \times n}\)</span> the matrix of basis functions.</p>
+<p>Following <span class="citation">(Gu <a href="#ref-gu_smoothing_2002">2002</a>)</span>, it can be shown that <span class="math display">\[\begin{aligned}
+W_{i+2,i&#39;+2} &amp; = \frac{\left[\left(x_{i&#39;} - \frac{1}{2}\right)^2 - \frac{1}{12}\right]\left[\left(x_{i}  - \frac{1}{2}\right)^2 - \frac{1}{12}\right]}{4} - \\
+&amp; \frac{\left[\left(|x_{i} -x_{i&#39;}| - \frac{1}{2}\right)^4 - \frac{1}{2}\left(|x_{i}-x_{i&#39;} | - \frac{1}{2}\right)^2 + \frac{7}{240}\right]}{24},\end{aligned}\]</span>
+for <span class="math inline">\(i,i&#39; \in [1,\dots,K]\)</span> with the first 2 rows and columns of <span class="math inline">\(\mathbf{W}\)</span>
+are equal to <span class="math inline">\(0\)</span>. For a given <span class="math inline">\(\lambda\)</span>, the minimizer of , the
+penalized least squares estimator of <span class="math inline">\(\boldsymbol{\beta}\)</span>, is:</p>
+<p><span class="math display">\[\hat{\boldsymbol{\beta}} = (\mathbf{N}^T\mathbf{N} + \lambda\mathbf{W})^{-1}\mathbf{N}^T\mathbf{y}.\]</span></p>
+<p>It is interesting to note that this solution is similar to the ridge
+estimate , relating the smoothing splines to the shrinkage methods.
+Similarly the hat matrix, <span class="math inline">\(\mathbf{A}\)</span>, for the model can be written as</p>
+<p><span class="math display">\[\mathbf{A} = \mathbf{N}(\mathbf{N}^T\mathbf{N} + \lambda\mathbf{W})^{-1}\mathbf{N}^T.\]</span></p>
+<p>However, in spite of their apparent simplicity, these expressions are
+not the ones to use for computation. More computationally stable methods
+are preferred, i.e. the linear smoother described in
+<span class="citation">(Buja, Hastie, and Tibshirani <a href="#ref-buja_linear_1989">1989</a>)</span>, to estimate the smooth function <span class="math inline">\(s(x)\)</span> (see Annexe
+<code>\@ref(#linsmooth)</code> for more details). For the choice of the smoothing
+parameter <span class="math inline">\(\lambda\)</span>, see Annexe <code>\@ref(#lambda_smooth)</code> and for an
+illustration of the cubic smoothing spline fit see Figure
+<a href="non-parametric.html#fig:smoothspline">2.5</a>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:smoothspline"></span>
+<img src="book_files/figure-html/smoothspline-1.png" alt="Cubic smoothing splines with different values of the regularization parameter \(\lambda\). The black dashed line corresponds to the true distribution \(y = \frac{1}{1+x^2}\) and each black dot corresponds to observations drawn from this distribution (with a little noise). In red is represented the fit at the best value of \(\lambda\) (chosen by GCV), in blue the fit with a value of lambda close to \(0\) and in green the fit with a high value for \(\lambda\). We can see that, as \(\lambda\) increase, the fit pass from a ’wiggly’ interpolating curve (as in Figure 2.5 to a very smoothed curve, which will eventually lead to a straight line as \(\lambda\) become very large." width="90%" />
+<p class="caption">
+Figure 2.5: <strong>Cubic smoothing splines</strong> with different values of the regularization parameter <span class="math inline">\(\lambda\)</span>. The black dashed line corresponds to the true distribution <span class="math inline">\(y = \frac{1}{1+x^2}\)</span> and each black dot corresponds to observations drawn from this distribution (with a little noise). In red is represented the fit at the best value of <span class="math inline">\(\lambda\)</span> (chosen by GCV), in blue the fit with a value of lambda close to <span class="math inline">\(0\)</span> and in green the fit with a high value for <span class="math inline">\(\lambda\)</span>. We can see that, as <span class="math inline">\(\lambda\)</span> increase, the fit pass from a ’wiggly’ interpolating curve (as in Figure <a href="non-parametric.html#fig:smoothspline">2.5</a> to a very smoothed curve, which will eventually lead to a straight line as <span class="math inline">\(\lambda\)</span> become very large.
+</p>
+</div>
+</div>
+<div id="gam" class="section level3">
+<h3><span class="header-section-number">2.4.5</span> Generalized additive models (GAM)</h3>
+<p>A generalized additive model <span class="citation">(Hastie and Tibshirani <a href="#ref-hastie_generalized_1990">1990</a>)</span> is a generalized
+linear model with a linear predictor involving a sum of smooth functions
+of <span class="math inline">\(D\)</span> covariates.</p>
+<p><span class="math display">\[g(\theta) = \beta_0 + \sum_{d=1}^D s_d(\boldsymbol{x}_d) + \boldsymbol{\epsilon} ,
+\label{eq:gam}\]</span></p>
+<p>where <span class="math inline">\(\theta \equiv \mathbb{E}(\mathrm{Y} | \mathbf{X})\)</span>, <span class="math inline">\(\mathrm{Y}\)</span> belongs to some
+exponential family distribution and <span class="math inline">\(g\)</span> a known, monotonic, twice
+differentiable link function.</p>
+<p>To estimate such model we can specify a set of basis functions for each
+smooth function <span class="math inline">\(s_d(x)\)</span>.</p>
+<p>For instance, with natural cubic splines, we get the following model:
+<span class="math display">\[g(\theta) = \beta_0 + \sum_{d=1}^D \sum_{k=1}^{K_d} \beta_{dk} N_{dk}(\boldsymbol{x}_d) + \boldsymbol{\epsilon} ,\]</span>
+where <span class="math inline">\(K_d\)</span> is the number of knots for variable <span class="math inline">\(d\)</span>.</p>
+<p>Furthermore, if we use cubic smoothing splines for each smooth function
+<span class="math inline">\(s_d(x)\)</span>, we can define a penalized sum of squares problem of the form:</p>
+<p><span class="math display">\[RSS(\beta_0, s_1, \dots, s_D) = \sum_{i=1}^n [y_i - \beta_0 - \sum_{d=1}^D s_d(x_{id})]^2 + \sum_{d=1}^D \lambda_d \int s&#39;&#39;_d(t_d)^2dt_d.\]</span></p>
+<p>Each smoothing spline function <span class="math inline">\(s_d(\boldsymbol{x})\)</span> are then computed as
+described in Section <a href="non-parametric.html#smoothing">2.4.4</a> and the general model can be
+fitted with several methods such as backfitting or P-IRLS
+(Penalized-Iteratively Reweighted Least Squares)
+<span class="citation">(Hastie and Tibshirani <a href="#ref-hastie_generalized_1990">1990</a>)</span>.</p>
+<div id="fitting-gams-by-backfitting" class="section level4 unnumbered">
+<h4>Fitting GAMs by backfitting</h4>
+<p>Backfitting is a simple procedure to fit generalized additive models
+which allow to use a large range of smooth function to represent the
+non-linear part of the model. Each smooth component is estimate by
+iteratively smoothing partial residuals from the additive model, with
+respect to the covariates that the smooth relates to. The partial
+residuals relating to the <span class="math inline">\(d^{th}\)</span> smooth term are the residuals
+resulting from subtracting all the current model term estimates from the
+response variable except for the estimate of <span class="math inline">\(d^{th}\)</span> smooth.</p>
+<p>Given the following additive model:
+<span class="math display">\[\mathbf{y} = \beta_0 + \sum_{d=1}^D s_d(\boldsymbol{x}_d) + \boldsymbol{\epsilon}.\]</span></p>
+<p>Let <span class="math inline">\(\hat{\mathbf{s}}_d\)</span> denote the vector whose <span class="math inline">\(i^{th}\)</span> element is the
+estimate of <span class="math inline">\(s_d(x_{id})\)</span>. The backfitting algorithm is given in
+Algorithm 1.</p>
+<p><img src="book_files/figure-html/algo_backfitting-1.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="hgam" class="section level3">
+<h3><span class="header-section-number">2.4.6</span> High-dimensional generalized additive models (HGAM)</h3>
+<p>We consider an additive regression models in an high-dimensional setting
+with a continuous response <span class="math inline">\(\mathbf{y} \in \mathbb{R}^n\)</span> and <span class="math inline">\(D \gg n\)</span>
+covariates <span class="math inline">\(\boldsymbol{x}_1, \dots, \boldsymbol{x}_D \in \mathbb{R}^D\)</span> connected through
+the model</p>
+<p><span class="math display">\[\mathbf{y} = \beta_0 + \sum_{d=1}^D s_d(\boldsymbol{x}_d) + \boldsymbol{\epsilon},\]</span></p>
+<p>where <span class="math inline">\(\beta_0\)</span> is the intercept term,
+<span class="math inline">\(\boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I}\sigma^2)\)</span> and
+<span class="math inline">\(s_d : \mathbb{R} \rightarrow \mathbb{R}\)</span> are smooth univariate
+functions. For identification purposes, we assume that all <span class="math inline">\(s_d\)</span> are
+centered to have zero mean.</p>
+<div id="sparsity-smoothness-penalty" class="section level4 unnumbered">
+<h4>Sparsity-smoothness penalty</h4>
+<p>In order to get sparse and sufficiently smooth function estimates,
+<span class="citation">(Meier, Geer, and Buhlmann <a href="#ref-meier_high-dimensional_2009">2009</a>)</span>, proposed the sparsity-smoothness penalty</p>
+<p><span class="math display">\[J(s_d) = \lambda_1\sqrt{||s_d||^2_n + \lambda_2\int[s&#39;&#39;_d(\boldsymbol{x}_d)]^2d\boldsymbol{x}}.\]</span></p>
+<p>The two tuning parameters <span class="math inline">\(\lambda_1, \lambda_2 \geq 0\)</span> control the
+amount of penalization. The estimator is given by the following
+penalized least squares problem:</p>
+<p><span class="math display">\[\hat{s}_1,\dots,\hat{s}_D = \underset{s_1,\dots,s_D\in\mathcal{F}}{\text{argmin}} ||\mathbf{y} - \sum_{d=1}^D s_d||_n^2 + \sum_{d=1}^D J(s_d),\]</span>
+where <span class="math inline">\(\mathcal{F}\)</span> is a suitable class of functions and the same level
+of regularity for each function <span class="math inline">\(s_d\)</span> is assumed.</p>
+</div>
+<div id="computational-algorithm" class="section level4 unnumbered">
+<h4>Computational algorithm</h4>
+<p>For each functions <span class="math inline">\(s_d\)</span> we can use a cubic <span class="math inline">\(\mathrm{B}\)</span>-spline
+parametrization with <span class="math inline">\(K\)</span> interior knots placed at the empirical quantile
+of <span class="math inline">\(\boldsymbol{x}_d\)</span>. <span class="math display">\[s_d(\boldsymbol{x}) = \sum_{k=1}^K\beta_{dk}b_{dk}(\boldsymbol{x}_d),\]</span> where
+<span class="math inline">\(b_{dk}(x)\)</span> are the B-spline basis functions and
+<span class="math inline">\(\boldsymbol{\beta}_d = (\beta_{d1},\dots,\beta_{dK})^T \in \mathbb{R}^K\)</span> is the
+parameter vector corresponding to <span class="math inline">\(s_d\)</span>.</p>
+<p>For twice differentiable functions, the optimization problem can be
+reformulated as</p>
+<p><span class="math display">\[\hat{\boldsymbol{\beta}} = \underset{\boldsymbol{\beta}=(\beta_1,\dots,\beta_D)}{\text{argmin}} ||\mathbf{y} - \mathbf{B}\boldsymbol{\beta}||_n^2 + \lambda_1 \sum_{d=1}^D \sqrt{\frac{1}{n} \boldsymbol{\beta}_d^T\mathbf{B}_d^T\mathbf{B}_d\boldsymbol{\beta}_d + 
+\lambda_2 \boldsymbol{\beta}_d^T \mathbf{W}_d\boldsymbol{\beta}_d},\]</span></p>
+<p><span class="math display">\[= \underset{\boldsymbol{\beta}=(\boldsymbol{\beta}_1,\dots,\boldsymbol{\beta}_D)}{\text{argmin}} ||\mathbf{y} - \mathbf{B} \boldsymbol{\beta}||_n^2 +
+\lambda_1 \sum_{d=1}^D \sqrt{\boldsymbol{\beta}_d^T \left( \frac{1}{n} \mathbf{B}_d^T \mathbf{B}_d + \lambda_2 \mathbf{W}_d \right) \boldsymbol{\beta}_d},\]</span>
+where <span class="math inline">\(\mathbf{B} = [\mathbf{B}_1|\mathbf{B}_2|\dots|\mathbf{B}_D]\)</span> with <span class="math inline">\(\mathbf{B}_d\)</span> is the <span class="math inline">\(n \times K\)</span>
+design matrix of the <span class="math inline">\(B\)</span>-spline basis of the <span class="math inline">\(d^{th}\)</span> predictor and
+where the <span class="math inline">\(K \times K\)</span> matrix <span class="math inline">\(\mathbf{W}_d\)</span> contains the inner products of the
+second derivative on the <span class="math inline">\(B\)</span>-spline basis function.</p>
+<p>The term <span class="math inline">\((1/n)\mathbf{B}_d^T \mathbf{B}_d + \lambda_2\mathbf{W}_j\)</span> can be decomposed using
+the Choleski decomposition
+<span class="math display">\[(1/n) \mathbf{B}_d^T\mathbf{B}_d + \lambda_2\mathbf{W}_d = \mathbf{R}_d^T \mathbf{R}_d\]</span> to
+some quadratic <span class="math inline">\(K \times K\)</span> matrix <span class="math inline">\(\mathbf{R}_d\)</span> and by defining
+<span class="math display">\[\tilde{\boldsymbol{\beta}}_d = \mathbf{R}_d \boldsymbol{\beta}_d \text{ and } \tilde{\mathbf{B}} = \mathbf{B}_d \mathbf{R}_d^{-1},\]</span>
+the optimization problem reduces to</p>
+<p><span class="math display">\[\hat{\tilde{\boldsymbol{\beta}}} = \underset{\boldsymbol{\beta}=(\boldsymbol{\beta}_1,\dots,\boldsymbol{\beta}_D)}{\text{argmin}} ||\mathbf{y} - \tilde{\mathbf{B}}\tilde{\boldsymbol{\beta}}||^2_n + \lambda_1\sum_{d=1}^D||\tilde{\boldsymbol{\beta}_d}||,\]</span></p>
+<p>where <span class="math inline">\(||\tilde{\boldsymbol{\beta}}_d|| = \sqrt{K}||\tilde{\boldsymbol{\beta}}_d||_K\)</span> is the
+Euclidean norm in <span class="math inline">\(\mathbb{R}^K\)</span>. This is an ordinary group lasso
+problem for any fixed <span class="math inline">\(\lambda_2\)</span>, and hence the existence of a solution
+is guaranteed. For <span class="math inline">\(\lambda_1\)</span> large enough, some of the coefficient
+groups <span class="math inline">\(\beta_d \in \mathbb{R}^K\)</span> will be estimated to be exactly zero.
+Hence, the corresponding function estimate will be zero. Moreover, there
+exists a value <span class="math inline">\(\lambda_{1,max} &lt; \infty\)</span> such that
+<span class="math inline">\(\hat{\tilde{\boldsymbol{\beta}}}_1 = \dots = \hat{\tilde{\boldsymbol{\beta}}}_D = 0\)</span> for
+<span class="math inline">\(\lambda_1 \geqslant \lambda_{1,max}\)</span>. This is especially useful to
+construct a grid of <span class="math inline">\(\lambda_1\)</span> candidate values for cross-validation
+(usually on the log-scale). By rewriting the original problem in this
+last form, already existing algorithms can be used to compute the
+estimator. Coordinate-wise approaches as in <span class="citation">(Meier, Van De Geer, and Buhlmann <a href="#ref-meier_group_2008">2008</a>)</span> and
+<span class="citation">(Yuan and Lin <a href="#ref-yuan_model_2006">2006</a>)</span> are efficient and have rigorous convergence
+properties.</p>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-de_boor_practical_1975">
+<p>Boor, Carl de. 1975. <em>A Practical Guide to Splines</em>. Springer. Springer. <a href="http://www.springer.com/gb/book/9780387953663">http://www.springer.com/gb/book/9780387953663</a>.</p>
+</div>
+<div id="ref-reinsch_smoothing_1967">
+<p>Reinsch, Christian H. 1967. “Smoothing by Spline Functions.” <em>Numer. Math.</em> 10 (3): 177–83. <a href="http://dx.doi.org/10.1007/BF02162161">http://dx.doi.org/10.1007/BF02162161</a>.</p>
+</div>
+<div id="ref-gu_smoothing_2002">
+<p>Gu, Chong. 2002. <em>Smoothing Spline ANOVA Models</em>. Springer Series in Statistics. New York, NY: Springer New York. <a href="http://link.springer.com/10.1007/978-1-4757-3683-0">http://link.springer.com/10.1007/978-1-4757-3683-0</a>.</p>
+</div>
+<div id="ref-buja_linear_1989">
+<p>Buja, Andreas, Trevor Hastie, and Robert Tibshirani. 1989. “Linear Smoothers and Additive Models.” <em>The Annals of Statistics</em> 17 (2): 453–510. <a href="http://www.jstor.org/stable/2241560">http://www.jstor.org/stable/2241560</a>.</p>
+</div>
+<div id="ref-hastie_generalized_1990">
+<p>Hastie, T. J., and R. J. Tibshirani. 1990. <em>Generalized Additive Models</em>. CRC Press.</p>
+</div>
+<div id="ref-meier_high-dimensional_2009">
+<p>Meier, Lukas, Sara van de Geer, and Peter Buhlmann. 2009. “High-Dimensional Additive Modeling.” <em>The Annals of Statistics</em> 37: 3779–3821. <a href="https://doi.org/10.1214/09-AOS692">https://doi.org/10.1214/09-AOS692</a>.</p>
+</div>
+<div id="ref-meier_group_2008">
+<p>Meier, Lukas, Sara Van De Geer, and Peter Buhlmann. 2008. “The Group Lasso for Logistic Regression.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 70 (1): 53–71. <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1467-9868.2007.00627.x/abstract">http://onlinelibrary.wiley.com/doi/10.1111/j.1467-9868.2007.00627.x/abstract</a>.</p>
+</div>
+<div id="ref-yuan_model_2006">
+<p>Yuan, Ming, and Yi Lin. 2006. “Model Selection and Estimation in Regression with Grouped Variables.” <em>JOURNAL OF THE ROYAL STATISTICAL SOCIETY, SERIES B</em> 68: 49–67.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="parametric.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="combining-cluster-analysis-and-variable-selection.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"download": ["book.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
