@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="LD.html">
-<link rel="next" href="statistical-context.html">
+<link rel="next" href="stat.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -68,7 +68,7 @@
 <li><a href="index.html#section"></a></li>
 <li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>General introduction</a></li>
-<li class="chapter" data-level="1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
+<li class="chapter" data-level="1" data-path="genet.html"><a href="genet.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
 <li class="chapter" data-level="1.1" data-path="genome.html"><a href="genome.html"><i class="fa fa-check"></i><b>1.1</b> Genome description</a></li>
 <li class="chapter" data-level="1.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html"><i class="fa fa-check"></i><b>1.2</b> Genome sequencing</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="genome-sequencing.html"><a href="genome-sequencing.html#DNAseq"><i class="fa fa-check"></i><b>1.2.1</b> DNA sequencing</a></li>
@@ -96,7 +96,7 @@
 <li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#patterns-in-human-genome"><i class="fa fa-check"></i>Patterns in human genome</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="statistical-context.html"><a href="statistical-context.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
+<li class="chapter" data-level="2" data-path="stat.html"><a href="stat.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
 <li class="chapter" data-level="2.1" data-path="notations.html"><a href="notations.html"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
 <li class="chapter" data-level="2.2" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html"><i class="fa fa-check"></i><b>2.2</b> Concepts of statistical learning</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>2.2.1</b> Prediction</a></li>
@@ -127,7 +127,7 @@
 <li class="chapter" data-level="2.6.5" data-path="hypothesis.html"><a href="hypothesis.html#multiple"><i class="fa fa-check"></i><b>2.6.5</b> Multiple testing comparison</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html"><i class="fa fa-check"></i><b>3</b> Genome-Wide Association Studies</a><ul>
+<li class="chapter" data-level="3" data-path="asso.html"><a href="asso.html"><i class="fa fa-check"></i><b>3</b> Genome-Wide Association Studies</a><ul>
 <li class="chapter" data-level="3.1" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
 <li class="chapter" data-level="3.2" data-path="genoquality.html"><a href="genoquality.html"><i class="fa fa-check"></i><b>3.2</b> Genotype quality control</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="genoquality.html"><a href="genoquality.html#deviation-from-hwe."><i class="fa fa-check"></i><b>3.2.1</b> Deviation from HWE.</a></li>
@@ -325,7 +325,7 @@ correspond well to the haplotype-block definition are often surrounded
 by equally large regions with little or no LD.</p>
 
 <div class="figure" style="text-align: center"><span id="fig:haplostructure"></span>
-<img src="book_files/figure-html/haplostructure-1.png" alt="Pairwise \(\mid D&#39; \mid\) plots for representative regions from different population samples from (Wall and Pritchard 2003). Each square in the triangle plots the level of linkage disequilibrium (LD) between a pair of sites in a region; comparisons between neighbouring sites lie along the diagonal. Red color indicates strong LD, green indicates weak LD and light brown indicates intermediate or uninformative LD. The long diagonal line indicates the physical length of the region, and the short black lines plot the position of each marker in this region." width="8%" />
+<img src="book_files/figure-html/haplostructure-1.png" alt="Pairwise \(\mid D&#39; \mid\) plots for representative regions from different population samples from (Wall and Pritchard 2003). Each square in the triangle plots the level of linkage disequilibrium (LD) between a pair of sites in a region; comparisons between neighbouring sites lie along the diagonal. Red color indicates strong LD, green indicates weak LD and light brown indicates intermediate or uninformative LD. The long diagonal line indicates the physical length of the region, and the short black lines plot the position of each marker in this region." width="80%" />
 <p class="caption">
 Figure 1.10: Pairwise <span class="math inline">\(\mid D&#39; \mid\)</span> plots for representative regions from different population samples from <span class="citation">(Wall and Pritchard <a href="#ref-wall2003haplotype">2003</a>)</span>. Each square in the triangle plots the level of linkage disequilibrium (LD) between a pair of sites in a region; comparisons between neighbouring sites lie along the diagonal. Red color indicates strong LD, green indicates weak LD and light brown indicates intermediate or uninformative LD. The long diagonal line indicates the physical length of the region, and the short black lines plot the position of each marker in this region.
 </p>
@@ -364,7 +364,7 @@ Figure 1.10: Pairwise <span class="math inline">\(\mid D&#39; \mid\)</span> plot
         </div>
       </div>
 <a href="LD.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="statistical-context.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="stat.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

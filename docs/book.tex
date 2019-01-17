@@ -129,7 +129,7 @@
 \chapter*{}\label{section}}
 \addcontentsline{toc}{chapter}{}
 
-\begin{center}\includegraphics{book_files/figure-latex/1ere-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{book_files/figure-latex/1ere-1} \end{center}
 
 \hypertarget{abstract}{%
 \chapter*{Abstract}\label{abstract}}
@@ -263,17 +263,17 @@ presentations in the following conferences:
 
 This manuscript is composed of five different chapters. The first three
 chapters will focus on the genetic, statistical and GWAS context while
-our two proposed methodologies will be presented in chapters 4 and 5.
-Chapter 1 will remind the genetic precepts fundamental to the
-understanding of our work while Chapter 2 will introduce the concept of
-statistical learning and Chapter 3 will provide an extensive
+our two proposed methodologies will be presented in Chapters \ref{LEOS} and \ref{sicomore}.
+Chapter \ref{genet} will remind the genetic precepts fundamental to the
+understanding of our work while Chapter \ref{stat} will introduce the concept of
+statistical learning and Chapter \ref{asso} will provide an extensive
 introduction to GWAS by presenting some state-of-the-art statistical
 methods. We will also discuss the results obtained on our proposed
-approaches at the end of chapters 4 and 5 before providing a general
+approaches at the end of Chapters \ref{LEOS} and \ref{sicomore} before providing a general
 conclusion in a last section.
 
-\hypertarget{basic-concepts-of-molecular-genetics}{%
-\chapter{Basic concepts of molecular genetics}\label{basic-concepts-of-molecular-genetics}}
+\hypertarget{genet}{%
+\chapter{Basic concepts of molecular genetics}\label{genet}}
 
 The purpose of this chapter is to provide the basic concepts in genetics necessary to the understanding of the Genome-Wide Associations Studies. The first section focuses on the description of the genome, sequencing analysis and introduces the notion of genetic mapping. The second section brings some concepts in population genetics necessary to a good understanding of linkage disequilibrium and association studies. The last section gives the definition of linkage disequilibrium and its origins. This section also explains the notion of haplotype structure, which is a key feature of the human genome that we leveraged with the methodology described in Chapter \ref{LEOS}.
 
@@ -601,7 +601,7 @@ regions of chromosomes, called recombination \emph{hotspots}, are more likely
 to be involved in crossovers than others. This results in shared
 chromosomic region among individuals of the same population, although
 each individual has a unique DNA sequence, and is known as haplotype
-structure. We will see in Section @ref(\#haplo) that different
+structure. We will see in Section \ref{haplo} that different
 populations have their own haplotypic structure.
 
 \hypertarget{basic-concepts-in-population-genetics}{%
@@ -1155,15 +1155,15 @@ by equally large regions with little or no LD.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.08\linewidth]{book_files/figure-latex/haplostructure-1} 
+{\centering \includegraphics[width=0.8\linewidth]{book_files/figure-latex/haplostructure-1} 
 
 }
 
 \caption{Pairwise \(\mid D' \mid\) plots for representative regions from different population samples from \citep{wall2003haplotype}. Each square in the triangle plots the level of linkage disequilibrium (LD) between a pair of sites in a region; comparisons between neighbouring sites lie along the diagonal. Red color indicates strong LD, green indicates weak LD and light brown indicates intermediate or uninformative LD. The long diagonal line indicates the physical length of the region, and the short black lines plot the position of each marker in this region.}\label{fig:haplostructure}
 \end{figure}
 
-\hypertarget{statistical-context}{%
-\chapter{Statistical context}\label{statistical-context}}
+\hypertarget{stat}{%
+\chapter{Statistical context}\label{stat}}
 
 This chapter is intended to introduce statistical learning and hypothesis testing. We will present some state-of-the-art linear statistical methods and also a thorough introduction to splines and generalized additive models. The understanding of these methods is required to grasp the statistical concepts used in the methodology presented in Chapter \ref{LEOS} and \ref{sicomore}.
 
@@ -2591,8 +2591,8 @@ instead of \(\alpha\), a lot of work has been done in order to achieve a
 better level, mainly by trying to estimate \(d_0\) (see \citep{roquain2010type}
 and references therein for more details).
 
-\hypertarget{genome-wide-association-studies}{%
-\chapter{Genome-Wide Association Studies}\label{genome-wide-association-studies}}
+\hypertarget{asso}{%
+\chapter{Genome-Wide Association Studies}\label{asso}}
 
 This chapter focuses on Genome-Wide Associations Studies. It aims at explaining the principles and limitations of such studies. Section \ref{genoquality} exposes the critical points to consider in terms of genotyping quality control to avoid false positives. Section \ref{OR} introduces the concepts of disease penetrances and odds ratio generally used in genetic epidemiology. Section \ref{popstructure} places emphasis on the problem of population structure in GWAS. In section \ref{SMA} is explained the classical single marker approach used in GWAS while Section \ref{multiloc} focuses on multi-marker methods to which we will refer in Chapter \ref{LEOS} and \ref{sicomore}.
 

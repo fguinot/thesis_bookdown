@@ -1,4 +1,4 @@
-# Genome-Wide Association Studies
+# Genome-Wide Association Studies {#asso}
 
 This chapter focuses on Genome-Wide Associations Studies. It aims at explaining the principles and limitations of such studies. Section \@ref(genoquality) exposes the critical points to consider in terms of genotyping quality control to avoid false positives. Section \@ref(OR) introduces the concepts of disease penetrances and odds ratio generally used in genetic epidemiology. Section \@ref(popstructure) places emphasis on the problem of population structure in GWAS. In section \@ref(SMA) is explained the classical single marker approach used in GWAS while Section \@ref(multiloc) focuses on multi-marker methods to which we will refer in Chapter \@ref(LEOS) and \@ref(sicomore). 
 

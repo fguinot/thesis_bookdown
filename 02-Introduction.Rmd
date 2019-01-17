@@ -104,11 +104,11 @@ presentations in the following conferences:
 
 This manuscript is composed of five different chapters. The first three
 chapters will focus on the genetic, statistical and GWAS context while
-our two proposed methodologies will be presented in chapters 4 and 5.
-Chapter 1 will remind the genetic precepts fundamental to the
-understanding of our work while Chapter 2 will introduce the concept of
-statistical learning and Chapter 3 will provide an extensive
+our two proposed methodologies will be presented in Chapters \@ref(LEOS) and \@ref(sicomore).
+Chapter \@ref(genet) will remind the genetic precepts fundamental to the
+understanding of our work while Chapter \@ref(stat) will introduce the concept of
+statistical learning and Chapter \@ref(asso) will provide an extensive
 introduction to GWAS by presenting some state-of-the-art statistical
 methods. We will also discuss the results obtained on our proposed
-approaches at the end of chapters 4 and 5 before providing a general
+approaches at the end of Chapters \@ref(LEOS) and \@ref(sicomore) before providing a general
 conclusion in a last section.

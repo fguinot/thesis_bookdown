@@ -1,4 +1,4 @@
-# Basic concepts of molecular genetics
+# Basic concepts of molecular genetics {#genet}
 
 The purpose of this chapter is to provide the basic concepts in genetics necessary to the understanding of the Genome-Wide Associations Studies. The first section focuses on the description of the genome, sequencing analysis and introduces the notion of genetic mapping. The second section brings some concepts in population genetics necessary to a good understanding of linkage disequilibrium and association studies. The last section gives the definition of linkage disequilibrium and its origins. This section also explains the notion of haplotype structure, which is a key feature of the human genome that we leveraged with the methodology described in Chapter \@ref(LEOS). 
 
@@ -289,7 +289,7 @@ regions of chromosomes, called recombination *hotspots*, are more likely
 to be involved in crossovers than others. This results in shared
 chromosomic region among individuals of the same population, although
 each individual has a unique DNA sequence, and is known as haplotype
-structure. We will see in Section \@ref(#haplo) that different
+structure. We will see in Section \@ref(haplo) that different
 populations have their own haplotypic structure.
 
 ## Basic concepts in population genetics
@@ -798,7 +798,7 @@ by equally large regions with little or no LD.
 
 (ref:haplostructure) Pairwise $\mid D' \mid$ plots for representative regions from different population samples from [@wall2003haplotype]. Each square in the triangle plots the level of linkage disequilibrium (LD) between a pair of sites in a region; comparisons between neighbouring sites lie along the diagonal. Red color indicates strong LD, green indicates weak LD and light brown indicates intermediate or uninformative LD. The long diagonal line indicates the physical length of the region, and the short black lines plot the position of each marker in this region.
 
-```{r haplostructure, echo = FALSE, fig.cap='(ref:haplostructure)', out.width='8%', fig.asp=.75, fig.align='center'}
+```{r haplostructure, echo = FALSE, fig.cap='(ref:haplostructure)', out.width='80%', fig.asp=.75, fig.align='center'}
 path <- "/Users/fguinot/Documents/bioptilamme/Manuscript/figures/haplo_structure.jpg"
 img <-  grid::rasterGrob(as.raster(jpeg::readJPEG(path)), interpolate = FALSE)
 gridExtra::grid.arrange(img, ncol=1)
