@@ -1,0 +1,62 @@
+\tikzstyle{model}=[circle,inner sep=0pt,minimum size=2mm]
+\tikzstyle{group}=[circle,draw=red!50,fill=red!20,thick,
+                   inner sep=0pt,minimum size=6mm]
+\tikzstyle{rgroup}=[circle,draw=red!80,fill=red!50,thick,
+                   inner sep=0pt,minimum size=5mm]
+\tikzstyle{leaf}=[rectangle,draw=blue!50,fill=blue!20,thick,
+                        inner sep=0pt,minimum width=8mm, minimum
+                   height=4mm]
+
+\tikzstyle{l0}=[circle,draw=rootcolor,fill=rootcolor!35!white,thick,
+%circle,draw=darkgreen,fill=flashgreen!35!white,thick, 
+%circle,draw=darkgreen,fill=darkgreen!35!white,thick,
+                   inner sep=0pt,minimum size=1.25mm, line width =
+                   0.75pt]
+\tikzstyle{l1}=[circle,draw=blue,fill=blue!35!white,thick,
+                   inner sep=0pt,minimum size=1.25mm, line width =
+                   0.75pt]
+\tikzstyle{l2}=[circle,draw=red,fill=red!35!white,thick,
+                   inner sep=0pt,minimum size=1.25mm, line width =
+                   0.75pt]
+\tikzstyle{l3}=[circle,draw=violet,fill=violet!35!white,thick,
+                   inner sep=0pt,minimum size=1.25mm, line width =
+                   0.75pt]
+
+\definecolor{bgfig}{gray}{1}
+
+\makeatletter 
+
+%pour faire des degrades sur des traits
+\pgfkeys{/pgf/decoration/.cd, 
+  start color/.store in=\startcolor, 
+  end color/.store in=\endcolor 
+} 
+
+\pgfdeclaredecoration{color change arrow}{initial}{ 
+  \state{initial}[width=0pt, next state=line, persistent precomputation={% 
+    \pgfmathdivide{50}{\pgfdecoratedpathlength}% 
+    \let\increment=\pgfmathresult% 
+    \def\x{0}% 
+  }]{} 
+  \state{line}[width=0.5pt, switch if less than=5.0\pgflinewidth to final, 
+    persistent postcomputation={% 
+      \pgfmathadd@{\x}{\increment}% 
+      \let\x=\pgfmathresult% 
+    }]{% 
+    \pgfsetlinewidth{\pgflinewidth}% 
+    \pgfsetarrows{-}% 
+    \pgfpathmoveto{\pgfpointorigin}% 
+    \pgfpathlineto{\pgfqpoint{0.75pt}{0pt}}% 
+    \pgfsetstrokecolor{\endcolor!\x!\startcolor}% 
+    \pgfusepath{stroke}% 
+  } 
+  \state{final}{% 
+    \pgfsetlinewidth{\pgflinewidth}% 
+    \pgfpathmoveto{\pgfpointorigin}% 
+    \pgfpathlineto{\pgfpointdecoratedpathlast\advance\pgf@x by2.0\pgflinewidth}% 
+    \color{\endcolor!\x!\startcolor}% 
+    \pgfusepath{stroke}%	
+  } 
+} 
+
+\makeatother 

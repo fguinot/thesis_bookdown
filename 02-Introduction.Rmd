@@ -1,0 +1,114 @@
+# General introduction {#intro .unnumbered}
+
+#### Background {.unnumbered}
+
+The foundations of modern genetics laid down in Johann Gregor Mendel’s
+pioneering work have resulted in the understanding that certain
+hereditary traits can exist in different versions (alleles), introducing
+the notion of homozygosity and heterozygosity. It paved the way for the
+comprehension of heredity mechanisms with the establishment of the first
+genetic maps by Thomas Hunt Morgan and the definition of genetic
+heritability by Ronald Fisher which suggests that the expression of a
+trait (phenotype) is subject to both genetic and environmental factors.
+These groundbreaking works led to the linkage analysis studies whose
+purpose is to map genes involved in the expression of diseases. These
+approaches, effective in locating genes involved in the expression of a
+simple qualitative trait, have proven less reliable in mapping complex
+diseases. Indeed, there may be multiple interaction between genes
+underlying these phenotypes and the effects of these genes may vary with
+exposure to environmental and other non-genetic risk factors.
+
+These limitations have driven the development of another discipline:
+Genome-Wide Associations Studies (GWAS). These studies aim to identify
+single nucleotide polymorphisms (SNP), i.e. genetic markers that occur
+at different frequencies between unrelated samples of affected
+individuals and unaffected controls, implied in the expression of a
+given phenotype. These studies exploit the fact that it is easier to
+establish large cohorts of affected individuals sharing a genetic risk
+factor for a complex disease in the general population than within
+individual families, as it is the case with traditional linkage
+analysis.
+
+In addition, recent advances in genotyping technology have made it
+possible to genotype the entire DNA sequence of an individual at a
+moderate cost and within a reasonable time. Therefore, it became
+necessary to develop new statistical methods able to process this type
+of massive data.
+
+#### Problematic {.unnumbered}
+
+From a statistical point of view, looking for these genetic markers can
+be supported by hypothesis testing. The standard approach in GWAS is
+based on univariate linear regression, with affected individuals being
+tested against healthy individuals at one or more loci. Classical
+testing schemes are subject to false positives, that is SNP that are
+falsely identified as significant. One way around this problem is to
+apply a correction for the False Discovery Rate [FDR,
+@benjamini_controlling_1995]. Unfortunately, this increases the risk of
+missing true associations that have only a small effect on the
+phenotype, which is usually the case in GWAS.
+
+Although GWAS have been successful in the identification of genetic
+variants associated with complex multifactorial diseases (Crohn’s
+disease, diabetes I and II, coronary artery
+disease…[@burton_genome-wide_2007]), only a small proportion of the
+phenotypic variations expected from classical family studies have been
+explained [@manolio_finding_2009]. This missing heritability may have
+multiple causes amongst the following: strong correlations between
+genetic variants, population structure, epistasis (gene by gene
+interactions), disease associated with rare variants…
+
+#### Objectives { .unnumbered}
+
+The main objectives of this thesis are to develop new methodologies, in
+the context of GWAS, that can face part of the limitations mentioned
+above. More specifically we developed two new approaches: the first one,
+entitled LEOS, is a blockwise approach for GWAS analysis which leverages
+the correlation structure among the genomic variants to reduce the
+number of statistical hypotheses to be tested, while the second, named
+SICOMORE, focuses on the detection of interactions between groups of
+metagenomic and genetic markers to better understand the complex
+relationship between environment and genome in the expression of a given
+phenotype.
+
+#### Contributions { .unnumbered}
+
+This thesis work gave rise to the writing of two scientific articles,
+one for each methodology. The method LEOS described in Chapter 4 is
+under minor review in the journal BMC bioinformatics while the method
+SICOMORE described in Chapter 5 has been published as an article of a
+national conference ($50^{th}$ Journées de la statistique) but the
+extended version was still in a preprint status at the time this
+manuscript was written.
+
+The proposed methods have been implemented in computer programs: LEOS is
+proposed as a webserver tool while SICOMORE is available through an R
+package (a vignette, added at the end of the manuscript, is available
+for this package).
+
+This work has also led to several oral communications and poster
+presentations in the following conferences:
+
+-   *Statistical Methods for Post Genomic Data* in 2017 (poster
+    presentation LEOS)
+
+-   *International Society for Computational Biology conference* in 2017
+    (poster presentation LEOS)
+
+-   *Statistical Methods in Biopharmacy* in 2017 (oral presentation
+    LEOS).
+
+-   *Journées de statistique* in 2018 (oral presentation SICOMORE)
+
+#### Contents of the manuscript { .unnumbered}
+
+This manuscript is composed of five different chapters. The first three
+chapters will focus on the genetic, statistical and GWAS context while
+our two proposed methodologies will be presented in chapters 4 and 5.
+Chapter 1 will remind the genetic precepts fundamental to the
+understanding of our work while Chapter 2 will introduce the concept of
+statistical learning and Chapter 3 will provide an extensive
+introduction to GWAS by presenting some state-of-the-art statistical
+methods. We will also discuss the results obtained on our proposed
+approaches at the end of chapters 4 and 5 before providing a general
+conclusion in a last section.

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>References | Statistical learning for omics association and interactions studies based on blockwise feature compression</title>
+  <meta name="description" content="PdD thesis">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="References | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="PdD thesis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="References | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  
+  <meta name="twitter:description" content="PdD thesis" />
+  
+
+<meta name="author" content="Florent Guinot">
+
+
+<meta name="date" content="2019-01-07">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="final-words.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>General introduction</a><ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#background"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#problematic"><i class="fa fa-check"></i>Problematic</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#objectives"><i class="fa fa-check"></i>Objectives</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contributions"><i class="fa fa-check"></i>Contributions</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contents-of-the-manuscript"><i class="fa fa-check"></i>Contents of the manuscript</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
+<li class="chapter" data-level="1.1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#genome"><i class="fa fa-check"></i><b>1.1</b> Genome description</a></li>
+<li class="chapter" data-level="1.2" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#genome-sequencing"><i class="fa fa-check"></i><b>1.2</b> Genome sequencing</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#DNAseq"><i class="fa fa-check"></i><b>1.2.1</b> DNA sequencing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#sequence-assembly"><i class="fa fa-check"></i><b>1.2.2</b> Sequence assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#dna-polymorphism"><i class="fa fa-check"></i><b>1.3</b> DNA polymorphism</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#restriction-fragment-length-polymorphisms-rflp"><i class="fa fa-check"></i><b>1.3.1</b> Restriction Fragment Length Polymorphisms (RFLP)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#simple-sequence-length-polymorphisms-sslp"><i class="fa fa-check"></i><b>1.3.2</b> Simple Sequence Length Polymorphisms (SSLP)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#single-nucleotide-polymorphisms-snp"><i class="fa fa-check"></i><b>1.3.3</b> Single Nucleotide Polymorphisms (SNP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#linkage"><i class="fa fa-check"></i><b>1.4</b> Linkage and partial linkage for genetic mapping</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#basic-concepts-in-population-genetics"><i class="fa fa-check"></i><b>1.5</b> Basic concepts in population genetics</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#HWE"><i class="fa fa-check"></i><b>1.5.1</b> Hardy-Weinberg equilibrium in large population</a></li>
+<li class="chapter" data-level="1.5.2" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#genetic-drift-in-small-population"><i class="fa fa-check"></i><b>1.5.2</b> Genetic drift in small population</a></li>
+<li class="chapter" data-level="1.5.3" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#concept-of-heritability"><i class="fa fa-check"></i><b>1.5.3</b> Concept of heritability</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#LD"><i class="fa fa-check"></i><b>1.6</b> Linkage disequilibrium</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#definition"><i class="fa fa-check"></i><b>1.6.1</b> Definition</a></li>
+<li class="chapter" data-level="1.6.2" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#measure-of-ld"><i class="fa fa-check"></i><b>1.6.2</b> Measure of LD</a></li>
+<li class="chapter" data-level="1.6.3" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#estimation-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.3</b> Estimation of linkage disequilibrium</a></li>
+<li class="chapter" data-level="1.6.4" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#origins-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.4</b> Origins of linkage disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#haplo"><i class="fa fa-check"></i><b>1.7</b> Structure of haplotype blocks in the human genome</a><ul>
+<li class="chapter" data-level="" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#definition-of-haplotype-blocks"><i class="fa fa-check"></i>Definition of haplotype blocks</a></li>
+<li class="chapter" data-level="" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#patterns-in-human-genome"><i class="fa fa-check"></i>Patterns in human genome</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-context.html"><a href="statistical-context.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
+<li class="chapter" data-level="2.1" data-path="statistical-context.html"><a href="statistical-context.html#notations"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
+<li class="chapter" data-level="2.2" data-path="statistical-context.html"><a href="statistical-context.html#concepts-of-statistical-learning"><i class="fa fa-check"></i><b>2.2</b> Concepts of statistical learning</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="statistical-context.html"><a href="statistical-context.html#prediction"><i class="fa fa-check"></i><b>2.2.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="statistical-context.html"><a href="statistical-context.html#parametric"><i class="fa fa-check"></i><b>2.3</b> Parametric methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="statistical-context.html"><a href="statistical-context.html#linmod"><i class="fa fa-check"></i><b>2.3.1</b> Linear models</a></li>
+<li class="chapter" data-level="2.3.2" data-path="statistical-context.html"><a href="statistical-context.html#penalized"><i class="fa fa-check"></i><b>2.3.2</b> Penalized linear regression</a></li>
+<li class="chapter" data-level="2.3.3" data-path="statistical-context.html"><a href="statistical-context.html#glm"><i class="fa fa-check"></i><b>2.3.3</b> Generalized linear models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="statistical-context.html"><a href="statistical-context.html#non-parametric"><i class="fa fa-check"></i><b>2.4</b> Splines and generalized additive models: Moving beyond linearit</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="statistical-context.html"><a href="statistical-context.html#introduction"><i class="fa fa-check"></i><b>2.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.4.2" data-path="statistical-context.html"><a href="statistical-context.html#splines"><i class="fa fa-check"></i><b>2.4.2</b> Regression splines</a></li>
+<li class="chapter" data-level="2.4.3" data-path="statistical-context.html"><a href="statistical-context.html#mathrmb-splines"><i class="fa fa-check"></i><b>2.4.3</b> <span class="math inline">\(\mathrm{B}\)</span>-splines</a></li>
+<li class="chapter" data-level="2.4.4" data-path="statistical-context.html"><a href="statistical-context.html#smoothing"><i class="fa fa-check"></i><b>2.4.4</b> Cubic smoothing splines</a></li>
+<li class="chapter" data-level="2.4.5" data-path="statistical-context.html"><a href="statistical-context.html#gam"><i class="fa fa-check"></i><b>2.4.5</b> Generalized additive models (GAM)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="statistical-context.html"><a href="statistical-context.html#hgam"><i class="fa fa-check"></i><b>2.4.6</b> High-dimensional generalized additive models (HGAM)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="statistical-context.html"><a href="statistical-context.html#combining-cluster-analysis-and-variable-selection"><i class="fa fa-check"></i><b>2.5</b> Combining cluster analysis and variable selection</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="statistical-context.html"><a href="statistical-context.html#CAH"><i class="fa fa-check"></i><b>2.5.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="2.5.2" data-path="statistical-context.html"><a href="statistical-context.html#HCAR"><i class="fa fa-check"></i><b>2.5.2</b> Hierarchical Clustering and Averaging Regression</a></li>
+<li class="chapter" data-level="2.5.3" data-path="statistical-context.html"><a href="statistical-context.html#MLGL"><i class="fa fa-check"></i><b>2.5.3</b> Multi-Layer Group-Lasso (MLGL)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="statistical-context.html"><a href="statistical-context.html#hypothesis"><i class="fa fa-check"></i><b>2.6</b> Statistical testing of significance</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="statistical-context.html"><a href="statistical-context.html#introduction-1"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.6.2" data-path="statistical-context.html"><a href="statistical-context.html#chi2"><i class="fa fa-check"></i><b>2.6.2</b> <span class="math inline">\(\chi^2\)</span> test</a></li>
+<li class="chapter" data-level="2.6.3" data-path="statistical-context.html"><a href="statistical-context.html#LRT"><i class="fa fa-check"></i><b>2.6.3</b> Likelihood ratio test</a></li>
+<li class="chapter" data-level="2.6.4" data-path="statistical-context.html"><a href="statistical-context.html#pval_GAM"><i class="fa fa-check"></i><b>2.6.4</b> Calculation of <em>p</em>-values in GAM</a></li>
+<li class="chapter" data-level="2.6.5" data-path="statistical-context.html"><a href="statistical-context.html#multiple"><i class="fa fa-check"></i><b>2.6.5</b> Multiple testing comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html"><i class="fa fa-check"></i><b>3</b> Genome-Wide Association Studies</a><ul>
+<li class="chapter" data-level="3.1" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#introduction-2"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#genoquality"><i class="fa fa-check"></i><b>3.2</b> Genotype quality control</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#deviation-from-hwe."><i class="fa fa-check"></i><b>3.2.1</b> Deviation from HWE.</a></li>
+<li class="chapter" data-level="3.2.2" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#missing-data."><i class="fa fa-check"></i><b>3.2.2</b> Missing data.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#distribution-of-test-statistics."><i class="fa fa-check"></i><b>3.2.3</b> Distribution of test statistics.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#OR"><i class="fa fa-check"></i><b>3.3</b> Disease penetrance and odds ratio</a></li>
+<li class="chapter" data-level="3.4" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#SMA"><i class="fa fa-check"></i><b>3.4</b> Single Marker Analysis</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#pearsons-chi2-statistic"><i class="fa fa-check"></i><b>3.4.1</b> Pearson’s <span class="math inline">\(\chi^2\)</span> statistic</a></li>
+<li class="chapter" data-level="3.4.2" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#cochran-armitage-trend-test"><i class="fa fa-check"></i><b>3.4.2</b> Cochran-Armitage trend test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#logitGWAS"><i class="fa fa-check"></i><b>3.4.3</b> Logistic regression and likelihood ratio test</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#GWAS_limits"><i class="fa fa-check"></i><b>3.5</b> Limitations</a></li>
+<li class="chapter" data-level="3.6" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#popstructure"><i class="fa fa-check"></i><b>3.6</b> Population structure</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#genomic-control"><i class="fa fa-check"></i><b>3.6.1</b> Genomic control</a></li>
+<li class="chapter" data-level="3.6.2" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#structured-association"><i class="fa fa-check"></i><b>3.6.2</b> Structured association</a></li>
+<li class="chapter" data-level="3.6.3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#PCC"><i class="fa fa-check"></i><b>3.6.3</b> Principle components correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#multiloc"><i class="fa fa-check"></i><b>3.7</b> Multi-locus analysis</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#haplotype-based-approaches"><i class="fa fa-check"></i><b>3.7.1</b> Haplotype-based approaches</a></li>
+<li class="chapter" data-level="3.7.2" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#rare-variant"><i class="fa fa-check"></i><b>3.7.2</b> Rare-variant association analysis</a></li>
+<li class="chapter" data-level="3.7.3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#adjclust"><i class="fa fa-check"></i><b>3.7.3</b> LD based approach to variable selection in GWAS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>4</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical learning for omics association and interactions studies based on blockwise feature compression</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+
+<div id="refs" class="references">
+<div>
+<p>Aitkin, AC. 1935. “On Least Squares and Linear Combination of Observations.” <em>Proceedings of the Royal Society of Edinburgh</em> 55: 42–48.</p>
+</div>
+<div>
+<p>Anderson, Stephen. 1981. “Shotgun Dna Sequencing Using Cloned Dnase I-Generated Fragments.” <em>Nucleic Acids Research</em> 9 (13): 3015–27.</p>
+</div>
+<div>
+<p>Ardlie, K. G., L. Kruglyak, and M. Seielstad. 2002. “Patterns of Linkage Disequilibrium in the Human Genome.” <em>Nature Reviews Genetics</em> 3 (4): 299–309.</p>
+</div>
+<div>
+<p>Armitage, Peter. 1955. “Tests for Linear Trends in Proportions and Frequencies.” <em>Biometrics</em> 11 (3): 375–86.</p>
+</div>
+<div>
+<p>Asimit, J. L., A. G. Day-Williams, A. P. Morris, and E. Zeggini. 2012. “ARIEL and AMELIA: Testing for an Accumulation of Rare Variants Using Next-Generation Sequencing Data.” <em>Human Heredity</em> 73 (2): 84–94.</p>
+</div>
+<div>
+<p>Balding, David J, Martin Bishop, and Chris Cannings. 2008. <em>Handbook of Statistical Genetics</em>. John Wiley &amp; Sons.</p>
+</div>
+<div>
+<p>Barrett, Jeffrey C, and Lon R Cardon. 2006. “Evaluating Coverage of Genome-Wide Association Studies.” <em>Nature Genetics</em> 38 (6): 659.</p>
+</div>
+<div>
+<p>Barrett, Jeffrey C, B Fry, JDMJ Maller, and Mark J Daly. 2004. “Haploview: Analysis and Visualization of Ld and Haplotype Maps.” <em>Bioinformatics</em> 21 (2): 263–65.</p>
+</div>
+<div>
+<p>Benjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” <em>Journal of the Royal Statistical Society: Series B</em> 57 (1): 289–300.</p>
+</div>
+<div>
+<p>Bonferroni, C. 1936. “Teoria Statistica Delle Classi E Calcolo Delle Probabilita.” <em>Pubblicazioni Del R Istituto Superiore Di Scienze Economiche E Commericiali Di Firenze</em> 8: 3–62.</p>
+</div>
+<div>
+<p>Boor, Carl de. 1975. <em>A Practical Guide to Splines</em>. Springer. Springer. <a href="http://www.springer.com/gb/book/9780387953663">http://www.springer.com/gb/book/9780387953663</a>.</p>
+</div>
+<div>
+<p>Brown, T.A., D.B.S.T. Brown, T.A. Brown, and L.B.T. Brown. 2007. <em>Genomes 3</em>. Taylor &amp; Francis Group, an Informa Business. Garland Science Pub. <a href="https://books.google.fr/books?id=Cjl98tqp6rsC">https://books.google.fr/books?id=Cjl98tqp6rsC</a>.</p>
+</div>
+<div>
+<p>Buja, Andreas, Trevor Hastie, and Robert Tibshirani. 1989. “Linear Smoothers and Additive Models.” <em>The Annals of Statistics</em> 17 (2): 453–510. <a href="http://www.jstor.org/stable/2241560">http://www.jstor.org/stable/2241560</a>.</p>
+</div>
+<div>
+<p>Bush, William S, and Jason H Moore. 2012. “Genome-Wide Association Studies.” <em>PLoS Computational Biology</em> 8 (12): e1002822.</p>
+</div>
+<div>
+<p>Caliński, T., and J. Harabasz. 1974. “A Dendrite Method for Cluster Analysis.” <em>Communications in Statistics</em> 3 (1): 1–27.</p>
+</div>
+<div>
+<p>Chapman, Juliet M, Jason D Cooper, John A Todd, and David G Clayton. 2003. “Detecting Disease Associations Due to Linkage Disequilibrium Using Haplotype Tags: A Class of Tests and the Determinants of Statistical Power.” <em>Human Heredity</em> 56 (1-3): 18–31.</p>
+</div>
+<div>
+<p>Charlesworth, Brian, MT Morgan, and D Charlesworth. 1993. “The Effect of Deleterious Mutations on Neutral Molecular Variation.” <em>Genetics</em> 134 (4): 1289–1303.</p>
+</div>
+<div>
+<p>Clarke, Geraldine M, Carl A Anderson, Fredrik H Pettersson, Lon R Cardon, Andrew P Morris, and Krina T Zondervan. 2011. “Basic Statistical Analysis in Genetic Case-Control Studies.” <em>Nature Protocols</em> 6 (2): 121.</p>
+</div>
+<div>
+<p>Clayton, David G, Neil M Walker, Deborah J Smyth, Rebecca Pask, Jason D Cooper, Lisa M Maier, Luc J Smink, et al. 2005. “Population Structure, Differential Bias and Genomic Control in a Large-Scale, Case-Control Association Study.” <em>Nature Genetics</em> 37 (11): 1243.</p>
+</div>
+<div>
+<p>Cochran, William G. 1954. “Some Methods for Strengthening the Common <span class="math inline">\(\chi\)</span> 2 Tests.” <em>Biometrics</em> 10 (4): 417–51.</p>
+</div>
+<div>
+<p>Cox, David R. 1958. “The Regression Analysis of Binary Sequences.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em>, 215–42.</p>
+</div>
+<div>
+<p>Crick, F.H.C., and J.D. Watson. 1954. “The Complementary Structure of Deoxyribonucleic Acid.” <em>Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences</em> 223 (1152): 80–96.</p>
+</div>
+<div>
+<p>Daly, Mark J, John D Rioux, Stephen F Schaffner, Thomas J Hudson, and Eric S Lander. 2001. “High-Resolution Haplotype Structure in the Human Genome.” <em>Nature Genetics</em> 29 (2): 229.</p>
+</div>
+<div>
+<p>Dandine-Roulland, Claire, and Herve Perdry. 2015. “The Use of the Linear Mixed Model in Human Genetics.” <em>Human Heredity</em> 80 (4): 196–206.</p>
+</div>
+<div>
+<p>Davies, Robert B. 1980. “Algorithm as 155: The Distribution of a Linear Combination of <span class="math inline">\(\chi\)</span> 2 Random Variables.” <em>Journal of the Royal Statistical Society. Series C (Applied Statistics)</em> 29 (3): 323–33.</p>
+</div>
+<div>
+<p>Dehman, A., C. Ambroise, and P. Neuvial. 2015. “Performance of a Blockwise Approach in Variable Selection Using Linkage Disequilibrium Information.” <em>BMC Bioinformatics</em> 16: 148.</p>
+</div>
+<div>
+<p>Dehman, Alia. 2015. “Spatial Clustering of Linkage Disequilibrium blocks for Genome-Wide Association Studies.” Theses, Université d’Evry Val d’Essonne ; Université Paris-Saclay ; Laboratoire de Mathématiques et Modélisation d’Evry. <a href="https://tel.archives-ouvertes.fr/tel-01288568">https://tel.archives-ouvertes.fr/tel-01288568</a>.</p>
+</div>
+<div>
+<p>Devlin, Bernie, and Kathryn Roeder. 1999. “Genomic Control for Association Studies.” <em>Biometrics</em> 55 (4): 997–1004.</p>
+</div>
+<div>
+<p>Devlin, B, and Neil Risch. 1995. “A Comparison of Linkage Disequilibrium Measures for Fine-Scale Mapping.” <em>Genomics</em> 29 (2): 311–22.</p>
+</div>
+<div>
+<p>Dudbridge, Frank, and Arief Gusnanto. 2008. “Estimation of Significance Thresholds for Genomewide Association Scans.” <em>Genetic Epidemiology</em> 32 (3): 227–34.</p>
+</div>
+<div>
+<p>Efron, Bradley, Trevor Hastie, Iain Johnstone, Robert Tibshirani, and others. 2004. “Least Angle Regression.” <em>The Annals of Statistics</em> 32 (2): 407–99.</p>
+</div>
+<div>
+<p>Excoffier, Laurent, and Montgomery Slatkin. 1995. “Maximum-Likelihood Estimation of Molecular Haplotype Frequencies in a Diploid Population.” <em>Molecular Biology and Evolution</em> 12 (5): 921–27.</p>
+</div>
+<div>
+<p>Fisher, Ronald A. 1919. “XV.âThe Correlation Between Relatives on the Supposition of Mendelian Inheritance.” <em>Earth and Environmental Science Transactions of the Royal Society of Edinburgh</em> 52 (2): 399–433.</p>
+</div>
+<div>
+<p>———. 1935. “Statistical Methods for Research Workers.” <em>Edinburgh: Oliver and Boyd, 1934 and the Logic of Inductive Interence; Royal Statistical Society</em> 98: S–39.</p>
+</div>
+<div>
+<p>Fletcher, Roger. 1987. “Practical Methods of Optimization John Wiley &amp; Sons.” <em>New York</em> 80.</p>
+</div>
+<div>
+<p>Friedman, Jerome, Trevor Hastie, and Robert Tibshirani. 2001. <em>The Elements of Statistical Learning</em>. Vol. 1. Springer series in statistics New York.</p>
+</div>
+<div>
+<p>Frisse, L, RR Hudson, A Bartoszewicz, JD Wall, J Donfack, and A Di Rienzo. 2001. “Gene Conversion and Different Population Histories May Explain the Contrast Between Polymorphism and Linkage Disequilibrium Levels.” <em>The American Journal of Human Genetics</em> 69 (4): 831–43.</p>
+</div>
+<div>
+<p>Gabriel, S. B., S. F. Schaffner, H. Nguyen, J. M. Moore, J. Roy, B. Blumenstiel, J. Higgins, et al. 2002. “The Structure of Haplotype Blocks in the Human Genome.” <em>Science</em> 296 (5576): 2225–9.</p>
+</div>
+<div>
+<p>Garibyan, Lilit, and Nidhi Avashia. 2013. “Research Techniques Made Simple: Polymerase Chain Reaction (Pcr).” <em>The Journal of Investigative Dermatology</em> 133 (3): e6.</p>
+</div>
+<div>
+<p>Gauss, Carl Friedrich. 1809. <em>Theoria Motus Corporum Coelestium in Sectionibus Conicis Solem Ambientium Auctore Carolo Friderico Gauss</em>. sumtibus Frid. Perthes et IH Besser.</p>
+</div>
+<div>
+<p>Golub, Gene H, Michael Heath, and Grace Wahba. 1979. “Generalized Cross-Validation as a Method for Choosing a Good Ridge Parameter.” <em>Technometrics</em> 21 (2): 215–23.</p>
+</div>
+<div>
+<p>Grimonprez, Quentin. 2016. “Selection de Groupes de Variables corrÃÂ©lÃÂ©es En Grande Dimension.” PhD thesis, Université de Lille; Lille 1.</p>
+</div>
+<div>
+<p>Gu, Chong. 2002. <em>Smoothing Spline ANOVA Models</em>. Springer Series in Statistics. New York, NY: Springer New York. <a href="http://link.springer.com/10.1007/978-1-4757-3683-0">http://link.springer.com/10.1007/978-1-4757-3683-0</a>.</p>
+</div>
+<div>
+<p>Hastie, T. J., and R. J. Tibshirani. 1990. <em>Generalized Additive Models</em>. CRC Press.</p>
+</div>
+<div>
+<p>Hedrick, Philip W. 1987. “Gametic Disequilibrium Measures: Proceed with Caution.” <em>Genetics</em> 117 (2): 331–41.</p>
+</div>
+<div>
+<p>Hill, WG, and Alan Robertson. 1968. “Linkage Disequilibrium in Finite Populations.” <em>Theoretical and Applied Genetics</em> 38 (6): 226–31.</p>
+</div>
+<div>
+<p>Hill, William G. 1974. “Estimation of Linkage Disequilibrium in Randomly Mating Populations.” <em>Heredity</em> 33 (2): 229.</p>
+</div>
+<div>
+<p>Hoerl, Arthur E, and Robert W Kennard. 1970. “Ridge Regression: Biased Estimation for Nonorthogonal Problems.” <em>Technometrics</em> 12 (1): 55–67.</p>
+</div>
+<div>
+<p>Holm, Sture. 1979. “A Simple Sequentially Rejective Multiple Test Procedure.” <em>Scandinavian Journal of Statistics</em>, 65–70.</p>
+</div>
+<div>
+<p>Jacob, Laurent, Guillaume Obozinski, and Jean-Philippe Vert. 2009. “Group LAsso with Overlap and Graph LAsso.” In <em>Proceedings of the 26th Annual International Conference on Machine Learning</em>, 433–40. Montreal, Quebec, Canada.</p>
+</div>
+<div>
+<p>Jenatton, Rodolphe, Jean-Yves Audibert, and Francis Bach. 2011. “Structured Variable Selection with Sparsity-Inducing Norms.” <em>Journal of Machine Learning Research</em> 12 (Oct): 2777–2824.</p>
+</div>
+<div>
+<p>Kaessmann, Henrik, Sebastian Zöllner, Anna C Gustafsson, Victor Wiebe, Maris Laan, Joakim Lundeberg, Mathias Uhlén, and Svante Pääbo. 2002. “Extensive Linkage Disequilibrium in Small Human Populations in Eurasia.” <em>The American Journal of Human Genetics</em> 70 (3): 673–85.</p>
+</div>
+<div>
+<p>Krzanowski, W. J., and Y. T. Lai. 1988. “A Criterion for Determining the Number of Groups in a Data Set Using Sum-of-Squares Clustering.” <em>Biometrics</em> 44 (1): 23–34.</p>
+</div>
+<div>
+<p>Kwak, Il-Youp, and Wei Pan. 2016. “Adaptive Gene- and Pathway-Trait Association Testing with GWAS Summary Statistics.” <em>Bioinformatics</em> 32: 1178–84. <a href="https://doi.org/10.1093/bioinformatics/btv719">https://doi.org/10.1093/bioinformatics/btv719</a>.</p>
+</div>
+<div>
+<p>Laan, Maris, and Svante Pääbo. 1997. “Demographic History and Linkage Disequilibrium in Human Populations.” <em>Nature Genetics</em> 17 (4): 435.</p>
+</div>
+<div>
+<p>Lee, S., G. R. Abecasis, M. Boehnke, and X. Lin. 2014. “Rare-Variant Association Analysis: Study Designs and Statistical Tests.” <em>American Journal of Human Genetics</em> 95 (1): 5–23.</p>
+</div>
+<div>
+<p>Lee, S., M. C. Wu, and X. Lin. 2012. “Optimal Tests for Rare Variant Effects in Sequencing Association Studies.” <em>Biostatistics</em> 13 (4): 762–75.</p>
+</div>
+<div>
+<p>Lewontin, R. C. 1964. “THE Interaction of Selection and Linkage. I. GENERAL Considerations; Heterotic Models.” <em>Genetics</em> 49 (1): 49–67.</p>
+</div>
+<div>
+<p>Li, Bingshan, and Suzanne M Leal. 2008. “Methods for Detecting Associations with Rare Variants for Common Diseases: Application to Analysis of Sequence Data.” <em>The American Journal of Human Genetics</em> 83 (3): 311–21.</p>
+</div>
+<div>
+<p>Lin, Xihong. 1997. “Variance Component Testing in Generalised Linear Models with Random Effects.” <em>Biometrika</em> 84 (2): 309–26.</p>
+</div>
+<div>
+<p>Longford, Nicholas T. 1987. “A Fast Scoring Algorithm for Maximum Likelihood Estimation in Unbalanced Mixed Models with Nested Random Effects.” <em>Biometrika</em> 74 (4): 817–27.</p>
+</div>
+<div>
+<p>Madsen, Bo Eskerod, and Sharon R Browning. 2009. “A Groupwise Association Test for Rare Mutations Using a Weighted Sum Statistic.” <em>PLoS Genetics</em> 5 (2): e1000384.</p>
+</div>
+<div>
+<p>Maher, B. 2008. “Personal Genomes: The Case of the Missing Heritability.” <em>Nature News</em> 456 (7218): 18–21.</p>
+</div>
+<div>
+<p>Manolio, T. A., and P. M. Visscher. 2009. “Finding the Missing Heritability of Complex Diseases.” <em>Nature</em> 461 (7265): 747–53.</p>
+</div>
+<div>
+<p>Maxam, Allan M, and Walter Gilbert. 1977. “A New Method for Sequencing Dna.” <em>Proceedings of the National Academy of Sciences</em> 74 (2): 560–64.</p>
+</div>
+<div>
+<p>Mc Cullagh, Peter, and J. A. Nelder. 1989. “Generalized Linear Models, Second Edition.” <em>CRC Press</em>. <a href="https://www.crcpress.com/Generalized-Linear-Models-Second-Edition/McCullagh-Nelder/p/book/9780412317606">https://www.crcpress.com/Generalized-Linear-Models-Second-Edition/McCullagh-Nelder/p/book/9780412317606</a>.</p>
+</div>
+<div>
+<p>Meier, Lukas, Sara van de Geer, and Peter Buhlmann. 2009. “High-Dimensional Additive Modeling.” <em>The Annals of Statistics</em> 37: 3779–3821. <a href="https://doi.org/10.1214/09-AOS692">https://doi.org/10.1214/09-AOS692</a>.</p>
+</div>
+<div>
+<p>Meier, Lukas, Sara Van De Geer, and Peter Buhlmann. 2008. “The Group Lasso for Logistic Regression.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 70 (1): 53–71. <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1467-9868.2007.00627.x/abstract">http://onlinelibrary.wiley.com/doi/10.1111/j.1467-9868.2007.00627.x/abstract</a>.</p>
+</div>
+<div>
+<p>Mendel, Gregor Johann. 1865. “Versuche ãœber Pflanzen-Hybridenâ [Experiments Concerning Plant Hybrids].” <em>Proceedings of the Natural History Society of BrÃŒnn</em> IV: 3–47.</p>
+</div>
+<div>
+<p>Morgenthaler, Stephan, and William G Thilly. 2007. “A Strategy to Discover Genes That Carry Multi-Allelic or Mono-Allelic Risk for Common Diseases: A Cohort Allelic Sums Test (Cast).” <em>Mutation Research/Fundamental and Molecular Mechanisms of Mutagenesis</em> 615 (1): 28–56.</p>
+</div>
+<div>
+<p>Nelder, J. A., and R. W. M. Wedderburn. 1972. “Generalized Linear Models.” <em>Journal of the Royal Statistical Society: Series A</em> 135 (3): 370–84.</p>
+</div>
+<div>
+<p>Neyman, Jerzy, and Egon S Pearson. 1933. “The Testing of Statistical Hypotheses in Relation to Probabilities a Priori.” In <em>Mathematical Proceedings of the Cambridge Philosophical Society</em>, 29:492–510. Cambridge University Press.</p>
+</div>
+<div>
+<p>Nyrén, Pettersson, Bertil Pettersson, and Mathias Uhlén. 1993. “Solid Phase Dna Minisequencing by an Enzymatic Luminometric Inorganic Pyrophosphate Detection Assay.” <em>Analytical Biochemistry</em> 208 (1): 171–75.</p>
+</div>
+<div>
+<p>Osborne, Michael R, Brett Presnell, and Berwin A Turlach. 2000. “A New Approach to Variable Selection in Least Squares Problems.” <em>IMA Journal of Numerical Analysis</em> 20 (3): 389–403.</p>
+</div>
+<div>
+<p>ParÃ©, Guillaume, Senay Asma, and Wei Q. Deng. 2015. “Contribution of Large Region Joint Associations to Complex Traits Genetics.” <em>PLOS Genetics</em> 11. <a href="https://doi.org/10.1371/journal.pgen.1005103">https://doi.org/10.1371/journal.pgen.1005103</a>.</p>
+</div>
+<div>
+<p>Parikh, Neal, Stephen Boyd, and others. 2014. “Proximal Algorithms.” <em>Foundations and Trends in Optimization</em> 1 (3): 127–239.</p>
+</div>
+<div>
+<p>Park, Mee Young, Trevor Hastie, and Robert Tibshirani. 2007. “Averaged Gene Expressions for Regression.” <em>Biostatistics</em> 8 (2): 212–27.</p>
+</div>
+<div>
+<p>Pearson, Karl. 1900. “On the Criterion That a Given System of Deviations from the Probable in the Case of a Correlated System of Variables Is Such That It Can Be Reasonably Supposed to Have Arisen from Random Sampling.” <em>The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science</em> 50 (302): 157–75.</p>
+</div>
+<div>
+<p>Petersen, Ashley, Carolina Alvarez, Scott DeClaire, and Nathan L. Tintle. 2013. “Assessing Methods for Assigning SNPs to Genes in Gene-Based Tests of Association Using Common Variants.” <em>PLOS ONE</em> 8. <a href="https://doi.org/10.1371/journal.pone.0062161">https://doi.org/10.1371/journal.pone.0062161</a>.</p>
+</div>
+<div>
+<p>Price, A. L., N. J. Patterson, R. M. Plenge, M. E. Weinblatt, N. A. Shadick, and D. Reich. 2006. “Principal Components Analysis Corrects for Stratification in Genome-Wide Association Studies.” <em>Nature Genetics</em> 38: 904–9.</p>
+</div>
+<div>
+<p>Pritchard, Jonathan K, and Molly Przeworski. 2001. “Linkage Disequilibrium in Humans: Models and Data.” <em>The American Journal of Human Genetics</em> 69 (1): 1–14.</p>
+</div>
+<div>
+<p>Pritchard, Jonathan K, Matthew Stephens, and Peter Donnelly. 2000. “Inference of Population Structure Using Multilocus Genotype Data.” <em>Genetics</em> 155 (2): 945–59.</p>
+</div>
+<div>
+<p>RA Fisher, MA. 1922. “On the Mathematical Foundations of Theoretical Statistics.” <em>Phil. Trans. R. Soc. Lond. A</em> 222 (594-604): 309–68.</p>
+</div>
+<div>
+<p>Reich, David E, Michele Cargill, Stacey Bolk, James Ireland, Pardis C Sabeti, Daniel J Richter, Thomas Lavery, et al. 2001. “Linkage Disequilibrium in the Human Genome.” <em>Nature</em> 411 (6834): 199.</p>
+</div>
+<div>
+<p>Reich, David, Alkes L Price, and Nick Patterson. 2008. “Principal Component Analysis of Genetic Data.” <em>Nature Genetics</em> 40 (5): 491.</p>
+</div>
+<div>
+<p>Reinsch, Christian H. 1967. “Smoothing by Spline Functions.” <em>Numer. Math.</em> 10 (3): 177–83. <a href="http://dx.doi.org/10.1007/BF02162161">http://dx.doi.org/10.1007/BF02162161</a>.</p>
+</div>
+<div>
+<p>Rice, John A. 2006. <em>Mathematical Statistics and Data Analysis</em>. Cengage Learning.</p>
+</div>
+<div>
+<p>Robbins, RB. 1918. “Some Applications of Mathematics to Breeding Problems Iii.” <em>Genetics</em> 3 (4). <a href="http://europepmc.org/articles/PMC1200443">http://europepmc.org/articles/PMC1200443</a>.</p>
+</div>
+<div>
+<p>Rokach, Lior, and Oded Maimon. 2005. “Clustering Methods.” In <em>Data Mining and Knowledge Discovery Handbook</em>, 321–52. Springer.</p>
+</div>
+<div>
+<p>Roquain, Etienne. 2010. “Type I Error Rate Control for Testing Many Hypotheses: A Survey with Proofs.” <em>arXiv Preprint arXiv:1012.4078</em>.</p>
+</div>
+<div>
+<p>Sanger, Frederick, Steven Nicklen, and Alan R Coulson. 1977. “DNA Sequencing with Chain-Terminating Inhibitors.” <em>Proceedings of the National Academy of Sciences</em> 74 (12): 5463–7.</p>
+</div>
+<div>
+<p>Simpson, Edward H. 1951. “The Interpretation of Interaction in Contingency Tables.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em>, 238–41.</p>
+</div>
+<div>
+<p>Smith, John Maynard, and John Haigh. 1974. “The Hitch-Hiking Effect of a Favourable Gene.” <em>Genetics Research</em> 23 (1): 23–35.</p>
+</div>
+<div>
+<p>Stanislas, Virginie, Cyril Dalmasso, and Christophe Ambroise. 2017. “Eigen-Epistasis for Detecting Gene-Gene Interactions.” <em>BMC Bioinformatics</em> 18 (1): 54.</p>
+</div>
+<div>
+<p>Stephens, Matthew, Nicholas J Smith, and Peter Donnelly. 2001. “A New Statistical Method for Haplotype Reconstruction from Population Data.” <em>The American Journal of Human Genetics</em> 68 (4): 978–89.</p>
+</div>
+<div>
+<p>Sturtevant, A.H. 2001. <em>A History of Genetics</em>. G - Reference,Information and Interdisciplinary Subjects Series. Cold Spring Harbor Laboratory Press. <a href="https://books.google.fr/books?id=wDIisw1ZqAMC">https://books.google.fr/books?id=wDIisw1ZqAMC</a>.</p>
+</div>
+<div>
+<p>Šidák, Zbyněk. 1967. “Rectangular Confidence Regions for the Means of Multivariate Normal Distributions.” <em>Journal of the American Statistical Association</em> 62 (318): 626–33.</p>
+</div>
+<div>
+<p>Thomas, Duncan C. 2004. <em>Statistical Methods in Genetic Epidemiology</em>. Oxford University Press.</p>
+</div>
+<div>
+<p>Tibshirani, Robert. 1996. “Regression Shrinkage and Selection via the Lasso.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 58 (1): 267–88.</p>
+</div>
+<div>
+<p>Tibshirani, R., G. Walther, and T. Hastie. 2001. “Estimating the Number of Clusters in a Data Set via the Gap Statistic.” <em>Journal of the Royal Statistical Society: Series B</em> 63 (2): 411–23.</p>
+</div>
+<div>
+<p>Visscher, Peter M., William G. Hill, and Naomi R. Wray. 2008. “Heritability in the Genomics Era-Concepts and Misconceptions.” <em>Nature Reviews Genetics</em> 9 (4): 255–66.</p>
+</div>
+<div>
+<p>Wall, Jeffrey D, and Jonathan K Pritchard. 2003. “Haplotype Blocks and Linkage Disequilibrium in the Human Genome.” <em>Nature Reviews Genetics</em> 4 (8): 587.</p>
+</div>
+<div>
+<p>Ward, J. H. 1963. “Hierarchical Grouping to Optimize an Objective Function.” <em>Journal of the American Statistical Association</em> 58 (301): 236–44.</p>
+</div>
+<div>
+<p>Weinberg, Wilhelm. 1908. “Ber Den Nachweis Der Vererbung Beim Menschen.” <em>Jahres. Wiertt. Ver. Vaterl. Natkd.</em> 64: 369–82.</p>
+</div>
+<div>
+<p>Weir, Bruce S, Lon R Cardon, Amy D Anderson, Dahlia M Nielsen, and William G Hill. 2005. “Measures of Human Population Structure Show Heterogeneity Among Genomic Regions.” <em>Genome Research</em> 15 (11): 1468–76.</p>
+</div>
+<div>
+<p>Weir, Bruce S, and C Cockerham. 1996. “Genetic Data Analysis Ii: Methods for Discrete Population Genetic Data. Sinauer Assoc.” <em>Inc., Sunderland, MA, USA</em>.</p>
+</div>
+<div>
+<p>Weir, Bruce S, and others. 1990. <em>Genetic Data Analysis. Methods for Discrete Population Genetic Data.</em> Sinauer Associates, Inc. Publishers.</p>
+</div>
+<div>
+<p>Wetterstrand, KA. 2016. “DNA Sequencing Costs: Data from the Nhgri Genome Sequencing Program (Gsp).” <a href="www.genome.gov/sequencingcostsdata">www.genome.gov/sequencingcostsdata</a>.</p>
+</div>
+<div>
+<p>Wood, Simon N. 2006. <em>Generalized Additive Models: An Introduction with R</em>. crcpress. <a href="https://www.crcpress.com/Generalized-Additive-Models-An-Introduction-with-R/Wood/p/book/9781584884743">https://www.crcpress.com/Generalized-Additive-Models-An-Introduction-with-R/Wood/p/book/9781584884743</a>.</p>
+</div>
+<div>
+<p>Wright, Alan F, and Nicholas D Hastie. 2001. “Complex Genetic Diseases: Controversy over the Croesus Code.” <em>Genome Biology</em> 2 (8): comment2007–1.</p>
+</div>
+<div>
+<p>Wright, Sewall. 1921. “Correlation and Causation.” <em>Journal of Agricultural Research</em> 20 (7): 557–85.</p>
+</div>
+<div>
+<p>———. 1929. “The Evolution of Dominance.” <em>The American Naturalist</em> 63 (689): 556–61.</p>
+</div>
+<div>
+<p>WTCCC. 2007. “Genome-Wide Association Study of 14,000 Cases of Seven Common Diseases and 3,000 Shared Controls.” <em>Nature</em> 447 (7145): 661–78.</p>
+</div>
+<div>
+<p>Wu, M. C., P. Kraft, M. P. Epstein, D. M. Taylor, S. J. Chanock, D. J. Hunter, and X. Lin. 2010. “Powerful SNP-Set Analysis for Case-Control Genome-Wide Association Studies.” <em>American Journal of Human Genetics</em> 86 (6): 929–42.</p>
+</div>
+<div>
+<p>Wu, M. C., S. Lee, T. Cai, Y. Li, M. Boehnke, and X. Lin. 2011. “Rare-Variant Association Testing for Sequencing Data with the Sequence Kernel Association Test.” <em>American Journal of Human Genetics</em> 89 (1): 82–93.</p>
+</div>
+<div>
+<p>Yoo, Yun Joo, Lei Sun, Julia G. Poirier, Andrew D. Paterson, and Shelley B. Bull. 2016. “Multiple Linear Combination (MLC) Regression Tests for Common Variants Adapted to Linkage Disequilibrium Structure: Yoo et Al.” <em>Genetic Epidemiology</em> 41. <a href="https://doi.org/10.1002/gepi.22024">https://doi.org/10.1002/gepi.22024</a>.</p>
+</div>
+<div>
+<p>Yuan, Ming, and Yi Lin. 2006. “Model Selection and Estimation in Regression with Grouped Variables.” <em>JOURNAL OF THE ROYAL STATISTICAL SOCIETY, SERIES B</em> 68: 49–67.</p>
+</div>
+<div>
+<p>Zondervan, Krina T, and Lon R Cardon. 2004. “The Complex Interplay Among Factors That Influence Allelic Association.” <em>Nature Reviews Genetics</em> 5 (2): 89.</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="final-words.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

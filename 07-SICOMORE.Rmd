@@ -1,0 +1,1085 @@
+
+# Selection of interaction effects in compressed multiple omics representation
+
+This chapter is organized as follows. Section \@ref(modelsicomore)
+introduces the setting related to linear models of interactions and
+proposes a framework to learn with complementary
+datasets. Section \@ref(implementation) describes the method, entitled **SICOMORE** for **S**election of **I**nteraction effects in **CO**mpressed **M**ultiple **O**mics **RE**presentation,
+which combines hierarchical clustering, data compression, variable selection with a lasso procedure and model testing for recovering relevant interactions. 
+Our approach is illustrated with numerical simulations in Section \@ref(XPsimu) and with an application to  study the interactions between the genome of the species *Medicago truncatula* and the microbial community of its rhizosphere in Section \@ref(XPINRA).
+
+## Introduction
+
+### Background
+
+GWAS are a powerful tool for investigating the genetic architecture of
+complex diseases and have been successful in identifying hundreds of
+associated variants. However, they have been able to explain only a
+small proportion of the disease heritability calculated from classical
+family studies. As previously stated in Section \@ref(GWASlimits),
+it is nonetheless possible to uncover some of the missing heritability
+by taking into account correlations among variables, interaction with
+the environment and epistasis, but not without some difficulties due to
+the multiple testing burden.
+
+Other avenues to explain the variability in some traits of interest have
+yet to be explored, for instance an interesting lead would be to
+consider the contribution of microbial communities on the expression of
+a phenotype. Indeed, there is growing evidences of the role of gut
+microbiota in basic biological processes and in the development and
+progression of major human diseases such as infectious diseases,
+gastrointestinal cancers, metabolic diseases…[@wang_2107_human]. In
+plants, the role of rhizosphere[^1] microflora on plant growth is well
+known and has been widely studied
+[@mukerji2002techniques; @pinton2007rhizosphere].
+
+Analysis equivalent to GWAS have been conducted using the metagenome[^2]
+rather than the genome of an individual and are known as Metagenome Wide
+Association Study (MWAS) [@wang2016metagenome; @segata2011metagenomic].
+Those metagenome association analyses may often explain larger variation
+of the phenotype than classical GWAS and have been successful in finding
+relevant association for complex pathologies such as obesity, Crohn’s
+disease, colorectal cancer…
+
+### Combining genome and metagenome analyses.
+
+One possible way to relate genetic and metagenomic data consists in
+considering the metagenome as phenotype and thus performing quantitative
+trait locus (QTL) mapping. This kind of metagenome QTL analysis
+demonstrates the role of host genetics in shaping metagenomic diversity
+between individuals [@wang2016genome; @srinivas2013genome].
+
+Another possibility for taking into account both type of variables
+consists in including metagenomic variables as environmental variables
+in GWAS. In that case interactions may naturally be modelled using a
+classical generalized linear model with interactions terms
+[@lin2013interactionsGLM].
+
+The main drawback of the later idea lies in the number of interactions
+to test, both datasets having a large number of variables. In order to
+reduce the dimension of the problem, variable selection or variable
+compression may be of use.
+
+### Taking structures into account in association studies.
+
+Data compression for dimension reduction may be achieved in various
+ways. A usual distinction is often established between feature selection
+and feature extraction. Feature selection consists in selecting few
+relevant variables among the original ones, while feature extraction
+consists in computing new representative variables.
+
+In our problem of association study, feature selection is often
+preferred to feature extraction for interpretative purposes. In this
+chapter, we advocate for a mixed approach which combines feature
+extraction and feature selection. The basic idea relies in grouping
+close variables via an unsupervised approach. Supervariables are
+computed to summarize the information of each cluster of variables and
+eventually the best supervariables are selected using a penalized
+regression approach.
+
+We already investigate the idea of considering groups of variables in
+Chapter \@ref(LEOS). It also has already been suggested in the context
+of MWAS in [@qin2012metagenome]. In the context of prediction from gene
+expression regression, the method HCAR developed by
+[@park_averaged_2007] described in Section \@ref(HCAR) show that
+regressing over supergenes improves the precision if the correlation
+structure is strong enough. Moreover, [@mary2009tailored] proposed a
+strategy to deal with large-dimension datasets in classification, called
+aggregation. It consists in a clustering step of redundant variables,
+using kNN or Classification and Regression Tree (CART) algorithms, and a
+group-compression step. They develop a statistical framework to define
+tailored aggregation methods that can be combined with selection methods
+to build reliable classifiers with possible applications on microarray
+data.
+
+The method SICOMORE presented in this chapter can be summarized as
+follows: (1) it uses a hierarchical clustering algorithm to identify a
+group structure within the data; (2) it compresses the hierarchical
+structure by averaging the groups as in HCAR; (3) it performs a lasso
+procedure on the compressed variables as in HCAR with a penalty factor
+weighted by the length of the gap between two successive levels of the
+hierarchy as in MLGL; (4) it performs multiple hypothesis testing in a
+linear model with interactions.
+
+## Learning with complementary datasets {#modelsicomore}
+
+This section introduces the setting with the notations. It also sketches
+the approach to define a compact model of interactions between
+complementary datasets.
+
+### Setting and notations
+
+Let us consider observations stemming from two complementary views,
+$\mathit{G}$ (for Genomic data) and $\mathit{M}$ (for Metagenomic data), which are
+gathered into a training set
+$\mathcal{T} = \{(\mathbf{x}^\mathit{G}_i, \mathbf{x}^\mathit{M}_i, y_i)\}_{i=1}^N$, where
+$(\mathbf{x}^\mathit{G}_i, \mathbf{x}^\mathit{M}_i, y_i) \in \mathbb{R}^{D_\mathit{G}} \times \mathbb{R}^{D_\mathit{M}} \times \mathbb{R}$.
+
+We assume an underlying biological information on $\mathit{G}$ and $\mathit{M}$
+encoded as groups. The group structure over $\mathit{G}$ is defined by
+$N_{\mathit{G}}$ groups of variables
+$\mathcal{G}=\{\mathcal{G}_{g} \}_{g=1}^{N_{\mathit{G}}}$. We denote
+$\mathbf{x}_i^{g} \in \mathbb{R}^{D_{g}}$, the sample $i$ restricted to the
+variables of $\mathit{G}$ from group $\mathcal{G}_{g}$. Similarly, the group
+structure over $\mathit{M}$ is defined by $N_{\mathit{M}}$ groups of variables
+$\mathcal{M}=\{\mathcal{M}_{m}\}_{m=1}^{N_{\mathit{M}}}$ and
+$\mathbf{x}_i^{m} \in \mathbb{R}^{D_{m}}$ is the sample $i$ restricted to the
+variables of $\mathit{M}$ from group $\mathcal{M}_{m}$.
+
+We also introduce $D_I = D_{\mathit{G}} \cdot D_{\mathit{M}}$ and
+$N_I = N_{\mathit{G}} \cdot N_{\mathit{M}}$, the number of variables and the number of
+groups that may interact.
+
+Finally, we use the following convention: vectors of observations
+indexed with $i$, such as $\mathbf{x}_i$, will usually be row vectors[^3] while
+vectors of coefficients, such as $\boldsymbol{\beta}$, will usually be column
+vectors.
+
+### Interactions in linear models
+
+Interactions between data stemming from views $\mathit{G}$ and $\mathit{M}$ may be
+captured in the model $$\label{eq:classical_interaction_model}
+  y_i =   \mathbf{x}^{\mathit{G}}_i \boldsymbol{\gamma}_{\mathit{G}}   
+  + \mathbf{x}^{\mathit{M}}_i \boldsymbol{\gamma}_{\mathit{M}}  
+  + \mathbf{x}^{\mathit{G}}_i \boldsymbol{\Delta}_{\mathit{G}\mathit{M}} (\mathbf{x}^{\mathit{M}}_i)^T  +
+  \epsilon_i \,,$$ where the vectors $\boldsymbol{\gamma}_{\mathit{G}} \in \mathbb{R}^{D_{\mathit{G}}}$
+and $\boldsymbol{\gamma}_{\mathit{M}} \in \mathbb{R}^{D_{\mathit{M}}}$ respectively denote the linear
+effects related to $\mathit{G}$ and $\mathit{M}$, the matrix
+$\boldsymbol{\Delta}_{\mathit{G}\mathit{M}} \in \mathbb{R}^{D_{\mathit{G}} \times D_{\mathit{M}}}$ contains the
+interactions between all pairs of variables of $\mathit{G}$ and $\mathit{M}$ and
+$\epsilon_i \in \mathbb{R}$ is a residual error.
+
+Underlying notions in models of interactions are the one of *strong dependency* (SD) and *weak dependency* (WD), the first one being more common (see for instance [@bien2013lasso] and the discussion therein).
+Under the hypothesis of *strong dependency*, an interaction is effective
+if and only if the corresponding single effects are also effective while
+the hypothesis of *weak dependency* implies that an interaction is
+effective if one of the main effect is also effective. Formally, for all
+variables $j \in \mathbf{x}^{\mathit{G}}$ and for all variables $j' \in \mathbf{x}^{\mathit{M}}$, if
+$\gamma_{j}$, $\gamma_{j'}$ and $\delta_{jj'}$ are the coefficients
+related to $\boldsymbol{\gamma}_{\mathit{G}}$, $\boldsymbol{\gamma}_{\mathit{M}}$ and $\boldsymbol{\Delta}_{\mathit{G}\mathit{M}}$, then
+$$\begin{aligned}
+  & (SD) &&  \delta_{jj'} \neq 0 \qquad \Rightarrow  \qquad
+            \gamma_{j} 
+            \neq 0 && \text{ and } && \gamma_{j'} \neq 0  \,, \\
+  &  (WD) &&  \delta_{jj'} \neq 0 \qquad \Rightarrow  \qquad
+             \gamma_{j} 
+             \neq 0 && \text{ or } && \gamma_{j'} \neq 0  \,.\end{aligned}$$
+             
+In this context, [@bien2013lasso] have proposed a sparse model of
+interactions which faces computational limitations for large dimensional
+problems according to [@lim2015learning] and [@she2016group]. While
+[@lim2015learning] introduce a method for learning pairwise interactions
+in a regression model by solving a constrained overlapping Group-Lasso
+[@jacob2009group] in a manner that satisfies strong dependencies,
+[@she2016group] propose a formulation with an overlapping regularization
+that fits both kind of hypotheses and provide theoretical insights on
+the resulting estimators[^4].
+
+Yet, the dimension $D_{\mathit{G}} + D_{\mathit{M}} + D_I$ involved in Problem  to
+estimate $\boldsymbol{\gamma}_{\mathit{G}}$, $\boldsymbol{\gamma}_{\mathit{M}}$ and $\boldsymbol{\Delta}_{\mathit{G}\mathit{M}}$ may be
+large especially for applications with an important number of variables
+such as in biology with genomic and metagenomic data. To reduce the
+dimension, we propose to compress the data according to an underlying
+structure which may be defined thanks to a prior knowledge or be
+uncovered with clustering algorithms.
+
+### Compact model {#compressdata}
+
+Assuming we are given a compression function for each group of $\mathit{G}$ and
+$\mathit{M}$, we can shape Problem  into a compact form
+$$\label{eq:compact_detailled_model}  
+  y_i = 
+  \sum_{g \in \mathcal{G}} \tilde{x}_i^g \beta_{g} +
+  \sum_{m \in \mathcal{M}} \tilde{x}_i^m \beta_{m} +
+  \sum_{g \in \mathcal{G}} \sum_{m \in \mathcal{M}}
+  \underbrace{\left(\tilde{x}_i^g  \cdot
+      \tilde{x}_i^m\right)}_{\boldsymbol{\phi}^{gm}_i}
+  {\theta_{gm}} + \, \epsilon_i \,,$$ where
+$\tilde{x}_i^g \in \mathbb{R}$ is the $i^{th}$ compressed sample of the
+variables that belong to the group $g$ for the view $\mathit{G}$ and
+$\beta_{g} \in \mathbb{R}$ is its corresponding coefficient. The
+counterparts on the group $m$ for the view $\mathit{M}$ are
+$\tilde{x}_i^m \in \mathbb{R}$ and $\beta_{m} \in \mathbb{R}$. Finally,
+$\theta_{gm} \in \mathbb{R}$ is the interaction between groups $g$ and
+$m$.
+
+We can reformulate Problem  in a vector form. Let
+$\tilde{\mathbf{x}}_{i}^{\mathit{G}} \in \mathbb{R}^{N_{\mathit{G}}}$, $\boldsymbol{\beta}_{\mathit{G}} \in \mathbb{R}^{N_{\mathit{G}}}$,
+$\tilde{\mathbf{x}}_{i}^{\mathit{M}} \in \mathbb{R}^{N_{\mathit{M}}}$ and $\boldsymbol{\beta}_{\mathit{M}} \in \mathbb{R}^{N_{\mathit{M}}}$
+be $$\begin{aligned}
+  \tilde{\mathbf{x}}_{i}^{\mathit{G}} & = (\tilde{x}_i^1 \cdots \tilde{x}_i^g \cdots
+                   \tilde{x}_i^{N_{\mathit{G}}})\,,
+  &  \boldsymbol{\beta}_{\mathit{G}} & = (\beta_{1} \cdots \beta_{g}
+                    \cdots \beta_{N_{\mathit{G}}})^{T}\,,\\
+  \tilde{\mathbf{x}}_{i}^{\mathit{M}} & = (\tilde{x}_i^1 \cdots \tilde{x}_i^m \cdots
+                   \tilde{x}_i^{N_{\mathit{M}}}) \,,
+  & \boldsymbol{\beta}_{\mathit{M}} & = (\beta_{1} \cdots \beta_{m}
+                   \cdots \beta_{N_{\mathit{M}}})^{T}\,.\end{aligned}$$
+
+We denote by $\boldsymbol{\phi}_{i} \in \mathbb{R}^{N_I}$, the vector whose general
+component is given by $\boldsymbol{\phi}^{gm}_i$ in Equation , that is
+$$\begin{aligned}
+  \boldsymbol{\phi}_{i} & =  
+                       \left(
+                       \boldsymbol{\phi}^{11}_i \cdots 
+                       \boldsymbol{\phi}^{1N_{\mathit{M}}}_i
+                       \cdots
+                       \boldsymbol{\phi}^{g m}_i
+                       \cdots 
+                       \boldsymbol{\phi}^{{N_{\mathit{G}}} 1}_i
+                       \cdots
+                       \boldsymbol{\phi}^{{N_{\mathit{G}}}  {N_{\mathit{M}}}}_i
+                       \right) \,,\end{aligned}$$ and
+$\boldsymbol{\theta} \in \mathbb{R}^{N_I}$, the corresponding vector of coefficients, by
+$$\begin{aligned}
+  \boldsymbol{\theta} = & \left(\theta_{11}   \cdots \theta_{1 
+              {N_{\mathit{M}}}}  \cdots \theta_{g m}
+              \cdots \theta_{{N_{\mathit{G}}} 1}  \cdots
+              \theta_{{N_{\mathit{G}}}  {N_{\mathit{M}}}} \right)^T\,. \end{aligned}$$
+
+Finally, Problem  reads as a classical linear regression problem
+$$\label{eq:compact_vector_model}
+  y_i =  \tilde{\mathbf{x}}_{i}^{\mathit{G}} \boldsymbol{\beta}_{\mathit{G}}  + 
+  \tilde{\mathbf{x}}_{i}^{\mathit{M}} \boldsymbol{\beta}_{\mathit{M}} + 
+  \boldsymbol{\phi}_{i}  \boldsymbol{\theta}  +
+  \epsilon_i \,,$$ of dimension $N_{\mathit{G}}  + N_{\mathit{M}} + N_I$.
+
+### Recovering relevant interactions {#recoverinteractions}
+
+Compared to Problem  and provided that $N_\mathit{G}$ and $N_\mathit{M}$ are
+reasonably lower than $D_{\mathit{G}}$ and $D_{\mathit{M}}$, the dimension of Problem 
+decreases drastically so that it might be solved thanks to an
+appropriate optimization algorithm coupled with effective computational
+facilities. For instance, [@DT:IEEEIT2008] give an overview of $\ell_1$
+regularized algorithms to solve sparse problems like Lasso, which in our
+case could take the form:
+
+$$\begin{aligned}
+  \underset{\boldsymbol{\beta}_{\mathit{G}}, \boldsymbol{\beta}_{\mathit{M}}, \boldsymbol{\theta}}{\text{argmin}},
+  & \quad \sum_{i=1}^n \left(y_i - \tilde{\mathbf{x}}_{i}^{\mathit{G}} \boldsymbol{\beta}_{\mathit{G}} -
+    \tilde{\mathbf{x}}_{i}^{\mathit{M}}  \boldsymbol{\beta}_{\mathit{M}}  - \boldsymbol{\phi}_{i}  \boldsymbol{\theta} \right)^2 + \lambda_{\mathit{G}} \sum_{g=1}^{N_{\mathit{G}}}|\beta_{g}| + \lambda_{\mathit{M}} \sum_{m=1}^{N_{\mathit{M}}} |\beta_{m}|  +  \lambda_I \sum_{g,m=1}^{N_I}  |\theta_{gm}|, \end{aligned}$$ 
+  
+with $\lambda_\mathit{G}$, $\lambda_\mathit{M}$ and $\lambda_I$ being the positive
+hyperparameters that respectively control the amount of sparsity related
+to coefficients $\boldsymbol{\beta}_\mathit{G}$, $\boldsymbol{\beta}_\mathit{M}$ and $\boldsymbol{\theta}$. Still, the
+dimension may remain large regarding the dimension $N_\mathit{G} + N_\mathit{M} + N_I$
+compared to the number of observations $N$. Also, note that without
+additional constraints, such a formulation would not induce the
+dependences hypothesis (SD) and (WD). For that purpose, one could adapt
+the works of [@bien2013lasso; @lim2015learning] or [@she2016group]
+mentioned above. We present in the next Section another way to reduce
+further the dimension and fulfil the strong dependency hypothesis.
+
+## Method {#implementation}
+
+In this section, we provide some elements to enhance Problem  for
+biological problems involving metagenomic and genomic data. After a
+brief discussion related to the preprocessing of the data, we explain
+how to obtain the group structure on $\mathit{G}$ and $\mathit{M}$ using hierarchical
+clustering strategies and describe how to efficiently take into account
+the different scales of the groups defined by each level of the
+hierarchies. We then present some compressions that may be used to
+summarize the groups. Finally, we propose a linear model testing to
+recover the relevant interactions.
+
+We entitled the proposed approach SICOMORE for Selection of Interaction
+effects in COmpressed Multiple Omics REpresentations, implemented in the
+R package `SICoMORe` available at <https://github.com/fguinot/sicomore-pkg>.
+
+### Preprocessing of the data {#preprocess}
+
+To tackle problems that involve genomic and metagenomic interactions,
+some prior transformations are mandatory. Also, a first attempt to
+reduce the dimension may be achieved at this step.
+
+### Preprocessing of metagenomic data
+
+#### Normalization.
+
+In shotgun metagenomics,[^5] microorganisms are studied by sequencing
+DNA fragments directly from samples, without the need for cultivation of
+individual isolates [@sharpton2014introduction].
+
+Shotgun metagenomic sequencing data are often produced by analysing the
+presence of genes and their abundances in and between samples from
+different experimental conditions. The gene abundances are then
+estimated by matching each generated sequence read against a
+comprehensive and annotated reference database and by counting the
+number of reads matching each gene in the reference database
+[@pereira2018comparison].
+
+Gene abundance data generated by such analysis are however affected by
+systematic variability that significantly increases the variation
+between samples and thereby decrease the ability to identify genes that
+differ in abundance
+[@jonsson2017variability; @wooley2010primer; @pereira2018comparison].
+The process known as normalisation therefore referred to the methods
+designed to remove such systematic variability.
+
+A wide range of different methods has been applied to normalize shotgun
+metagenomic data. The majority of these normalization methods are based
+on scaling, where a sample-specific factor is estimated and then used to
+correct the gene abundances. For instance, one can simply calculates the
+scaling factor $\psi_i$ as the sum of all reads counts in a sample $i$:
+$$\psi_i = \sum_{j=1}^{D_{\mathit{M}}} x_{ij}^{\mathit{M}}.$$
+
+A more robust method to estimate the scaling factor is the Trimmed Mean
+of M-values (TMM) [@robinson2010scaling] which compares the gene
+abundances in the samples against a reference, typically set as one of
+the samples in the study. We note $t_i$ the scaling normalization
+factors for raw library sizes calculated using the TMM normalization
+method for sample $i$; $l_i = \mathbf{x}_i^{\mathit{M}} t_i$ is then the corresponding
+normalized library size for sample $i$ and
+$$\psi_i = \frac{l_i}{\sum_{t=1}^n l_t/n},$$ is the associated
+normalization scaling factor.
+
+The raw counts $x_{ij}^{\mathit{M}}$, with $j \in [1, \dots, D_{\mathit{M}}]$, are
+then divided by the scaling factor to obtain the normalized counts:
+$$\tilde{x}_{ij}^{\mathit{M}} = x_{ij}^{\mathit{M}}/\psi_i .$$
+
+#### Transformation.
+
+Metagenomic shotgun sequencing results in features which take the form
+of proportions in different samples, referred in the statistical
+literature as compositional data [@Aitchison:JRSSB82]. These data are
+known to be subject to negative correlation bias
+[@Pearson:RSL1896; @Aitchison:JRSSB82]) and the assumption of
+conditional independence among samples is unlikely to be true for the
+vast majority of metagenomic datasets.
+
+Several data transformations have been suggested for RNA-seq data, most
+often in the context of exploratory or differential analyses. These
+transformations include log transformation (where a small constant is
+typically added to read counts to avoid 0’s), a variance-stabilizing
+transformation [@tibshirani1988estimating; @huber2003parameter],
+moderated log counts per million [@law2014voom], and a regularized
+log-transformation [@love2014moderated].
+
+[@rau2017transformation] also proposed to calculate normalized
+expression *profiles* for each feature, that is, the proportion of
+normalized reads observed for gene $j$ with respect to the sum of all
+samples in gene $j$:
+
+$$p_{ij} = \frac{\tilde{x}_{ij}^{\mathit{M}} + 1}{\sum_{t=1}^n \tilde{x}_{tj}^{\mathit{M}} + 1},$$
+where a constant of 1 is added to the numerator and denominator due to
+the presence of 0 counts.
+
+However, the vector of values $\mathbf{p}_j$ are linearly dependent,
+which imposes constraints on the covariance matrices that can be
+problematic for most standard statistical approaches
+[@rau2017transformation]. One solution is to apply the commonly used
+centered log ratio (CLR) transformation for compositional data
+[@Aitchison:JRSSB82]. It is defined as:
+$$\text{CLR}(\mathbf{p}_j) = \left[ \ln\left( \frac{p_{1j}}{g(\mathbf{p}_j)}\right) , \dots, 
+\ln\left( \frac{p_{nj}}{g(\mathbf{p}_j)}\right)  \right],$$ where
+$g(\mathbf{p}_j)$ is the geometric mean of $\mathbf{p}_j$.
+
+#### A first selection of variables
+
+As seen in Section \@ref(modelsicomore), we assume strong
+dependencies on interactions, which means that an interaction can be
+effective only if the two simple effects making up the interaction are
+involved in the problem. Then, it may be clever to apply a first process
+of selection to discard the inoperative single effects on $\mathit{G}$ and
+$\mathit{M}$ respectively. Different approaches may be envisioned to proceed
+this selection. Among them, screening rules can eliminate variables that
+will not contribute to the optimal solution of a sparse problem sweeping
+all the variables upstream to the optimization. When such a screening is
+appropriate, we may use the work of [@Lee:PAMI17] focused on Lasso
+problems, which present a recent overview of these techniques together
+with a screening rule ensemble. Once the screening is done, the
+optimization of a Lasso problem gives the final set of variables.
+
+### Structuring the data {#structure}
+
+Once the data are preprocessed, we can resort to hierarchical clustering
+using Ward criterion with appropriate distances to uncover the tree
+structures.
+
+#### Clustering of metagenomic data
+
+A common approach to analyse metagenomic data is to group sequences into
+taxonomic units. The features stemming from metagenome sequencing are
+often modelled as Operational Taxonomic Units (OTU), each OTU
+representing a biological species according to some degree of taxonomic
+similarity. [@chen2013OTU] propose a comparison of methods to identify
+OTU that includes hierarchical clustering. While the structure on
+microbial species could be defined according to the underlying
+phylogenetic tree, it also makes sense to use more classical distances,
+such as the Ward criterion, to define a hierarchy based on the
+abundances of OTU. In our application we use an agglomerative
+hierarchical clustering with the Ward criterion (see Section \@ref(CAH)).
+
+#### Clustering of genomic markers
+
+On the other hand, when the genomic information is available through
+SNP, the tree structure on $\mathit{G}$ will be defined using a Ward spatially
+constrained hierarchical clustering algorithm which integrates the
+linkage disequilibrium as the measure of dissimilarity using the
+*adjclust* algorithm [@dehman_performance_2015].
+
+### Using the structure efficiently
+
+Different approaches related to the problem of finding an optimal number
+of clusters may be envisioned to find the optimal cut in a tree
+structure obtained with hierarchical clustering (see for instance
+[@Milligan:Ps1985] or [@Gordon:1999]). Whatever the chosen approach, a
+systematic exploration of different levels of the hierarchy is mandatory
+to find this optimal cut. We define an alternative strategy to bypass
+this expensive exploration which consists in:
+
+1.  (a) Expanding the hierarchy considering all possible groups
+    at a single level;
+
+2.  (b) Assigning a weight to each group based on gap distances
+    between two consecutive groups in the hierarchy;
+
+3.  (b) Compressing each group into a supervariable.
+
+The different steps of this strategy are illustrated in
+Figure \@ref(fig:hierarchy), from the original tree structure in
+Figure \@ref(fig:hierarchy)(a) to a final flatten, weighted and compressed
+representation in Figure \@ref(fig:hierarchy)(c).
+
+(ref:hierarchy) Dimension reduction strategy. (a) Original hierarchical tree with an example for 5 variables. (b) Expanded representation of the tree with all possible weighted groups derived from the original hierarchy. (c) Compressed representation of the tree after construction of the supervariables.
+
+```{r hierarchy, echo=FALSE, fig.cap='(ref:hierarchy)', out.width='100%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/hierarchy.png")
+```
+
+#### Expanding the hierarchy {.unnumbered}
+
+To reduce the dimension involved in Problem , the first step consists in
+flattening the respective tree structures obtained on views $\mathit{G}$ and
+$\mathit{M}$ so that only a group structure remains. Thus, each group of
+variables defined at the deepest level may be included in other groups
+of larger scales, as shown in Figure \@ref(fig:hierarchy)(b).
+
+#### Assigning weights to the groups {.unnumbered}
+
+To keep track of the tree structure, we may integrate an additional
+measure quantifying the quality of the groups on two successive levels.
+More specifically, for a tree structure of height $H$ and for
+$1 \leq h \leq H-1$, we define $s_h$ as the gap between heights $s_h$
+and $s_{h-1}$. Following the lines of [@grimonprez_selection_2016] for
+the Multi-Layer Group-Lasso described in Section \@ref(MLGL), we
+define this quantity as $\displaystyle{\rho_h = 1 / \sqrt{s_h}}$. The
+process is shown in Figure \@ref(fig:hierarchy)(a) and \@ref(fig:hierarchy)(c).
+
+#### Compressing the data {.unnumbered}
+
+To summarize each group of variables, the mean, the median or other
+quantiles may be used as well as more sophisticated representations
+based on eigen values decompositions such as the first factor obtained
+with a PCA. This step is similar to the dimension reduction step of the
+method presented in Section \@ref(Dstar).
+
+### Identification of relevant supervariables
+
+With this compressed representation at hand, we can recover relevant
+interactions with a multiple testing strategy.
+
+#### Selection of supervariables {.unnumbered}
+
+The compression is a key ingredient to reduce significantly the
+dimension involved in Problem . Yet, we are going a step further with an
+additional feature selection process applied to the compressed
+variables, as suggested at the begin of this section to preprocess the
+data, using screening rules and / or applying a Lasso optimization on
+each view $\mathit{G}$ and $\mathit{M}$: $$\begin{aligned}
+  \underset{\boldsymbol{\beta}_{\mathit{G}}}{argmin}  & \;
+                            \sum_{i=1}^n \left(y_i - \tilde{\mathbf{x}}_{i}^{\mathit{G}}
+                            \boldsymbol{\beta}_{\mathit{G}} \right)^2   \  + \
+                            \lambda_{\mathit{G}} \sum_{g=1}^{N_{\mathit{G}}} \rho_g
+                            |\beta_{g}| \,,\end{aligned}$$ and
+$$\begin{aligned}
+  \underset{\boldsymbol{\beta}_{\mathit{M}}}{argmin} & \;
+                           \sum_{i=1}^n \left(y_i - \tilde{\mathbf{x}}_{i}^{\mathit{M}}
+                           \boldsymbol{\beta}_{\mathit{M}} \right)^2  \ + \
+                           \lambda_{\mathit{M}}\sum_{m=1}^{N_{\mathit{M}}} \rho_m 
+                           |\beta_{m}| \,,  \end{aligned}$$ with
+penalty factors being defined by
+$\displaystyle{\rho_g = 1 / \sqrt{s_g}}$ and
+$\displaystyle{\rho_m = 1 / \sqrt{s_m}}$ as explained in
+Section \@ref(structure).
+
+#### Linear model testing {.unnumbered}
+
+In a feature selection perspective, the relevant interactions may be
+recovered separately considering each selected group $g \in \mathcal{G}$
+coupled with each selected group $m \in \mathcal{M}$ in a linear model of
+interaction and by performing an hypothesis test on the interaction
+parameter: $$\label{eq:compact_single_interaction_model}  
+  y_i = \tilde{x}_i^g \beta_{g}  +
+  \tilde{x}_i^m \beta_{m}  +
+  \left(\tilde{x}_i^g  \cdot
+    \tilde{x}_i^m\right)
+  {\theta_{gm}} + \, \epsilon_i \,.$$
+
+This strategy has the advantage of highlighting all the potential
+interactions between the selected simple effects in an exploratory
+rather than predictive analysis perspective. Also, it may be regarded as
+an alternative shortcut to Problem  in that it involves $N_I$ problems
+of dimension $3$ instead of a potentially large problem of dimension
+$N_{\mathit{G}} + N_{\mathit{M}} + N_I$. Finally, this scheme of selection preserves
+strong dependencies by construction.
+
+## Numerical simulations {#XPsimu}
+
+We provide here numerical simulations to assess the ability of SICOMORE
+to recover relevant interactions against three other methods. We also
+show that our method is computationally competitive compared to the
+others.
+
+### Data generation
+
+
+#### Generation of metagenomic and genomic data matrices {.unnumbered}
+
+##### Genomic data {.unnumbered}
+
+In order to get a matrix $\mathbf{x}^{\mathit{G}}$ close to real genomic data, we used
+the software software [@su_hapgen2_2011]. This software allows to
+simulate an entire chromosome conditionally on a reference set of
+population haplotypes (from HapMap3) and an estimate of the fine-scale
+recombination rate across the region, so that the simulated data share
+similar patterns with the reference data. We generate the chromosome 1
+using the haplotype structure of CEU population (Utah residents with
+Northern and Western European ancestry from the CEPH collection) as
+reference set and we selected $D_\mathit{G}=200$ variables from this matrix to
+obtain our simulated dataset. An example of the linkage disequilibrium
+structure among the simulated SNP is illustrated in Figure \@ref(fig:X)(a).
+
+##### Metagenomic data {.unnumbered}
+
+The data matrix $\mathbf{x}^{\mathit{M}}$, with $D_\mathit{M}=100$ variables, has been
+generated using a multivariate Poisson-log normal distribution
+[@aitchison1989multivariate] with block structure dependencies.
+
+The Poisson-log normal model is a latent gaussian model where latent
+vectors \(\mathcal{L}_i \in \mathbb{R}^{D_\mathit{M}}\) are drawn from a multivariate
+normal distribution
+$$\mathcal{L}_i \thicksim \mathcal{N}_{D_\mathit{M}}(0, \boldsymbol{\Sigma}),$$ where
+$\boldsymbol{\Sigma}$ is a covariance matrix that allows to obtain a correlation
+structure among the variables.
+
+The centered phenotypic count data $\mathrm{Y}_i$ are then drawn from a Poisson
+distribution conditionally on $\mathcal{L}_i$
+$$\mathrm{Y}_{ij}|\mathcal{L}_{ij} \thicksim \mathcal{P}\left( e^{\mu_j + \mathcal{L}_{ij}}\right),$$
+with $\mu_j = 0$.
+
+The block structure, pictured in Figure \@ref(fig:X)(b), has been obtained by
+drawing a latent multivariate normal vector using a covariance matrix
+$\boldsymbol{\Sigma}$ such that the correlation level between the latent variables
+of a group are between 0.5 and 0.95. By simulating this way, we obtain a
+matrix of count data with a covariance structure close to what is
+observed with metagenomic data. As stated in Section \@ref(preprocess),
+we calculated the proportions in each random variable and transformed
+them using centered log-ratios.
+
+(ref:X) Examples of hierarchical structures}: correlations observed on (a) genomic data $\mathbf{x}^\mathit{G}$ and (b) metagenomic data $\mathbf{x}^\mathit{M}$.
+
+```{r X, echo=FALSE, fig.cap='(ref:X)', out.width='100%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/X.png")
+```
+
+### Generation of the phenotype
+
+For all simulations, we used a fixed value of $N_{\mathit{M}} = 6$ groups for
+the matrix $\mathbf{x}^{\mathit{M}}$ and for the case of the matrix $\mathbf{x}^{\mathit{G}}$, since
+we cannot exactly control the block structure with , we used the Gap
+Statistic (see Section \@ref(CAH)) to identify a number of groups in
+the hierarchy. For instance, in Figure \@ref(fig:X)(a), the Gap Statistic
+identified $N_{\mathit{G}} = 16$ groups. The supervariables were then
+calculated using averaged groups of variables to obtain the two matrices
+of supervariables, $\tilde{\mathbf{x}}^{\mathit{G}}$ and $\tilde{\mathbf{x}}^{\mathit{M}}$.
+
+To generate the phenotype, we considered a data structure for which the
+data to regress has been generated using supervariables according a
+linear model with interactions of the form:
+
+$$\label{eq:phenotype_gen}
+  y_i = 
+  \sum_{g \in \mathcal{S}^{\mathit{G}}}\tilde{x}_i^g \beta_{g} +
+  \sum_{m \in \mathcal{S}^{\mathit{M}}} \tilde{x}_i^m \beta_{m} +
+  \sum_{g \in \mathcal{S}^{\mathit{G}}}\sum_{m \in \mathcal{S}^{\mathit{M}}}
+  \underbrace{\left(\tilde{x}_i^g  \cdot
+      \tilde{x}_i^m\right)}_{\boldsymbol{\phi}^{gm}_i}
+  {\theta_{gm}} + \, \epsilon_i \,,$$
+
+where $\mathcal{S}^{\mathit{G}}$ and $\mathcal{S}^{\mathit{M}}$ are subsets of randomly chosen effects from the matrices $\tilde{\mathbf{x}}^{\mathit{G}}$ and $\tilde{\mathbf{x}}^{\mathit{M}}$ respectively, $\tilde{x}_i^g$ is the $i^{th}$ sample of the $g$ effect and $\beta_{g}$ its corresponding coefficient, $\tilde{x}_i^m$ is the $i^{th}$ sample of the $m$ effect and $\beta_{m}$ its corresponding coefficient. Finally, $\theta_{gm}$ is the interaction between variables $\tilde{x}_i^g$ and $\tilde{x}_i^m$.
+
+We considered $I \in \{1,3,5,7,10\}$ true interactions between the
+supervariables to generate the phenotype so that $I$ blocks of the
+coefficients of $\theta_{gm}$ have non-zero values. The process
+was repeated 30 times for each couple of parameters in
+$N=\{50, 100, 200\} \times mean(\boldsymbol{\epsilon})=\{0.5, 1, 2\}$.
+
+### Comparison of methods
+
+To evaluate the performance of our method, SICOMORE, to retrieve the
+true causal interaction, we compared it with three other methods, namely
+**HCAR** [@park_averaged_2007], **MLGL** [@grimonprez_selection_2016]
+and **glinternet** [@lim2015learning]. It is worth mentioning that, as
+we already stated, SICOMORE is an approach that borrow from HCAR and
+MLGL and that is designed to detect interactions. We had then to adapt
+these approaches to our problematic, as we will describe it in the
+following sections, they are therefore not evaluated in the context they
+were meant to be used. Thus, the purpose of this evaluation is to know
+if SICOMORE is capable of improving the individual performance of these
+methods by combining them to detect statistical interactions.
+
+#### Hierarchical Clustering and Averaging Regression (HCAR) {.unnumbered}
+
+This methodology can be simply adapted to our problematic by performing
+two hierarchical clustering on each data matrix $\mathbf{x}^{\mathit{G}}$ and
+$\mathbf{x}^{\mathit{M}}$ and then compute the unweighted compressed representations
+of those hierarchies as explained in
+Section \@ref(implementation) and illustrated in
+Figure \@ref(fig:hierarchy)(c). We can then fit a Lasso regression model
+on both compressed representations with interactions between all
+possible groups. We consider that HCAR is able to retrieve a true
+causal interaction if the Lasso procedure selects the interaction term
+at the correct levels of the two hierarchies.
+
+#### Multi-Layer Group-Lasso (MLGL) {.unnumbered}
+
+The model is fitted with weights on the groups defined by the expanded
+representation of the two hierarchies as illustrated in Figure
+\@ref(fig:hierarchy)(b). This method does not work on the compressed
+supervariables but on the initial variables. Our evaluation considers
+that the method is able to retrieve real interactions if it selects the
+correct interaction terms between two groups of variables at the right
+level in both hierarchies.
+
+#### Group-Lasso interaction network (glinternet)
+
+glinternet [@lim2015learning] is a procedure that considers pairwise
+interactions in a linear model in a manner that satisfies strong
+dependencies between main and interaction effects: whenever an
+interaction is estimated to be non-zero, both its associated main
+effects are also included in the model. This method uses a Group-Lasso
+model to accommodate with categorical variables and apply constraints on
+the main effects and interactions to result in interpretable interaction
+models.
+
+The glinternet model fits a hierarchical group-lasso model with
+constraints on the main and interactions effects as specified in the
+equation whilst accommodating for the strong dependence hypothesis by
+adding an appropriate penalty to the loss function (we refer the reader
+to [@lim2015learning] for more details on the form of the penalty). For
+very large problems (with a number of variables $\geq 1.10^5$), the
+group-lasso procedure is preceded by a screening step that gives a
+candidate set of main effects and interactions. They use an adaptive
+procedure that is based on the strong rules [@tibshirani2012strong] for
+discarding predictors in lasso-type problems.
+
+Since this method can only work at the level of variables, it was
+necessary to include a group structure into the analysis. Therefore, we
+decided to fit the glinternet model on the compressed variables and to
+constraint the model to only fit the interaction terms between the
+supervariables of the two matrices $\tilde{\mathbf{x}}^{\mathit{G}}$ and
+$\tilde{\mathbf{x}}^{\mathit{M}}$. We explicitly removed all interaction terms between
+supervariables belonging to the same data matrix.
+
+For a fair comparison with the other methods, we considered two options
+namely *GLtree* and *GLgap*. On one hand, option GLtree works on the
+unweighted compressed representations of the two hierarchies
+(Figure \@ref(fig:hierarchy)(c)) thus considering all the possible
+interactions between the supervariables of the two datasets. On the
+other hand, option GLgap considers only the interactions between the
+compressed variables constructed at a specific level in the hierarchies,
+chosen by the Gap Statistic.
+
+Given that $D^{\mathit{G}}$ and $D^{\mathit{M}}$ are the number of variables in
+$\mathbf{x}^{\mathit{G}}$ and $\mathbf{x}^{\mathit{M}}$, the dimension of the compressed matrices
+$\tilde{\mathbf{x}}^{\mathit{G}}$ and $\tilde{\mathbf{x}}^{\mathit{M}}$ are respectively
+$\tilde{D}^{\mathit{G}} = D^{\mathit{G}} + (D^{\mathit{G}}-1)$ and
+$\tilde{D}^{\mathit{M}} = D^{\mathit{M}} + (D^{\mathit{M}}-1)$. Thus, for GLtree the number
+of interactions to investigate are
+$\tilde{D}^{\mathit{G}}  \times \tilde{D}^{\mathit{M}}$ while for GLgap this number
+will depend on the level chosen by the Gap statistic but will be either
+way smaller since we consider only a specific level of the hierarchy in
+this option. In the numerical simulations, given that $D^{\mathit{G}} = 200$
+and $D^{\mathit{M}}=100$, the use of strong rules to discard variables is
+therefore not necessary as [@lim2015learning] argued that glinternet can
+handle very large problems without any screening (360M candidate
+interactions were fitted when evaluating the method on real data
+examples).
+
+### Evaluation metrics
+
+For each run, we evaluated the quality of the variable selection using
+Precision and Recall. More precisely, we compared the true interaction
+matrix $\boldsymbol{\theta}$ that we used to generate the phenotype with the
+estimated interaction matrix $\hat{\boldsymbol{\theta}}$ compute for each model. For
+all possible interactions $\{gm\}$, we then determined the
+following confusion matrix:
+
+```{r tabconfusionfig, echo=FALSE, fig.align="center", out.width='50%',fig.asp=.75}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_confusion.png")
+```
+```{r tabconfusion, echo=FALSE, tidy=FALSE}
+tab.cap <- c("Confusion matrix for the hypothesis test on interaction parameter $\\theta$")
+knitr::kable(c(), caption = tab.cap, booktabs=TRUE, format="html")
+```
+
+and hence compute $\text{Precision}={\frac{TP}{(FP+TP)}}$ and
+$\text{Recall}=\frac{TP}{FN+TP}$. In this context, a true positive
+corresponds to a significant $p$-value on a true causal interaction, a
+false positive to a significant $p$-value on a noise interaction, and a
+false negative to a non-significant $p$-value on a true causal
+interaction. An example of the interaction matrix $\boldsymbol{\theta}$ is
+given in Figure \@ref(fig:ggheatheta) for $I=5$ blocks in interaction.
+
+(ref:ggheatheta) Illustration of the true interaction matrix $\boldsymbol{\theta}$ with $I = 5$, $\sigma = 0.5$ and $n=100$. Each non-zero value in this matrix is considered as a true interaction between two variables.
+
+```{r ggheatheta, echo=FALSE, fig.cap='(ref:ggheatheta)', out.width='90%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/ggheat_theta.png")
+```
+
+For all methods, we correct for multiple testing by controlling the
+Family Wise Error Rate using the method of Holm-Bonferroni. Even though
+it is known to be stringent, we chose to rely on Holm-Bonferroni method
+to adjust for multiple testing because the number hypothesis tests
+performed in our simulation context is not that high. In a
+high-dimensional context such as with the analysis of real DNA chip
+data, we would rather use the Benjamini-Hochberg method for the control
+of the false discovery rate.
+
+### Performance results
+
+The performances of each method to retrieve the true causal interactions
+are illustrated in Figure \@ref(fig:precisionBONF) for precision and
+Figure \@ref(fig:recallBONF) for recall. For the sake of clarity we only show
+the results for $I=7$ blocks of variables in interaction. 
+
+The results in terms of recall reveal good abilities of MLGL and
+SICOMORE to retrieve True Positive interactions, with an overall
+advantage for our method. HCAR achieves a lower performance due to the
+fact that it favours the selection of small groups which are only partly
+contained in the groups that generate the interactions showing that the
+weighting scheme of MLGL and SICOMORE is efficient. GLgap is not able to
+retrieve relevant interactions but the way to define the structure among
+variables, using the Gap Statistic, is also quite different than for the
+three other methods.
+
+In terms of precision, all methods perform poorly with a significant
+number of false positive interactions. MLGL and SICOMORE tend to select
+groups of variables and supervariables too high in the tree structure,
+inducing false positives which are spatially closed to the true
+interactions. HCAR, which favours small groups as explained above, is
+less subject to that. The behaviour of GLgap may vary according to the
+selected cut with the Gap statistic into the tree structure while option
+GLtree exhibit slightly better precision. Still, the method glinternet
+is globally not able to retrieve correctly the true interactions whether
+or not it uses the compressed or original representation. The plots in
+Figure \@ref(fig:theta2by2) represent the recovered confusion matrices of
+interaction $\theta_{gm}$ for each compared algorithm for one particular
+set of simulation parameters ($I = 5$, $\sigma = 0.5$, $n=100$).
+
+(ref:theta2by2) Confusion matrices of interactions $\theta_{gm}$ for each compared algorithm with the following simulation parameters: $I = 5$, $\sigma = 0.5$, $n=100$. We can see in this example that MLGL and SICOMORE behaves similarly with very large genomic regions identified while HCAR tends to work with smaller genomic and metagenomic regions.
+
+```{r theta2by2, echo=FALSE, fig.cap='(ref:theta2by2)', out.width='100%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/theta2by2.png")
+```
+
+(ref:precisionBONF) Boxplots of precision for each couple of parameters $N$ (number of examples in rows) and $\epsilon$ (difficulty of the problem in columns) for $I=7$.
+
+```{r precisionBONF, echo=FALSE, fig.cap='(ref:precisionBONF)', out.width='100%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/precision_simureal_BONF-3.png")
+```
+
+(ref:recallBONF) Boxplots of recall for each couple of parameters $N$ (in rows) and $\epsilon$ (in columns) for $I=7$.
+
+```{r recallBONF, echo=FALSE, fig.cap='(ref:recallBONF)', out.width='100%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/precision_simureal_BONF-3.png")
+```
+
+### Computational time
+
+In order to decrease the calculation time in our algorithm, we chose to
+restrain the search space in the tree to a certain amount, depending on
+the number of initial features. We can choose to limit the search in the
+area of the tree where the jumps in the hierarchy are the highest and
+arbitrarily set the number of groups to evaluate at five times the
+number of initial features. By doing so, we are reducing the number of
+variables to be fitted in the Lasso regression without affecting the
+performance in terms of Recall or Precision.
+
+We compared the computational performance of our method with the three
+others by varying $D^{\mathit{G}}$ (we fixed $D^{\mathit{M}} = 100$ and $n = 200$). We
+repeated the number of evaluation five times for each $D^{\mathit{G}}$ and
+averaged the calculation time.
+
+```{r tabcomptimefig, echo=FALSE, fig.align="center", out.width='50%',fig.asp=.75}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_confusion.png")
+```
+```{r tabcomptime, echo=FALSE, tidy=FALSE}
+tab.cap <- c("Results of averaged calculation time (in minutes) over 5 replicates for varying $D^{\\mathit{G}}$")
+knitr::kable(c(), caption = tab.cap, booktabs=TRUE, format="html")
+```
+
+We can conclude from the results presented in table \@ref(tab:tabcomptime) that
+two methods, MLGL and glinternet, are not suitable for large-scale
+analysis of genomic data since the calculation time increase drastically
+as soon as the dimension of the problem exceed a few thousand variables.
+HCAR and SICOMORE behave similarly. That being said, remember that HCAR
+is tuned with an unweighted compressed representation avoiding having to
+choose the optimal cut in the tree, as in SICOMORE. With its original
+strategy based on a $K$ cross validation, there is no doubt that the gap
+between HCAR and SICOMORE would have been much larger. Indeed, the
+computational cost of an additional exploration to find the optimal cut
+in HCAR grows with the number of variables and therefore with $h_T$, the
+height of the tree. HCAR has to evaluate $h_T \times K$ compressed
+models while SICOMORE only has to compress $h_T-1$ groups to evaluate
+the final model.
+
+## Application on real data: rhizosphere of *Medicago truncatula* {#XPINRA}
+
+### Material
+
+In order to study the interactions between *Medicago truncatula* and the
+microbial community of its rhizosphere, a core collection of 154
+accessions have been analysed. The purpose of the study is to identify
+significant interactions between the plant genome and the microbial
+metagenome to better understand the effect of the microbial community on
+the growth of the plant.
+
+Each accession was grown in a controlled environment and phenotyped for
+several traits related to the growth and nutritional strategy:
+
+-   Measure of total biomass (BMtot).
+
+-   Root Shoot Ratio (RTR).
+
+-   Specific Nitrogen Uptake (SNU). It is the correlation between the
+    total amount of nitrogen and below-ground biomass
+
+The distributions of the phenotypic values are shown in Figure
+\@ref(fig:histopheno).
+
+(ref:histopheno) Distribution of the phenotypic values for the BMtot, RTR and SNU traits.
+
+```{r histopheno, echo=FALSE, fig.cap='(ref:histopheno)', out.width='100%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/histo_pheno_INRA.png")
+```
+
+In addition to the phenotypic measurement, the rhizosphere of each
+accession was also analysed to determine the microbial diversity in
+terms of number of species and abundance of each species. The
+metagenomic composition of the rhizosphere has been analysed by DNA
+extraction and shotgun sequencing. A total of 848 different species were
+found in the rhizosphere of the plants (repartition shown in Figure
+\@ref(fig:piechart1)).
+
+(ref:piechart1) Distribution of the phenotypic values for the BMtot, RTR and SNU traits.
+
+```{r piechart1, echo=FALSE, fig.cap='(ref:piechart1)', out.width='80%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/piechart1.png")
+```
+
+Finally, 154 accession were genotyped with a DNA microarray chip for a
+total number of 6 372 968 SNP. The missing values were imputed using the
+‘snp.imputation‘ function from the `SNPstats` R package. Given two set
+of SNP typed in the same subjects, this function calculates rules which
+can be used to impute one set from the other in a subsequent sample.
+
+Some SNP having too many missing values to be imputed at $100\%$, we
+only kept the SNP which have been completely imputed, thus reducing the
+size of the data to 2 148 505 SNP. We also looked at the linkage
+disequilibrium level among some SNP to get an overview of the genome
+structure (Figure \@ref(fig:heatmapchr4)).
+
+(ref:heatmapchr4) Heatmap of LD level among SNP of chromosome 4 (position 17448921 to 22706884).
+
+```{r heatmapchr4, echo=FALSE, fig.cap='(ref:heatmapchr4)', out.width='80%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/cowplot_heatmap_chr4_17448921-chr4_22706884.png")
+```
+
+### Analysis
+
+The algorithm SICOMORE requires that we choose several hyper-parameters
+in order to run properly:
+
+-   **Aggregating function:** For both metagenomic and genomic data we
+    define the mean value of the group as supervariable.
+
+-   **Clustering algorithm:** For the metagenomic data we used 2 types
+    of clustering: a hierarchical clustering using Ward’s distance as
+    the measure of similarity and a phylogenetic clustering using the
+    taxonomic information to construct a tree. The first method does not
+    use information a priori while the second uses phylogenetic
+    information to build a tree. For the genomic data, we used spatially
+    constrained hierarchical clustering algorithm which integrates the
+    linkage disequilibrium as the measure of dissimilarity. It is also
+    possible not to specify any hierarchy for one the 2 datasets, in
+    that case we are looking for interaction between groups of variables
+    in one dataset and single variables in the second dataset.
+
+-   **Search space**: For computational reasons, we searched at first
+    for interaction between a subset of the SNP data and the metagenomic
+    data. We chose arbitrarily a subset of $10\%$ of the initial data
+    matrix (214 851 SNP). We also chose to divide the analysis
+    chromosome by chromosome.
+
+To summarize we performed an exhaustive search for interaction by
+setting different parameters:
+
+**Option 1** : Hierarchical clustering on metagenomic data + spatially constrained hierarchical clustering on subset of genomic data (214 851 SNP) + chromosome by chromosome.
+
+
+**Option 2** : Hierarchical clustering on metagenomic data + spatially constrained hierarchical clustering on subset of genomic data (214 851 SNP) + all chromosomes combined.
+
+**Option 3** :  Hierarchical clustering on metagenomic data + spatially constrained hierarchical clustering on all genomic data (2 148 505 SNP) + chromosome by chromosome.
+
+**Option 4** :  Phylogenetic clustering using taxonomic information on metagenomic data + spatially constrained hierarchical clustering on subset of genomic data (214 851 SNP) + chromosome by chromosome.
+
+
+### Results
+
+#### Results on Total Biomass
+
+```{r tabBMtotfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_biomass.png")
+```
+```{r tabBMtot, echo=FALSE, tidy=FALSE}
+tab.cap <- c("Results from SICOMORE analysis on total biomass")
+knitr::kable(c(), caption = tab.cap, booktabs=TRUE, format="html")
+```
+
+One significant interaction was found for the phenotype Total Biomass
+when we applied a BH correction chromosome by chromosome (column 3)
+instead of correcting on the all set of p-value, all chromosome
+confounded:
+
+```{r tabresBMtotfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resBMtot.png")
+```
+```{r tabresBMtot, echo=FALSE, tidy=FALSE}
+tab.cap <- c("Results from SICOMORE analysis on total biomass")
+knitr::kable(c(), caption = tab.cap, booktabs=TRUE, format="html")
+```
+
+
+### Results on Root Shoot Ratio
+
+```{r tabRTRfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_RTR.png")
+```
+```{r tabRTR, echo=FALSE, tidy=FALSE}
+tab.cap <- c("Results from SICOMORE analysis on Root Shoot Ratio.")
+knitr::kable(c(), caption = tab.cap, booktabs=TRUE, format="html")
+```
+
+We found some significant interactions when we applying a BH correction
+chromosome by chromosome (column 3). We observe different results
+according to the clustering applied on the metagenomic data. We found 7
+significant interactions for the phenotype Root Shoot Ratio when we
+applied a hierarchical clustering and 10 significant interactions when
+we applied a phylogenetic clustering.
+
+1.  Option 1 (hierarchical clustering on Metagenomic data and subset of SNP data):
+
+```{r tabresRTR1, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resRTR1.png")
+```      
+      
+2.  Option 4 (phylogenetic clustering on Metagenomic data and subset of SNP data):
+
+```{r tabresRTR2, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resRTR2.png")
+```  
+
+### Results on Specific Nitrogen Uptake
+
+```{r tabSNUfig, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_SNU.png")
+```
+```{r tabSNU, echo=FALSE, tidy=FALSE}
+tab.cap <- c("Results from SICOMORE analysis on Specific Nitrogen Uptake.")
+knitr::kable(c(), caption = tab.cap, booktabs=TRUE, format="html")
+```
+
+2 significant interactions (on a total 128 potential interactions) were
+found between 2 groups of microbial species and 2 groups of SNP when
+assessing all the genomic data (Option 4) and applying the BH correction
+on the all set of p-value:
+
+```{r tabresSNU, echo=FALSE, fig.align="center", out.width='80%',fig.asp=.75}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_resSNU.png")
+```  
+
+The 140 microbial species found in the interactions with chromosome 2
+and 5 are the same species. The repartition in phylum of these species
+are illustrated in Figure \@ref(fig:piechart2), there is a total of 13
+phylum represented with a vast majority of Proteobacteria.
+
+(ref:piechart2) Microbial phylum found in interaction with chromosome 2 and chromosome 5 of *Medicago truncatula* for the Specific Nitrogen Uptake phenotype.
+
+```{r piechart2, echo=FALSE, fig.cap='(ref:piechart2)', out.width='70%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/piechart2.png")
+```
+
+
+## Discussions
+
+Although the detection of interaction effects in a high-dimensional
+remain a difficult problem, on one hand due to the multiple testing
+burden and on the other hand to the small effect sizes in term of
+significance, our approach has demonstrated the ability to recover
+interaction effects with a high statistical power. In our simulations,
+whether we varied the sample sizes, noise or number of true
+interactions, SICOMORE always exhibited the strongest recall compared to
+MLGL, HCAR or glinternet. This can be explained mainly by the fact that
+we advantageously use the strengths of different methods to combine them
+in a powerful single algorithm.
+
+Regarding the results in terms of precision, we can see that all methods
+exhibit weak performance mainly due to the fact that the algorithms
+select groups which are too high in the hierarchy, i.e. that the
+selected supervariables, or groups of single variables for MLGL, contain
+too many variables. This results in the detection of interactions
+between the complementary datasets with a good power but a weak
+resolution. One solution would be to constrain the algorithm to work
+only on the lowest levels of the two hierarchies at a potential cost in
+terms of recall.
+
+As for the application of our method to the *Medicago truncatula*
+dataset, we were able to find significant interactions between genomic
+and metagenomic features in relation with 3 phenotypes. Particularly we
+notice than one particular microbial species, ‘Ramlibacter’, seems to
+highly interact with the genome of the plant. We detected a lot of
+interactions for the RTR phenotype with potentially interesting genomic
+regions to look at in more details. The results on the phenotype SNU are
+more difficult to interpret because it is a very large group of
+microbial species which interact with the genome. Furthermore, we can
+notice in these results that the variable selection step suffers from
+instability. Indeed, as we used the same metagenomic data across the
+different options, the number of selected groups should also remains the
+same, but it is not the case. This instability could be due to the
+cross-validation step necessary to estimate the hyper-parameters and
+would need some adjustments to be corrected.
+
+To conclude we can state that SICOMORE is able to find significant
+metagenomic-genomic interactions in a high dimensional context within a
+reasonable computational time. Indeed, the algorithm is able to work
+very fast even with large genomic dataset, an analysis of the full
+genomic data only takes a few hours to run and only a few tens of
+minutes if we work on a small subset of the data.
+
+[^1]: The rhizosphere is the term used to describe the zone of intense
+    activity around the roots of leguminacea (Fabaceae) which contains a
+    considerable diversity of microbial and mycorrhizal species.
+
+[^2]: The metagenome corresponds to all the genetic material present in
+    an environmental sample, consisting of the genomes of many
+    individual organisms.
+
+[^3]: For the sake of clarity, we use these lightened notations which
+    slightly differ from those used in the previous chapters.
+
+[^4]: To our knowledge, their implementation based on alternating
+    direction method of multipliers is not publicly available.
+
+[^5]: see Section \@ref(DNAseq) for details on shotgun sequencing.

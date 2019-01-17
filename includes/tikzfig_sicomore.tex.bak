@@ -1,0 +1,168 @@
+\begin{figure}[h]
+  \tikzstyle{background grid}=[thin, draw=gray, step=0.5cm]
+  \centering 
+  \subfigure[Original hierarchy]{%
+    \label{fig:p-h:original}
+    \begin{tikzpicture}%[show background grid]%x=0.5cm, y=0.4cm] 
+      \draw[color = bgfig, draw=gray] (-.9, -0.5) rectangle (4.8, 3.75);
+
+      \node at (-0.9,3) [right]{\small $h_0 = 5$};
+      \node at (-0.9,2.25) [right]{\small $h_1 = 3.5$};
+      \node at (-0.9,1) [right]{\small $h_3 = 1$};
+      \node at (-0.9,0.5) [right]{\small $h_4 = 0$};
+      % groupe 1
+      \fill[black] (0.5, 0.5) circle (2pt) node (x1)
+      [black,below=0.15cm] {\small $\bx^1$}; 
+      \fill[black]  (1, 0.5) circle (2pt) node (x3)
+      [black,below=0.15cm] {\small $\bx^3$}; 
+      \fill[black]  (1.5, 0.5) circle (2pt) node (x4)
+      [black,below=0.15cm] {\small $\bx^4$}; 
+
+      \draw[-, thick] (0.5, 1) -- (1.5, 1);      
+      \draw[-, thick] (0.5, 1) -- (0.5, 0.5);
+      \draw[-, thick] (1, 1) -- (1, 0.5);
+      \draw[-, thick] (1.5, 1) -- (1.5, 0.5);
+
+      % groupe 2
+      \fill[black]  (2.5, 0.5) circle (2pt) node (x2)
+      [black,below=0.15cm] {\small $\bx^2$}; 
+      \fill[black]  (3, 0.5) circle (2pt) node (x5)
+      [black,below=0.15cm] {\small $\bx^5$};
+
+      \draw[-, thick] (2.5, 2.25) -- (3, 2.25);      
+      \draw[-, thick] (2.5, 2.25) -- (2.5, 0.5);
+      \draw[-, thick] (3, 2.25) -- (3, 0.5);
+
+      % racine
+      \draw[-, thick] (2, 3) -- (2, 3.5);   
+      \draw[-, thick] (1, 3) -- (2.75, 3);   
+      \draw[-, thick] (1, 3) -- (1, 1);   
+      \draw[-, thick] (2.75, 3) -- (2.75, 2.25);   
+
+      % saut
+      \draw[dashed, thick] (2.75, 3) -- (4, 3);   
+      \draw[dashed, thick] (2.75, 2.25) -- (4, 2.25);  
+
+      \draw[<->, blue] (3.25, 3) -- (3.25, 2.25) node [midway,
+      right]{\small $s_1=1.5$};
+
+      \draw[dashed, thick] (1.5, 1) -- (4, 1);  
+
+      \draw[<->, orange] (3.25, 2.25) -- (3.25, 1)node [midway,
+      right]{\small $s_2=2.5$};
+
+      \draw[dashed, thick] (0.5, 0.5) -- (4, 0.5);  
+
+      \draw[<->, darkgreen] (3.25, 1) -- (3.25, 0.5)node [midway,
+      right]{\small $s_3=1$};
+
+    \end{tikzpicture}
+  } \hspace{-14pt}
+  \subfigure[Expanded representation]{
+    \label{fig:p-h:expanded}
+    \begin{tikzpicture}%[show background grid]%x=0.5cm, y=0.4cm] 
+      \draw[color = bgfig, draw=gray] (0.1, -0.5) rectangle (5.8, 3.75);
+
+      \draw[-, thick] (3.4, 3.275) -- (3.4, 3.5);
+      \draw[-, thick] (1.5, 3.275) -- (4.9, 3.275);
+      % node[pos=-0.05, below]  {\small$\textcolor{blue}{\rho_1}$}
+      % node[pos= 0.5, below]  {\small$\textcolor{orange}{\rho_2}$}
+      % node[pos=0.95, below]  {\small$\textcolor{darkgreen}{\rho_3}$};
+      \draw[-, thick, blue] (1.5, 3.275) -- (1.5, 3) node [pos=0.5,
+      label = left:{\small $\textcolor{blue}{\rho_1}$}]{};
+
+      \draw[-, thick, orange] (3.4, 3.275) -- (3.4, 2.75) node [pos
+      = 0.3, label = left:{\small $\textcolor{orange}{\rho_2}$}]{};
+
+      \draw[-, thick, darkgreen] (4.9, 3.275) -- (4.9, 1) node [pos =
+      0.075, label = left:{\small $\textcolor{darkgreen}{\rho_3}$}]{};
+
+      \draw[-, blue, thick] (0.5, 3) -- (2.5, 3);
+      \draw[-, blue, thick] (0.5, 3) -- (0.5, 0.5);
+      \draw[-, blue, thick] (1, 3) -- (1, 0.5);
+      \draw[-, blue, thick] (1.5, 3) -- (1.5, 0.5);
+      \draw[-, blue, thick] (2, 3) -- (2, 0.5);
+      \draw[-, blue, thick] (2.5, 3) -- (2.5, 0.5);
+
+
+      \fill[black] (0.5, 0.5) circle (2pt) node (x2root)
+      [black,below=0.15cm] {\small $\bx^2$}; 
+      \fill[black]  (1, 0.5) circle (2pt) node (x5root)
+      [black,below=0.15cm] {\small $\bx^5$}; 
+      \fill[black]  (1.5, 0.5) circle (2pt) node (x1root)
+      [black,below=0.15cm] {\small $\bx^1$}; 
+      \fill[black]  (2.5, 0.5) circle (2pt) node (x4root)
+      [black,below=0.15cm] {\small $\bx^4$}; 
+      \fill[black]  (2, 0.5) circle (2pt) node (x3root)
+      [black,below=0.15cm] {\small $\bx^3$}; 
+
+
+      \draw[snake=brace, mirror snake, color = blue, segment
+      amplitude=3pt, line width=0.5pt] (x2root.south west) --
+      (x4root.south east);
+      
+      \draw[-, darkgreen, thick] (4.4, 1) -- (5.4, 1);
+      \draw[-, darkgreen, thick] (4.4, 1) -- (4.4, 0.5);
+      \draw[-, darkgreen, thick] (4.9, 1) -- (4.9, 0.5);
+      \draw[-, darkgreen, thick] (5.4, 1) -- (5.4, 0.5);
+
+      \fill[black] (4.4, 0.5) circle (2pt) node (x1g1)
+      [black,below=0.15cm] {\small $\bx^1$}; 
+      \fill[black]  (4.9, 0.5) circle (2pt) node (x3g1)
+      [black,below=0.15cm] {\small $\bx^3$}; 
+      \fill[black]  (5.4, 0.5) circle (2pt) node (x4g1)
+      [black,below=0.15cm] {\small $\bx^4$}; 
+      
+   	  \draw[snake=brace, mirror snake, color = darkgreen, segment
+      amplitude=3pt, line width=0.5pt] (x1g1.south west) --
+      (x4g1.south east);
+
+      \draw[-, orange, thick] (3.2, 2.75) -- (3.7, 2.75);
+      \draw[-, orange, thick] (3.2, 2.75) -- (3.2, 0.5);
+      \draw[-, orange, thick] (3.7, 2.75) -- (3.7, 0.5);
+
+      \fill[black] (3.2, 0.5) circle (2pt) node (x2g2)
+      [black,below=0.15cm] {\small $\bx^2$}; 
+      \fill[black]  (3.7, 0.5) circle (2pt) node (x5g2)
+      [black,below=0.15cm] {\small $\bx^5$}; 
+      
+      \draw[snake=brace, mirror snake, color = orange, segment
+      amplitude=3pt, line width=0.5pt] (x2g2.south west) --
+      (x5g2.south east);
+
+    \end{tikzpicture}
+  } \hspace{-13pt}
+  \subfigure[Compressed representation]{
+    \label{fig:p-h:compressed}
+    \begin{tikzpicture}%[show background grid]%x=0.5cm, y=0.4cm] 
+      \draw[color = bgfig, draw=gray] (0, -0.5) rectangle(3, 3.75);
+
+      \fill[blue] (0.5, 0.5) circle (2pt) node (xt1)
+      [black,below=0.15cm] {\small $\textcolor{blue}{\rho_1\tilde{\bx}^1}$};   
+      \fill[orange]  (1.5, 0.5) circle (2pt) node (xt2)
+      [black,below=0.15cm] {\small $\textcolor{orange}{\rho_2\tilde{\bx}^2}$};  
+      \fill[darkgreen]  (2.5, 0.5) circle (2pt) node (xt3)
+      [black,below=0.15cm] {\small $\textcolor{darkgreen}{\rho_3\tilde{\bx}^3}$};  
+      
+      \draw[-, black, thick] (1.5, 3) -- (1.5, 3.5);
+
+      \draw[-, black, thick] (0.5, 3) -- (2.5, 3);
+
+      \draw[-, blue, thick] (0.5, 0.5) -- (0.5, 3);
+       % node[midway, below, rotate=90]
+       % {\small$\textcolor{blue}{\rho_1={1}/{\sqrt{s_1}}}$};
+
+      \draw[-, orange, thick] (1.5, 0.5) -- (1.5, 3);
+      % node[midway, below, rotate=90] {\small
+      % $\textcolor{orange}{\rho_2={1}/{\sqrt{s_2}}}$};
+
+      \draw[-, darkgreen, thick] (2.5, 0.5) -- (2.5, 3);
+      % node[midway, below, rotate=90] {\small
+      % $\textcolor{darkgreen}{\rho_3={1}/{\sqrt{s_3}}}$};
+    \end{tikzpicture}
+  }
+
+  \caption{\textbf{Dimension reduction strategy.} (a) Original hierarchical tree with an example for 5 variables. (b) Expanded representation of the tree with all possible weighted groups derived from the original hierarchy. (c) Compressed representation of the tree after construction of the supervariables.}
+  \label{fig:process-hierarchy}
+\end{figure}
+  

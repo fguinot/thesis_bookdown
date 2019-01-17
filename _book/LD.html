@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>1.6 Linkage disequilibrium | Statistical learning for omics association and interactions studies based on blockwise feature compression</title>
+  <meta name="description" content="PdD thesis">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="1.6 Linkage disequilibrium | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="PdD thesis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.6 Linkage disequilibrium | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  
+  <meta name="twitter:description" content="PdD thesis" />
+  
+
+<meta name="author" content="Florent Guinot">
+
+
+<meta name="date" content="2019-01-11">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="basic-concepts-in-population-genetics.html">
+<link rel="next" href="haplo.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>General introduction</a><ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#background"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#problematic"><i class="fa fa-check"></i>Problematic</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#objectives"><i class="fa fa-check"></i>Objectives</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contributions"><i class="fa fa-check"></i>Contributions</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contents-of-the-manuscript"><i class="fa fa-check"></i>Contents of the manuscript</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
+<li class="chapter" data-level="1.1" data-path="genome.html"><a href="genome.html"><i class="fa fa-check"></i><b>1.1</b> Genome description</a></li>
+<li class="chapter" data-level="1.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html"><i class="fa fa-check"></i><b>1.2</b> Genome sequencing</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="genome-sequencing.html"><a href="genome-sequencing.html#DNAseq"><i class="fa fa-check"></i><b>1.2.1</b> DNA sequencing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html#sequence-assembly"><i class="fa fa-check"></i><b>1.2.2</b> Sequence assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html"><i class="fa fa-check"></i><b>1.3</b> DNA polymorphism</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#restriction-fragment-length-polymorphisms-rflp"><i class="fa fa-check"></i><b>1.3.1</b> Restriction Fragment Length Polymorphisms (RFLP)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#simple-sequence-length-polymorphisms-sslp"><i class="fa fa-check"></i><b>1.3.2</b> Simple Sequence Length Polymorphisms (SSLP)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#single-nucleotide-polymorphisms-snp"><i class="fa fa-check"></i><b>1.3.3</b> Single Nucleotide Polymorphisms (SNP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="linkage.html"><a href="linkage.html"><i class="fa fa-check"></i><b>1.4</b> Linkage and partial linkage for genetic mapping</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html"><i class="fa fa-check"></i><b>1.5</b> Basic concepts in population genetics</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#HWE"><i class="fa fa-check"></i><b>1.5.1</b> Hardy-Weinberg equilibrium in large population</a></li>
+<li class="chapter" data-level="1.5.2" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#genetic-drift-in-small-population"><i class="fa fa-check"></i><b>1.5.2</b> Genetic drift in small population</a></li>
+<li class="chapter" data-level="1.5.3" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#concept-of-heritability"><i class="fa fa-check"></i><b>1.5.3</b> Concept of heritability</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="LD.html"><a href="LD.html"><i class="fa fa-check"></i><b>1.6</b> Linkage disequilibrium</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="LD.html"><a href="LD.html#definition"><i class="fa fa-check"></i><b>1.6.1</b> Definition</a></li>
+<li class="chapter" data-level="1.6.2" data-path="LD.html"><a href="LD.html#measure-of-ld"><i class="fa fa-check"></i><b>1.6.2</b> Measure of LD</a></li>
+<li class="chapter" data-level="1.6.3" data-path="LD.html"><a href="LD.html#estimation-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.3</b> Estimation of linkage disequilibrium</a></li>
+<li class="chapter" data-level="1.6.4" data-path="LD.html"><a href="LD.html#origins-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.4</b> Origins of linkage disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="haplo.html"><a href="haplo.html"><i class="fa fa-check"></i><b>1.7</b> Structure of haplotype blocks in the human genome</a><ul>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#definition-of-haplotype-blocks"><i class="fa fa-check"></i>Definition of haplotype blocks</a></li>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#patterns-in-human-genome"><i class="fa fa-check"></i>Patterns in human genome</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-context.html"><a href="statistical-context.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
+<li class="chapter" data-level="2.1" data-path="notations.html"><a href="notations.html"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
+<li class="chapter" data-level="2.2" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html"><i class="fa fa-check"></i><b>2.2</b> Concepts of statistical learning</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>2.2.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="parametric.html"><a href="parametric.html"><i class="fa fa-check"></i><b>2.3</b> Parametric methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="parametric.html"><a href="parametric.html#linmod"><i class="fa fa-check"></i><b>2.3.1</b> Linear models</a></li>
+<li class="chapter" data-level="2.3.2" data-path="parametric.html"><a href="parametric.html#penalized"><i class="fa fa-check"></i><b>2.3.2</b> Penalized linear regression</a></li>
+<li class="chapter" data-level="2.3.3" data-path="parametric.html"><a href="parametric.html#glm"><i class="fa fa-check"></i><b>2.3.3</b> Generalized linear models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="non-parametric.html"><a href="non-parametric.html"><i class="fa fa-check"></i><b>2.4</b> Splines and generalized additive models: Moving beyond linearit</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="non-parametric.html"><a href="non-parametric.html#introduction"><i class="fa fa-check"></i><b>2.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.4.2" data-path="non-parametric.html"><a href="non-parametric.html#splines"><i class="fa fa-check"></i><b>2.4.2</b> Regression splines</a></li>
+<li class="chapter" data-level="2.4.3" data-path="non-parametric.html"><a href="non-parametric.html#mathrmb-splines"><i class="fa fa-check"></i><b>2.4.3</b> <span class="math inline">\(\mathrm{B}\)</span>-splines</a></li>
+<li class="chapter" data-level="2.4.4" data-path="non-parametric.html"><a href="non-parametric.html#smoothing"><i class="fa fa-check"></i><b>2.4.4</b> Cubic smoothing splines</a></li>
+<li class="chapter" data-level="2.4.5" data-path="non-parametric.html"><a href="non-parametric.html#gam"><i class="fa fa-check"></i><b>2.4.5</b> Generalized additive models (GAM)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="non-parametric.html"><a href="non-parametric.html#hgam"><i class="fa fa-check"></i><b>2.4.6</b> High-dimensional generalized additive models (HGAM)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html"><i class="fa fa-check"></i><b>2.5</b> Combining cluster analysis and variable selection</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#CAH"><i class="fa fa-check"></i><b>2.5.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="2.5.2" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#HCAR"><i class="fa fa-check"></i><b>2.5.2</b> Hierarchical Clustering and Averaging Regression</a></li>
+<li class="chapter" data-level="2.5.3" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#MLGL"><i class="fa fa-check"></i><b>2.5.3</b> Multi-Layer Group-Lasso (MLGL)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>2.6</b> Statistical testing of significance</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="hypothesis.html"><a href="hypothesis.html#introduction-1"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.6.2" data-path="hypothesis.html"><a href="hypothesis.html#chi2"><i class="fa fa-check"></i><b>2.6.2</b> <span class="math inline">\(\chi^2\)</span> test</a></li>
+<li class="chapter" data-level="2.6.3" data-path="hypothesis.html"><a href="hypothesis.html#LRT"><i class="fa fa-check"></i><b>2.6.3</b> Likelihood ratio test</a></li>
+<li class="chapter" data-level="2.6.4" data-path="hypothesis.html"><a href="hypothesis.html#pvalGAM"><i class="fa fa-check"></i><b>2.6.4</b> Calculation of <em>p</em>-values in GAM</a></li>
+<li class="chapter" data-level="2.6.5" data-path="hypothesis.html"><a href="hypothesis.html#multiple"><i class="fa fa-check"></i><b>2.6.5</b> Multiple testing comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html"><i class="fa fa-check"></i><b>3</b> Genome-Wide Association Studies</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="genoquality.html"><a href="genoquality.html"><i class="fa fa-check"></i><b>3.2</b> Genotype quality control</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="genoquality.html"><a href="genoquality.html#deviation-from-hwe."><i class="fa fa-check"></i><b>3.2.1</b> Deviation from HWE.</a></li>
+<li class="chapter" data-level="3.2.2" data-path="genoquality.html"><a href="genoquality.html#missing-data."><i class="fa fa-check"></i><b>3.2.2</b> Missing data.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="genoquality.html"><a href="genoquality.html#distribution-of-test-statistics."><i class="fa fa-check"></i><b>3.2.3</b> Distribution of test statistics.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="OR.html"><a href="OR.html"><i class="fa fa-check"></i><b>3.3</b> Disease penetrance and odds ratio</a></li>
+<li class="chapter" data-level="3.4" data-path="SMA.html"><a href="SMA.html"><i class="fa fa-check"></i><b>3.4</b> Single Marker Analysis</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="SMA.html"><a href="SMA.html#pearsons-chi2-statistic"><i class="fa fa-check"></i><b>3.4.1</b> Pearson’s <span class="math inline">\(\chi^2\)</span> statistic</a></li>
+<li class="chapter" data-level="3.4.2" data-path="SMA.html"><a href="SMA.html#cochran-armitage-trend-test"><i class="fa fa-check"></i><b>3.4.2</b> Cochran-Armitage trend test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="SMA.html"><a href="SMA.html#logitGWAS"><i class="fa fa-check"></i><b>3.4.3</b> Logistic regression and likelihood ratio test</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="GWASlimits.html"><a href="GWASlimits.html"><i class="fa fa-check"></i><b>3.5</b> Limitations</a></li>
+<li class="chapter" data-level="3.6" data-path="popstructure.html"><a href="popstructure.html"><i class="fa fa-check"></i><b>3.6</b> Population structure</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="popstructure.html"><a href="popstructure.html#genomic-control"><i class="fa fa-check"></i><b>3.6.1</b> Genomic control</a></li>
+<li class="chapter" data-level="3.6.2" data-path="popstructure.html"><a href="popstructure.html#structured-association"><i class="fa fa-check"></i><b>3.6.2</b> Structured association</a></li>
+<li class="chapter" data-level="3.6.3" data-path="popstructure.html"><a href="popstructure.html#PCC"><i class="fa fa-check"></i><b>3.6.3</b> Principle components correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="multiloc.html"><a href="multiloc.html"><i class="fa fa-check"></i><b>3.7</b> Multi-locus analysis</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="multiloc.html"><a href="multiloc.html#haplotype-based-approaches"><i class="fa fa-check"></i><b>3.7.1</b> Haplotype-based approaches</a></li>
+<li class="chapter" data-level="3.7.2" data-path="multiloc.html"><a href="multiloc.html#rare-variant"><i class="fa fa-check"></i><b>3.7.2</b> Rare-variant association analysis</a></li>
+<li class="chapter" data-level="3.7.3" data-path="multiloc.html"><a href="multiloc.html#adjclust"><i class="fa fa-check"></i><b>3.7.3</b> LD based approach to variable selection in GWAS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="LEOS.html"><a href="LEOS.html"><i class="fa fa-check"></i><b>4</b> Learning the Optimal in GWAS through hierarchical SNP aggregation</a><ul>
+<li class="chapter" data-level="4.1" data-path="introleos.html"><a href="introleos.html"><i class="fa fa-check"></i><b>4.1</b> Related work</a></li>
+<li class="chapter" data-level="4.2" data-path="leosmethod.html"><a href="leosmethod.html"><i class="fa fa-check"></i><b>4.2</b> Method</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="leosmethod.html"><a href="leosmethod.html#CHAC"><i class="fa fa-check"></i><b>4.2.1</b> Step 1. Constrained-HAC</a></li>
+<li class="chapter" data-level="4.2.2" data-path="leosmethod.html"><a href="leosmethod.html#Dstar"><i class="fa fa-check"></i><b>4.2.2</b> Step 2. Dimension reduction function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="leosmethod.html"><a href="leosmethod.html#cutree"><i class="fa fa-check"></i><b>4.2.3</b> Step 3. Optimal number of groups estimation</a></li>
+<li class="chapter" data-level="4.2.4" data-path="leosmethod.html"><a href="leosmethod.html#step4"><i class="fa fa-check"></i><b>4.2.4</b> Step 4. Multiple testing on aggregated-SNP variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="numsim.html"><a href="numsim.html"><i class="fa fa-check"></i><b>4.3</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="numsim.html"><a href="numsim.html#simupheno"><i class="fa fa-check"></i><b>4.3.1</b> Simulation of the case-control phenotype</a></li>
+<li class="chapter" data-level="4.3.2" data-path="numsim.html"><a href="numsim.html#perfeval"><i class="fa fa-check"></i><b>4.3.2</b> Performance evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="results.html"><a href="results.html#results-and-discussions-of-the-numerical-simulations"><i class="fa fa-check"></i><b>4.4.1</b> Results and discussions of the numerical simulations</a></li>
+<li class="chapter" data-level="4.4.2" data-path="results.html"><a href="results.html#performance-results-for-simulated-data."><i class="fa fa-check"></i><b>4.4.2</b> Performance results for simulated data.</a></li>
+<li class="chapter" data-level="4.4.3" data-path="results.html"><a href="results.html#leosappli"><i class="fa fa-check"></i><b>4.4.3</b> Application in Wellcome Trust Case Control Consortium(WTCCC) and Ankylosing Spondylitis (AS) studies</a></li>
+<li class="chapter" data-level="4.4.4" data-path="results.html"><a href="results.html#realdata"><i class="fa fa-check"></i><b>4.4.4</b> Results in WTCCC and AS studies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="leosgam.html"><a href="leosgam.html"><i class="fa fa-check"></i><b>4.5</b> Generalized additive models in GWAS</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="leosgam.html"><a href="leosgam.html#comparison-of-predictive-power"><i class="fa fa-check"></i><b>4.5.1</b> Comparison of predictive power</a></li>
+<li class="chapter" data-level="4.5.2" data-path="leosgam.html"><a href="leosgam.html#results-of-univariate-smoothing-splines-on-aggregated-snp"><i class="fa fa-check"></i><b>4.5.2</b> Results of univariate smoothing splines on aggregated-SNP</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="discussions.html"><a href="discussions.html"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><a href="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><i class="fa fa-check"></i><b>5</b> Selection of interaction effects in compressed multiple omics representation</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="introduction-3.html"><a href="introduction-3.html#background-1"><i class="fa fa-check"></i><b>5.1.1</b> Background</a></li>
+<li class="chapter" data-level="5.1.2" data-path="introduction-3.html"><a href="introduction-3.html#combining-genome-and-metagenome-analyses."><i class="fa fa-check"></i><b>5.1.2</b> Combining genome and metagenome analyses.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="introduction-3.html"><a href="introduction-3.html#taking-structures-into-account-in-association-studies."><i class="fa fa-check"></i><b>5.1.3</b> Taking structures into account in association studies.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="modelsicomore.html"><a href="modelsicomore.html"><i class="fa fa-check"></i><b>5.2</b> Learning with complementary datasets</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="modelsicomore.html"><a href="modelsicomore.html#setting-and-notations"><i class="fa fa-check"></i><b>5.2.1</b> Setting and notations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="modelsicomore.html"><a href="modelsicomore.html#interactions-in-linear-models"><i class="fa fa-check"></i><b>5.2.2</b> Interactions in linear models</a></li>
+<li class="chapter" data-level="5.2.3" data-path="modelsicomore.html"><a href="modelsicomore.html#compressdata"><i class="fa fa-check"></i><b>5.2.3</b> Compact model</a></li>
+<li class="chapter" data-level="5.2.4" data-path="modelsicomore.html"><a href="modelsicomore.html#recoverinteractions"><i class="fa fa-check"></i><b>5.2.4</b> Recovering relevant interactions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="implementation.html"><a href="implementation.html"><i class="fa fa-check"></i><b>5.3</b> Method</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="implementation.html"><a href="implementation.html#preprocess"><i class="fa fa-check"></i><b>5.3.1</b> Preprocessing of the data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="implementation.html"><a href="implementation.html#preprocessing-of-metagenomic-data"><i class="fa fa-check"></i><b>5.3.2</b> Preprocessing of metagenomic data</a></li>
+<li class="chapter" data-level="5.3.3" data-path="implementation.html"><a href="implementation.html#structure"><i class="fa fa-check"></i><b>5.3.3</b> Structuring the data</a></li>
+<li class="chapter" data-level="5.3.4" data-path="implementation.html"><a href="implementation.html#using-the-structure-efficiently"><i class="fa fa-check"></i><b>5.3.4</b> Using the structure efficiently</a></li>
+<li class="chapter" data-level="5.3.5" data-path="implementation.html"><a href="implementation.html#identification-of-relevant-supervariables"><i class="fa fa-check"></i><b>5.3.5</b> Identification of relevant supervariables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="XPsimu.html"><a href="XPsimu.html"><i class="fa fa-check"></i><b>5.4</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="XPsimu.html"><a href="XPsimu.html#data-generation"><i class="fa fa-check"></i><b>5.4.1</b> Data generation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="XPsimu.html"><a href="XPsimu.html#generation-of-the-phenotype"><i class="fa fa-check"></i><b>5.4.2</b> Generation of the phenotype</a></li>
+<li class="chapter" data-level="5.4.3" data-path="XPsimu.html"><a href="XPsimu.html#comparison-of-methods"><i class="fa fa-check"></i><b>5.4.3</b> Comparison of methods</a></li>
+<li class="chapter" data-level="5.4.4" data-path="XPsimu.html"><a href="XPsimu.html#evaluation-metrics"><i class="fa fa-check"></i><b>5.4.4</b> Evaluation metrics</a></li>
+<li class="chapter" data-level="5.4.5" data-path="XPsimu.html"><a href="XPsimu.html#performance-results"><i class="fa fa-check"></i><b>5.4.5</b> Performance results</a></li>
+<li class="chapter" data-level="5.4.6" data-path="XPsimu.html"><a href="XPsimu.html#computational-time"><i class="fa fa-check"></i><b>5.4.6</b> Computational time</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="XPINRA.html"><a href="XPINRA.html"><i class="fa fa-check"></i><b>5.5</b> Application on real data: rhizosphere of <em>Medicago truncatula</em></a><ul>
+<li class="chapter" data-level="5.5.1" data-path="XPINRA.html"><a href="XPINRA.html#material"><i class="fa fa-check"></i><b>5.5.1</b> Material</a></li>
+<li class="chapter" data-level="5.5.2" data-path="XPINRA.html"><a href="XPINRA.html#analysis"><i class="fa fa-check"></i><b>5.5.2</b> Analysis</a></li>
+<li class="chapter" data-level="5.5.3" data-path="XPINRA.html"><a href="XPINRA.html#results-1"><i class="fa fa-check"></i><b>5.5.3</b> Results</a></li>
+<li class="chapter" data-level="5.5.4" data-path="XPINRA.html"><a href="XPINRA.html#results-on-root-shoot-ratio"><i class="fa fa-check"></i><b>5.5.4</b> Results on Root Shoot Ratio</a></li>
+<li class="chapter" data-level="5.5.5" data-path="XPINRA.html"><a href="XPINRA.html#results-on-specific-nitrogen-uptake"><i class="fa fa-check"></i><b>5.5.5</b> Results on Specific Nitrogen Uptake</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="discussions-1.html"><a href="discussions-1.html"><i class="fa fa-check"></i><b>5.6</b> Discussions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i>Conclusions</a><ul>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-leos-algorithm"><i class="fa fa-check"></i>Discussions on LEOS algorithm</a></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-sicomore-algorithm"><i class="fa fa-check"></i>Discussions on SICOMORE algorithm</a></li>
+<li class="chapter" data-level="" data-path="perspectives.html"><a href="perspectives.html"><i class="fa fa-check"></i>Perspectives</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical learning for omics association and interactions studies based on blockwise feature compression</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="LD" class="section level2">
+<h2><span class="header-section-number">1.6</span> Linkage disequilibrium</h2>
+<p>Every human genome has a unique DNA sequence, in part due to the few
+hundred novel mutations inherited from their parents, and by chromosomal
+segregation combined with crossovers that shuffle existing variation.
+However, although every human genome may be unique, certain combination
+of variants (e.g. SNP) may be shared by few individuals and sometimes by
+a large fraction of the population, resulting in allelic association
+also known as haplotype structure. The term linkage disequilibrium (LD)
+is broadly used to refer to the non-random association of combination of
+variants, therefore LD neither requires genetic linkage nor is
+particularly a disequilibrium.</p>
+<p>Particular alleles at neighbouring loci tend to be co-inherited. For
+tightly linked loci, this might lead to associations between alleles in
+the population resulting in high LD between these loci. LD has recently
+become the focus of intense study in the hope that it might facilitate
+the mapping of complex disease loci through whole-genome association
+studies. This approach depends crucially on the patterns of LD in the
+human genome <span class="citation">(Ardlie, Kruglyak, and Seielstad <a href="#ref-ardlie_patterns_2002">2002</a>)</span>.</p>
+<div id="definition" class="section level3">
+<h3><span class="header-section-number">1.6.1</span> Definition</h3>
+<p>We consider two neighbouring biallelic loci <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (<span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span> for
+locus <span class="math inline">\(A\)</span>, and <span class="math inline">\(B\)</span> and <span class="math inline">\(b\)</span> for locus <span class="math inline">\(B\)</span>) with allele frequencies
+<span class="math inline">\(f_{A}\)</span>, <span class="math inline">\(f_{a}\)</span>, <span class="math inline">\(f_{B}\)</span> and <span class="math inline">\(f_{b}\)</span> respectively.</p>
+<p>Under linkage equilibrium, the four haplotypes formed by these loci have
+the frequencies shown in Table <a href="LD.html#tab:LE">1.2</a>. These frequencies are equal
+to the product of the component allele frequencies. These equalities are
+valid only when the alleles are independent, i.e. when the two loci are
+not genetically linked.</p>
+<table>
+<caption><span id="tab:LE">Table 1.2: </span>Haplotype frequencies under linkage equilibrium</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Haplotype</td>
+<td align="left">Expected frequency</td>
+</tr>
+<tr class="even">
+<td align="left">AB</td>
+<td align="left"><span class="math inline">\(f_{A} \times f_{B}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Ab</td>
+<td align="left"><span class="math inline">\(f_{A} \times f_{b}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">aB</td>
+<td align="left"><span class="math inline">\(f_{a} \times f_{B}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">ab</td>
+<td align="left"><span class="math inline">\(f_{a} \times f_{b}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>However, when the two loci are in linkage disequilibrium, the haplotypes
+are not observed at the frequencies expected if the alleles were
+independent.</p>
+<p>Positive linkage disequilibrium exists when two alleles occur together
+on the same haplotype more often than expected, and negative LD exists
+when alleles occur together on the same haplotype less often than
+expected (Table <a href="LD.html#tab:LD">1.3</a>).</p>
+<table>
+<caption><span id="tab:LD">Table 1.3: </span>Haplotype frequencies under linkage disequilibrium</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Haplotype</td>
+<td align="left">Observed frequency</td>
+<td align="left">Positive LD</td>
+<td align="left">Negative LD</td>
+</tr>
+<tr class="even">
+<td align="left">AB</td>
+<td align="left"><span class="math inline">\(\hat{f}_{AB}\)</span></td>
+<td align="left"><span class="math inline">\(\hat{f}_{AB} &gt; \hat{f}_{A} \times \hat{f}_{B}\)</span></td>
+<td align="left"><span class="math inline">\(\hat{f}_{AB} &lt; \hat{f}_{A} \times \hat{f}_{B}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Ab</td>
+<td align="left"><span class="math inline">\(\hat{f}_{Ab}\)</span></td>
+<td align="left"><span class="math inline">\(\hat{f}_{Ab} &gt; \hat{f}_{A} \times \hat{f}_{b}\)</span></td>
+<td align="left"><span class="math inline">\(\hat{f}_{Ab} &lt; \hat{f}_{A} \times \hat{f}_{b}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">aB</td>
+<td align="left"><span class="math inline">\(\hat{f}_{aB}\)</span></td>
+<td align="left"><span class="math inline">\(\hat{f}_{aB} &gt; \hat{f}_{a} \times \hat{f}_{B}\)</span></td>
+<td align="left"><span class="math inline">\(\hat{f}_{aB} &lt; \hat{f}_{a} \times \hat{f}_{B}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">ab</td>
+<td align="left"><span class="math inline">\(\hat{f}_{ab}\)</span></td>
+<td align="left"><span class="math inline">\(\hat{f}_{ab} &gt; \hat{f}_{a} \times \hat{f}_{b}\)</span></td>
+<td align="left"><span class="math inline">\(\hat{f}_{ab} &lt; \hat{f}_{a} \times \hat{f}_{b}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="measure-of-ld" class="section level3">
+<h3><span class="header-section-number">1.6.2</span> Measure of LD</h3>
+<p>The deviation of the observed from expected haplotype frequencies can be
+quantified by several linkage disequilibrium measures. The very first
+linkage disequilibrium measure was introduced by
+<span class="citation">(Robbins <a href="#ref-robbins_1918_breeding">1918</a>)</span> and is defined as:</p>
+<p><span class="math display" id="eq:1">\[\begin{equation}
+\begin{split}
+D_{AB} &amp; = f_{AB} - f_{A}f_{B}\\
+&amp; = f_{AB}f_{ab} - f_{Ab}f_{aB},    
+\end{split}
+\tag{1.1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(f_{AB}\)</span> is the observed frequency of haplotypes carrying the <span class="math inline">\(A\)</span>
+and <span class="math inline">\(B\)</span> alleles and <span class="math inline">\(f_{A}\)</span>, <span class="math inline">\(f_{B}\)</span> are the marginal allele frequencies
+of alleles <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Any deviation from this expectation results in a
+non-zero value for <span class="math inline">\(D_{AB}\)</span>, with a positive value indicating that the
+<span class="math inline">\(AB\)</span> haplotype is found more often than expected assuming independence
+and a negative value indicating that it is found less frequently than
+expected.</p>
+<p>Although this measure is easy to calculate, it has for disadvantage to
+be sensitive to allele frequencies at the extreme values of 0 to 1.
+Indeed, if we let <span class="math inline">\(D_{AB}\)</span> be the population coefficient for LD, then
+the sample coefficient <span class="math inline">\(\hat{D}_{AB}\)</span> has the following properties
+<span class="citation">(Hill <a href="#ref-hill_1974_estimation">1974</a>)</span>:</p>
+<p><span class="math display">\[ D_{AB} = \hat{f}_{AB} - \hat{f}_{A} \hat{f}_{B},\]</span>
+<span class="math display">\[ \mathbb{E}(\hat{D}_{AB}) = \dfrac{(n-1)}{n} D_{AB}, \]</span>
+<span class="math display" id="eq:2">\[\begin{equation}
+text{Var}(\hat{D}_{AB})= \dfrac{1}{n}[f_A f_a f_B f_b + (f_A - f_a)(f_B - f_b)D_{AB} - D^2_{AB}],
+\tag{1.2}
+\end{equation}\]</span></p>
+<p>Here <span class="math inline">\(\hat{f}_{AB}\)</span> is the estimate of <span class="math inline">\(f_{AB}\)</span> (the population
+frequency) from the sample and is given, by <span class="math inline">\(n_{AB}/n\)</span> where <span class="math inline">\(n_{AB}\)</span> is
+the number of haplotype <span class="math inline">\(AB\)</span> in the sample. Equation shows that the
+variance in the estimate is strongly influence by the allele frequencies
+at the two loci as for the range of values that <span class="math inline">\(\hat{D}_{AB}\)</span> can take.
+If we arbitrarily define <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> as minor allele at each locus and
+enforce <span class="math inline">\(\hat{f}_B \leq \hat{f}_A\)</span>, then it follows that
+<span class="math display">\[-\hat{f}_A\hat{f}_B \leq \hat{D}_{AB} \leq \hat{f}_a\hat{f}_b. \nonumber\]</span>
+The strong dependency on allele frequency of the standard measure of LD
+is an undesirable property because it makes comparison between pairs of
+alleles with different allele frequencies difficult. That is why methods
+less sensitive to marginal allele frequencies have been developed
+<span class="citation">(Hedrick <a href="#ref-hedrick_1987_gametic">1987</a>)</span>.</p>
+<p><span class="citation">(Lewontin <a href="#ref-Lewontin_1964_interaction">1964</a>)</span> suggested another measure
+<span class="math display">\[D&#39;= \frac{D}{D_{max}}, \nonumber\]</span> where <span class="math inline">\(D_{max}\)</span> is the theoretical
+maximum LD value for the observed allele frequencies.</p>
+<p><span class="math inline">\(D&#39;\)</span> thus ranges from <span class="math inline">\(−1\)</span> to <span class="math inline">\(1\)</span> and reflects both positive and
+negative linkage disequilibrium. We can also use the absolute value of
+<span class="math inline">\(D&#39;\)</span> to measure the evidence of recombination between two loci.</p>
+<p><span class="math display">\[|D&#39;| = \left\{
+    \begin{array}{ll}
+        \dfrac{-\hat{D}_{AB}}{\text{min}(\hat{f}_A\hat{f}_b,\hat{f}_a\hat{f}_B)} &amp; \hat{D}_{AB} &lt; 0 \\
+        \dfrac{\hat{D}_{AB}}{\text{min}(\hat{f}_A\hat{f}_b,\hat{f}_a\hat{f}_B)} &amp; \hat{D}_{AB} &gt; 0
+    \end{array}
+\right. \nonumber\]</span></p>
+<p>The greater the rate of recombination between loci, the more likely the
+alleles are to be in linkage equilibrium so a value of <span class="math inline">\(|D&#39;| = 1\)</span> can be
+interpreted as evidence of no recombination while a value close to 0 can
+be viewed as evidence for strong recombination. However, even if all
+four haplotypes are present in the population, it may be unlikely that
+all four haplotypes are observed in a finite sample if at least one
+allele is very rare <span class="citation">(Devlin and Risch <a href="#ref-devlin_1995_comparison">1995</a>; Hill <a href="#ref-hill_1974_estimation">1974</a>)</span>
+leading to an interpretation of <span class="math inline">\(|D&#39;| = 1\)</span> dependent on the sample
+allele frequencies.</p>
+<p>Due to the sensitivity of measurements <span class="math inline">\(D\)</span> and <span class="math inline">\(D&#39;\)</span> to allele
+frequencies, another measure of LD is more commonly used which is the
+<span class="math inline">\(r^2\)</span> measure <span class="citation">(Hill and Robertson <a href="#ref-hill_1968_linkage">1968</a>)</span>. If we assign an allelic value,
+<span class="math inline">\(X_A\)</span>, to locus <span class="math inline">\(A\)</span> as <span class="math inline">\(X_A = 1\)</span> for allele <span class="math inline">\(A\)</span> and <span class="math inline">\(X_A = 0\)</span> for allele
+<span class="math inline">\(a\)</span> and we assign an allelic value, <span class="math inline">\(X_B\)</span>, to locus <span class="math inline">\(B\)</span> with the same
+properties, then the quantity measured by (<span class="math display">\[eq:1\]</span>) can be interpreted
+as the covariance in allelic value between the 2 loci. One way to
+transform the covariance is to measure the squared Pearson correlation
+coefficient:</p>
+<p><span class="math display" id="eq:3">\[\begin{equation}
+r^2_{AB} = \dfrac{\text{Cov}(X_A,X_B)^2}{\text{Var}(X_A)\text{Var}(X_B)} = \dfrac{D^2_{AB}}{f_A f_a f_B f_b}.
+\tag{1.3}
+\end{equation}\]</span></p>
+<p>The <span class="math inline">\(r^2\)</span> measure has for advantage to be insensitive to how the two
+loci are labelled, as indicated by the lack of subscripts for <span class="math inline">\(D\)</span> in .
+Moreover there is a direct relationship between the sample estimate
+<span class="math inline">\(\hat{r}^2\)</span> and the power to detect significant association, i.e. to
+reject the null hypothesis <span class="math inline">\(H_0 : D = 0\)</span>
+<span class="citation">(Pritchard and Przeworski <a href="#ref-pritchard2001linkage">2001</a>; Chapman et al. <a href="#ref-chapman2003detecting">2003</a>)</span>. As a proof, we can
+consider the contingency table test where, under the null hypothesis,
+the test statistic:</p>
+<p><span class="math display" id="eq:4">\[\begin{equation}
+X^2 = \sum_{ij} = \dfrac{(O_{ij} - E_{ij})^2}{E_{ij}},
+\tag{1.4}
+\end{equation}\]</span></p>
+<p>is <span class="math inline">\(\chi^2\)</span> distributed with 1 degree of freedoms the sample size tends
+to infinity. Here <span class="math inline">\(O_{ij}\)</span> and <span class="math inline">\(E_{ij}\)</span> are the observed and expected
+counts, respectively, of the <span class="math inline">\(ij\)</span> haplotype. The relation between and
+<span class="math inline">\(r^2\)</span> is therefore</p>
+<p><span class="math display">\[X^2 = n\hat{r}^2.\]</span></p>
+<p>Consequently, the null hypothesis of no association can be rejected at a
+specified level <span class="math inline">\(\alpha\)</span> if <span class="math inline">\(n\hat{r}^2\)</span> is greater than the critical
+value of the test statistic.</p>
+</div>
+<div id="estimation-of-linkage-disequilibrium" class="section level3">
+<h3><span class="header-section-number">1.6.3</span> Estimation of linkage disequilibrium</h3>
+<p>Estimation of linkage disequilibrium between alleles at two loci
+requires observations of haplotype frequencies which is usually not the
+case. Therefore, haplotype frequencies are often estimated using
+statistical tools such as the expectation maximization (EM) algorithm
+<span class="citation">(Weir and others <a href="#ref-weir1990genetic">1990</a>)</span>. These methods take as input the observed combined
+genotype frequencies at the two loci (for example, the distribution of
+the nine possible combinations of AA, Aa, and aa, with BB, Bb, and bb).</p>
+<p>An example of pairwise linkage disequilibrium (<span class="math inline">\(r^2\)</span>) plot for three
+different populations (as given by the software Haploview
+<span class="citation">(Barrett et al. <a href="#ref-barrett2004haploview">2004</a>)</span>) is illustrated in Figure <a href="LD.html#fig:LDhaploview">1.8</a>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:LDhaploview"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/LD_haploview_ACE.jpg" alt="Plots of pairwise linkage disequilibrium for polymorphisms in the ACE (Angiotensin I Converting Enzyme) genomic region genotyped in three populations by the International HapMap Project. CEU, Utah residents with ancestry from northern and western Europe; ACB, African Caribbean in Barbados; JPT, Japanese in Tokyo; white, \(r^2\) = 0; black, \(r^2\) = 1; HapMap Release 22; chromosome 17 NCBI Build 37." width="65%" />
+<p class="caption">
+Figure 1.8: Plots of pairwise linkage disequilibrium for polymorphisms in the ACE (Angiotensin I Converting Enzyme) genomic region genotyped in three populations by the International HapMap Project. CEU, Utah residents with ancestry from northern and western Europe; ACB, African Caribbean in Barbados; JPT, Japanese in Tokyo; white, <span class="math inline">\(r^2\)</span> = 0; black, <span class="math inline">\(r^2\)</span> = 1; HapMap Release 22; chromosome 17 NCBI Build 37.
+</p>
+</div>
+</div>
+<div id="origins-of-linkage-disequilibrium" class="section level3">
+<h3><span class="header-section-number">1.6.4</span> Origins of linkage disequilibrium</h3>
+<div id="founder-mutations" class="section level4 unnumbered">
+<h4>Founder mutations</h4>
+<p>Assume that a new mutation was introduced into the population at some
+point in the recent past. That mutation would have occurred on a single
+chromosome and would be transmitted with all alleles that are on the
+same chromosome, at least until recombination occurs. Thus, for many
+generations, the mutant allele would be associated with certain alleles
+at linked loci, and the strength of that association would diminish over
+time as a function of the recombination rate. If we look many
+generations later, the strength of the LD can be seen as an inverse
+measure of the distance between the loci. Of course, this presumes that
+the mutation was transmitted to an offspring and, through the process of
+genetic drift, expanded to sufficient prevalence to account for a
+significant burden of disease in present-day descendants of the affected
+founder.</p>
+</div>
+<div id="admixture" class="section level4 unnumbered">
+<h4>Admixture</h4>
+<p>We consider a population that consists in a mixture of two
+subpopulations and two alleles, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, having the following
+frequencies <span class="math inline">\(p_1 = q_1 = 0.9\)</span> and <span class="math inline">\(p_2 = q_2 = 0.1\)</span>. If the two loci
+were independently distributed within each sub-population, then, in a
+50-50 mixture of these two subpopulations, we would expect the following
+observed haplotypes distribution:</p>
+<p>Through this example, we see an apparently very strong LD in the total
+population that is in fact spurious, leading to a complete artefact of
+population stratification. In statistical term, it is simply a
+reflection of Simpson’s paradox <span class="citation">(Simpson <a href="#ref-simpson1951interpretation">1951</a>)</span> or
+confounding by ethnicity in epidemiologic term.</p>
+</div>
+<div id="others-factors-that-influence-ld" class="section level4 unnumbered">
+<h4>Others factors that influence LD</h4>
+<p>Mutation and recombination may have the most evident impact on linkage
+disequilibrium, but there exist other factors that influence the
+distribution of disequilibrium. Most of these involve demographic
+aspects of a population, and tend to sever the relationship between LD
+strength and the physical distance between loci:</p>
+<ul>
+<li><p><strong>Genetic drift:</strong> Increased drift of small, stable populations
+tends to increase LD, as haplotypes are lost from the population.</p></li>
+<li><p><strong>Population growth:</strong> Rapid population growth decreases LD by
+reducing genetic drift.</p></li>
+<li><p><strong>Gene flow:</strong> LD can be created by gene flow (migration) between
+populations. Initially, LD is proportional to the allele frequency
+differences between the populations, and is unrelated to the
+distance between markers. In the next generations, the “artificial”
+LD between unlinked markers quickly fades, while LD between nearby
+markers is more slowly broken down by recombination.</p></li>
+<li><p><strong>Population structure:</strong> Various aspects of population structure
+are thought to influence LD. Population subdivision is likely to
+have been an important factor in establishing the patterns of LD in
+humans <span class="citation">(Gabriel et al. <a href="#ref-gabriel_structure_2002">2002</a>)</span>.</p></li>
+<li><p><strong>Natural selection:</strong> There are two principal ways by which
+selection can affect the level of LD. The first is an hitchhiking
+effect (genetic draft) <span class="citation">(Smith and Haigh <a href="#ref-smith1974hitch">1974</a>)</span>, in which an entire
+haplotype that flanks an advantageous variant can highly increase in
+frequency or even be fixed. Although the effect is generally weak,
+selection against deleterious variants can also inflate LD, as the
+deleterious haplotypes are swept from the population
+<span class="citation">(Charlesworth, Morgan, and Charlesworth <a href="#ref-charlesworth1993effect">1993</a>)</span>. The second way in which selection can
+affect LD is through epistatic selection for combinations of alleles
+at two or more loci on the same chromosome. This form of selection
+leads to the association of particular alleles at different loci.</p></li>
+<li><p><strong>Variable recombination rate:</strong> Recombination rates are known to
+vary by more than an order of magnitude across the genome. Because
+breakdown of LD is primarily driven by recombination, the extent of
+LD is expected to vary in inverse relation to the local
+recombination rate. It is even possible that recombination is
+largely confined to highly localized recombination hot spots, with
+little recombination elsewhere. According to this view, LD will be
+strong across the non-recombining regions and break down at
+hotspots.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-ardlie_patterns_2002">
+<p>Ardlie, K. G., L. Kruglyak, and M. Seielstad. 2002. “Patterns of Linkage Disequilibrium in the Human Genome.” <em>Nature Reviews Genetics</em> 3 (4): 299–309.</p>
+</div>
+<div id="ref-robbins_1918_breeding">
+<p>Robbins, RB. 1918. “Some Applications of Mathematics to Breeding Problems Iii.” <em>Genetics</em> 3 (4). <a href="http://europepmc.org/articles/PMC1200443">http://europepmc.org/articles/PMC1200443</a>.</p>
+</div>
+<div id="ref-hill_1974_estimation">
+<p>Hill, William G. 1974. “Estimation of Linkage Disequilibrium in Randomly Mating Populations.” <em>Heredity</em> 33 (2): 229.</p>
+</div>
+<div id="ref-hedrick_1987_gametic">
+<p>Hedrick, Philip W. 1987. “Gametic Disequilibrium Measures: Proceed with Caution.” <em>Genetics</em> 117 (2): 331–41.</p>
+</div>
+<div id="ref-Lewontin_1964_interaction">
+<p>Lewontin, R. C. 1964. “THE Interaction of Selection and Linkage. I. GENERAL Considerations; Heterotic Models.” <em>Genetics</em> 49 (1): 49–67.</p>
+</div>
+<div id="ref-devlin_1995_comparison">
+<p>Devlin, B, and Neil Risch. 1995. “A Comparison of Linkage Disequilibrium Measures for Fine-Scale Mapping.” <em>Genomics</em> 29 (2): 311–22.</p>
+</div>
+<div id="ref-hill_1968_linkage">
+<p>Hill, WG, and Alan Robertson. 1968. “Linkage Disequilibrium in Finite Populations.” <em>Theoretical and Applied Genetics</em> 38 (6): 226–31.</p>
+</div>
+<div id="ref-pritchard2001linkage">
+<p>Pritchard, Jonathan K, and Molly Przeworski. 2001. “Linkage Disequilibrium in Humans: Models and Data.” <em>The American Journal of Human Genetics</em> 69 (1): 1–14.</p>
+</div>
+<div id="ref-chapman2003detecting">
+<p>Chapman, Juliet M, Jason D Cooper, John A Todd, and David G Clayton. 2003. “Detecting Disease Associations Due to Linkage Disequilibrium Using Haplotype Tags: A Class of Tests and the Determinants of Statistical Power.” <em>Human Heredity</em> 56 (1-3): 18–31.</p>
+</div>
+<div id="ref-weir1990genetic">
+<p>Weir, Bruce S, and others. 1990. <em>Genetic Data Analysis. Methods for Discrete Population Genetic Data.</em> Sinauer Associates, Inc. Publishers.</p>
+</div>
+<div id="ref-barrett2004haploview">
+<p>Barrett, Jeffrey C, B Fry, JDMJ Maller, and Mark J Daly. 2004. “Haploview: Analysis and Visualization of Ld and Haplotype Maps.” <em>Bioinformatics</em> 21 (2): 263–65.</p>
+</div>
+<div id="ref-simpson1951interpretation">
+<p>Simpson, Edward H. 1951. “The Interpretation of Interaction in Contingency Tables.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em>, 238–41.</p>
+</div>
+<div id="ref-gabriel_structure_2002">
+<p>Gabriel, S. B., S. F. Schaffner, H. Nguyen, J. M. Moore, J. Roy, B. Blumenstiel, J. Higgins, et al. 2002. “The Structure of Haplotype Blocks in the Human Genome.” <em>Science</em> 296 (5576): 2225–9.</p>
+</div>
+<div id="ref-smith1974hitch">
+<p>Smith, John Maynard, and John Haigh. 1974. “The Hitch-Hiking Effect of a Favourable Gene.” <em>Genetics Research</em> 23 (1): 23–35.</p>
+</div>
+<div id="ref-charlesworth1993effect">
+<p>Charlesworth, Brian, MT Morgan, and D Charlesworth. 1993. “The Effect of Deleterious Mutations on Neutral Molecular Variation.” <em>Genetics</em> 134 (4): 1289–1303.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basic-concepts-in-population-genetics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="haplo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

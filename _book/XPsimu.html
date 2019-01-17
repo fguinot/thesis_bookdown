@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>5.4 Numerical simulations | Statistical learning for omics association and interactions studies based on blockwise feature compression</title>
+  <meta name="description" content="PdD thesis">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="5.4 Numerical simulations | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="PdD thesis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5.4 Numerical simulations | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  
+  <meta name="twitter:description" content="PdD thesis" />
+  
+
+<meta name="author" content="Florent Guinot">
+
+
+<meta name="date" content="2019-01-11">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="implementation.html">
+<link rel="next" href="XPINRA.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>General introduction</a><ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#background"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#problematic"><i class="fa fa-check"></i>Problematic</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#objectives"><i class="fa fa-check"></i>Objectives</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contributions"><i class="fa fa-check"></i>Contributions</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contents-of-the-manuscript"><i class="fa fa-check"></i>Contents of the manuscript</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
+<li class="chapter" data-level="1.1" data-path="genome.html"><a href="genome.html"><i class="fa fa-check"></i><b>1.1</b> Genome description</a></li>
+<li class="chapter" data-level="1.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html"><i class="fa fa-check"></i><b>1.2</b> Genome sequencing</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="genome-sequencing.html"><a href="genome-sequencing.html#DNAseq"><i class="fa fa-check"></i><b>1.2.1</b> DNA sequencing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html#sequence-assembly"><i class="fa fa-check"></i><b>1.2.2</b> Sequence assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html"><i class="fa fa-check"></i><b>1.3</b> DNA polymorphism</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#restriction-fragment-length-polymorphisms-rflp"><i class="fa fa-check"></i><b>1.3.1</b> Restriction Fragment Length Polymorphisms (RFLP)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#simple-sequence-length-polymorphisms-sslp"><i class="fa fa-check"></i><b>1.3.2</b> Simple Sequence Length Polymorphisms (SSLP)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#single-nucleotide-polymorphisms-snp"><i class="fa fa-check"></i><b>1.3.3</b> Single Nucleotide Polymorphisms (SNP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="linkage.html"><a href="linkage.html"><i class="fa fa-check"></i><b>1.4</b> Linkage and partial linkage for genetic mapping</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html"><i class="fa fa-check"></i><b>1.5</b> Basic concepts in population genetics</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#HWE"><i class="fa fa-check"></i><b>1.5.1</b> Hardy-Weinberg equilibrium in large population</a></li>
+<li class="chapter" data-level="1.5.2" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#genetic-drift-in-small-population"><i class="fa fa-check"></i><b>1.5.2</b> Genetic drift in small population</a></li>
+<li class="chapter" data-level="1.5.3" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#concept-of-heritability"><i class="fa fa-check"></i><b>1.5.3</b> Concept of heritability</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="LD.html"><a href="LD.html"><i class="fa fa-check"></i><b>1.6</b> Linkage disequilibrium</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="LD.html"><a href="LD.html#definition"><i class="fa fa-check"></i><b>1.6.1</b> Definition</a></li>
+<li class="chapter" data-level="1.6.2" data-path="LD.html"><a href="LD.html#measure-of-ld"><i class="fa fa-check"></i><b>1.6.2</b> Measure of LD</a></li>
+<li class="chapter" data-level="1.6.3" data-path="LD.html"><a href="LD.html#estimation-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.3</b> Estimation of linkage disequilibrium</a></li>
+<li class="chapter" data-level="1.6.4" data-path="LD.html"><a href="LD.html#origins-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.4</b> Origins of linkage disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="haplo.html"><a href="haplo.html"><i class="fa fa-check"></i><b>1.7</b> Structure of haplotype blocks in the human genome</a><ul>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#definition-of-haplotype-blocks"><i class="fa fa-check"></i>Definition of haplotype blocks</a></li>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#patterns-in-human-genome"><i class="fa fa-check"></i>Patterns in human genome</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-context.html"><a href="statistical-context.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
+<li class="chapter" data-level="2.1" data-path="notations.html"><a href="notations.html"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
+<li class="chapter" data-level="2.2" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html"><i class="fa fa-check"></i><b>2.2</b> Concepts of statistical learning</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>2.2.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="parametric.html"><a href="parametric.html"><i class="fa fa-check"></i><b>2.3</b> Parametric methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="parametric.html"><a href="parametric.html#linmod"><i class="fa fa-check"></i><b>2.3.1</b> Linear models</a></li>
+<li class="chapter" data-level="2.3.2" data-path="parametric.html"><a href="parametric.html#penalized"><i class="fa fa-check"></i><b>2.3.2</b> Penalized linear regression</a></li>
+<li class="chapter" data-level="2.3.3" data-path="parametric.html"><a href="parametric.html#glm"><i class="fa fa-check"></i><b>2.3.3</b> Generalized linear models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="non-parametric.html"><a href="non-parametric.html"><i class="fa fa-check"></i><b>2.4</b> Splines and generalized additive models: Moving beyond linearit</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="non-parametric.html"><a href="non-parametric.html#introduction"><i class="fa fa-check"></i><b>2.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.4.2" data-path="non-parametric.html"><a href="non-parametric.html#splines"><i class="fa fa-check"></i><b>2.4.2</b> Regression splines</a></li>
+<li class="chapter" data-level="2.4.3" data-path="non-parametric.html"><a href="non-parametric.html#mathrmb-splines"><i class="fa fa-check"></i><b>2.4.3</b> <span class="math inline">\(\mathrm{B}\)</span>-splines</a></li>
+<li class="chapter" data-level="2.4.4" data-path="non-parametric.html"><a href="non-parametric.html#smoothing"><i class="fa fa-check"></i><b>2.4.4</b> Cubic smoothing splines</a></li>
+<li class="chapter" data-level="2.4.5" data-path="non-parametric.html"><a href="non-parametric.html#gam"><i class="fa fa-check"></i><b>2.4.5</b> Generalized additive models (GAM)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="non-parametric.html"><a href="non-parametric.html#hgam"><i class="fa fa-check"></i><b>2.4.6</b> High-dimensional generalized additive models (HGAM)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html"><i class="fa fa-check"></i><b>2.5</b> Combining cluster analysis and variable selection</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#CAH"><i class="fa fa-check"></i><b>2.5.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="2.5.2" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#HCAR"><i class="fa fa-check"></i><b>2.5.2</b> Hierarchical Clustering and Averaging Regression</a></li>
+<li class="chapter" data-level="2.5.3" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#MLGL"><i class="fa fa-check"></i><b>2.5.3</b> Multi-Layer Group-Lasso (MLGL)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>2.6</b> Statistical testing of significance</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="hypothesis.html"><a href="hypothesis.html#introduction-1"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.6.2" data-path="hypothesis.html"><a href="hypothesis.html#chi2"><i class="fa fa-check"></i><b>2.6.2</b> <span class="math inline">\(\chi^2\)</span> test</a></li>
+<li class="chapter" data-level="2.6.3" data-path="hypothesis.html"><a href="hypothesis.html#LRT"><i class="fa fa-check"></i><b>2.6.3</b> Likelihood ratio test</a></li>
+<li class="chapter" data-level="2.6.4" data-path="hypothesis.html"><a href="hypothesis.html#pvalGAM"><i class="fa fa-check"></i><b>2.6.4</b> Calculation of <em>p</em>-values in GAM</a></li>
+<li class="chapter" data-level="2.6.5" data-path="hypothesis.html"><a href="hypothesis.html#multiple"><i class="fa fa-check"></i><b>2.6.5</b> Multiple testing comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html"><i class="fa fa-check"></i><b>3</b> Genome-Wide Association Studies</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="genoquality.html"><a href="genoquality.html"><i class="fa fa-check"></i><b>3.2</b> Genotype quality control</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="genoquality.html"><a href="genoquality.html#deviation-from-hwe."><i class="fa fa-check"></i><b>3.2.1</b> Deviation from HWE.</a></li>
+<li class="chapter" data-level="3.2.2" data-path="genoquality.html"><a href="genoquality.html#missing-data."><i class="fa fa-check"></i><b>3.2.2</b> Missing data.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="genoquality.html"><a href="genoquality.html#distribution-of-test-statistics."><i class="fa fa-check"></i><b>3.2.3</b> Distribution of test statistics.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="OR.html"><a href="OR.html"><i class="fa fa-check"></i><b>3.3</b> Disease penetrance and odds ratio</a></li>
+<li class="chapter" data-level="3.4" data-path="SMA.html"><a href="SMA.html"><i class="fa fa-check"></i><b>3.4</b> Single Marker Analysis</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="SMA.html"><a href="SMA.html#pearsons-chi2-statistic"><i class="fa fa-check"></i><b>3.4.1</b> Pearson’s <span class="math inline">\(\chi^2\)</span> statistic</a></li>
+<li class="chapter" data-level="3.4.2" data-path="SMA.html"><a href="SMA.html#cochran-armitage-trend-test"><i class="fa fa-check"></i><b>3.4.2</b> Cochran-Armitage trend test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="SMA.html"><a href="SMA.html#logitGWAS"><i class="fa fa-check"></i><b>3.4.3</b> Logistic regression and likelihood ratio test</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="GWASlimits.html"><a href="GWASlimits.html"><i class="fa fa-check"></i><b>3.5</b> Limitations</a></li>
+<li class="chapter" data-level="3.6" data-path="popstructure.html"><a href="popstructure.html"><i class="fa fa-check"></i><b>3.6</b> Population structure</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="popstructure.html"><a href="popstructure.html#genomic-control"><i class="fa fa-check"></i><b>3.6.1</b> Genomic control</a></li>
+<li class="chapter" data-level="3.6.2" data-path="popstructure.html"><a href="popstructure.html#structured-association"><i class="fa fa-check"></i><b>3.6.2</b> Structured association</a></li>
+<li class="chapter" data-level="3.6.3" data-path="popstructure.html"><a href="popstructure.html#PCC"><i class="fa fa-check"></i><b>3.6.3</b> Principle components correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="multiloc.html"><a href="multiloc.html"><i class="fa fa-check"></i><b>3.7</b> Multi-locus analysis</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="multiloc.html"><a href="multiloc.html#haplotype-based-approaches"><i class="fa fa-check"></i><b>3.7.1</b> Haplotype-based approaches</a></li>
+<li class="chapter" data-level="3.7.2" data-path="multiloc.html"><a href="multiloc.html#rare-variant"><i class="fa fa-check"></i><b>3.7.2</b> Rare-variant association analysis</a></li>
+<li class="chapter" data-level="3.7.3" data-path="multiloc.html"><a href="multiloc.html#adjclust"><i class="fa fa-check"></i><b>3.7.3</b> LD based approach to variable selection in GWAS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="LEOS.html"><a href="LEOS.html"><i class="fa fa-check"></i><b>4</b> Learning the Optimal in GWAS through hierarchical SNP aggregation</a><ul>
+<li class="chapter" data-level="4.1" data-path="introleos.html"><a href="introleos.html"><i class="fa fa-check"></i><b>4.1</b> Related work</a></li>
+<li class="chapter" data-level="4.2" data-path="leosmethod.html"><a href="leosmethod.html"><i class="fa fa-check"></i><b>4.2</b> Method</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="leosmethod.html"><a href="leosmethod.html#CHAC"><i class="fa fa-check"></i><b>4.2.1</b> Step 1. Constrained-HAC</a></li>
+<li class="chapter" data-level="4.2.2" data-path="leosmethod.html"><a href="leosmethod.html#Dstar"><i class="fa fa-check"></i><b>4.2.2</b> Step 2. Dimension reduction function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="leosmethod.html"><a href="leosmethod.html#cutree"><i class="fa fa-check"></i><b>4.2.3</b> Step 3. Optimal number of groups estimation</a></li>
+<li class="chapter" data-level="4.2.4" data-path="leosmethod.html"><a href="leosmethod.html#step4"><i class="fa fa-check"></i><b>4.2.4</b> Step 4. Multiple testing on aggregated-SNP variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="numsim.html"><a href="numsim.html"><i class="fa fa-check"></i><b>4.3</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="numsim.html"><a href="numsim.html#simupheno"><i class="fa fa-check"></i><b>4.3.1</b> Simulation of the case-control phenotype</a></li>
+<li class="chapter" data-level="4.3.2" data-path="numsim.html"><a href="numsim.html#perfeval"><i class="fa fa-check"></i><b>4.3.2</b> Performance evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="results.html"><a href="results.html#results-and-discussions-of-the-numerical-simulations"><i class="fa fa-check"></i><b>4.4.1</b> Results and discussions of the numerical simulations</a></li>
+<li class="chapter" data-level="4.4.2" data-path="results.html"><a href="results.html#performance-results-for-simulated-data."><i class="fa fa-check"></i><b>4.4.2</b> Performance results for simulated data.</a></li>
+<li class="chapter" data-level="4.4.3" data-path="results.html"><a href="results.html#leosappli"><i class="fa fa-check"></i><b>4.4.3</b> Application in Wellcome Trust Case Control Consortium(WTCCC) and Ankylosing Spondylitis (AS) studies</a></li>
+<li class="chapter" data-level="4.4.4" data-path="results.html"><a href="results.html#realdata"><i class="fa fa-check"></i><b>4.4.4</b> Results in WTCCC and AS studies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="leosgam.html"><a href="leosgam.html"><i class="fa fa-check"></i><b>4.5</b> Generalized additive models in GWAS</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="leosgam.html"><a href="leosgam.html#comparison-of-predictive-power"><i class="fa fa-check"></i><b>4.5.1</b> Comparison of predictive power</a></li>
+<li class="chapter" data-level="4.5.2" data-path="leosgam.html"><a href="leosgam.html#results-of-univariate-smoothing-splines-on-aggregated-snp"><i class="fa fa-check"></i><b>4.5.2</b> Results of univariate smoothing splines on aggregated-SNP</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="discussions.html"><a href="discussions.html"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><a href="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><i class="fa fa-check"></i><b>5</b> Selection of interaction effects in compressed multiple omics representation</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="introduction-3.html"><a href="introduction-3.html#background-1"><i class="fa fa-check"></i><b>5.1.1</b> Background</a></li>
+<li class="chapter" data-level="5.1.2" data-path="introduction-3.html"><a href="introduction-3.html#combining-genome-and-metagenome-analyses."><i class="fa fa-check"></i><b>5.1.2</b> Combining genome and metagenome analyses.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="introduction-3.html"><a href="introduction-3.html#taking-structures-into-account-in-association-studies."><i class="fa fa-check"></i><b>5.1.3</b> Taking structures into account in association studies.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="modelsicomore.html"><a href="modelsicomore.html"><i class="fa fa-check"></i><b>5.2</b> Learning with complementary datasets</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="modelsicomore.html"><a href="modelsicomore.html#setting-and-notations"><i class="fa fa-check"></i><b>5.2.1</b> Setting and notations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="modelsicomore.html"><a href="modelsicomore.html#interactions-in-linear-models"><i class="fa fa-check"></i><b>5.2.2</b> Interactions in linear models</a></li>
+<li class="chapter" data-level="5.2.3" data-path="modelsicomore.html"><a href="modelsicomore.html#compressdata"><i class="fa fa-check"></i><b>5.2.3</b> Compact model</a></li>
+<li class="chapter" data-level="5.2.4" data-path="modelsicomore.html"><a href="modelsicomore.html#recoverinteractions"><i class="fa fa-check"></i><b>5.2.4</b> Recovering relevant interactions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="implementation.html"><a href="implementation.html"><i class="fa fa-check"></i><b>5.3</b> Method</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="implementation.html"><a href="implementation.html#preprocess"><i class="fa fa-check"></i><b>5.3.1</b> Preprocessing of the data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="implementation.html"><a href="implementation.html#preprocessing-of-metagenomic-data"><i class="fa fa-check"></i><b>5.3.2</b> Preprocessing of metagenomic data</a></li>
+<li class="chapter" data-level="5.3.3" data-path="implementation.html"><a href="implementation.html#structure"><i class="fa fa-check"></i><b>5.3.3</b> Structuring the data</a></li>
+<li class="chapter" data-level="5.3.4" data-path="implementation.html"><a href="implementation.html#using-the-structure-efficiently"><i class="fa fa-check"></i><b>5.3.4</b> Using the structure efficiently</a></li>
+<li class="chapter" data-level="5.3.5" data-path="implementation.html"><a href="implementation.html#identification-of-relevant-supervariables"><i class="fa fa-check"></i><b>5.3.5</b> Identification of relevant supervariables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="XPsimu.html"><a href="XPsimu.html"><i class="fa fa-check"></i><b>5.4</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="XPsimu.html"><a href="XPsimu.html#data-generation"><i class="fa fa-check"></i><b>5.4.1</b> Data generation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="XPsimu.html"><a href="XPsimu.html#generation-of-the-phenotype"><i class="fa fa-check"></i><b>5.4.2</b> Generation of the phenotype</a></li>
+<li class="chapter" data-level="5.4.3" data-path="XPsimu.html"><a href="XPsimu.html#comparison-of-methods"><i class="fa fa-check"></i><b>5.4.3</b> Comparison of methods</a></li>
+<li class="chapter" data-level="5.4.4" data-path="XPsimu.html"><a href="XPsimu.html#evaluation-metrics"><i class="fa fa-check"></i><b>5.4.4</b> Evaluation metrics</a></li>
+<li class="chapter" data-level="5.4.5" data-path="XPsimu.html"><a href="XPsimu.html#performance-results"><i class="fa fa-check"></i><b>5.4.5</b> Performance results</a></li>
+<li class="chapter" data-level="5.4.6" data-path="XPsimu.html"><a href="XPsimu.html#computational-time"><i class="fa fa-check"></i><b>5.4.6</b> Computational time</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="XPINRA.html"><a href="XPINRA.html"><i class="fa fa-check"></i><b>5.5</b> Application on real data: rhizosphere of <em>Medicago truncatula</em></a><ul>
+<li class="chapter" data-level="5.5.1" data-path="XPINRA.html"><a href="XPINRA.html#material"><i class="fa fa-check"></i><b>5.5.1</b> Material</a></li>
+<li class="chapter" data-level="5.5.2" data-path="XPINRA.html"><a href="XPINRA.html#analysis"><i class="fa fa-check"></i><b>5.5.2</b> Analysis</a></li>
+<li class="chapter" data-level="5.5.3" data-path="XPINRA.html"><a href="XPINRA.html#results-1"><i class="fa fa-check"></i><b>5.5.3</b> Results</a></li>
+<li class="chapter" data-level="5.5.4" data-path="XPINRA.html"><a href="XPINRA.html#results-on-root-shoot-ratio"><i class="fa fa-check"></i><b>5.5.4</b> Results on Root Shoot Ratio</a></li>
+<li class="chapter" data-level="5.5.5" data-path="XPINRA.html"><a href="XPINRA.html#results-on-specific-nitrogen-uptake"><i class="fa fa-check"></i><b>5.5.5</b> Results on Specific Nitrogen Uptake</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="discussions-1.html"><a href="discussions-1.html"><i class="fa fa-check"></i><b>5.6</b> Discussions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i>Conclusions</a><ul>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-leos-algorithm"><i class="fa fa-check"></i>Discussions on LEOS algorithm</a></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-sicomore-algorithm"><i class="fa fa-check"></i>Discussions on SICOMORE algorithm</a></li>
+<li class="chapter" data-level="" data-path="perspectives.html"><a href="perspectives.html"><i class="fa fa-check"></i>Perspectives</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical learning for omics association and interactions studies based on blockwise feature compression</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="XPsimu" class="section level2">
+<h2><span class="header-section-number">5.4</span> Numerical simulations</h2>
+<p>We provide here numerical simulations to assess the ability of SICOMORE
+to recover relevant interactions against three other methods. We also
+show that our method is computationally competitive compared to the
+others.</p>
+<div id="data-generation" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Data generation</h3>
+<div id="generation-of-metagenomic-and-genomic-data-matrices" class="section level4 unnumbered">
+<h4>Generation of metagenomic and genomic data matrices</h4>
+<div id="genomic-data" class="section level5 unnumbered">
+<h5>Genomic data</h5>
+<p>In order to get a matrix <span class="math inline">\(\mathbf{x}^{\mathit{G}}\)</span> close to real genomic data, we used
+the software software <span class="citation">(Su, Marchini, and Donnelly <a href="#ref-su_hapgen2_2011">2011</a>)</span>. This software allows to
+simulate an entire chromosome conditionally on a reference set of
+population haplotypes (from HapMap3) and an estimate of the fine-scale
+recombination rate across the region, so that the simulated data share
+similar patterns with the reference data. We generate the chromosome 1
+using the haplotype structure of CEU population (Utah residents with
+Northern and Western European ancestry from the CEPH collection) as
+reference set and we selected <span class="math inline">\(D_\mathit{G}=200\)</span> variables from this matrix to
+obtain our simulated dataset. An example of the linkage disequilibrium
+structure among the simulated SNP is illustrated in Figure <a href="XPsimu.html#fig:X">5.2</a>(a).</p>
+</div>
+<div id="metagenomic-data" class="section level5 unnumbered">
+<h5>Metagenomic data</h5>
+<p>The data matrix <span class="math inline">\(\mathbf{x}^{\mathit{M}}\)</span>, with <span class="math inline">\(D_\mathit{M}=100\)</span> variables, has been
+generated using a multivariate Poisson-log normal distribution
+<span class="citation">(Aitchison and Ho <a href="#ref-aitchison1989multivariate">1989</a>)</span> with block structure dependencies.</p>
+<p>The Poisson-log normal model is a latent gaussian model where latent
+vectors <span class="math inline">\(\mathcal{L}_i \in \mathbb{R}^{D_\mathit{M}}\)</span> are drawn from a multivariate
+normal distribution
+<span class="math display">\[\mathcal{L}_i \thicksim \mathcal{N}_{D_\mathit{M}}(0, \boldsymbol{\Sigma}),\]</span> where
+<span class="math inline">\(\boldsymbol{\Sigma}\)</span> is a covariance matrix that allows to obtain a correlation
+structure among the variables.</p>
+<p>The centered phenotypic count data <span class="math inline">\(\mathrm{Y}_i\)</span> are then drawn from a Poisson
+distribution conditionally on <span class="math inline">\(\mathcal{L}_i\)</span>
+<span class="math display">\[\mathrm{Y}_{ij}|\mathcal{L}_{ij} \thicksim \mathcal{P}\left( e^{\mu_j + \mathcal{L}_{ij}}\right),\]</span>
+with <span class="math inline">\(\mu_j = 0\)</span>.</p>
+<p>The block structure, pictured in Figure <a href="XPsimu.html#fig:X">5.2</a>(b), has been obtained by
+drawing a latent multivariate normal vector using a covariance matrix
+<span class="math inline">\(\boldsymbol{\Sigma}\)</span> such that the correlation level between the latent variables
+of a group are between 0.5 and 0.95. By simulating this way, we obtain a
+matrix of count data with a covariance structure close to what is
+observed with metagenomic data. As stated in Section <a href="implementation.html#preprocess">5.3.1</a>,
+we calculated the proportions in each random variable and transformed
+them using centered log-ratios.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:X"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/X.png" alt="Examples of hierarchical structures}: correlations observed on (a) genomic data \(\mathbf{x}^\mathit{G}\) and (b) metagenomic data \(\mathbf{x}^\mathit{M}\)." width="100%" />
+<p class="caption">
+Figure 5.2: Examples of hierarchical structures}: correlations observed on (a) genomic data <span class="math inline">\(\mathbf{x}^\mathit{G}\)</span> and (b) metagenomic data <span class="math inline">\(\mathbf{x}^\mathit{M}\)</span>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="generation-of-the-phenotype" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Generation of the phenotype</h3>
+<p>For all simulations, we used a fixed value of <span class="math inline">\(N_{\mathit{M}} = 6\)</span> groups for
+the matrix <span class="math inline">\(\mathbf{x}^{\mathit{M}}\)</span> and for the case of the matrix <span class="math inline">\(\mathbf{x}^{\mathit{G}}\)</span>, since
+we cannot exactly control the block structure with , we used the Gap
+Statistic (see Section <a href="combining-cluster-analysis-and-variable-selection.html#CAH">2.5.1</a>) to identify a number of groups in
+the hierarchy. For instance, in Figure <a href="XPsimu.html#fig:X">5.2</a>(a), the Gap Statistic
+identified <span class="math inline">\(N_{\mathit{G}} = 16\)</span> groups. The supervariables were then
+calculated using averaged groups of variables to obtain the two matrices
+of supervariables, <span class="math inline">\(\tilde{\mathbf{x}}^{\mathit{G}}\)</span> and <span class="math inline">\(\tilde{\mathbf{x}}^{\mathit{M}}\)</span>.</p>
+<p>To generate the phenotype, we considered a data structure for which the
+data to regress has been generated using supervariables according a
+linear model with interactions of the form:</p>
+<p><span class="math display">\[\label{eq:phenotype_gen}
+  y_i = 
+  \sum_{g \in \mathcal{S}^{\mathit{G}}}\tilde{x}_i^g \beta_{g} +
+  \sum_{m \in \mathcal{S}^{\mathit{M}}} \tilde{x}_i^m \beta_{m} +
+  \sum_{g \in \mathcal{S}^{\mathit{G}}}\sum_{m \in \mathcal{S}^{\mathit{M}}}
+  \underbrace{\left(\tilde{x}_i^g  \cdot
+      \tilde{x}_i^m\right)}_{\boldsymbol{\phi}^{gm}_i}
+  {\theta_{gm}} + \, \epsilon_i \,,\]</span></p>
+<p>where <span class="math inline">\(\mathcal{S}^{\mathit{G}}\)</span> and <span class="math inline">\(\mathcal{S}^{\mathit{M}}\)</span> are subsets of randomly chosen effects from the matrices <span class="math inline">\(\tilde{\mathbf{x}}^{\mathit{G}}\)</span> and <span class="math inline">\(\tilde{\mathbf{x}}^{\mathit{M}}\)</span> respectively, <span class="math inline">\(\tilde{x}_i^g\)</span> is the <span class="math inline">\(i^{th}\)</span> sample of the <span class="math inline">\(g\)</span> effect and <span class="math inline">\(\beta_{g}\)</span> its corresponding coefficient, <span class="math inline">\(\tilde{x}_i^m\)</span> is the <span class="math inline">\(i^{th}\)</span> sample of the <span class="math inline">\(m\)</span> effect and <span class="math inline">\(\beta_{m}\)</span> its corresponding coefficient. Finally, <span class="math inline">\(\theta_{gm}\)</span> is the interaction between variables <span class="math inline">\(\tilde{x}_i^g\)</span> and <span class="math inline">\(\tilde{x}_i^m\)</span>.</p>
+<p>We considered <span class="math inline">\(I \in \{1,3,5,7,10\}\)</span> true interactions between the
+supervariables to generate the phenotype so that <span class="math inline">\(I\)</span> blocks of the
+coefficients of <span class="math inline">\(\theta_{gm}\)</span> have non-zero values. The process
+was repeated 30 times for each couple of parameters in
+<span class="math inline">\(N=\{50, 100, 200\} \times mean(\boldsymbol{\epsilon})=\{0.5, 1, 2\}\)</span>.</p>
+</div>
+<div id="comparison-of-methods" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> Comparison of methods</h3>
+<p>To evaluate the performance of our method, SICOMORE, to retrieve the
+true causal interaction, we compared it with three other methods, namely
+<strong>HCAR</strong> <span class="citation">(Park, Hastie, and Tibshirani <a href="#ref-park_averaged_2007">2007</a>)</span>, <strong>MLGL</strong> <span class="citation">(Grimonprez <a href="#ref-grimonprez_selection_2016">2016</a>)</span>
+and <strong>glinternet</strong> <span class="citation">(Lim and Hastie <a href="#ref-lim2015learning">2015</a>)</span>. It is worth mentioning that, as
+we already stated, SICOMORE is an approach that borrow from HCAR and
+MLGL and that is designed to detect interactions. We had then to adapt
+these approaches to our problematic, as we will describe it in the
+following sections, they are therefore not evaluated in the context they
+were meant to be used. Thus, the purpose of this evaluation is to know
+if SICOMORE is capable of improving the individual performance of these
+methods by combining them to detect statistical interactions.</p>
+<div id="hierarchical-clustering-and-averaging-regression-hcar" class="section level4 unnumbered">
+<h4>Hierarchical Clustering and Averaging Regression (HCAR)</h4>
+<p>This methodology can be simply adapted to our problematic by performing
+two hierarchical clustering on each data matrix <span class="math inline">\(\mathbf{x}^{\mathit{G}}\)</span> and
+<span class="math inline">\(\mathbf{x}^{\mathit{M}}\)</span> and then compute the unweighted compressed representations
+of those hierarchies as explained in
+Section <a href="implementation.html#implementation">5.3</a> and illustrated in
+Figure <a href="implementation.html#fig:hierarchy">5.1</a>(c). We can then fit a Lasso regression model
+on both compressed representations with interactions between all
+possible groups. We consider that HCAR is able to retrieve a true
+causal interaction if the Lasso procedure selects the interaction term
+at the correct levels of the two hierarchies.</p>
+</div>
+<div id="multi-layer-group-lasso-mlgl" class="section level4 unnumbered">
+<h4>Multi-Layer Group-Lasso (MLGL)</h4>
+<p>The model is fitted with weights on the groups defined by the expanded
+representation of the two hierarchies as illustrated in Figure
+<a href="implementation.html#fig:hierarchy">5.1</a>(b). This method does not work on the compressed
+supervariables but on the initial variables. Our evaluation considers
+that the method is able to retrieve real interactions if it selects the
+correct interaction terms between two groups of variables at the right
+level in both hierarchies.</p>
+</div>
+<div id="group-lasso-interaction-network-glinternet" class="section level4">
+<h4><span class="header-section-number">5.4.3.1</span> Group-Lasso interaction network (glinternet)</h4>
+<p>glinternet <span class="citation">(Lim and Hastie <a href="#ref-lim2015learning">2015</a>)</span> is a procedure that considers pairwise
+interactions in a linear model in a manner that satisfies strong
+dependencies between main and interaction effects: whenever an
+interaction is estimated to be non-zero, both its associated main
+effects are also included in the model. This method uses a Group-Lasso
+model to accommodate with categorical variables and apply constraints on
+the main effects and interactions to result in interpretable interaction
+models.</p>
+<p>The glinternet model fits a hierarchical group-lasso model with
+constraints on the main and interactions effects as specified in the
+equation whilst accommodating for the strong dependence hypothesis by
+adding an appropriate penalty to the loss function (we refer the reader
+to <span class="citation">(Lim and Hastie <a href="#ref-lim2015learning">2015</a>)</span> for more details on the form of the penalty). For
+very large problems (with a number of variables <span class="math inline">\(\geq 1.10^5\)</span>), the
+group-lasso procedure is preceded by a screening step that gives a
+candidate set of main effects and interactions. They use an adaptive
+procedure that is based on the strong rules <span class="citation">(Tibshirani et al. <a href="#ref-tibshirani2012strong">2012</a>)</span> for
+discarding predictors in lasso-type problems.</p>
+<p>Since this method can only work at the level of variables, it was
+necessary to include a group structure into the analysis. Therefore, we
+decided to fit the glinternet model on the compressed variables and to
+constraint the model to only fit the interaction terms between the
+supervariables of the two matrices <span class="math inline">\(\tilde{\mathbf{x}}^{\mathit{G}}\)</span> and
+<span class="math inline">\(\tilde{\mathbf{x}}^{\mathit{M}}\)</span>. We explicitly removed all interaction terms between
+supervariables belonging to the same data matrix.</p>
+<p>For a fair comparison with the other methods, we considered two options
+namely <em>GLtree</em> and <em>GLgap</em>. On one hand, option GLtree works on the
+unweighted compressed representations of the two hierarchies
+(Figure <a href="implementation.html#fig:hierarchy">5.1</a>(c)) thus considering all the possible
+interactions between the supervariables of the two datasets. On the
+other hand, option GLgap considers only the interactions between the
+compressed variables constructed at a specific level in the hierarchies,
+chosen by the Gap Statistic.</p>
+<p>Given that <span class="math inline">\(D^{\mathit{G}}\)</span> and <span class="math inline">\(D^{\mathit{M}}\)</span> are the number of variables in
+<span class="math inline">\(\mathbf{x}^{\mathit{G}}\)</span> and <span class="math inline">\(\mathbf{x}^{\mathit{M}}\)</span>, the dimension of the compressed matrices
+<span class="math inline">\(\tilde{\mathbf{x}}^{\mathit{G}}\)</span> and <span class="math inline">\(\tilde{\mathbf{x}}^{\mathit{M}}\)</span> are respectively
+<span class="math inline">\(\tilde{D}^{\mathit{G}} = D^{\mathit{G}} + (D^{\mathit{G}}-1)\)</span> and
+<span class="math inline">\(\tilde{D}^{\mathit{M}} = D^{\mathit{M}} + (D^{\mathit{M}}-1)\)</span>. Thus, for GLtree the number
+of interactions to investigate are
+<span class="math inline">\(\tilde{D}^{\mathit{G}} \times \tilde{D}^{\mathit{M}}\)</span> while for GLgap this number
+will depend on the level chosen by the Gap statistic but will be either
+way smaller since we consider only a specific level of the hierarchy in
+this option. In the numerical simulations, given that <span class="math inline">\(D^{\mathit{G}} = 200\)</span>
+and <span class="math inline">\(D^{\mathit{M}}=100\)</span>, the use of strong rules to discard variables is
+therefore not necessary as <span class="citation">(Lim and Hastie <a href="#ref-lim2015learning">2015</a>)</span> argued that glinternet can
+handle very large problems without any screening (360M candidate
+interactions were fitted when evaluating the method on real data
+examples).</p>
+</div>
+</div>
+<div id="evaluation-metrics" class="section level3">
+<h3><span class="header-section-number">5.4.4</span> Evaluation metrics</h3>
+<p>For each run, we evaluated the quality of the variable selection using
+Precision and Recall. More precisely, we compared the true interaction
+matrix <span class="math inline">\(\boldsymbol{\theta}\)</span> that we used to generate the phenotype with the
+estimated interaction matrix <span class="math inline">\(\hat{\boldsymbol{\theta}}\)</span> compute for each model. For
+all possible interactions <span class="math inline">\(\{gm\}\)</span>, we then determined the
+following confusion matrix:</p>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_confusion.png" width="50%" style="display: block; margin: auto;" />
+<table>
+<caption>
+<span id="tab:tabconfusion">Table 5.1: </span>Confusion matrix for the hypothesis test on interaction parameter <span class="math inline">\(\theta\)</span>
+</caption>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+<p>and hence compute <span class="math inline">\(\text{Precision}={\frac{TP}{(FP+TP)}}\)</span> and
+<span class="math inline">\(\text{Recall}=\frac{TP}{FN+TP}\)</span>. In this context, a true positive
+corresponds to a significant <span class="math inline">\(p\)</span>-value on a true causal interaction, a
+false positive to a significant <span class="math inline">\(p\)</span>-value on a noise interaction, and a
+false negative to a non-significant <span class="math inline">\(p\)</span>-value on a true causal
+interaction. An example of the interaction matrix <span class="math inline">\(\boldsymbol{\theta}\)</span> is
+given in Figure <a href="XPsimu.html#fig:ggheatheta">5.3</a> for <span class="math inline">\(I=5\)</span> blocks in interaction.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:ggheatheta"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/ggheat_theta.png" alt="Illustration of the true interaction matrix \(\boldsymbol{\theta}\) with \(I = 5\), \(\sigma = 0.5\) and \(n=100\). Each non-zero value in this matrix is considered as a true interaction between two variables." width="90%" />
+<p class="caption">
+Figure 5.3: Illustration of the true interaction matrix <span class="math inline">\(\boldsymbol{\theta}\)</span> with <span class="math inline">\(I = 5\)</span>, <span class="math inline">\(\sigma = 0.5\)</span> and <span class="math inline">\(n=100\)</span>. Each non-zero value in this matrix is considered as a true interaction between two variables.
+</p>
+</div>
+<p>For all methods, we correct for multiple testing by controlling the
+Family Wise Error Rate using the method of Holm-Bonferroni. Even though
+it is known to be stringent, we chose to rely on Holm-Bonferroni method
+to adjust for multiple testing because the number hypothesis tests
+performed in our simulation context is not that high. In a
+high-dimensional context such as with the analysis of real DNA chip
+data, we would rather use the Benjamini-Hochberg method for the control
+of the false discovery rate.</p>
+</div>
+<div id="performance-results" class="section level3">
+<h3><span class="header-section-number">5.4.5</span> Performance results</h3>
+<p>The performances of each method to retrieve the true causal interactions
+are illustrated in Figure <a href="XPsimu.html#fig:precisionBONF">5.5</a> for precision and
+Figure <a href="XPsimu.html#fig:recallBONF">5.6</a> for recall. For the sake of clarity we only show
+the results for <span class="math inline">\(I=7\)</span> blocks of variables in interaction.</p>
+<p>The results in terms of recall reveal good abilities of MLGL and
+SICOMORE to retrieve True Positive interactions, with an overall
+advantage for our method. HCAR achieves a lower performance due to the
+fact that it favours the selection of small groups which are only partly
+contained in the groups that generate the interactions showing that the
+weighting scheme of MLGL and SICOMORE is efficient. GLgap is not able to
+retrieve relevant interactions but the way to define the structure among
+variables, using the Gap Statistic, is also quite different than for the
+three other methods.</p>
+<p>In terms of precision, all methods perform poorly with a significant
+number of false positive interactions. MLGL and SICOMORE tend to select
+groups of variables and supervariables too high in the tree structure,
+inducing false positives which are spatially closed to the true
+interactions. HCAR, which favours small groups as explained above, is
+less subject to that. The behaviour of GLgap may vary according to the
+selected cut with the Gap statistic into the tree structure while option
+GLtree exhibit slightly better precision. Still, the method glinternet
+is globally not able to retrieve correctly the true interactions whether
+or not it uses the compressed or original representation. The plots in
+Figure <a href="XPsimu.html#fig:theta2by2">5.4</a> represent the recovered confusion matrices of
+interaction <span class="math inline">\(\theta_{gm}\)</span> for each compared algorithm for one particular
+set of simulation parameters (<span class="math inline">\(I = 5\)</span>, <span class="math inline">\(\sigma = 0.5\)</span>, <span class="math inline">\(n=100\)</span>).</p>
+
+<div class="figure" style="text-align: center"><span id="fig:theta2by2"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/theta2by2.png" alt="Confusion matrices of interactions \(\theta_{gm}\) for each compared algorithm with the following simulation parameters: \(I = 5\), \(\sigma = 0.5\), \(n=100\). We can see in this example that MLGL and SICOMORE behaves similarly with very large genomic regions identified while HCAR tends to work with smaller genomic and metagenomic regions." width="100%" />
+<p class="caption">
+Figure 5.4: Confusion matrices of interactions <span class="math inline">\(\theta_{gm}\)</span> for each compared algorithm with the following simulation parameters: <span class="math inline">\(I = 5\)</span>, <span class="math inline">\(\sigma = 0.5\)</span>, <span class="math inline">\(n=100\)</span>. We can see in this example that MLGL and SICOMORE behaves similarly with very large genomic regions identified while HCAR tends to work with smaller genomic and metagenomic regions.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:precisionBONF"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/precision_simureal_BONF-3.png" alt="Boxplots of precision for each couple of parameters \(N\) (number of examples in rows) and \(\epsilon\) (difficulty of the problem in columns) for \(I=7\)." width="100%" />
+<p class="caption">
+Figure 5.5: Boxplots of precision for each couple of parameters <span class="math inline">\(N\)</span> (number of examples in rows) and <span class="math inline">\(\epsilon\)</span> (difficulty of the problem in columns) for <span class="math inline">\(I=7\)</span>.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:recallBONF"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/precision_simureal_BONF-3.png" alt="Boxplots of recall for each couple of parameters \(N\) (in rows) and \(\epsilon\) (in columns) for \(I=7\)." width="100%" />
+<p class="caption">
+Figure 5.6: Boxplots of recall for each couple of parameters <span class="math inline">\(N\)</span> (in rows) and <span class="math inline">\(\epsilon\)</span> (in columns) for <span class="math inline">\(I=7\)</span>.
+</p>
+</div>
+</div>
+<div id="computational-time" class="section level3">
+<h3><span class="header-section-number">5.4.6</span> Computational time</h3>
+<p>In order to decrease the calculation time in our algorithm, we chose to
+restrain the search space in the tree to a certain amount, depending on
+the number of initial features. We can choose to limit the search in the
+area of the tree where the jumps in the hierarchy are the highest and
+arbitrarily set the number of groups to evaluate at five times the
+number of initial features. By doing so, we are reducing the number of
+variables to be fitted in the Lasso regression without affecting the
+performance in terms of Recall or Precision.</p>
+<p>We compared the computational performance of our method with the three
+others by varying <span class="math inline">\(D^{\mathit{G}}\)</span> (we fixed <span class="math inline">\(D^{\mathit{M}} = 100\)</span> and <span class="math inline">\(n = 200\)</span>). We
+repeated the number of evaluation five times for each <span class="math inline">\(D^{\mathit{G}}\)</span> and
+averaged the calculation time.</p>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/tab_confusion.png" width="50%" style="display: block; margin: auto;" />
+<table>
+<caption>
+<span id="tab:tabcomptime">Table 5.2: </span>Results of averaged calculation time (in minutes) over 5 replicates for varying <span class="math inline">\(D^{\mathit{G}}\)</span>
+</caption>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+<p>We can conclude from the results presented in table <a href="XPsimu.html#tab:tabcomptime">5.2</a> that
+two methods, MLGL and glinternet, are not suitable for large-scale
+analysis of genomic data since the calculation time increase drastically
+as soon as the dimension of the problem exceed a few thousand variables.
+HCAR and SICOMORE behave similarly. That being said, remember that HCAR
+is tuned with an unweighted compressed representation avoiding having to
+choose the optimal cut in the tree, as in SICOMORE. With its original
+strategy based on a <span class="math inline">\(K\)</span> cross validation, there is no doubt that the gap
+between HCAR and SICOMORE would have been much larger. Indeed, the
+computational cost of an additional exploration to find the optimal cut
+in HCAR grows with the number of variables and therefore with <span class="math inline">\(h_T\)</span>, the
+height of the tree. HCAR has to evaluate <span class="math inline">\(h_T \times K\)</span> compressed
+models while SICOMORE only has to compress <span class="math inline">\(h_T-1\)</span> groups to evaluate
+the final model.</p>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-su_hapgen2_2011">
+<p>Su, Z., J. Marchini, and P. Donnelly. 2011. “HAPGEN2: Simulation of Multiple Disease Snps.” <em>Bioinformatics</em> 27 (16): 2304.</p>
+</div>
+<div id="ref-aitchison1989multivariate">
+<p>Aitchison, John, and C. H. Ho. 1989. “The Multivariate Poisson-Log Normal Distribution.” <em>Biometrika</em> 76 (4): 643–53.</p>
+</div>
+<div id="ref-park_averaged_2007">
+<p>Park, Mee Young, Trevor Hastie, and Robert Tibshirani. 2007. “Averaged Gene Expressions for Regression.” <em>Biostatistics</em> 8 (2): 212–27.</p>
+</div>
+<div id="ref-grimonprez_selection_2016">
+<p>Grimonprez, Quentin. 2016. “Selection de Groupes de Variables corrÃÂ©lÃÂ©es En Grande Dimension.” PhD thesis, Université de Lille; Lille 1.</p>
+</div>
+<div id="ref-lim2015learning">
+<p>Lim, Michael, and Trevor Hastie. 2015. “Learning Interactions via Hierarchical Group-Lasso Regularization.” <em>Journal of Computational and Graphical Statistics</em> 24 (3): 627–54.</p>
+</div>
+<div id="ref-tibshirani2012strong">
+<p>Tibshirani, Robert, Jacob Bien, Jerome Friedman, Trevor Hastie, Noah Simon, Jonathan Taylor, and Ryan J Tibshirani. 2012. “Strong Rules for Discarding Predictors in Lasso-Type Problems.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 74 (2): 245–66.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="implementation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="XPINRA.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

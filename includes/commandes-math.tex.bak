@@ -1,0 +1,304 @@
+%---------------------------------------------------------------------
+% Commandes et environnements
+% ---------------------------
+%
+% Mes Nouvelles commandes
+
+% maths
+% -----
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\IE}{\mathbb{E}}
+\newcommand{\IN}{\mathbb{N}}
+\newcommand{\IP}{\mathbb{P}}
+\newcommand{\IS}{\mathbb{S}}
+
+
+% lettres en gras
+% ---------------
+%\newcommand{\bzero}{\mathbf{0}}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bc}{\mathbf{c}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bg}{\mathbf{g}}
+\newcommand{\bh}{\mathbf{h}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bm}{\mathbf{m}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bs}{\mathbf{s}}
+\newcommand{\bp}{\tilde{\mathbf{p}}}
+\newcommand{\tbp}{\tilde{\mathbf{p}}}
+\newcommand{\bq}{\tilde{\mathbf{q}}}
+\newcommand{\tbq}{\tilde{\mathbf{q}}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\tbu}{\tilde{\mathbf{u}}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\tbx}{\tilde{\mathbf{x}}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\tby}{\tilde{\mathbf{y}}}
+\newcommand{\bZ}{\mathbf{Z}}
+\newcommand{\bz}{\mathbf{z}}
+
+% lettres grecques en gras 
+% ------------------------
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\boldeta}{\boldsymbol{\eta}}
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\newcommand{\bTheta}{\boldsymbol{\Theta}}
+\newcommand{\bepsilon}{\boldsymbol{\epsilon}}
+\newcommand{\bgamma}{\boldsymbol{\gamma}}
+\newcommand{\bGamma}{\boldsymbol{\Gamma}}
+\newcommand{\bUpsilon}{\boldsymbol{\Upsilon}}
+\newcommand{\bpsi}{\boldsymbol{\psi}}
+\newcommand{\bPsi}{\boldsymbol{\Psi}}
+\newcommand{\bChi}{\boldsymbol{\Chi}}
+\newcommand{\bchi}{\boldsymbol{\chi}}
+\newcommand{\bphi}{\boldsymbol{\phi}}
+\newcommand{\bPhi}{\boldsymbol{\Phi}}
+\newcommand{\blambda}{\boldsymbol{\lambda}}
+\newcommand{\bmu}{\boldsymbol{\mu}}
+\newcommand{\bnu}{\boldsymbol{\nu}}
+\newcommand{\bxi}{\boldsymbol{\xi}}
+\newcommand{\brho}{\boldsymbol{\rho}}
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\newcommand{\bomega}{\boldsymbol{\omega}}
+\newcommand{\bsigma}{\boldsymbol{\sigma}}
+\newcommand{\bSigma}{\boldsymbol{\Sigma}}
+\newcommand{\bXi}{\boldsymbol{\Xi}}
+\newcommand{\bDelta}{\boldsymbol{\Delta}}
+
+\newcommand{\bZeta}{\boldsymbol{\Zeta}}
+\newcommand{\bzero}{\boldsymbol{0}}
+\newcommand{\bun}{\boldsymbol{1}}
+
+
+% lettres italiques en gras  
+% -------------------------
+\newcommand{\bse}{\boldsymbol{e}}
+\newcommand{\bsC}{\boldsymbol{C}}
+\newcommand{\bsf}{\boldsymbol{f}}
+\newcommand{\bsx}{\boldsymbol{x}}
+\newcommand{\bsX}{\boldsymbol{X}}
+\newcommand{\bsy}{\boldsymbol{y}}
+\newcommand{\bsz}{\boldsymbol{z}}
+\newcommand{\bss}{\boldsymbol{s}}
+\newcommand{\bsS}{\boldsymbol{S}}
+\newcommand{\bst}{\boldsymbol{t}}
+\newcommand{\bsu}{\boldsymbol{u}}
+\newcommand{\bsv}{\boldsymbol{v}}
+\newcommand{\bsw}{\boldsymbol{w}}
+
+% variables et vecteurs aleatoires
+% --------------------------------
+\newcommand{\vX}{\mathrm{X}}%{\boldsymbol{X}}}
+\newcommand{\vZ}{\mathrm{Z}}%{\boldsymbol{X}}}
+\newcommand{\vbX}{\mathrm{\mathbf{X}}}
+\newcommand{\vY}{\mathrm{Y}}
+
+% Coefficients de regression
+% --------------------------
+% \newcommand{\bcoeffhat}{\hat{\bbeta}}
+% \newcommand{\bcoeffmat}{\bB}
+% \newcommand{\bcoeff}{\bbeta}
+% \newcommand{\coeff}{\beta}
+% \newcommand{\bols}{\bcoeff^{ls}}
+% \newcommand{\cols}{\coeff^{ls}}
+% \newcommand{\bridge}{\bcoeff^{\ell_2}}
+% \newcommand{\cridge}{\coeff^{\ell_2}}
+% \newcommand{\blasso}{\bcoeff^{\ell_1}}
+% \newcommand{\classo}{\coeff^{\ell_1}}
+% % \newcommand{\bols}{\bcoeff^{ols}}
+% % \newcommand{\bridge}{\bcoeff^{ridge}}
+% % \newcommand{\blasso}{\bcoeff^{lasso}}
+% \newcommand{\blars}{\bcoeff_{lars}}
+% \newcommand{\lars}{\coeff_{lars}}
+
+
+% Facteurs d'échelle
+% ------------------
+% \newcommand{\mysigma}[2]{\sigma_{#1, #2}}
+% \newcommand{\mybsigma}[1]{\boldsymbol{\sigma}\hskip-0.5pt_{#1}}
+% \newcommand{\group}[1]{\mathcal{G}_{#1}}
+% \newcommand{\myG}[2]{G_{#1,#2}}
+% %\newcommand{\myG}[2]{G^{#1}_{#2}}
+% \newcommand{\myd}[2]{d_{#1, #2}}
+% \newcommand{\mixed}[2]{\ell_{(#1, \,#2)}}
+
+
+% Noyaux
+% ------
+\newcommand{\kernel}{K}
+\newcommand{\eqkernel}[2]{\kernel_{#1,#2}}
+\newcommand{\RKHS}{EHNR}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\myscalar}[2]{\left\la #1, #2 \right\ra}
+\newcommand{\Aset}{\mathcal{A}}
+\newcommand{\Hspace}{\mathcal{H}}
+\newcommand{\Mspace}{\mathcal{M}}
+\newcommand{\Zspace}{\mathcal{Z}}
+\newcommand{\PSpace}{\mathcal{Z}}
+\newcommand{\Yspace}{\mathcal{Y}}
+\newcommand{\OSpace}{\IR}
+\newcommand{\Xspace}{\mathcal{X}}
+\newcommand{\ISpace}{\IR^D}
+\newcommand{\Sample}{\mathcal{S}}
+\newcommand{\Family}{\mathcal{F}}
+\newcommand{\Gspace}{\mathcal{G}}
+\newcommand{\group}[1]{\mathcal{G}_{#1}}
+\newcommand{\tgroup}[1]{\mathcal{\tilde{G}}_{#1}}
+\newcommand{\Dspace}{\mathcal{D}}
+\newcommand{\Uspace}{\mathcal{U}}
+% Mots très utilisés
+% ------------------
+\newcommand{\card}{\textrm{card}}
+\newcommand{\loss}{V}
+\newcommand{\pen}{\Omega}
+\newcommand{\setA}{\mathcal{A}}
+\newcommand{\setAbar}{\bar{\setA}}
+\newcommand{\bubble}{{\small \bullet}}
+
+% \newcommand{\sign}[1]{\mathrm{sign}(#1)}
+
+% Opérateurs
+% ----------
+\DeclareMathOperator{\tr}{^{\!T\!}}
+\DeclareMathOperator{\trfr}{^{t \!}}
+\DeclareMathOperator{\jtr}{{^{\! \mathit{j}}}^{\, t}}
+%\DeclareMathOperator{\st}{s.~t.}
+%\DeclareMathOperator{\st}{subject~to}
+\DeclareMathOperator{\vect}{vec}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\sct}{s.~c.}
+\DeclareMathOperator{\sgn}{sign}
+\DeclareMathOperator{\rg}{rang}
+\DeclareMathOperator{\cor}{corr }
+%\DeclareMathOperator{\var}{var}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator{\mean}{mean}
+% Mes Nouveaux environnement
+
+
+% vues et modeles
+% ----------
+\newcommand{\model}{\mathcal{H}}
+
+
+\newcommand{\vd}{\mathit{M}}
+\newcommand{\ivd}{m}
+\newcommand{\hd}{\ell}
+\newcommand{\hdmin}{\hd^{-}}
+\newcommand{\hdmax}{\hd^{+}}
+%\newcommand{\hd}{\lambda}
+\newcommand{\vu}{\mathit{G}}
+\newcommand{\ivu}{g}
+\newcommand{\hu}{k}
+\newcommand{\humin}{\hu^{-}}
+\newcommand{\humax}{\hu^{+}}
+%\newcommand{\hu}{\kappa}
+\newcommand{\gvu}{\mathcal{G}}
+% \newcommand{\gvu}[1]{\mathcal{G}^{#1}}
+\newcommand{\graygvu}[1]{\mathcal{\gray{G}}^{#1}}
+\newcommand{\gvd}{\mathcal{M}}
+%\newcommand{\gvd}[1]{\mathcal{M}^{#1}}
+\newcommand{\graygvd}[1]{\mathcal{\gray{M}}^{#1}}
+
+% algo and compression
+\newcommand{\Avu}{\mathcal{H}_\vu}
+\newcommand{\Avd}{\mathcal{H}_\vd}
+\newcommand{\Cvu}{\mathcal{C}_\vu}
+\newcommand{\Cvd}{\mathcal{C}_\vd}
+
+% \newcommand{\vd}{\mathit{V}}
+% \newcommand{\ivd}{v}
+% \newcommand{\hd}{\ell}
+% \newcommand{\vu}{\mathit{U}}
+% \newcommand{\ivu}{u}
+% \newcommand{\hu}{k}
+% \newcommand{\gvu}[1]{\mathcal{U}^{#1}}
+% \newcommand{\graygvu}[1]{\mathcal{\gray{U}}^{#1}}
+% \newcommand{\gvd}[1]{\mathcal{V}^{#1}}
+% \newcommand{\graygvd}[1]{\mathcal{\gray{V}}^{#1}}
+
+% \newcommand{\lvu}{{\mathbf{u}}}
+% \newcommand{\tlvu}{\tilde{\mathbf{u}}}
+% \newcommand{\lvd}{{\mathbf{v}}}
+% \newcommand{\tlvd}{\tilde{\mathbf{v}}}
+
+% \newcommand{\vd}{\mathit{M}}
+% \newcommand{\ivd}{m}
+% \newcommand{\hd}{\ell}
+% \newcommand{\vu}{\mathit{G}}
+% \newcommand{\ivu}{g}
+% \newcommand{\hu}{k}
+% \newcommand{\lvu}{{\mathbf{u}}}
+% \newcommand{\tlvu}{\tilde{\mathbf{u}}}
+% \newcommand{\lvd}{{\mathbf{v}}}
+% \newcommand{\tlvd}{\tilde{\mathbf{v}}}
+
+% \newcommand{\vd}{\emph{V}}
+% \newcommand{\ivd}{v}
+% \newcommand{\hd}{\ell}
+% \newcommand{\vu}{\emph{U}}
+% \newcommand{\ivu}{u}
+% \newcommand{\hu}{k}
+% \newcommand{\lvu}{{\mathbf{b}}}
+% \newcommand{\tlvu}{\tilde{\mathbf{b}}}
+% \newcommand{\lvd}{{\mathbf{d}}}
+% \newcommand{\tlvd}{\tilde{\mathbf{d}}}
+
+
+\newcommand\Hscalar[3][{}]{\myscalar{#2}{#3}_{\Hspace_{#1}}}
+\newcommand{\sumlimits}{\sum\limits}
+\newcommand{\minlimits}{\min\limits}
+\newcommand{\maxlimits}{\max\limits}
+\newcommand{\rar}{\rightarrow}
+\newcommand{\foralli}{1 \leq i \leq n}
+\newcommand{\forallm}{1 \leq m \leq M}
+\newcommand{\forallell}{1 \leq \ell \leq L}
+
+
+% Espaces
+% -------
+\newcommand{\linespace}{\vspace{11pt}}
+%\newtheorem{definition}{Definition}
+%\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+
+%\newtheoremstyle{thmd}{11pt}{11pt}{\itshape}{}{\itshape\bfseries}{\quad}{ }{}
+%\theoremstyle{thmd}
+%\newtheorem{proposition}{Proposition}[]
+
+
+% \newtheoremstyle{myremark}% name
+%   {}              %      Space above, empty = `usual value'
+%   {}              %      Space below
+%   {\normalfont}   %      Body font
+%   {}              %      Indent amount (empty = no indent,
+%                   %      \parindent = para indent) 
+%   {\bfseries}     %      Thm head font
+%   {\;---\;}       %      Punctuation after thm head
+%   {0em}           %      Space after thm head: \newline = linebreak
+%   {}  
+% \theoremstyle{myremark}
+%---------------------------------------------------------------------

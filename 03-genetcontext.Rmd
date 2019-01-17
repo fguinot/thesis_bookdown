@@ -1,0 +1,801 @@
+# Basic concepts of molecular genetics
+
+The purpose of this chapter is to provide the basic concepts in genetics necessary to the understanding of the Genome-Wide Associations Studies. The first section focuses on the description of the genome, sequencing analysis and introduces the notion of genetic mapping. The second section brings some concepts in population genetics necessary to a good understanding of linkage disequilibrium and association studies. The last section gives the definition of linkage disequilibrium and its origins. This section also explains the notion of haplotype structure, which is a key feature of the human genome that we leveraged with the methodology described in Chapter 4. 
+
+## Genome description{#genome}
+
+The common point to all organisms is to own a genome containing the
+biological information necessary to their construction, maintenance and
+survival. Most genomes are made of DNA (deoxyribonucleic acid), with the
+exception of viruses that have an RNA (ribonucleic acid) genome. DNA and
+RNA are both polymeric molecules composed of chains of monomeric
+subunits called *nucleotides*.
+
+The human genome, which is representative of the genomes of all
+multicellular animals, consists of two parts:
+
+-   The nuclear genome including about $3.2 \times 10^9$ nucleotides of
+    DNA divided into 24 linear molecules, the chromosomes. These 24
+    chromosomes consist of 22 autosomes and two sex chromosomes, X
+    and Y.
+
+-   The mitochondrial genome is a circular DNA molecule present in
+    multiple copies in the organelles called *mitochondria*. The human
+    mitochondrial genome contains 37 genes.
+
+In the animalia taxon, the vast majority of cells are diploid which
+means that each autosome are present in two copies plus two sex
+chromosomes, XX for females and XY for males. These cells are known as
+somatic cells in contrast to sex cells, or gametes, which are haploid
+and possess only one copy of each chromosome. The use of the biological
+information contained in the DNA requires the coordinated action of
+several proteins participating in a series of complex biochemical
+reactions referred to as genome expression. The direct product of genome
+expression is the transcriptome, a collection of RNA molecules derived
+from the protein-coding genes. The transcriptome is maintained by the
+process of transcription, in which individual genes are copied into RNA
+molecules. The indirect product of genome expression is the proteome,
+the cell’s collection of proteins. The proteins constituting the
+proteome are synthesized by translation of the individual RNA molecules
+present in the transcriptome.
+
+DNA is a polymer, a polynucleotide, in which the monomeric subunits are
+four chemically distinct nucleotides linked together in chains that can
+reach length of thousands, even millions of units in length (Figure
+\@ref(fig:dna)). Each nucleotide in a DNA polymer is made up of three
+components: a deoxyribose, which is a pentose, a nitrogenous base
+(cytosine, thymine, adenine or guanine) and a phosphate group. A
+molecule made up of just the pentose and base is called a *nucleoside*
+and adding a phosphate group converts it into a nucleotide.
+
+(ref:dna) Double-Helix structure of DNA molecule. \copyright University of Leicester / Licence Creative commons
+
+```{r dna, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='(ref:dna)', out.width='50%'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/dna.png")
+```
+
+What makes DNA such a unique molecule is its famous double-helix
+structure discovered by [@crick_watson_prsl1954]. The key feature of the
+double-helix structure that convinced biologists that genes are made of
+DNA is the constrained base pairing between the nucleotides. Indeed, the
+limitation that adenosine can only be paired with thymine, and guanine
+with cytosine, means that DNA replication can result in perfect copies
+of a parent molecule simply by using the sequences of the pre-existing
+strands to build the sequences of the new strands.
+
+## Genome sequencing 
+
+### DNA sequencing{#DNAseq}
+
+Several methods for DNA sequencing exist, among them the chain
+termination method first developed by [@sanger1977dna] is the most
+popular but alternative techniques such as chemical degradation
+sequencing [@maxam1977new] and pyrosequencing [@nyren1993solid] are also
+used.
+
+Chain termination method is based on the principle that single-stranded
+DNA molecules that differ in length by just a single nucleotide can be
+separated by polyacrylamide gel electrophoresis[^1]. This procedure is
+illustrated and explained in Figure \@ref(fig:sanger).
+
+(ref:sanger) Chain termination DNA sequencing [@brown2007genomes]. (A) Use of universal primers for the synthesis of DNA complementary of a single-stranded template. (B) Incorporation of small amount of fluorescent dideoxynucleotides (ddATP, ddTTp, ddCTP and ddGTP), each with a different fluorescent label. (C) The ddNTP block the synthesis of DNA because they have a hydrogen atom rather than a hydroxyl group attached to the 3’ carbon. (D) Each labelled DNA strand passes through a polyacrylamide gel electrophoresis, migrating more or less according to their length, and after separation a fluorescent detector is capable of discriminating the labels attached to the ddNTP. (E) The information is passed to the imaging system and a sequence of DNA is printed out. The sequence is represented by a series of peaks, one for each nucleotide position. 
+
+```{r sanger, echo = FALSE, fig.cap='(ref:sanger)', out.width='85%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/sanger_sequencing.jpg")
+```
+
+Pyrosequencing is a method generally used for the rapid determination of
+very short sequence of DNA and does not required electrophoresis or any
+fragment separation procedure as with chemical degradation sequencing.
+Since it can only generate a few tens of base pairs per experiment, it
+is used when many short sequences must be generated as fast as possible,
+for instance in single-nucleotide polymorphism typing. With this
+technique, the template is copied in a straightforward manner without
+added ddNTP and, as the new strand is being made, the order in which the
+deoxynucleotide are incorporated can be followed (see Figure
+\@ref(fig:pyro) for more details).
+
+(ref:pyro) Pyrosequencing [@brown2007genomes]. Each deoxynucleotide is added individually, along with a nucleotidase enzyme that degrades the deoxynucleotide if it is not synthesized. The incorporation is detected by a flash of chemiluminescence induced by the pyrophosphate released from the deoxynucleotide. The order in which the deoxynucleotide are added to the growing strand can therefore be followed.
+
+```{r pyro, echo = FALSE, fig.cap='(ref:pyro)', out.width='60%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/pyrosequencing.jpg")
+```
+
+### Sequence assembly
+
+One of the main challenges in genome sequencing is to master the
+assembly of the multitude of short sequences generated by DNA sequencing
+techniques in order to reconstruct the complete continuous sequence of
+chromosome that can reach a length of several tens of megabases. The
+most straightforward method to sequence assembly is to build up the
+master sequence by directly searching for overlaps between all the short
+sequences. This method is known as the shotgun method
+[@anderson1981shotgun]. The shotgun method is the standard approach for
+sequencing small prokaryotic[^2] genome but it is not suited to the
+analysis of larger genome because the required data analysis becomes too
+complex as the number of fragment increases (for $n$ fragments, the
+number of possible overlaps is $2n^2 - 2n$). Moreover it can lead to
+errors when repetitive regions of a genome are analysed because when a
+repetitive sequence is broken into fragments, many of the resulting
+pieces contain the same sequence motifs.
+
+To overcome these issues, techniques that make use of a genome map to
+guide the assembly are used, namely the whole-shotgun method and clone
+contig method (Figure \@ref(fig:genomeassembly)):
+
+-   **Whole-genome shotgun method.** This method takes the same approach
+    as the standard shotgun procedure but uses the distinctive features
+    on the genome map as landmark to assemble the whole sequence.
+    Reference to the map ensures that regions containing repetitive DNA
+    are assembled correctly.
+
+-   **Clone contig method.** In this method the genome is broken into
+    manageable segments which are short enough to be assembled
+    accurately by the shotgun method. Once the sequence of a segment has
+    been completed, it is positioned at its correct location on the map
+
+(ref:genomeassembly) Clone contig and whole-genome shotgun for sequence assembly [@brown2007genomes]. To illustrate both techniques, a genome map of linear DNA molecule of 2.5 Mb has been represented together with the location of 8 known markers(A-H). On the left, the clone contig approach starts with a segment of DNA whose position on the genome is known since it contains the markers A and B. The segment is sequenced by the shotgun method and the master sequence placed at its known position on the map. On the right, the whole-genome shotgun method involves random sequence of the entire genome resulting in pieces of contiguous sequence. If a contiguous sequence contains a marker then it can be positioned on the map.
+
+```{r genomeassembly, echo = FALSE, fig.cap='(ref:genomeassembly)', out.width='80%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/genome_assembly.jpg")
+```
+
+
+## DNA polymorphism
+
+### Restriction Fragment Length Polymorphisms (RFLP)
+
+RLFP are detected using a certain type of enzymes that cut DNA
+(restriction enzymes) at specific restriction site. Some restriction
+sites are polymorphic with one allele displaying the correct sequence
+for the restriction site while the second allele have an altered
+sequence so the restriction site is no longer recognized by the enzyme.
+The consequence is that the two adjacent restriction fragments remain
+linked together after treatment with the enzyme, leading to a
+polymorphism known as RFLP. The RFLP markers can be detected using
+molecular biology techniques such as southern hybridization or
+polymerase chain reaction (PCR) (see [@garibyan2013research] for more
+detail).
+
+### Simple Sequence Length Polymorphisms (SSLP)
+
+SSLP are repeated nucleotidic sequences displaying different numbers of
+repeat units in each allele. There are two types of SSLP: minisatellites
+with repeat unit up to 25 base pair[^3] (bp) in length and
+microsatellites with shorter repeated sequences (13 bp or less).
+Microsatellites are more commonly used than minisatellites because they
+are more frequent and evenly spread on the genome ($5 \times 10^5$ with
+repeat units of 6 bp or less in the human genome). Furthermore, the PCR
+used to type a length polymorphism is more efficient and accurate with
+sequences less than 300 bp in length.
+
+### Single Nucleotide Polymorphisms (SNP)
+
+A single nucleotide polymorphism is a variation in a single nucleotide
+that occurs at a specific position in the genome (see Figure \@ref(fig:snp)). In a given population, most individuals may have a
+specific nucleotide at one position (e.g., a C) but a minority of
+individuals could have a different nucleotide at the same position
+(e.g., a G). The two possible nucleotide variations at a particular
+genomic position (locus) are said to be alleles, this type of
+polymorphism is extremely frequent in the human genome (a few millions).
+
+(ref:snp) Schematic representation of a single nucleotide polymorphism. \copyright David Hall / Licence \textit{Creative Commons}
+
+```{r snp, echo=FALSE, fig.cap='(ref:snp)', out.width='50%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/snp.jpg")
+```
+
+The vast majority of SNP are biallelic because they originate from a
+point mutation in the genome, converting a nucleotide into another. For
+an SNP to be more than biallelic, it would be necessary for a new
+mutation to appear, after the first has been fixed in the population, to
+exactly the same position in the genome, which is highly unlikely. SNP
+typing methods are based on oligonucleotide hybridization analysis where
+an oligonucleotide (short single-stranded DNA molecule) will hybridize
+with another DNA molecule only if the oligonucleotide forms a completely
+base-paired structure with the other molecule (under precise temperature
+conditions).
+
+Oligonucleotide hybridization can discriminate between the two alleles
+of an SNP if there is at least one mismatch at one position between the
+oligonucleotide and the target DNA. Several screening methods based on
+oligonucleotide hybridization exists: DNA chip (microarray) which use
+fluorescent markers to detect hybridization, oligonucleotide ligation
+assay (OLA) using capillary electrophoresis and amplification refractory
+mutation system (ARMS test) based on PCR primers and electrophoresis.
+
+Recent breakthroughs in microarray technology have meant that hundreds
+of thousands of SNP can now be densely genotyped at moderate cost. As a
+result, it has become possible to characterize the genome of an
+individual with up to a million genetic markers. DNA chip technology
+makes use of piece of glass, or silicon, carrying many different
+oligonucleotides in a high-density array (Figure \@ref(fig:microarray)). To
+prepare really high-density arrays, oligonucleotides are synthesized *in
+situ* on the surface of the piece of glass resulting in a DNA chip. A
+density of up to 300,000 oligonucleotides per $cm^2$ is possible and
+150,000 polymorphisms can be typed in a single experiment
+[@brown2007genomes].
+
+(ref:microarray) Visualization of the hybridization of a fluorescent labelled probe to a microarray. The DNA to be tested is labelled with a fluorescent marker and put onto the surface of the microarray. Hybridization is detected by examining with a fluorescence microscope the position at which the fluorescent signal is emitted indicating which oligonucleotides have hybridized with the target DNA [@brown2007genomes].
+
+```{r microarray, echo=FALSE, fig.cap='(ref:microarray)', out.width='60%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/microarray.jpg")
+```
+
+Today, DNA microarrays are used in clinical diagnostic tests for some
+diseases. With the advent of new DNA sequencing technologies, some of
+the tests for which microarrays were used in the past now use DNA
+sequencing instead. Nevertheless, microarray tests being less expensive
+than sequencing, they remain used for very large studies as well as for
+some clinical tests.
+
+## Linkage and partial linkage for genetic mapping{#linkage}
+
+Genetic mapping is based on the use of genetic techniques to construct
+maps showing the positions of genes and other sequences features on a
+genome. Historically, the first markers used to construct genetic maps
+were genes coding for mendelian traits (qualitative traits that are
+highly heritable) with distinguishable phenotypes for each allele (see
+[@sturtevant_history_2001] for more details on early gene mapping
+works). Although genes are useful markers, genetic maps based only on
+them are not precise in large genomes due to the gaps existing between
+successive coding region. Furthermore, only a part of the genes exist in
+allelic forms that can be distinguished conventionally. That is why DNA
+markers having at least 2 alleles are preferable, i.e. RFLP, SSLP or SNP
+previously described.
+
+Genetic mapping makes use of the principle of inheritance at first
+described by Gregor Mendel [@mendel_1865_experiments] and the resulting
+genetic linkage properties to estimate the relative position of each DNA
+markers on a chromosome. The principle of genetic linkage arises from
+the fact that, while chromosomes are inherited as intact units, the
+alleles of some pairs of genes located on the same chromosome should
+also be inherited together. However, this principle, deriving from the
+Second Law of Mendel which states that pairs of alleles segregate
+independently is not what we observe in reality. Indeed, genetically
+linked genes are sometimes inherited together and sometimes are not,
+resulting in what we call partial linkage.
+
+This partial linkage property is explained by the behaviour of
+chromosomes during meiosis, where homologous chromosomes can undergo
+physical breakage and exchange fragment of DNA in a process called
+*crossing-over* (or recombination). These recombination events explain
+why linked genes and therefore linked DNA markers are sometimes not
+inherited together. This allows to develop a way to map the relative
+position of DNA markers since markers which are close together will be
+separated less frequently than two markers that are far away.
+Furthermore, the frequency with which markers on a same chromosome are
+unlinked by crossovers will be directly proportional to the distance
+between them. The recombination frequency is therefore a measure of the
+distance between two markers and if we estimate the frequencies for
+several pairs of markers, we can construct a map of their relative
+positions.
+
+Comparisons between genetic maps and the actual positions of genes on
+DNA molecules, as revealed by DNA sequencing, have shown that some
+regions of chromosomes, called recombination *hotspots*, are more likely
+to be involved in crossovers than others. This results in shared
+chromosomic region among individuals of the same population, although
+each individual has a unique DNA sequence, and is known as haplotype
+structure. We will see in Section \@ref(#haplo) that different
+populations have their own haplotypic structure.
+
+## Basic concepts in population genetics
+
+### Hardy-Weinberg equilibrium in large population{#HWE}
+
+We consider a biallelic locus with alleles $A$ and $a$ present in a
+population at frequencies $p$ and $q$ respectively. If we assume that
+the two copies of the gene that an individual carries are inherited
+independently, then the number of copies of the allele $A$ will follow a
+binomial distribution, $\mathcal{B}(2,p)$, that is, that the
+probabilities of the three possible genotypes ($aa$, $aA$ and $AA$) will
+follow the Hardy-Weinberg law [@weinberg1908ber]:
+
+$$p^2 + 2pq + q^2 = 1$$
+
+with $$p^2 = p(AA); q^2 = p(aa) \mbox{ and } 2pq = p(Aa).$$
+
+Hardy-Weinberg’s law states that in an isolated population of unlimited
+size, not subject to selection, and in which there are no mutations, the
+allelic frequencies remain constant. If the couplings are panmictic
+(random mating), the genotypic frequencies are deduced directly from the
+allelic frequencies and also remain constant. The assumption of random
+mating says that the probability that any pair of individual mates is
+unrelated to their genotype (except for the X chromosome) or their
+ethnic origin. However, in practice it is not truly the case since
+couples tend to mate within their ethnic group and are likely to select
+partners with compatible traits, some of which may be influenced by
+specific genes. Such non-random mating is commonly ignored in many
+genetic analyses of chronic disease traits, for which its effect may be
+negligible. Nevertheless, to the extent that it occurs, its major effect
+is to slow down the rate of convergence to Hardy-Weinberg equilibrium
+rather than to distort the equilibrium distribution
+[@thomas2004statistical].
+
+```{r HW, echo=FALSE, tidy=FALSE}
+knitr::kable(rbind(
+  c("Parental Genotype", "Genotype probability", "Probability of transmitting A", "Joint probability"),
+  c("AA","$p^2$",0,0),
+  c("Aa","$2p(1-p)$",0.5,"$p(1-p)$"),
+  c("aa","$(1-p)^2$",1,"$(1-p)^2$"),
+  c("Total",1,"-","p")),
+  caption = 'Expected frequency of an allele transmitted from an individual sampled from a population in Hardy-Weinberg Equilibrium',
+  booktabs = TRUE
+)
+```
+
+
+### Genetic drift in small population
+
+In small populations, the results presented above will still be true in
+expectation, but the allele frequencies will vary from generation to
+generation simply as a result of chance (sampling error). It follows
+that, in finite populations, the expected value of the allele frequency
+will remain constant but its variance will increase from one generation
+to the next. This means that in generation, there is a non-zero
+probability that one allele might not be transmitted to any offspring,
+in which case that allele becomes extinct and the other becomes fixed.
+In fact, with absence of mutation and selection, one of the alleles will
+eventually become extinct, and the probability that it is the allele $a$
+that disappears turns out to be simply $1 - q$.
+
+At first glance, this might seem to contradict the claim that in
+expectation, the allele frequency remains constant, but in fact with
+probability $q$ the allele frequency will eventually become 1 and with
+probability $1 - q$ it will become 0; hence in expectation, the allele
+frequency remains $q \times 1 + (1 - q) \times 0 = q$. This phenomenon
+is known as genetic drift and was first introduced by Sewall Wright, one
+of the founders in the field of population genetics,
+[@wright1929evolution].
+
+Figure \@ref(fig:drift) illustrates the effect of genetic drift on allelic
+frequencies for 2 alleles $A$ and $a$ at 1 locus for different
+population neither subject to selection nor mutation.
+
+(ref:drift) Illustration of genetic drift in finite, small, populations. The plots show the evolution of allelic frequencies for 2 alleles $A$ and $a$ at 1 locus over 1000 generations for 3 population sizes (100, 500 and 1000). The 2 alleles are set to have the same proportions in the 3 populations at generation 1 ($p = q = 1/2$) and the frequencies of both allele evolve to be either fixed or extinct more or less quickly depending on the size of the population.
+
+```{r drift, echo = FALSE, fig.cap='(ref:drift)', out.width='60%',fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/drift.jpg")
+```
+
+### Concept of heritability
+
+Sewall Wright and Ronald Fisher first introduced the concept of
+heritability in the context of family studies. Wright’s heritability is
+based on the analysis of correlation and its estimate is based on the
+path analysis method [@wright1921correlation] while the definition of
+Fisher is based on the analysis of variance and is defined as the
+proportion of total variance in a population for a particular
+measurement, taken at a particular time or age, that is attributable to
+variation in additive genetic or total genetic values [@fisher1919xv].
+
+An observed phenotype for a trait of interest can be partitioned into a
+statistical model representing the contribution of the unobserved
+genotype and unobserved environmental factors:
+$$\text{Phenotype}  = \text{Genotype} + \text{Environment}.$$
+
+The variance of the observed phenotype ($\sigma^2_P$) can thus be
+partitioned into the sum of unobserved genotype and environmental
+variances ($\sigma^2_G$ and $\sigma^2_E$):
+$$\sigma^2_P = \sigma^2_G + \sigma^2_E.$$
+
+Following the definition of Fisher, the broad-sense heritability
+($\text{H}^2$) can be expressed as a ratio of variances by expressing
+the proportion of the phenotypic variance that can be attributed to
+variance of genotypic values:
+$$\text{H}^2 = \frac{\sigma^2_G}{\sigma^2_P}.$$
+
+The genetic variance $\sigma^2_G$ can further be partitioned into
+additive genetic effects ($\sigma^2_A$), dominance genetic effects
+($\sigma^2_D$) and epistatic genetic effects ($\sigma^2_I$) and the
+narrow-sense heritability ($\text{h}^2$) is defined as:
+$$\text{h}^2 = \frac{\sigma^2_A}{\sigma^2_P}.$$
+
+Heritabilities can be estimated from empirical data of the observed and
+expected resemblance between relatives. The expected resemblance between
+relatives depends on assumptions regarding its underlying environmental
+and genetic causes [@visscher_heritability_2008]. To estimate the
+heritability from population sample rather from family studies, we can
+resort on the use of the generalized linear mixed model (GLMM[^4]), this
+heritability is known as the genomic heritability [@dandine2015use].
+
+## Linkage disequilibrium{#LD}
+
+Every human genome has a unique DNA sequence, in part due to the few
+hundred novel mutations inherited from their parents, and by chromosomal
+segregation combined with crossovers that shuffle existing variation.
+However, although every human genome may be unique, certain combination
+of variants (e.g. SNP) may be shared by few individuals and sometimes by
+a large fraction of the population, resulting in allelic association
+also known as haplotype structure. The term linkage disequilibrium (LD)
+is broadly used to refer to the non-random association of combination of
+variants, therefore LD neither requires genetic linkage nor is
+particularly a disequilibrium.
+
+Particular alleles at neighbouring loci tend to be co-inherited. For
+tightly linked loci, this might lead to associations between alleles in
+the population resulting in high LD between these loci. LD has recently
+become the focus of intense study in the hope that it might facilitate
+the mapping of complex disease loci through whole-genome association
+studies. This approach depends crucially on the patterns of LD in the
+human genome [@ardlie_patterns_2002].
+
+### Definition
+
+We consider two neighbouring biallelic loci $A$ and $B$ ($A$ and $a$ for
+locus $A$, and $B$ and $b$ for locus $B$) with allele frequencies
+$f_{A}$, $f_{a}$, $f_{B}$ and $f_{b}$ respectively.
+
+Under linkage equilibrium, the four haplotypes formed by these loci have
+the frequencies shown in Table \@ref(tab:LE). These frequencies are equal
+to the product of the component allele frequencies. These equalities are
+valid only when the alleles are independent, i.e. when the two loci are
+not genetically linked.
+
+```{r LE, echo=FALSE, tidy=FALSE}
+knitr::kable(rbind(
+  c("Haplotype", "Expected frequency"),
+  c("AB","$f_{A} \\times f_{B}$"),
+  c("Ab","$f_{A} \\times f_{b}$"),
+  c("aB","$f_{a} \\times f_{B}$"),
+  c("ab","$f_{a} \\times f_{b}$")),
+  caption = 'Haplotype frequencies under linkage equilibrium',
+  booktabs = TRUE
+)
+```
+
+
+However, when the two loci are in linkage disequilibrium, the haplotypes
+are not observed at the frequencies expected if the alleles were
+independent.
+
+Positive linkage disequilibrium exists when two alleles occur together
+on the same haplotype more often than expected, and negative LD exists
+when alleles occur together on the same haplotype less often than
+expected (Table \@ref(tab:LD)).
+
+```{r LD, echo=FALSE, tidy=FALSE}
+knitr::kable(rbind(
+  c("Haplotype", "Observed  frequency", "Positive LD", "Negative LD"),
+  c("AB","$\\hat{f}_{AB}$", "$\\hat{f}_{AB} > \\hat{f}_{A} \\times \\hat{f}_{B}$", "$\\hat{f}_{AB} < \\hat{f}_{A} \\times \\hat{f}_{B}$"),
+  c("Ab","$\\hat{f}_{Ab}$", "$\\hat{f}_{Ab} > \\hat{f}_{A} \\times \\hat{f}_{b}$", "$\\hat{f}_{Ab} < \\hat{f}_{A} \\times \\hat{f}_{b}$"),
+  c("aB","$\\hat{f}_{aB}$", "$\\hat{f}_{aB} > \\hat{f}_{a} \\times \\hat{f}_{B}$", "$\\hat{f}_{aB} < \\hat{f}_{a} \\times \\hat{f}_{B}$"),
+  c("ab","$\\hat{f}_{ab}$", "$\\hat{f}_{ab} > \\hat{f}_{a} \\times \\hat{f}_{b}$", "$\\hat{f}_{ab} < \\hat{f}_{a} \\times \\hat{f}_{b}$")),
+  caption = "Haplotype frequencies under linkage disequilibrium",
+  booktabs = TRUE
+)
+```
+
+### Measure of LD
+
+The deviation of the observed from expected haplotype frequencies can be
+quantified by several linkage disequilibrium measures. The very first
+linkage disequilibrium measure was introduced by
+[@robbins_1918_breeding] and is defined as:
+
+\begin{equation}
+\begin{split}
+D_{AB} & = f_{AB} - f_{A}f_{B}\\
+& = f_{AB}f_{ab} - f_{Ab}f_{aB},	
+\end{split}
+(\#eq:1)
+\end{equation}
+
+where $f_{AB}$ is the observed frequency of haplotypes carrying the $A$
+and $B$ alleles and $f_{A}$, $f_{B}$ are the marginal allele frequencies
+of alleles $A$ and $B$. Any deviation from this expectation results in a
+non-zero value for $D_{AB}$, with a positive value indicating that the
+$AB$ haplotype is found more often than expected assuming independence
+and a negative value indicating that it is found less frequently than
+expected.
+
+Although this measure is easy to calculate, it has for disadvantage to
+be sensitive to allele frequencies at the extreme values of 0 to 1.
+Indeed, if we let $D_{AB}$ be the population coefficient for LD, then
+the sample coefficient $\hat{D}_{AB}$ has the following properties
+[@hill_1974_estimation]: 
+
+$$ D_{AB} = \hat{f}_{AB} - \hat{f}_{A} \hat{f}_{B},$$
+$$ \mathbb{E}(\hat{D}_{AB}) = \dfrac{(n-1)}{n} D_{AB}, $$
+\begin{equation}
+text{Var}(\hat{D}_{AB})= \dfrac{1}{n}[f_A f_a f_B f_b + (f_A - f_a)(f_B - f_b)D_{AB} - D^2_{AB}],
+(\#eq:2)
+\end{equation}
+
+Here $\hat{f}_{AB}$ is the estimate of $f_{AB}$ (the population
+frequency) from the sample and is given, by $n_{AB}/n$ where $n_{AB}$ is
+the number of haplotype $AB$ in the sample. Equation shows that the
+variance in the estimate is strongly influence by the allele frequencies
+at the two loci as for the range of values that $\hat{D}_{AB}$ can take.
+If we arbitrarily define $A$ and $B$ as minor allele at each locus and
+enforce $\hat{f}_B \leq \hat{f}_A$, then it follows that
+$$-\hat{f}_A\hat{f}_B \leq \hat{D}_{AB} \leq \hat{f}_a\hat{f}_b. \nonumber$$
+The strong dependency on allele frequency of the standard measure of LD
+is an undesirable property because it makes comparison between pairs of
+alleles with different allele frequencies difficult. That is why methods
+less sensitive to marginal allele frequencies have been developed
+[@hedrick_1987_gametic].
+
+[@Lewontin_1964_interaction] suggested another measure
+$$D'= \frac{D}{D_{max}}, \nonumber$$ where $D_{max}$ is the theoretical
+maximum LD value for the observed allele frequencies.
+
+$D'$ thus ranges from $−1$ to $1$ and reflects both positive and
+negative linkage disequilibrium. We can also use the absolute value of
+$D'$ to measure the evidence of recombination between two loci.
+
+$$|D'| = \left\{
+    \begin{array}{ll}
+        \dfrac{-\hat{D}_{AB}}{\text{min}(\hat{f}_A\hat{f}_b,\hat{f}_a\hat{f}_B)} & \hat{D}_{AB} < 0 \\
+        \dfrac{\hat{D}_{AB}}{\text{min}(\hat{f}_A\hat{f}_b,\hat{f}_a\hat{f}_B)} & \hat{D}_{AB} > 0
+    \end{array}
+\right. \nonumber$$
+
+The greater the rate of recombination between loci, the more likely the
+alleles are to be in linkage equilibrium so a value of $|D'| = 1$ can be
+interpreted as evidence of no recombination while a value close to 0 can
+be viewed as evidence for strong recombination. However, even if all
+four haplotypes are present in the population, it may be unlikely that
+all four haplotypes are observed in a finite sample if at least one
+allele is very rare [@devlin_1995_comparison; @hill_1974_estimation]
+leading to an interpretation of $|D'| = 1$ dependent on the sample
+allele frequencies.
+
+Due to the sensitivity of measurements $D$ and $D'$ to allele
+frequencies, another measure of LD is more commonly used which is the
+$r^2$ measure [@hill_1968_linkage]. If we assign an allelic value,
+$X_A$, to locus $A$ as $X_A = 1$ for allele $A$ and $X_A = 0$ for allele
+$a$ and we assign an allelic value, $X_B$, to locus $B$ with the same
+properties, then the quantity measured by (\[eq:1\]) can be interpreted
+as the covariance in allelic value between the 2 loci. One way to
+transform the covariance is to measure the squared Pearson correlation
+coefficient:
+
+\begin{equation}
+r^2_{AB} = \dfrac{\text{Cov}(X_A,X_B)^2}{\text{Var}(X_A)\text{Var}(X_B)} = \dfrac{D^2_{AB}}{f_A f_a f_B f_b}.
+(\#eq:3)
+\end{equation}
+
+The $r^2$ measure has for advantage to be insensitive to how the two
+loci are labelled, as indicated by the lack of subscripts for $D$ in .
+Moreover there is a direct relationship between the sample estimate
+$\hat{r}^2$ and the power to detect significant association, i.e. to
+reject the null hypothesis $H_0 : D = 0$
+[@pritchard2001linkage; @chapman2003detecting]. As a proof, we can
+consider the contingency table test where, under the null hypothesis,
+the test statistic:
+
+\begin{equation}
+X^2 = \sum_{ij} = \dfrac{(O_{ij} - E_{ij})^2}{E_{ij}},
+(\#eq:4)
+\end{equation}
+
+is $\chi^2$ distributed with 1 degree of freedoms the sample size tends
+to infinity. Here $O_{ij}$ and $E_{ij}$ are the observed and expected
+counts, respectively, of the $ij$ haplotype. The relation between and
+$r^2$ is therefore
+
+$$X^2 = n\hat{r}^2.$$
+
+Consequently, the null hypothesis of no association can be rejected at a
+specified level $\alpha$ if $n\hat{r}^2$ is greater than the critical
+value of the test statistic.
+
+### Estimation of linkage disequilibrium
+
+Estimation of linkage disequilibrium between alleles at two loci
+requires observations of haplotype frequencies which is usually not the
+case. Therefore, haplotype frequencies are often estimated using
+statistical tools such as the expectation maximization (EM) algorithm
+[@weir1990genetic]. These methods take as input the observed combined
+genotype frequencies at the two loci (for example, the distribution of
+the nine possible combinations of AA, Aa, and aa, with BB, Bb, and bb).
+
+An example of pairwise linkage disequilibrium ($r^2$) plot for three
+different populations (as given by the software Haploview
+[@barrett2004haploview]) is illustrated in Figure \@ref(fig:LDhaploview).
+
+(ref:LDhaploview) Plots of pairwise linkage disequilibrium for polymorphisms in the ACE (Angiotensin I Converting Enzyme) genomic region genotyped in three populations by the International HapMap Project. CEU, Utah residents with ancestry from northern and western Europe; ACB, African Caribbean in Barbados; JPT, Japanese in Tokyo; white, $r^2$ = 0; black, $r^2$ = 1; HapMap Release 22; chromosome 17 NCBI Build 37.
+
+```{r LDhaploview, echo = FALSE, fig.cap='(ref:LDhaploview)', out.width='65%', fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/LD_haploview_ACE.jpg")
+```
+
+### Origins of linkage disequilibrium
+
+#### Founder mutations {.unnumbered}
+
+Assume that a new mutation was introduced into the population at some
+point in the recent past. That mutation would have occurred on a single
+chromosome and would be transmitted with all alleles that are on the
+same chromosome, at least until recombination occurs. Thus, for many
+generations, the mutant allele would be associated with certain alleles
+at linked loci, and the strength of that association would diminish over
+time as a function of the recombination rate. If we look many
+generations later, the strength of the LD can be seen as an inverse
+measure of the distance between the loci. Of course, this presumes that
+the mutation was transmitted to an offspring and, through the process of
+genetic drift, expanded to sufficient prevalence to account for a
+significant burden of disease in present-day descendants of the affected
+founder.
+
+#### Admixture {.unnumbered}
+
+We consider a population that consists in a mixture of two
+subpopulations and two alleles, $A$ and $B$, having the following
+frequencies $p_1 = q_1 = 0.9$ and $p_2 = q_2 = 0.1$. If the two loci
+were independently distributed within each sub-population, then, in a
+50-50 mixture of these two subpopulations, we would expect the following
+observed haplotypes distribution:
+
+Through this example, we see an apparently very strong LD in the total
+population that is in fact spurious, leading to a complete artefact of
+population stratification. In statistical term, it is simply a
+reflection of Simpson’s paradox [@simpson1951interpretation] or
+confounding by ethnicity in epidemiologic term.
+
+#### Others factors that influence LD {.unnumbered}
+
+Mutation and recombination may have the most evident impact on linkage
+disequilibrium, but there exist other factors that influence the
+distribution of disequilibrium. Most of these involve demographic
+aspects of a population, and tend to sever the relationship between LD
+strength and the physical distance between loci:
+
+-   **Genetic drift:** Increased drift of small, stable populations
+    tends to increase LD, as haplotypes are lost from the population.
+
+-   **Population growth:** Rapid population growth decreases LD by
+    reducing genetic drift.
+
+-   **Gene flow:** LD can be created by gene flow (migration) between
+    populations. Initially, LD is proportional to the allele frequency
+    differences between the populations, and is unrelated to the
+    distance between markers. In the next generations, the “artificial"
+    LD between unlinked markers quickly fades, while LD between nearby
+    markers is more slowly broken down by recombination.
+
+-   **Population structure:** Various aspects of population structure
+    are thought to influence LD. Population subdivision is likely to
+    have been an important factor in establishing the patterns of LD in
+    humans [@gabriel_structure_2002].
+
+-   **Natural selection:** There are two principal ways by which
+    selection can affect the level of LD. The first is an hitchhiking
+    effect (genetic draft) [@smith1974hitch], in which an entire
+    haplotype that flanks an advantageous variant can highly increase in
+    frequency or even be fixed. Although the effect is generally weak,
+    selection against deleterious variants can also inflate LD, as the
+    deleterious haplotypes are swept from the population
+    [@charlesworth1993effect]. The second way in which selection can
+    affect LD is through epistatic selection for combinations of alleles
+    at two or more loci on the same chromosome. This form of selection
+    leads to the association of particular alleles at different loci.
+
+-   **Variable recombination rate:** Recombination rates are known to
+    vary by more than an order of magnitude across the genome. Because
+    breakdown of LD is primarily driven by recombination, the extent of
+    LD is expected to vary in inverse relation to the local
+    recombination rate. It is even possible that recombination is
+    largely confined to highly localized recombination hot spots, with
+    little recombination elsewhere. According to this view, LD will be
+    strong across the non-recombining regions and break down at
+    hotspots.
+
+## Structure of haplotype blocks in the human genome{#haplo}
+
+The distribution of linkage disequilibrium patterns along the genome can
+be seen as being noisy and unpredictable. For example, pairs of loci
+that are tens of kilobases apart might be in complete LD due to
+population structure or population size for instance, whereas nearby
+loci from the same region might be in weak LD if close to a
+recombination hotspot for instance [@wall2003haplotype].
+
+It is often observed that LD in non-African populations extends over
+longer distances than in Africans, which might reflect a population
+bottleneck at the time when modern humans first left Africa
+[@frisse2001gene; @reich2001linkage]. Similarly, there have been reports
+that certain isolated or admixed populations show LD over large
+distances [@laan1997demographic; @kaessmann2002extensive].
+
+However, despite the apparent complexity of observed patterns, some
+studies have proposed that the underlying structure of LD in the human
+genome can be described using a relatively simple framework in which the
+data are parsed into a series of discrete haplotype blocks
+[@daly2001high; @gabriel_structure_2002], neighbouring blocks being
+separated by regions of numerous recombination events [@daly2001high].
+
+In response to these results, the United States National Human Genome
+Research Institute initiated a project, called the International HapMap
+Project, which aims to create a genome-wide map of LD and haplotype
+blocks. The HapMap Project seeks identify chromosomal regions where
+genetic variants are shared by comparing the DNA sequences among
+individuals. There are approximately ten million SNP estimated to be
+present in the human genome. Testing all of these SNP in chromosomes of
+individuals, however, can be extremely expensive and cost-inefficient.
+The development of the HapMap enables geneticists to take the advantage
+of how SNP and other genetic variants are organized on the same
+chromosome.
+
+The number of tag SNP that capture most of the information of genetic
+variation patterns is estimated to be between 300,000 and 600,000, far
+fewer than the ten million common SNP.
+
+### Definition of haplotype blocks{.unnumbered}
+
+A definition of haplotype block has been proposed by
+[@gabriel_structure_2002] where they focused on $|D'|$ measure of LD and
+defined haplotype blocks as sets of consecutive sites between which
+there is little or no evidence of historical recombination. For each
+pair of loci, the data are used to construct a confidence interval on
+the population value of $|D'|$ and the values of $|D'|$ are thus divided
+into three categories:
+
+-   **strong LD:** $|D'|$ near 1, which implies little or no evidence of
+    historical recombination;
+
+-   **weak LD:** $|D'|$ significantly $< 1$, implying historical
+    recombination;
+
+-   **intermediate/unknown LD:** The category includes pairs of sites
+    with intermediate values of $|D'|$, as well as pairs for which the
+    confidence intervals are relatively wide.
+
+Two or more sites can be grouped together into a block if the outermost
+pair of sites is in strong LD, and if, for all pairwise comparisons in
+the block, the number of pairs in strong LD is at least 19-folds greater
+than the number of pairs in weak LD.
+
+### Patterns in human genome{.unnumbered}
+
+To illustrate the patterns of LD in human genome, we refer to the
+results obtained by [@gabriel_structure_2002] where they characterized
+haplotype patterns across 51 autosomal regions (spanning 13 megabases of
+the human genome) in samples from Africa, Europe, and Asia and the
+analysis of these data by [@wall2003haplotype].
+
+In Figure \@ref(fig:haploprop) are represented, for 4 different samples
+of population, the total proportions of sequence that was contained in
+haplotype blocks of various sizes. The results show that both the
+European-American and East Asian population samples have more extensive
+haplotype blocks than the African-American and sub-Saharan African
+samples and it is worth mentioning that in all four populations less
+than half of the total sequence is contained in identified haplotype
+blocks.
+
+(ref:haploprop) Proportion of sequence contained in haplotype blocks of various sizes from [@wall2003haplotype]. (a) European-American sample; (b) African-American sample; (c) East Asian sample; (d) Sub-Saharan African sample.
+
+```{r haploprop, echo = FALSE, fig.cap='(ref:haploprop)', out.width='60%', fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/haplo_prop.jpg")
+```
+
+In Figure \@ref(fig:haplostructure) are represented the values of $|D'|$
+for all pairs of markers in a region. In this type of representation,
+the haplotype blocks appear as triangular regions of red (or light
+brown) squares that along the diagonal. These plots highlight the strong
+heterogeneity of LD within same regions: areas of strong LD that
+correspond well to the haplotype-block definition are often surrounded
+by equally large regions with little or no LD.
+
+(ref:haplostructure) Pairwise $\mid D' \mid$ plots for representative regions from different population samples from [@wall2003haplotype]. Each square in the triangle plots the level of linkage disequilibrium (LD) between a pair of sites in a region; comparisons between neighbouring sites lie along the diagonal. Red color indicates strong LD, green indicates weak LD and light brown indicates intermediate or uninformative LD. The long diagonal line indicates the physical length of the region, and the short black lines plot the position of each marker in this region.
+
+```{r haplostructure, echo = FALSE, fig.cap='(ref:haplostructure)', out.width='75%', fig.asp=.75, fig.align='center'}
+knitr::include_graphics("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/haplo_structure.jpg")
+```
+
+[^1]: Polyacrylamide gel electrophoresis (PAGE) is a technique widely
+    used in genetics to separate biological macromolecules, sush as
+    nucleic acids, according to their electrophoretic mobility.
+
+[^2]: A prokaryote is a unicellular organism that lacks a membrane-bound
+    nucleus, mitochondria, or any other membrane-bound organelle.
+
+[^3]: A base pair (bp) is a unit consisting of two nucleobases bound to
+    each other by hydrogen bonds.
+
+[^4]: The generalized linear mixed model is an extension of the
+    generalized linear model [@mc_cullagh_generalized_1989] in which the
+    linear predictor contains random effects in addition to the usual
+    fixed effects (see [@stroup2012generalized] for thorough
+    introduction to GLMMs).

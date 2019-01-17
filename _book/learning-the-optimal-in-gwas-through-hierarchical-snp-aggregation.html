@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 4 Learning the Optimal in GWAS through hierarchical SNP aggregation | Statistical learning for omics association and interactions studies based on blockwise feature compression</title>
+  <meta name="description" content="PdD thesis">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 4 Learning the Optimal in GWAS through hierarchical SNP aggregation | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="PdD thesis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Learning the Optimal in GWAS through hierarchical SNP aggregation | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  
+  <meta name="twitter:description" content="PdD thesis" />
+  
+
+<meta name="author" content="Florent Guinot">
+
+
+<meta name="date" content="2019-01-07">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="genome-wide-association-studies.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a><ul>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html#background"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html#problematic"><i class="fa fa-check"></i>Problematic</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html#objectives"><i class="fa fa-check"></i>Objectives</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html#contributions"><i class="fa fa-check"></i>Contributions</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html#contents-of-the-manuscript"><i class="fa fa-check"></i>Contents of the manuscript</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
+<li class="chapter" data-level="1.1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#genome"><i class="fa fa-check"></i><b>1.1</b> Genome description</a></li>
+<li class="chapter" data-level="1.2" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#genome-sequencing"><i class="fa fa-check"></i><b>1.2</b> Genome sequencing</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#DNAseq"><i class="fa fa-check"></i><b>1.2.1</b> DNA sequencing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#sequence-assembly"><i class="fa fa-check"></i><b>1.2.2</b> Sequence assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#dna-polymorphism"><i class="fa fa-check"></i><b>1.3</b> DNA polymorphism</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#restriction-fragment-length-polymorphisms-rflp"><i class="fa fa-check"></i><b>1.3.1</b> Restriction Fragment Length Polymorphisms (RFLP)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#simple-sequence-length-polymorphisms-sslp"><i class="fa fa-check"></i><b>1.3.2</b> Simple Sequence Length Polymorphisms (SSLP)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#single-nucleotide-polymorphisms-snp"><i class="fa fa-check"></i><b>1.3.3</b> Single Nucleotide Polymorphisms (SNP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#linkage"><i class="fa fa-check"></i><b>1.4</b> Linkage and partial linkage for genetic mapping</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#basic-concepts-in-population-genetics"><i class="fa fa-check"></i><b>1.5</b> Basic concepts in population genetics</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#HWE"><i class="fa fa-check"></i><b>1.5.1</b> Hardy-Weinberg equilibrium in large population</a></li>
+<li class="chapter" data-level="1.5.2" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#genetic-drift-in-small-population"><i class="fa fa-check"></i><b>1.5.2</b> Genetic drift in small population</a></li>
+<li class="chapter" data-level="1.5.3" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#concept-of-heritability"><i class="fa fa-check"></i><b>1.5.3</b> Concept of heritability</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#LD"><i class="fa fa-check"></i><b>1.6</b> Linkage disequilibrium</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#definition"><i class="fa fa-check"></i><b>1.6.1</b> Definition</a></li>
+<li class="chapter" data-level="1.6.2" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#measure-of-ld"><i class="fa fa-check"></i><b>1.6.2</b> Measure of LD</a></li>
+<li class="chapter" data-level="1.6.3" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#estimation-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.3</b> Estimation of linkage disequilibrium</a></li>
+<li class="chapter" data-level="1.6.4" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#origins-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.4</b> Origins of linkage disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#haplo"><i class="fa fa-check"></i><b>1.7</b> Structure of haplotype blocks in the human genome</a><ul>
+<li class="chapter" data-level="" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#definition-of-haplotype-blocks"><i class="fa fa-check"></i>Definition of haplotype blocks</a></li>
+<li class="chapter" data-level="" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html#patterns-in-human-genome"><i class="fa fa-check"></i>Patterns in human genome</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-context.html"><a href="statistical-context.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
+<li class="chapter" data-level="2.1" data-path="statistical-context.html"><a href="statistical-context.html#notations"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
+<li class="chapter" data-level="2.2" data-path="statistical-context.html"><a href="statistical-context.html#concepts-of-statistical-learning"><i class="fa fa-check"></i><b>2.2</b> Concepts of statistical learning</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="statistical-context.html"><a href="statistical-context.html#prediction"><i class="fa fa-check"></i><b>2.2.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="statistical-context.html"><a href="statistical-context.html#parametric"><i class="fa fa-check"></i><b>2.3</b> Parametric methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="statistical-context.html"><a href="statistical-context.html#linmod"><i class="fa fa-check"></i><b>2.3.1</b> Linear models</a></li>
+<li class="chapter" data-level="2.3.2" data-path="statistical-context.html"><a href="statistical-context.html#penalized"><i class="fa fa-check"></i><b>2.3.2</b> Penalized linear regression</a></li>
+<li class="chapter" data-level="2.3.3" data-path="statistical-context.html"><a href="statistical-context.html#glm"><i class="fa fa-check"></i><b>2.3.3</b> Generalized linear models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="statistical-context.html"><a href="statistical-context.html#non-parametric"><i class="fa fa-check"></i><b>2.4</b> Splines and generalized additive models: Moving beyond linearit</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="statistical-context.html"><a href="statistical-context.html#introduction"><i class="fa fa-check"></i><b>2.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.4.2" data-path="statistical-context.html"><a href="statistical-context.html#splines"><i class="fa fa-check"></i><b>2.4.2</b> Regression splines</a></li>
+<li class="chapter" data-level="2.4.3" data-path="statistical-context.html"><a href="statistical-context.html#mathrmb-splines"><i class="fa fa-check"></i><b>2.4.3</b> <span class="math inline">\(\mathrm{B}\)</span>-splines</a></li>
+<li class="chapter" data-level="2.4.4" data-path="statistical-context.html"><a href="statistical-context.html#smoothing"><i class="fa fa-check"></i><b>2.4.4</b> Cubic smoothing splines</a></li>
+<li class="chapter" data-level="2.4.5" data-path="statistical-context.html"><a href="statistical-context.html#gam"><i class="fa fa-check"></i><b>2.4.5</b> Generalized additive models (GAM)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="statistical-context.html"><a href="statistical-context.html#hgam"><i class="fa fa-check"></i><b>2.4.6</b> High-dimensional generalized additive models (HGAM)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="statistical-context.html"><a href="statistical-context.html#combining-cluster-analysis-and-variable-selection"><i class="fa fa-check"></i><b>2.5</b> Combining cluster analysis and variable selection</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="statistical-context.html"><a href="statistical-context.html#CAH"><i class="fa fa-check"></i><b>2.5.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="2.5.2" data-path="statistical-context.html"><a href="statistical-context.html#HCAR"><i class="fa fa-check"></i><b>2.5.2</b> Hierarchical Clustering and Averaging Regression</a></li>
+<li class="chapter" data-level="2.5.3" data-path="statistical-context.html"><a href="statistical-context.html#MLGL"><i class="fa fa-check"></i><b>2.5.3</b> Multi-Layer Group-Lasso (MLGL)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="statistical-context.html"><a href="statistical-context.html#hypothesis"><i class="fa fa-check"></i><b>2.6</b> Statistical testing of significance</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="statistical-context.html"><a href="statistical-context.html#introduction-1"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.6.2" data-path="statistical-context.html"><a href="statistical-context.html#chi2"><i class="fa fa-check"></i><b>2.6.2</b> <span class="math inline">\(\chi^2\)</span> test</a></li>
+<li class="chapter" data-level="2.6.3" data-path="statistical-context.html"><a href="statistical-context.html#LRT"><i class="fa fa-check"></i><b>2.6.3</b> Likelihood ratio test</a></li>
+<li class="chapter" data-level="2.6.4" data-path="statistical-context.html"><a href="statistical-context.html#pvalGAM"><i class="fa fa-check"></i><b>2.6.4</b> Calculation of <em>p</em>-values in GAM</a></li>
+<li class="chapter" data-level="2.6.5" data-path="statistical-context.html"><a href="statistical-context.html#multiple"><i class="fa fa-check"></i><b>2.6.5</b> Multiple testing comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html"><i class="fa fa-check"></i><b>3</b> Genome-Wide Association Studies</a><ul>
+<li class="chapter" data-level="3.1" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#introduction-2"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#genoquality"><i class="fa fa-check"></i><b>3.2</b> Genotype quality control</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#deviation-from-hwe."><i class="fa fa-check"></i><b>3.2.1</b> Deviation from HWE.</a></li>
+<li class="chapter" data-level="3.2.2" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#missing-data."><i class="fa fa-check"></i><b>3.2.2</b> Missing data.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#distribution-of-test-statistics."><i class="fa fa-check"></i><b>3.2.3</b> Distribution of test statistics.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#OR"><i class="fa fa-check"></i><b>3.3</b> Disease penetrance and odds ratio</a></li>
+<li class="chapter" data-level="3.4" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#SMA"><i class="fa fa-check"></i><b>3.4</b> Single Marker Analysis</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#pearsons-chi2-statistic"><i class="fa fa-check"></i><b>3.4.1</b> Pearson’s <span class="math inline">\(\chi^2\)</span> statistic</a></li>
+<li class="chapter" data-level="3.4.2" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#cochran-armitage-trend-test"><i class="fa fa-check"></i><b>3.4.2</b> Cochran-Armitage trend test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#logitGWAS"><i class="fa fa-check"></i><b>3.4.3</b> Logistic regression and likelihood ratio test</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#GWAS_limits"><i class="fa fa-check"></i><b>3.5</b> Limitations</a></li>
+<li class="chapter" data-level="3.6" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#popstructure"><i class="fa fa-check"></i><b>3.6</b> Population structure</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#genomic-control"><i class="fa fa-check"></i><b>3.6.1</b> Genomic control</a></li>
+<li class="chapter" data-level="3.6.2" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#structured-association"><i class="fa fa-check"></i><b>3.6.2</b> Structured association</a></li>
+<li class="chapter" data-level="3.6.3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#PCC"><i class="fa fa-check"></i><b>3.6.3</b> Principle components correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#multiloc"><i class="fa fa-check"></i><b>3.7</b> Multi-locus analysis</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#haplotype-based-approaches"><i class="fa fa-check"></i><b>3.7.1</b> Haplotype-based approaches</a></li>
+<li class="chapter" data-level="3.7.2" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#rare-variant"><i class="fa fa-check"></i><b>3.7.2</b> Rare-variant association analysis</a></li>
+<li class="chapter" data-level="3.7.3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html#adjclust"><i class="fa fa-check"></i><b>3.7.3</b> LD based approach to variable selection in GWAS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><i class="fa fa-check"></i><b>4</b> Learning the Optimal in GWAS through hierarchical SNP aggregation</a><ul>
+<li class="chapter" data-level="4.1" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#introleos"><i class="fa fa-check"></i><b>4.1</b> Related work</a></li>
+<li class="chapter" data-level="4.2" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#leosmethod"><i class="fa fa-check"></i><b>4.2</b> Method</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#CHAC"><i class="fa fa-check"></i><b>4.2.1</b> Step 1. Constrained-HAC</a></li>
+<li class="chapter" data-level="4.2.2" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#Dstar"><i class="fa fa-check"></i><b>4.2.2</b> Step 2. Dimension reduction function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#cutree"><i class="fa fa-check"></i><b>4.2.3</b> Step 3. Optimal number of groups estimation</a></li>
+<li class="chapter" data-level="4.2.4" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#step4"><i class="fa fa-check"></i><b>4.2.4</b> Step 4. Multiple testing on aggregated-SNP variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#numsim"><i class="fa fa-check"></i><b>4.3</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#simupheno"><i class="fa fa-check"></i><b>4.3.1</b> Simulation of the case-control phenotype</a></li>
+<li class="chapter" data-level="4.3.2" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#perfeval"><i class="fa fa-check"></i><b>4.3.2</b> Performance evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#results"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#results-and-discussions-of-the-numerical-simulations"><i class="fa fa-check"></i><b>4.4.1</b> Results and discussions of the numerical simulations</a></li>
+<li class="chapter" data-level="4.4.2" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#performance-results-for-simulated-data."><i class="fa fa-check"></i><b>4.4.2</b> Performance results for simulated data.</a></li>
+<li class="chapter" data-level="4.4.3" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#leosappli"><i class="fa fa-check"></i><b>4.4.3</b> Application in Wellcome Trust Case Control Consortium(WTCCC) and Ankylosing Spondylitis (AS) studies</a></li>
+<li class="chapter" data-level="4.4.4" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#realdata"><i class="fa fa-check"></i><b>4.4.4</b> Results in WTCCC and AS studies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#leosgam"><i class="fa fa-check"></i><b>4.5</b> Generalized additive models in GWAS</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#comparison-of-predictive-power"><i class="fa fa-check"></i><b>4.5.1</b> Comparison of predictive power</a></li>
+<li class="chapter" data-level="4.5.2" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#results-of-univariate-smoothing-splines-on-aggregated-snp"><i class="fa fa-check"></i><b>4.5.2</b> Results of univariate smoothing splines on aggregated-SNP</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html"><a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#discussions"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical learning for omics association and interactions studies based on blockwise feature compression</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Learning the Optimal in GWAS through hierarchical SNP aggregation</h1>
+<div id="introleos" class="section level2">
+<h2><span class="header-section-number">4.1</span> Related work</h2>
+<p>Although classical GWAS have limitations that prevent a full
+understanding of the heritability of genetic and/or multifactorial
+diseases, there are nevertheless ways of overcoming these limitations to
+some degree. For instance, it is possible to take into account the
+structure of the data in the hypothesis testing procedure. As an
+illustration, <span class="citation">(Meinshausen <a href="#ref-meinshausen_hierarchical_2008">2008</a>)</span> proposed a hierarchical
+testing approach which considers the influence of clusters of highly
+correlated variables rather than individual variables. The statistical
+power of this method to detect relevant variables at single SNP level
+was comparable to that of the Bonferroni-Holm procedure
+<span class="citation">(Holm <a href="#ref-Holm_Bonferroni">1979</a>)</span>, but the detection rate was much higher for small
+clusters, and it increased further at coarser levels of resolution.</p>
+<p>In the broad family of linear models, <span class="citation">(Listgarten et al. <a href="#ref-listgarten_powerful_2013">2013</a>)</span>
+introduced a likelihood ratio-based set test that accounts for
+confounding structure. The model is based on the linear mixed model and
+uses two random effects, one to capture the set association signal and
+one to capture confounders. They demonstrate a control of type I error
+as well as an improved power over more traditionally used score test.</p>
+<p>Other methods focus on multiple linear regression either by taking into
+account the linkage disequilibrium within the genes to improve power
+<span class="citation">(Yoo et al. <a href="#ref-yoo_multiple_2016">2016</a>)</span> or by clustering variants with weak association
+around known loci to increase the percentage of variance explained in
+complex traits <span class="citation">(ParÃ©, Asma, and Deng <a href="#ref-pare_contribution_2015">2015</a>)</span>.</p>
+<p>Finally, other approaches will focus on the aggregation of summary
+statistics of single SNP within a same gene with for instance the
+data-driven aggregation of summary statistics described in
+<span class="citation">(Kwak and Pan <a href="#ref-kwak_adaptive_2016">2016</a>)</span> or the procedures of <span class="math inline">\(p\)</span>-value combination in
+<span class="citation">(Petersen et al. <a href="#ref-petersen_assessing_2013">2013</a>)</span>. In the cited articles, the methods are used
+on SNP located in coding region (or extended intronic region
+in <span class="citation">(Petersen et al. <a href="#ref-petersen_assessing_2013">2013</a>)</span>) but can be extended to any set of SNP as
+long as we pre-specified a set of variants within a region. However, the
+power for each test remains dependent of the true disease model.
+Furthermore, this kind of approaches may also lose statistical power in
+comparison to single-variant-based tests when only a very small number
+of the variants in a gene are associated with the trait, or when many
+variants have no effect or causal variants are low-frequency
+variants <span class="citation">(Lee et al. <a href="#ref-lee_rare-variant_2014">2014</a>)</span>.</p>
+</div>
+<div id="leosmethod" class="section level2">
+<h2><span class="header-section-number">4.2</span> Method</h2>
+<p>In this section we describe a new method for performing GWAS using a
+four-step method that combines unsupervised and supervised learning
+techniques. This method improves the detection power of genomic regions
+implied in a disease while maintaining a good interpretability.</p>
+<p>This method consists in:</p>
+<ul>
+<li><p><strong>Step 1</strong>: Performing a spatially constrained Hierarchical Agglomerative
+Clustering of the additively coded SNP matrix
+<span class="math inline">\(\mathbf{Z} \in \mathbb{R}^{n \times D}\)</span> using the algorithm <a href="genome-wide-association-studies.html#adjclust">3.7.3</a>
+developed by <span class="citation">(A. Dehman, Ambroise, and Neuvial <a href="#ref-dehman_performance_2015">2015</a>)</span>.</p></li>
+<li><p><strong>Step 2</strong>: Applying a function to reduce the dimension of <span class="math inline">\(\mathbf{Z}\)</span> using the group
+definition from the constrained-HAC. This step is described and
+illustrated in Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:step2">4.2</a>.</p></li>
+<li><p><strong>Step 3</strong>: Estimating the optimal number of groups using a supervised learning
+approach to find the best cut into the hierarchical tree (cut level
+algorithm). This algorithm combines Steps 1 and 2 into an iterative
+process.</p></li>
+<li><p><strong>Step 4</strong>: Applying the function defined in Step 2 to each group identified in
+Step 3 to construct a new covariate matrix and perform multiple
+hypotheses testing on each new covariate to find significant
+associations with a disease phenotype <span class="math inline">\(\mathbf{y}\)</span>.</p></li>
+</ul>
+<p>We entitled this method <strong>LEOS</strong> for <strong>LE</strong>arning the <strong>O</strong>ptimale
+<strong>S</strong>cale in GWAS, implemented in a web server too available at
+<a href="http://stat.genopole.cnrs.fr/leos" class="uri">http://stat.genopole.cnrs.fr/leos</a>.</p>
+<div id="CHAC" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Step 1. Constrained-HAC</h3>
+<p>To take into account the structure of the genome in haplotype blocks, we
+group the predictors (SNP) according to their LD in order to create a
+new predictor matrix which reflects the structure of the genome. We use
+the algorithm <em>adjclust</em> developed by <span class="citation">(A. Dehman, Ambroise, and Neuvial <a href="#ref-dehman_performance_2015">2015</a>)</span> which
+consists in only allowing adjacent clusters to be merged, as described
+in Section <a href="genome-wide-association-studies.html#adjclust">3.7.3</a>. This algorithm is available via the <code>R</code>
+package at <a href="https://cran.r-project.org/web/packages/adjclust" class="uri">https://cran.r-project.org/web/packages/adjclust</a>.</p>
+<p>A similar adjacency-constrained hierarchical clustering using Ward’s
+linkage have already been proposed in <span class="citation">(Grimm <a href="#ref-grimm1987coniss">1987</a>)</span>, together with
+an algorithm called CONISS for Constrained Incremental Sums of Squares.
+However, the quadratic complexity of its implementation prevents it from
+being used on large genomic data sets.</p>
+<p>In the context of GWAS, it is nevertheless possible to circumvent this
+problem by assuming that the similarity between physically distant SNP
+is small due to the particular LD structure of the genome, as seen in
+Section <a href="basic-concepts-of-molecular-genetics.html#haplo">1.7</a>.</p>
+<p>More specifically, we assume that the <span class="math inline">\(D\times D\)</span> matrix of pairwise
+similarities defined as <span class="math inline">\(\mathbf{S} = dist(i,j)_{1 \leq i,j\leq D}\)</span> is a band
+matrix of bandwidth <span class="math inline">\(h + 1\)</span>, where <span class="math inline">\(h \in [1,\dots,D]: dist(i,j) = 0\)</span>
+for <span class="math inline">\(|i-j| \geq h\)</span> and <span class="math inline">\(D\)</span> the number of naturally ordered objects (SNP)
+to classify. This assumption is not restrictive, as taking <span class="math inline">\(h = D\)</span>
+always works. However, considering the large dimension of genomic data,
+we are mostly interested in the case where <span class="math inline">\(h \ll D\)</span>.</p>
+<p>Adjclust is an algorithm that uses this band similarity assumption to
+improve time and space complexity in the context of a genome-wide
+hierarchical clustering. The main features of this algorithm are the
+constant-time calculation of each of the Ward’s linkage involved in the
+spatially-constrained HAC and the storage of the candidate merges in a
+min-heap.</p>
+<div id="wards-linkage-as-a-function-of-pre-calculated-sums." class="section level4">
+<h4><span class="header-section-number">4.2.1.1</span> Ward’s linkage as a function of pre-calculated sums.</h4>
+<p>To decrease the complexity in the calculation of each of the Ward’s
+linkage, the trick is to note the sum of all similarities in any cluster
+<span class="math inline">\(K=\{u, \dots , v-1\}\)</span> of size <span class="math inline">\(k = v-u\)</span> as a sum of elements in the
+first <span class="math inline">\(\min(h,k)\)</span> subdiagonals of <span class="math inline">\(\mathbf{S}\)</span>.</p>
+<p>To see this, we define, for <span class="math inline">\(1 \leq r,l \leq D\)</span>, the sum of all elements
+of <span class="math inline">\(\mathbf{S}\)</span> in the first <span class="math inline">\(l\)</span> subdiagonals of the upper-right <span class="math inline">\(r \times r\)</span>
+block of <span class="math inline">\(S\)</span> as
+<span class="math display">\[P(r,l) = \sum_{1 \leq i,j \leq r, |i-j| \ &lt; l} dist(i,j) ,\]</span> and
+symmetrically, <span class="math inline">\(\bar{P}(r, l) = P(p+1-r, l)\)</span>. Because <span class="math inline">\(P\)</span> and <span class="math inline">\(\bar{P}\)</span>
+are sums of elements in pencil-shaped areas, they are called <em>forward pencil</em> and <em>backward pencil</em>, as illustrated in Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:penciltrick">4.1</a>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:penciltrick"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/pencil-trick.png" alt="Example of forward pencils (in yellow and green) and backward pencils (in green and blue), and illustration of Equation (4.1) for cluster \(K=\{u, \dots , v-1\}\). Left: cluster smaller than bandwidth (\(k \leq h\)); right: cluster larger than bandwidth \(k \geq h\)." width="90%" />
+<p class="caption">
+Figure 4.1: Example of forward pencils (in yellow and green) and backward pencils (in green and blue), and illustration of Equation <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#eq:pencilsums">(4.1)</a> for cluster <span class="math inline">\(K=\{u, \dots , v-1\}\)</span>. Left: cluster smaller than bandwidth (<span class="math inline">\(k \leq h\)</span>); right: cluster larger than bandwidth <span class="math inline">\(k \geq h\)</span>.
+</p>
+</div>
+<p>The advantage of computing the sums <span class="math inline">\(P\)</span> and <span class="math inline">\(\bar{P}\)</span> is that they can
+be used to calculate the sum <span class="math inline">\(S_{KK}\)</span> of all similarities in cluster <span class="math inline">\(K\)</span>
+following the identity:
+<span class="math display" id="eq:pencilsums">\[\begin{equation}
+P(v, h_k) + \bar{P}(u, h_k) = S_{KK} + P(p, h_k)\,
+\tag{4.1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(h_k:=\min(h,k)\)</span> and <span class="math inline">\(P(p, h_k)\)</span> is the “full” pencil of bandwidth <span class="math inline">\(h_k\)</span>
+(which also corresponds to <span class="math inline">\(\bar{P}(1, h_k)\)</span>). By construction, all the
+bandwidths of the pencils involved are less than <span class="math inline">\(h\)</span>. Therefore, only
+pencils <span class="math inline">\(P(u,k)\)</span> and <span class="math inline">\(\bar{P}(u,k)\)</span> with <span class="math inline">\(1 \leq u \leq p\)</span> and
+<span class="math inline">\(1 \leq k \leq h\)</span> have to be pre-calculated, so that the total number of
+pencils to calculate and stored is less than <span class="math inline">\(2ph\)</span>. By calculating these
+pencils recursively using cumulative sums, the time complexity of the
+pre-calculation step is <span class="math inline">\(ph\)</span> (see proof in <span class="citation">(Alia Dehman <a href="#ref-dehman2015spatial">2015</a>)</span>).</p>
+</div>
+<div id="storing-candidate-fusions-in-a-min-heap." class="section level4">
+<h4><span class="header-section-number">4.2.1.2</span> Storing candidate fusions in a min-heap.</h4>
+<p>Each iteration <span class="math inline">\(i\)</span> of the hierarchical agglomerative clustering
+(Algorithm 1, Section <a href="statistical-context.html#CAH">2.5.1</a>, consists in finding the
+minimum of <span class="math inline">\(D-i\)</span> elements, corresponding to the candidate fusions
+between the <span class="math inline">\(D-i+1\)</span> clusters, stored in a sorted list, and merging the
+corresponding clusters. However, as the cost of deleting and inserting
+an element in a sorted list is linear in <span class="math inline">\(D\)</span>, adjclust choose to reduce
+the complexity by storing the candidate fusions in a partially-ordered
+data structure called a <em>min-heap</em> <span class="citation">(Williams <a href="#ref-williams1964algorithm">1964</a>)</span>.</p>
+<p>A min-heap is a binary tree structure constructed such that the value of
+each node is smaller than the value of its two children. The advantage
+of such structure is the cost trade-off they achieve between maintaining
+the structure and finding the minimum element at each iteration. More
+specifically, at the beginning of the clustering, the heap is
+initialized with <span class="math inline">\(D-1\)</span> candidate fusions in <span class="math inline">\(\mathcal{O}(D \log(D))\)</span>.
+Then, each of the <span class="math inline">\(D\)</span> iteration involves at most <span class="math inline">\(\mathcal{O}(\log(D))\)</span>
+operations as:</p>
+<ul>
+<li><p>finding the best candidate fusion (root of the min heap) in <span class="math inline">\(\mathcal{O}(1)\)</span>,</p></li>
+<li><p>creating a new cluster corresponding to this fusion in <span class="math inline">\(\mathcal{O}(1)\)</span>,</p></li>
+<li><p>deleting the root of the min heap in <span class="math inline">\(\mathcal{O}(\log(D))\)</span>,</p></li>
+<li><p>inserting two possible fusions in the min heap in <span class="math inline">\(\mathcal{O}(\log(D))\)</span>.</p></li>
+</ul>
+<p>Globally, with a space complexity of <span class="math inline">\(\mathcal{O}(Dh)\)</span>, corresponding to
+the <span class="math inline">\(2Dh\)</span> pre-calculated pencils, and a time complexity of
+<span class="math inline">\(\mathcal{O}(D(h + log(D))\)</span>, where <span class="math inline">\(\mathcal{O}(Dh)\)</span> comes from the
+pre-calculation of pencils and <span class="math inline">\(\mathcal{O}(D\log(D))\)</span> from the <span class="math inline">\(D\)</span>
+iterations of the algorithm, adjclust achieves a quasi-linear time
+complexity and linear space complexity when <span class="math inline">\(h \ll D\)</span>.</p>
+<p>In a GWAS application, the choice of <span class="math inline">\(h\)</span> will mainly depends on the
+genotyping density and on the strength of the LD structure in the
+studied population. In the evaluation of our method in both numerical
+simulations <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#perfeval">4.3.2</a> and real data application (Section
+<a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#leosappli">4.4.3</a>), we set the value at <span class="math inline">\(h = 100\)</span>, having observed
+that higher values had no impact on the performance of the method.</p>
+</div>
+</div>
+<div id="Dstar" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Step 2. Dimension reduction function</h3>
+<p>One way of addressing issues related to high-dimensional statistics (and
+in particular the multiple testing burden that we mentioned in Section
+<a href="statistical-context.html#multiple">2.6.5</a>) is to reduce the dimensionality of the predictor
+matrix $ ^{N D} $ by creating a reduced matrix
+$ $ with new covariates that nevertheless remain
+representative of the initial matrix. This means reducing the number of
+predictors <span class="math inline">\(D\)</span> to <span class="math inline">\(G \ll D\)</span>, with row <span class="math inline">\(\tilde{\mathbf{S}x}_{i}\)</span> the
+<span class="math inline">\(G\)</span>-dimensional vector of new predictors for observation <span class="math inline">\(i\)</span>. In this
+study we use a blockwise approach to construct a matrix of new
+uncorrelated predictors $  ^{N G} $,
+with <span class="math inline">\(G\)</span> the number of groups in linkage disequilibrium identified via
+the constrained agglomerative hierarchical clustering described in Step 1.</p>
+<p>While classical methods use the initial set of covariates to predict a
+phenotype, we propose combining a clustering model with a dimension
+reduction approach in order to predict <span class="math inline">\(\mathbf{y}\)</span>. For each group identified
+with the constrained-HAC, we apply a function to obtain a single
+variable defined as the number of minor alleles present in the group.
+For each observation <span class="math inline">\(i\)</span> and in each cluster
+$ g $, the variable is defined as:
+<span class="math display">\[\label{eq:aggregfun}
+  \tilde{x}_{ig}~=~\sum_{d \in g} z_{id}.\]</span></p>
+<p>We note that this function is close to the function used in the burden
+tests (Section <a href="genome-wide-association-studies.html#rare-variant">3.7.2</a>) where we attribute a weight
+<span class="math inline">\(\omega_d = 1\)</span> to each SNP since we do not particularly focus on rare
+variants but rather on variants having a <span class="math inline">\(MAF \geq 5\%\)</span>. In order that
+the values for the different groups are comparable, we eliminate the
+effect of group size by centering and scaling the matrix <span class="math inline">\(\tilde{\mathbf{X}}\)</span>
+to unit variance. In the remainder of the paper we will refer to the
+covariates in <span class="math inline">\(\tilde{\mathbf{X}}\)</span> as <em>aggregated-SNP</em> variables.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:step2"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/step2.png" alt="Schematic view of Step 2 of the algorithm to calculate the matrix of predictors \(\tilde{\mathbf{X}}^s\) at a given level \(s\) of the hierarchy." width="100%" />
+<p class="caption">
+Figure 4.2: Schematic view of Step 2 of the algorithm to calculate the matrix of predictors <span class="math inline">\(\tilde{\mathbf{X}}^s\)</span> at a given level <span class="math inline">\(s\)</span> of the hierarchy.
+</p>
+</div>
+</div>
+<div id="cutree" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Step 3. Optimal number of groups estimation</h3>
+<p>Estimating the optimal number of groups to select, i.e. the level at
+which the hierarchical clustering tree should be cut, is a fundamental
+matter which impacts the relevance of the association analysis. As we
+have seen in Section <a href="basic-concepts-of-molecular-genetics.html#haplo">1.7</a>, it is known that the human genome is
+structured into haplotype blocks with little or no within-block
+recombination, but it is not easy to determine how these blocks are
+allocated throughout the genome for a given set of SNP.</p>
+<p>In the literature, in an unsupervised learning context, a number of
+models have been proposed for determining the optimal number of groups
+in a hierarchical clustering (see Section <a href="statistical-context.html#CAH">2.5.1</a>). However, since
+GWAS consist in evaluating the likelihood of the disease from genetic
+markers, we propose an algorithm that makes use of the phenotype <span class="math inline">\(\mathbf{y}\)</span>
+to determine the optimal number of clusters.</p>
+<p>We propose here a supervised validation set approach to find this
+optimum. Since this algorithm aims to identify phenotype-related SNP
+clusters, it is necessary to split the dataset into two subsets to avoid
+an inflation of type I errors in the testing procedure. One subset,
+<span class="math inline">\([\mathbf{y}_{S1}, \mathbf{Z}_{S1}]\)</span> with sample size <span class="math inline">\(t_1 = n/2\)</span> is used to choose
+the optimal cut and the second one, <span class="math inline">\([\mathbf{y}_{S2}, \mathbf{Z}_{S2}]\)</span> of sample
+size <span class="math inline">\(t_2=n/2\)</span>, to perform the hypothesis testing in Step 4.</p>
+<p>The algorithm we propose can be summarized as follows:</p>
+<ul>
+<li><p>Apply the constrained-HAC described in Step 1 on a training set
+<span class="math inline">\(\mathbf{T} = \mathbf{X}^{train}_{S1} \subset \mathbf{X}_{S1}\)</span>, and for a given level <span class="math inline">\(s\)</span>
+of the hierarchy we apply the dimension reduction function defined
+above (Step 2) to each of the <span class="math inline">\(G_s\)</span> clusters to construct the matrix
+<span class="math inline">\(\tilde{\mathbf{T}}^s = \left\lbrace \tilde{\mathbf{T}}_g^s \right\rbrace_{g = \mathcal{G}^s_1}^{\mathcal{G}^s_{G_s}}\)</span>.</p></li>
+<li><p>Fit a ridge regression model to estimate the coefficients of the
+predictors in <span class="math inline">\(\tilde{\mathbf{T}}^s\)</span>. We chose to resort on the ridge
+regression model because, as we explained in Section
+<a href="statistical-context.html#penalized">2.3.2</a>, it is known to have a better stability in
+comparison to other penalized-regression models such as lasso
+regression <span class="citation">(Bousquet and Elisseeff <a href="#ref-bousquet_stability_2002">2002</a>)</span>.</p></li>
+<li><p>Once the ridge coefficients are estimated, we predict the phenotypic
+values on the test set using the matrix <span class="math inline">\(\mathbf{U} = \mathbf{X}^{test}_{S2}\)</span> and
+calculate either the mean test set error when the phenotype is
+quantitative or the Area Under the ROC curve (AUC-ROC) when it is
+binary.</p></li>
+<li><p>Repeat with procedure for different levels in the hierarchy and
+defined the optimal cut level <span class="math inline">\(s^*\)</span> (or equivalently the optimal
+number of groups <span class="math inline">\(G^{s^*}\)</span>) as the level which maximizes the
+prediction accuracy criterion.</p></li>
+</ul>
+<p><img src="book_files/figure-html/algocutlevel-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>At last, once the optimal number of groups <span class="math inline">\(G^*\)</span> has been determined, we
+apply the function to each selected group and construct the matrix
+<span class="math inline">\(\tilde{\mathbf{X}}^{(s^*)}\)</span>.</p>
+</div>
+<div id="step4" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Step 4. Multiple testing on aggregated-SNP variables</h3>
+<p>Here we use a standard Single Marker Analysis, has described in Section
+<a href="genome-wide-association-studies.html#SMA">3.4</a>, to find associations with the phenotype, but instead of
+calculating <span class="math inline">\(p\)</span>-value for each SNP in <span class="math inline">\(\mathbf{Z}\)</span>, we calculate <span class="math inline">\(p\)</span>-value for
+each aggregated-SNP variable in <span class="math inline">\(\tilde{\mathbf{X}}^{(s^*)}_{S2} \subset \tilde{\mathbf{X}}^{(s^*)}\)</span>.</p>
+<p>For each single-predictor model, we perform a Likelihood Ratio Test
+(Section <a href="statistical-context.html#LRT">2.6.3</a>) where we compare the intercept-only model against
+the single-predictor model and get for each predictor a <span class="math inline">\(p\)</span>-value using
+the <span class="math inline">\(\tilde\chi^2\)</span> distribution.</p>
+<p>As seen in Section <a href="statistical-context.html#multiple">2.6.5</a>, we need to compute an appropriate
+significance threshold to control either the Family-Wise Error Rate or
+the False Discovery Rate. However, as the FWER control methods reduce
+the significance level according to the number of tests carried out in
+the study, it is preferable, in this context, to control for the FDR to
+be less stringent on the significance threshold. We therefore chose to
+use the Benjamini-Hochberg procedure described in Section <a href="#BH"><strong>??</strong></a> to
+adjust the significance threshold.</p>
+</div>
+</div>
+<div id="numsim" class="section level2">
+<h2><span class="header-section-number">4.3</span> Numerical simulations</h2>
+<p>The performance evaluation described below was designed to assess the
+ability of our method to retrieve causal SNP or causal clusters of SNP
+under different simulation scenarios. For each scenario, we use a matrix
+<span class="math inline">\(\mathbf{Z}_{\text{HAPGEN}}\)</span> of SNP generated by the software
+<span class="citation">(Su, Marchini, and Donnelly <a href="#ref-su_hapgen2_2011">2011</a>)</span> with a sample size of 1000 individuals. This software
+allows to simulate an entire chromosome conditionally on a reference set
+of population haplotypes (from HapMap3) and an estimate of the
+fine-scale recombination rate across the region, so that the simulated
+data share similar patterns with the reference data. We generate the
+chromosome 1 (103 457 SNP) using the haplotype structure of CEU
+population (Utah residents with Northern and Western European ancestry
+from the CEPH collection) as reference set. The software allows to
+generate a controls-only matrix of SNP (no disease allele). We filtered
+this matrix according to the minor allele frequency to only keep SNP
+with a MAF greater than <span class="math inline">\(5\%\)</span> thus reducing the size of
+<span class="math inline">\(\mathbf{Z}_{\text{HAPGEN}}\)</span> to 60 179 SNP.</p>
+<p>We generate a posteriori the phenotype using the logit model with a
+given set of causal SNP or cluster of SNP. The main difference between
+the different scenarios is to be found in the way that the case-control
+phenotype <span class="math inline">\(\mathbf{y}\)</span> is simulated.</p>
+<div id="simupheno" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Simulation of the case-control phenotype</h3>
+<p>For each scenario, we simulated a case-control phenotype <span class="math inline">\(\mathbf{y}\)</span> under a
+logistic regression model. The case-control phenotype is generated
+following a Bernoulli distribution function, following the conditional
+probability $(=1|) $ with
+<span class="math inline">\(\mathbf{H} \in \mathbb{R}^{n \times \ell}\)</span> a matrix constructed by sampling
+<span class="math inline">\(\ell\)</span> causal variables from <span class="math inline">\(\mathbf{Z}_{\text{HAPGEN}}\)</span>.</p>
+<p>The conditional probability is calculated using the logit model:
+<span class="math display">\[\mathbb{P}(\mathrm{Y}=1|\mathbf{H}) = \frac{\exp(\beta_0 +
+    \boldsymbol{\beta}^T \mathbf{H})} {1 + \exp(\beta_0 +
+    \boldsymbol{\beta}^T \mathbf{H})},\]</span> where $ = [<em>1, , </em>] $ is
+the vector of coefficients corresponding to the <span class="math inline">\(\ell\)</span> predictors and
+<span class="math inline">\(\beta_0\)</span> is the intercept defined as
+<span class="math inline">\({ \log \left(\frac{\pi}{(1-\pi)}\right)}\)</span>, with <span class="math inline">\(\pi\)</span> the true
+prevalence of the disease in the population. The predictors are centered
+to have zero-mean before generating the vector of probability.</p>
+<p>One way to have an association between the response and the predictors
+strong enough to be detected is to set large <span class="math inline">\(\boldsymbol{\beta}\)</span> coefficients on
+the predictors. Indeed, there is a direct relationship between the odd
+ratio of a covariate and its corresponding coefficients in the logistic
+regression model given by <span class="math inline">\(OR_i = e^{(\boldsymbol\beta_i)}\)</span>
+<span class="citation">(Diaz-Quijano <a href="#ref-Diaz_simple_2012">2012</a>)</span>. In our simulations, the difficulty of the problem,
+i.e. the power to detect an association, is linked to the number of
+causal predictors used to generate <span class="math inline">\(\mathbf{y}\)</span> and the <span class="math inline">\(OR\)</span> set to each
+predictor.</p>
+<p>To simulate different scenarios, we considered the following parameters:</p>
+<ol style="list-style-type: decimal">
+<li><p>Nature of the causal predictors:</p>
+<ul>
+<li><p><strong>Clusters of SNP:</strong> For each replicate,
+<span class="math inline">\(\ell = \lbrace 1, 2, 3 \rbrace\)</span> genomic regions have been
+identified to be causal. These regions have been chosen among
+the matrix <span class="math inline">\(\mathbf{Z}_{\text{HAPGEN}}\)</span> to have different levels of LD
+among the SNP that compose them. The average correlation
+coefficient among the SNP in these regions varies from <span class="math inline">\(r^2=0.6\)</span>
+to <span class="math inline">\(r^2=0.85\)</span> and the size of the region varies from 20 SNP to
+60 SNP. Once identified, the causal regions were aggregated
+using the function described in Step <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#Dstar">4.2.2</a> to construct
+a matrix <span class="math inline">\(\tilde{\mathbf{H}}\)</span> of aggregated-SNP predictors. This matrix
+was then used to generate the case-control phenotype following
+$(=1|) $. We will refer to this scenario
+as the <em>SNPclus</em> scenario.</p></li>
+<li><p><strong>Single SNP:</strong> In this scenario the phenotype was simulated by
+directly sampling SNP from the same causal regions identified in
+the <em>SNPclus</em> scenario. For each replicate, we chose 10
+individuals SNP among each of these regions to construct a
+matrix <span class="math inline">\(\mathbf{H}\)</span> with <span class="math inline">\(\ell = \lbrace 10 ,20 ,30 \rbrace\)</span> single SNP
+predictors, depending on the number of causal regions . This
+matrix is then used to generate the case-control phenotype. The
+chosen SNP have a MAF varying from <span class="math inline">\(10 \%\)</span> to <span class="math inline">\(30\%\)</span>. We will
+refer to this scenario as the <em>singleSNP</em> scenario.</p></li>
+</ul></li>
+<li><p>Number of causal predictors <span class="math inline">\(\ell\)</span> and number of replicates:</p>
+<p>We performed <span class="math inline">\(5\)</span> replicates for each combination <span class="math inline">\(\ell \times 2\)</span>
+scenarios and we evaluate the average performance over these <span class="math inline">\(5\)</span>
+replicates. For each scenario we considered from 1 to 3 causal
+genomic regions, thus, for <em>SNPclus</em> scenario, we used up to 3
+causal <em>aggregated</em>-SNP predictors, and for the <em>singleSNP</em>
+scenario, up to <span class="math inline">\(10 \times 3 = 30\)</span> causal single-SNP predictors to
+generate the phenotype.</p></li>
+<li><p>Odds ratio (<span class="math inline">\(\beta\)</span> coefficients) of the causal predictors:</p>
+<p>For the <em>SNPclus</em> scenario we chose an equal OR of 2.7 for each
+causal aggregated predictor, corresponding to a <span class="math inline">\(\beta\)</span> coefficient
+equal to 1. For the <em>singleSNP</em> scenario we chose an equal OR of 1.1
+for each causal predictor, corresponding to a <span class="math inline">\(\beta\)</span> coefficient
+equal to <span class="math inline">\(0.1\)</span>. The rationale behind these coefficients arises from
+the hypothesis that the combined effect of several low-effect SNP on
+the phenotype is stronger than the effects of each individual SNP.</p></li>
+</ol>
+<p>As previously mentioned, we generated the phenotype using causal SNP
+simulated with the software. However, as commercial micro-arrays such as
+Affymetrix and Illumina arrays do not genotype the full sequence of the
+genome, some SNP are thereby unmapped and the marker density is in
+general lower than the HapMap marker density. That is why we chose, in
+our numerical simulation, to generate the phenotype with causal
+variables chosen from <span class="math inline">\(\mathbf{Z}_{\text{HAPGEN}}\)</span> and to assess the
+performance of the methods using only those SNP which are mapped on a
+standard Affymetrix micro-array (about 23 823 mapped SNP in our case).
+By doing so, some causal SNP are not mapped on the commercial SNP set
+and thus simulations are more similar to real genome-wide analysis
+conditions.</p>
+</div>
+<div id="perfeval" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Performance evaluation</h3>
+<div id="competitors" class="section level4">
+<h4><span class="header-section-number">4.3.2.1</span> Competitors</h4>
+<p>The objective of our method being to identify the optimal scale at which
+to perform association studies, we compared our proposal with several
+methods working at different genomic scales. The purpose is to assess
+the ability of each method to retrieve true causal genomic regions in
+the different simulation scenarios.</p>
+<p>For each scenario, four approaches have been considered:</p>
+<ul>
+<li><p>SKAT<em>tree</em>, a SKAT model, as described in Section
+(rare-variant), which use our group definition,</p></li>
+<li><p>SKAT<em>notree</em>, a SKAT model using an alternative group definition
+produced by successive chunks of 20 SNP,</p></li>
+<li><p>SMA, the classical Single Marker Analysis described in Section
+<a href="genome-wide-association-studies.html#SMA">3.4</a>,</p></li>
+<li><p>SASA (Single Aggregated-SNP Analysis) a method close to SMA, where
+instead of testing the genotype-phenotype association using each
+single SNP, we are testing it using aggregated-SNP variables.</p></li>
+</ul>
+<p>We chose to consider two different group definitions for SKAT in order
+to evaluate the impact of the group structure on the association
+findings. The comparison with SMA allows to highlight the advantage of
+working at a group scale. We hypothesize that grouping low-effect SNP
+should have a better statistical power than testing the main effects at
+single-SNP level.</p>
+<p>For all methods, we compare the results using 2 types of multiple
+testing corrections: the methods of Holm-Bonferroni <span class="citation">(Holm <a href="#ref-Holm_Bonferroni">1979</a>)</span>
+and <span class="citation">(Benjamini and Hochberg <a href="#ref-benjamini_controlling_1995">1995</a>)</span>.</p>
+</div>
+<div id="true-and-false-positive-definitions" class="section level4">
+<h4><span class="header-section-number">4.3.2.2</span> True and False Positive definitions</h4>
+<p>The problem of retrieving true causal associations can be represented as
+a binary decision problem where the compared methods are considered as
+classifiers. The decision made by a binary classifier can be summarized
+using four numbers: True Positives (<span class="math inline">\(TP\)</span>), False Positive (<span class="math inline">\(FP\)</span>), True
+Negatives (<span class="math inline">\(TN\)</span>) and False Negatives (<span class="math inline">\(FN\)</span>). We represent True Positive
+Rate (<span class="math inline">\(\text{Recall or Power} ={TP/(FN+TP)}\)</span>) versus Precision
+(<span class="math inline">\(\text{Precision}={TP/(FP+TP)}\)</span>). In this context, a true positive
+corresponds to a true causal genomic region associated to significant
+<em>p</em>-value. The definition of what can be considered as the true causal
+genomic region may nevertheless be subject to some ambiguity. In GWAS,
+the presence of LD between SNP often leads to consider the signal
+associated to multiple neighbouring SNP as indicating the existence of a
+single genomic locus with possible influence on the phenotype.</p>
+<p>In our simulations, a causal genomic region is defined <em>a priori</em> as a
+causal predictor in the logit model. However, since the clusters of SNP
+identified by our algorithm are not totally independent, some residual
+correlation may remain between clusters. This leads to question the
+notion of relevant variable when the variables are structured into
+strongly correlated groups. Should all the variables of the block be
+considered as explanatory, or should we define as only true positives
+the causal variables used to generate the phenotype? In order to
+circumvent this issue, we chose to relax the definition of a false
+positive joining the work of <span class="citation">(Brzyski et al. <a href="#ref-brzyski_controlling_2017">2017</a>)</span> and
+<span class="citation">(Yi et al. <a href="#ref-yi2015penalized">2015</a>)</span> where they propose to control the FDR in GWAS by
+considering significant SNP correlated to the true causal variables as
+true positives. For the simulation of the phenotype, we hypothesize an
+underlying multivariate regression model, but test for univariate model
+as it is the usual practice, which leads to reconsider the definition of
+true positive. As in <span class="citation">(Yi et al. <a href="#ref-yi2015penalized">2015</a>)</span> we consider the set of true
+positive as the union of the causal true positive and the linked true
+positive, which are regions adjacent to the causal regions and
+correlated with them at a level of at least 0.5. Regarding the
+single-marker analysis approach, since it works at the single SNP level,
+we compare it with the others in the <em>singleSNP</em> scenario only.</p>
+</div>
+</div>
+</div>
+<div id="results" class="section level2">
+<h2><span class="header-section-number">4.4</span> Results</h2>
+<div id="results-and-discussions-of-the-numerical-simulations" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> Results and discussions of the numerical simulations</h3>
+<div id="area-under-the-roc-curve" class="section level4">
+<h4><span class="header-section-number">4.4.1.1</span> Area Under the ROC Curve</h4>
+<p>For each simulation, the cut level algorithm was applied. We recall that
+this algorithm calculates a prediction error on a test set for several
+levels in a constrained-HAC tree with a ridge regression model and
+chooses the level for which this error is the smallest. The AUC-ROC is
+plotted for the different levels, and the best cut level corresponds to
+the level for which AUC-ROC is the greatest. The results from the
+simulation scenario <em>clusSNP</em> and <em>singleSNP</em> described in Section
+<a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#simupheno">4.3.1</a> are shown in Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:AUCcurvesimu">4.3</a>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:AUCcurvesimu"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/AUC_curve_simu.png" alt="Area under ROC curves according to the number of clusters in the clusSNP and singleSNP scenarios: the vertical lines indicate the number of aggregated-SNP (clusters) obtained with Algorithm 4, i.e. the level where the prediction error is minimized (AUC-ROC at its maximum)." width="90%" />
+<p class="caption">
+Figure 4.3: <strong>Area under ROC curves according to the number of clusters in the <em>clusSNP</em> and <em>singleSNP</em> scenarios</strong>: the vertical lines indicate the number of aggregated-SNP (clusters) obtained with Algorithm 4, i.e. the level where the prediction error is minimized (AUC-ROC at its maximum).
+</p>
+</div>
+<p>Our algorithm cuts the hierarchy either at a fairly high level (few
+large clusters) or at a low level (many small clusters), depending on
+the number of causal variables we used to generate the phenotype. The
+more the number of causal regions decreases, the higher the algorithm
+cuts in the hierarchical tree. In either case our algorithm is able to
+increase the predictive power by aggregating SNP with the function . We
+are thus able build a matrix of uncorrelated aggregated-SNP predictors
+that are representative of the initial SNP matrix and strongly linked to
+the phenotype.</p>
+</div>
+</div>
+<div id="performance-results-for-simulated-data." class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Performance results for simulated data.</h3>
+<p>As previously described, we evaluate and compare the methods using two
+metrics, namely <em>Recall</em> and <em>Precision</em>.</p>
+<p>Here the precision metric is somewhat relaxed compared to its true
+definition since we adapted the definition of a true positive and false
+positive to the GWAS context. It is important to note that for all the
+methods, we compare the Benjamini-Hochberg method to control FDR with
+the Bonferroni correction to control FWER at a threshold of <span class="math inline">\(5\%\)</span>.
+However, since there are residual correlations between SNP clusters and
+that the replication of numerous samples per combination of parameters
+is difficult in this realistic setting of simulations, the observed Type
+I error rate may be greater than <span class="math inline">\(5\%\)</span>. What we think is important to
+put forward to in these simulations is the ability of our algorithm to
+define groups of relevant clusters that will be detected on average with
+more precision and more power (SASA and SKAT<em>tree</em>) than using an
+arbitrary group definition (SKAT<em>notree</em>) or no definition of groups at
+all (SMA).</p>
+
+<div class="figure" style="text-align: center"><span id="fig:scatterperfsimu"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/scatter_perf_simu.png" alt="Recall vs Precision for each method (shape and colours in plot). In rows are the simulation scenarios. In columns, we evaluate performance using Benjamini-Hochberg threshold (left) and bonferroni correction threshold (right). The second row illustrates the performance to retrieve the true causal genomic region under the SNPclus scenario, thus only group-based approaches are considered (SASA, SKATtree and SKATnotree). The numbers inside the points correspond to the number of causal predictors and each point is the average value of 5 replicates." width="90%" />
+<p class="caption">
+Figure 4.4: <strong>Recall vs Precision for each method</strong> (shape and colours in plot). In rows are the simulation scenarios. In columns, we evaluate performance using Benjamini-Hochberg threshold (left) and bonferroni correction threshold (right). The second row illustrates the performance to retrieve the true causal genomic region under the <em>SNPclus</em> scenario, thus only group-based approaches are considered (SASA, SKAT<em>tree</em> and SKAT<em>notree</em>). The numbers inside the points correspond to the number of causal predictors and each point is the average value of 5 replicates.
+</p>
+</div>
+<p>The results represented in Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:scatterperfsimu">4.4</a> show that
+the methods using our algorithm for the cluster definition (SASA and
+SKAT<em>tree</em>) have in average a better precision than the two other
+methods. The approach SASA, which combine our clustering algorithm and
+the aggregating function to test the association of aggregated-SNP with
+the phenotype, perform poorly in term of Recall but is far better in
+term of Precision compared to SMA and SKAT<em>notree</em>. These results
+suggest that it is better to combine our algorithm with the SKAT method
+than with the SASA method. We also note that applying the SKAT approach
+on an arbitrary group definition (SKAT<em>notree</em>) lead to a good recall
+but a very poor precision, showing the benefit of using our custom group
+definition in this context. Regarding the SMA approach in the
+<em>singleSNP</em> scenario, we can observe a loss in term of Recall compare to
+the SKAT<em>tree</em> and SKAT<em>notree</em> method suggesting that we can take
+benefit of grouping low effect SNP to improve the power to detect causal
+genomic regions.</p>
+<p>In GWAS, having a method with a good precision is as important, or even
+more important, than having a good recall. It is better to spot a few
+significant associations with a high certainty than to spot numerous
+significant associations but with only a low level of certainty for most
+of them. For this reason, we believe that our method represents an
+improvement in terms of precision without loss of power insofar as
+SKAT<em>tree</em> seems able to detect significant genomic regions associated
+with the phenotype with a higher degree of certainty than standard
+approaches.</p>
+</div>
+<div id="leosappli" class="section level3">
+<h3><span class="header-section-number">4.4.3</span> Application in Wellcome Trust Case Control Consortium(WTCCC) and Ankylosing Spondylitis (AS) studies</h3>
+<p>To evaluate the performance of our method on real data, we performed
+GWAS analysis on datasets made available by <span class="citation">(WTCCC <a href="#ref-burton_genome-wide_2007">2007</a>)</span>.
+The WTCCC data collection contains 17000 genotypes, composed of 3000
+shared controls and 14000 cases representing 7 common diseases of major
+public health concern: inflammatory bowel disease (IBD), bipolar
+disorder (BD), coronary artery disease (CAD), hypertension (HT),
+rheumatoid arthritis (RA), and Type I (T1D) and Type II (T2D) diabetes.
+Individuals were genotyped with the Affymetrix 500K Mapping Array Set
+and are represented by about 500,000 SNP (before the application of
+quality control filters).</p>
+<p>In parallel to the analysis of the WTTCC data, we decided to assess our
+method on another dataset from a different study. The ankylosing
+spondylitis (AS) dataset consists of the French subset of the large
+study of the International Genetics of Ankylosing Spondylitis (IGAS)
+study <span class="citation">(International Genetics of Ankylosing Spondylitis Consortium (IGAS) et al. <a href="#ref-IGAS_2013_identification">2013</a>)</span>. For this subset, unrelated cases were
+recruited through the Rheumatology clinic of Ambroise Paré Hospital
+(Boulogne-Billancourt, France) or through the national self-help
+patients’ association: “Association Française des Spondylarthritiques”.
+Population-matched unrelated controls were obtained from the “Centre
+d’Etude du Polymorphisme Humain”, or were recruited as healthy spouses
+of cases. The dataset contains 408 cases and 358 controls, and each
+individual was genotyped for 116,513 SNP with Immunochip technology.</p>
+<p>To remove the bias induced by population stratification in Genome-Wide
+analysis, we added the first 5 genomic principal components into the
+regression model as described in Section <a href="genome-wide-association-studies.html#PCC">3.6.3</a>. Since the methods
+evaluated here do not deal with missing values, we chose to impute the
+missing genotypes with the most frequent genotypic value observed for
+each SNP.</p>
+<p>For each dataset, we filtered the values to keep only those SNP having a
+MAF greater than <span class="math inline">\(5\%\)</span>. The minor allele frequencies of each dataset are
+represented in Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:histomaf">4.5</a>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:histomaf"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/histomaf.png" alt="Histograms of Minor Allele Frequencies (MAF) distribution in each datasets. (BD) Bipolar disorders; (CAD) Coronary artery disease; (IBD) Inflammatory bowel disease; (HT) Hypertension; (RA) Rheumatoid arthritis; (T1D) Type I diabetes; (T2D) Type II diabetes." width="90%" />
+<p class="caption">
+Figure 4.5: Histograms of Minor Allele Frequencies (MAF) distribution in each datasets. (BD) Bipolar disorders; (CAD) Coronary artery disease; (IBD) Inflammatory bowel disease; (HT) Hypertension; (RA) Rheumatoid arthritis; (T1D) Type I diabetes; (T2D) Type II diabetes.
+</p>
+</div>
+<p>We applied our cut level algorithm to find relevant clusters of SNP and
+we performed single marker analysis on single SNP (SMA) and on groups of
+SNP (SASA, SKAT<em>tree</em>, SKAT<em>notree</em>).</p>
+</div>
+<div id="realdata" class="section level3">
+<h3><span class="header-section-number">4.4.4</span> Results in WTCCC and AS studies</h3>
+<div id="auc-roc-curves" class="section level4">
+<h4><span class="header-section-number">4.4.4.1</span> AUC-ROC curves</h4>
+<p>In this section, we compare the AUC-ROC curves generated by our cut
+level algorithm for each disease (WTCCC and AS data).</p>
+<p>Concerning the WTCCC diseases, given that patients were all genotyped
+using the same micro-array, their genotypes have the same LD structure,
+and therefore the shapes of the AUC-ROC curves should be very similar
+between the different diseases. As can be observed in
+Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:WTCCC">4.6</a> (WTCCC diseases), the shapes of the AUC-ROC curves
+are closely similar, with a chosen cut level located around 100 000
+clusters of SNP, suggesting a shared LD pattern among patients.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:WTCCC"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/WTCCC.png" alt="AUC-ROC for different cut levels in a HAC-tree of 7 WTCCC diseases after quality control filters. Each point corresponds to an AUC value computed on a test set from a logistic ridge regression model for a given level in the constrained-HAC tree." width="90%" />
+<p class="caption">
+Figure 4.6: AUC-ROC for different cut levels in a HAC-tree of 7 WTCCC diseases after quality control filters. Each point corresponds to an AUC value computed on a test set from a logistic ridge regression model for a given level in the constrained-HAC tree.
+</p>
+</div>
+<p>In contrast, the AUC-ROC from the AS data (Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:spondy">4.7</a>)
+behaves differently from the WTCCC data. Predictive power is
+substantially improved if aggregated-SNP predictors are used at a fairly
+high level in the hierarchical tree (7478 optimal clusters identified by
+the cut level algorithm). It is relevant to note that the pattern we
+observe on this real dataset is similar to the pattern we observed in
+the numerical simulations, especially under the <em>clusSNP</em> scenario.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:spondy"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/spondy.png" alt="AUC-ROC for different cut levels in a HAC-tree of the spondylitis arthritis disease (Immunochip micro-array). Each point corresponds to an AUC value computed on a test set from a logistic ridge regression model for a given level in the constrained-HAC tree." width="90%" />
+<p class="caption">
+Figure 4.7: AUC-ROC for different cut levels in a HAC-tree of the spondylitis arthritis disease (Immunochip micro-array). Each point corresponds to an AUC value computed on a test set from a logistic ridge regression model for a given level in the constrained-HAC tree.
+</p>
+</div>
+<p>As we remarked concerning the WTCCC results, the algorithm identifies a
+relatively high number of clusters in relation to AS and simulated data.
+This difference is certainly due to the LD level among the genetic
+markers in the Affymetrix array. The correlation levels among SNP for a
+given bandwidth are similar between the simulated and the AS data, but
+greater than for the WTCCC data (Table <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#tab:markerdensity">4.1</a> and
+Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:ggheat">4.8</a>). This suggests that there is a stronger LD
+pattern between blocks of SNP in AS and simulated data, implying that
+the optimal number of clusters identified by the algorithm is dependent
+on the LD level among variables.</p>
+<table>
+<caption>
+<span id="tab:markerdensity">Table 4.1: </span>Comparison of marker density and averaged LD level between markers in a region of 300 SNP for the different datasets.
+</caption>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+<p><img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/marker_density.png" width="60%" style="display: block; margin: auto;" /></p>
+
+<div class="figure" style="text-align: center"><span id="fig:ggheat"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/ggheat.png" alt="Comparison of linkage disequilibrium level among SNP for 3 different types of dataset: WTCCC, simulated and ankylosing spondylitis datasets. LD computation is based on \(R^2\) between SNP." width="90%" />
+<p class="caption">
+Figure 4.8: Comparison of linkage disequilibrium level among SNP for 3 different types of dataset: WTCCC, simulated and ankylosing spondylitis datasets. LD computation is based on <span class="math inline">\(R^2\)</span> between SNP.
+</p>
+</div>
+</div>
+<div id="gwas-analysis-on-as-and-wtccc-datasets" class="section level4">
+<h4><span class="header-section-number">4.4.4.2</span> GWAS analysis on AS and WTCCC datasets</h4>
+<p>To evaluate the ability of our procedure to discover new associations
+between SNP and ankylosing spondylitis, we compare our procedure with
+the univariate approach (SMA) and SKAT model with our group definition
+and arbitrary group definition (20 SNP). For SASA, we perform multiple
+hypotheses testing on the aggregated-SNP predictors in order to unravel
+significant associations with the phenotype.
+Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:manhattanspondy">4.9</a> presents the results of the association
+analysis. For each method the logarithm of the <span class="math inline">\(p\)</span>-value of the
+different predictors is plotted along their position on the genome.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:manhattanspondy"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/manhattan_spondy.png" alt="Manhattan plots showing results of GWAS analysis on ankylosing spondylitis data. For each Manhattan plot, the Benjamini-Hochberg (BH) threshold is represented by the blue line and the Bonferroni threshold by the red line. According to the BH threshold, there are: (A) 64 significantly associated aggregated-SNP; (B) 602 significantly associated single SNP; (C) 80 significantly associated groups of SNP and (D) 138 significantly associated groups of SNP." width="100%" />
+<p class="caption">
+Figure 4.9: Manhattan plots showing results of GWAS analysis on ankylosing spondylitis data. For each Manhattan plot, the Benjamini-Hochberg (BH) threshold is represented by the blue line and the Bonferroni threshold by the red line. According to the BH threshold, there are: (A) 64 significantly associated aggregated-SNP; (B) 602 significantly associated single SNP; (C) 80 significantly associated groups of SNP and (D) 138 significantly associated groups of SNP.
+</p>
+</div>
+<p>Either method highlight a region on chromosome 6 strongly associated
+with the phenotype. This region corresponds to the Major
+Histocompatibility Complex (MHC), and Human Leukocyte Antigen (HLA)
+class I molecules HLA B27 belonging to this region have been identified
+as a genetic risk factor associated with ankylosing spondylitis <span class="citation">(<span class="citeproc-not-found" data-reference-id="woodrow_HLA_1978"><strong>???</strong></span>)</span>. The approach SASA succeeds in detecting this risk
+locus with a good precision, 64 aggregated-SNP variables are
+significantly associated with the phenotype compared to 602
+significantly associated SNP with the standard SMA.</p>
+<p>For the analysis of the WTCCC datasets, we represent the results, in
+Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:qqplotWTCCC">4.10</a>, by plotting the expected <span class="math inline">\(p\)</span>-value against
+the observed <span class="math inline">\(p\)</span>-value. We perform the analysis using the approach SASA
+only.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:qqplotWTCCC"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/qqplot_WTCCC.png" alt="Q-Q plots of group-based genome-wide analysis on WTCCC data using the SASA approach. For each Manhattan plot, the Benjamini-Hochberg (BH) threshold is represented by the green dotted line and the Bonferroni threshold by the red dashed line. (A) Bipolar disorder - 13 significant clusters of SNP; (B) Coronary artery disease - 4 significant clusters of SNP; (C) Inflammatory bowel disease - 356 significant clusters of SNP ; (D) Hypertension - 47 significant clusters of SNP ; (E) Rheumatoid arthritis - 202 significant clusters of SNP ; (F) Type I diabetes - 358 significant clusters of SNP ; (G) Type II diabetes - 28 significant clusters of SNP." width="100%" />
+<p class="caption">
+Figure 4.10: Q-Q plots of group-based genome-wide analysis on WTCCC data using the SASA approach. For each Manhattan plot, the Benjamini-Hochberg (BH) threshold is represented by the green dotted line and the Bonferroni threshold by the red dashed line. (A) Bipolar disorder - 13 significant clusters of SNP; (B) Coronary artery disease - 4 significant clusters of SNP; (C) Inflammatory bowel disease - 356 significant clusters of SNP ; (D) Hypertension - 47 significant clusters of SNP ; (E) Rheumatoid arthritis - 202 significant clusters of SNP ; (F) Type I diabetes - 358 significant clusters of SNP ; (G) Type II diabetes - 28 significant clusters of SNP.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="leosgam" class="section level2">
+<h2><span class="header-section-number">4.5</span> Generalized additive models in GWAS</h2>
+<p>So far, we have modelled the phenotype as a linear function of the
+predictors using the logistic linear regression framework but we could
+also be interested to put forward non-linear relationships. One way to
+achieve this would be to use smoothing splines and generalized additive
+models (Section <a href="statistical-context.html#smoothing">2.4.4</a> and <a href="statistical-context.html#gam">2.4.5</a>). Implementation of
+such methods in classical GWAS is not straightforward because the
+predictors are ordinal variables which take at most three different
+values ($ 0,1,2 $ with additive coding), making the use
+of smoothing splines irrelevant. However, in our context where we
+average the values of the SNP in each group, the use of smoothing
+splines becomes appropriate and may lead to the identification of
+non-linear otherwise undetectable with classical linear regression
+framework. We can nevertheless qualify this statement by mentioning that
+the SKAT model may also be able to identify non-linear relationships
+with an appropriate choice of kernel function, e.g. the weighted
+quadratic kernel.</p>
+<p>We chose to focus on smoothing splines rather than other functions
+because they are, in our opinion, more easily interpretable. More
+specifically we seek at first to investigate what benefit we could take
+from replacing the ridge regression model in Algorithm 4 by the high-dimensional additive models (HGAM)
+described in Section <a href="statistical-context.html#hgam">2.4.6</a> to estimate the optimal number of
+groups. Secondly, we would like to highlight non-linear behaviour
+between groups of SNP and the phenotype by fitting cubic smoothing
+splines on each of the <em>aggregated</em>-SNP predictors constructed at best
+level in the hierarchy.</p>
+<div id="comparison-of-predictive-power" class="section level3">
+<h3><span class="header-section-number">4.5.1</span> Comparison of predictive power</h3>
+<p>To evaluate the contribution of generalized additive models in our
+methodology, we compare the results in term of predictive power of four
+different regression model used to estimate an optimal number of
+clusters for the ankylosing spondylitis dataset. Specifically, we
+compare the AUC-ROC curves obtained from Algorithm 4
+when using respectively lasso, group-lasso, HGAM and ridge regression as
+the learning method. The results are presented in Figure
+<a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:AUCgam">4.11</a>. Note that for the group-lasso, the algorithm was
+applied at the single-SNP level rather than the <em>aggregated</em>-SNP.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:AUCgam"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/AUCROC_gam.png" alt="AUC-ROC plot illustrating the predictive power of four statistical learning approaches for several levels of a hierarchical clustering applied on the ankylosing spondylitis dataset." width="90%" />
+<p class="caption">
+Figure 4.11: AUC-ROC plot illustrating the predictive power of four statistical learning approaches for several levels of a hierarchical clustering applied on the ankylosing spondylitis dataset.
+</p>
+</div>
+<p>We observe a similar pattern between the ridge regression curve and the
+HGAM curve, with about the same optimal number of clusters identified.
+The use of cubic smoothing splines in the model greatly increase the
+predictive power compare to the others regression model. The group-lasso
+regression has a good predictive performance but is outperform by HGAM
+when we fit the model on the aggregated-SNP predictors at the best
+cut-level.</p>
+</div>
+<div id="results-of-univariate-smoothing-splines-on-aggregated-snp" class="section level3">
+<h3><span class="header-section-number">4.5.2</span> Results of univariate smoothing splines on aggregated-SNP</h3>
+<div id="manhattan-plot" class="section level4">
+<h4><span class="header-section-number">4.5.2.1</span> Manhattan plot</h4>
+<p>The best cut-level identified using high-dimensional additive model is
+set to 2750 aggregated-SNP. Firstly, to each of these variables, a
+univariate additive model using cubic smoothing splines with knots at
+each unique value is fitted. Secondly, we calculate <em>p</em>-value for each
+smooth as described in Section <a href="statistical-context.html#pvalGAM">2.6.4</a>. The results are shown
+in Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:manhattangam">4.12</a>, where 23 significant aggregated-SNP
+have been identified.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:manhattangam"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/manhattan_gam.png" alt="Manhattan plot of p-value calculated for 2750 aggregated-SNP using cubic smoothing splines." width="90%" />
+<p class="caption">
+Figure 4.12: Manhattan plot of <em>p</em>-value calculated for 2750 aggregated-SNP using cubic smoothing splines.
+</p>
+</div>
+</div>
+<div id="fitted-values-of-the-most-significant-aggregated-snp" class="section level4">
+<h4><span class="header-section-number">4.5.2.2</span> Fitted values of the most significant aggregated-SNP</h4>
+<p>In this section, the plots in Figure <a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#fig:fittedgamspondy">4.13</a>
+represent the fitted value of the 23 most significant aggregated-SNP
+variables previously identified. These aggregated-SNP are almost all
+located on the same region, on chromosome 6, region having already been
+identified as genetic risk factor for the disease (see Section
+<a href="learning-the-optimal-in-gwas-through-hierarchical-snp-aggregation.html#realdata">4.4.4</a>. We only observe a new signal on chromosome 18
+which could be interesting to investigate.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:fittedgamspondy"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/fitted_gam_spondy.png" alt="Representation of the smooth fits for the 23 most significant aggregated-SNP using cubic smoothing splines." width="90%" />
+<p class="caption">
+Figure 4.13: Representation of the smooth fits for the 23 most significant <em>aggregated</em>-SNP using cubic smoothing splines.
+</p>
+</div>
+<p>We observe that the significant regions identified on chromosome 6 have
+a non-linear behaviour. However, since these regions have also been
+identified with a classical linear regression approach, we cannot
+conclude that we have detected these regions thanks to the smoothing
+splines. Whether or not there is a non-linear behaviour, this region on
+chromosome 6 is always identified as associated with the disease.
+However, we could have thought that the new signal on chromosome 18
+could be due to the non-linear nature of the association with the
+phenotype, but it is not the case. Indeed, if we look at the plot of the
+fitted value for this cluster, we can see that it is a straight line,
+leading to the conclusion that this signal might be a false positive.</p>
+</div>
+</div>
+</div>
+<div id="discussions" class="section level2">
+<h2><span class="header-section-number">4.6</span> Discussion</h2>
+<p>Overall, accounting for the linkage disequilibrium structure of the
+genome and aggregating highly-correlated SNP is seen to be a powerful
+alternative to standard marker analysis in the context of GWAS. In terms
+of risk prediction, our algorithm proves to be very effective at
+classifying individuals given their genotype, while in terms of the
+identification of loci, it shows its ability to identify genomic regions
+associated with a disease with a higher precision than standard methods.</p>
+<p>It is also worth mentioning that our algorithm can also accommodate
+imputed variables as imputation in GWAS uses the linkage disequilibrium
+between variables to improve the coverage of variants. Our method being
+based on LD to define groups of common variants, we expect the group
+structure not to be impacted by imputation.</p>
+<p>In this work we propose a four-step method explicitly designed to
+utilize the linkage disequilibrium in GWAS data. Our method combines, on
+the one hand, unsupervised learning methods that cluster correlated-SNP,
+and on the other hand, supervised learning techniques that identify the
+optimal number of clusters and reduce the dimension of the predictor
+matrix. We evaluated the method on numerical simulations and real
+datasets and compared the results with standard single-marker analysis
+and group-based approaches (SKAT<em>tree</em> and SKAT<em>notree</em>). We remarked
+that the combination of our aggregating function with a ridge regression
+model leads to a major improvement in terms of predictive power when the
+linkage disequilibrium structure is strong enough, hence suggesting the
+existence of multivariate effects due to the combination of several SNP.
+These results remained consistent across two applications involving
+several binary traits (WTCCC and ankylosing spondylitis datasets).</p>
+<p>In terms of the identification of associated loci in different
+simulation scenarios, our method demonstrates its ability to retrieve
+true causal SNP and/or clusters of SNP with substantially higher
+precision coupled with a good power. On real GWAS data, our method has
+been able to recover a genomic region associated with ankylosing
+spondylitis (HLA region on chromosome 6) with a higher precision than
+standard single-marker analysis.</p>
+<p>By making use of the continuous nature of aggregated-SNP variables (in
+contrast to the ordinal nature of single SNP variables), we were able to
+further improve our method using generalized additive models and natural
+cubic splines. In terms of predictive power, the implementation of such
+models to the analysis of the AS data proved to be more efficient
+compared to linear regression models such as group-lasso, lasso and
+ridge regression. As for the detection of non-linear behaviour, the
+results obtained on the AS dataset show interesting non-linear patterns
+between some aggregated-SNP in the specific HLA region of chromosome 6
+and the phenotype. However, the use of cubic splines has not been able
+to identify chromosome regions different from those previously
+identified with a classical linear regression model. It could thus be
+interesting to analyse other datasets with this methodology to see if we
+are able to detect any relevant associations ever identified before.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-meinshausen_hierarchical_2008">
+<p>Meinshausen, N. 2008. “Hierarchical Testing of Variable Importance.” <em>Biometrika</em> 95 (2): 265–78.</p>
+</div>
+<div id="ref-Holm_Bonferroni">
+<p>Holm, Sture. 1979. “A Simple Sequentially Rejective Multiple Test Procedure.” <em>Scandinavian Journal of Statistics</em> 6 (2): 65–70.</p>
+</div>
+<div id="ref-listgarten_powerful_2013">
+<p>Listgarten, J., C. Lippert, E. Y. Kang, J. Xiang, C. M. Kadie, and D. Heckerman. 2013. “A Powerful and Efficient Set Test for Genetic Markers That Handles Confounders.” <em>Bioinformatics</em> 29 (12): 1526–33.</p>
+</div>
+<div id="ref-yoo_multiple_2016">
+<p>Yoo, Yun Joo, Lei Sun, Julia G. Poirier, Andrew D. Paterson, and Shelley B. Bull. 2016. “Multiple Linear Combination (MLC) Regression Tests for Common Variants Adapted to Linkage Disequilibrium Structure: Yoo et Al.” <em>Genetic Epidemiology</em> 41. <a href="https://doi.org/10.1002/gepi.22024">https://doi.org/10.1002/gepi.22024</a>.</p>
+</div>
+<div id="ref-pare_contribution_2015">
+<p>ParÃ©, Guillaume, Senay Asma, and Wei Q. Deng. 2015. “Contribution of Large Region Joint Associations to Complex Traits Genetics.” <em>PLOS Genetics</em> 11. <a href="https://doi.org/10.1371/journal.pgen.1005103">https://doi.org/10.1371/journal.pgen.1005103</a>.</p>
+</div>
+<div id="ref-kwak_adaptive_2016">
+<p>Kwak, Il-Youp, and Wei Pan. 2016. “Adaptive Gene- and Pathway-Trait Association Testing with GWAS Summary Statistics.” <em>Bioinformatics</em> 32: 1178–84. <a href="https://doi.org/10.1093/bioinformatics/btv719">https://doi.org/10.1093/bioinformatics/btv719</a>.</p>
+</div>
+<div id="ref-petersen_assessing_2013">
+<p>Petersen, Ashley, Carolina Alvarez, Scott DeClaire, and Nathan L. Tintle. 2013. “Assessing Methods for Assigning SNPs to Genes in Gene-Based Tests of Association Using Common Variants.” <em>PLOS ONE</em> 8. <a href="https://doi.org/10.1371/journal.pone.0062161">https://doi.org/10.1371/journal.pone.0062161</a>.</p>
+</div>
+<div id="ref-lee_rare-variant_2014">
+<p>Lee, S., G. R. Abecasis, M. Boehnke, and X. Lin. 2014. “Rare-Variant Association Analysis: Study Designs and Statistical Tests.” <em>American Journal of Human Genetics</em> 95 (1): 5–23.</p>
+</div>
+<div id="ref-dehman_performance_2015">
+<p>Dehman, A., C. Ambroise, and P. Neuvial. 2015. “Performance of a Blockwise Approach in Variable Selection Using Linkage Disequilibrium Information.” <em>BMC Bioinformatics</em> 16: 148.</p>
+</div>
+<div id="ref-grimm1987coniss">
+<p>Grimm, Eric C. 1987. “CONISS: A Fortran 77 Program for Stratigraphically Constrained Cluster Analysis by the Method of Incremental Sum of Squares.” <em>Computers &amp; Geosciences</em> 13 (1): 13–35.</p>
+</div>
+<div id="ref-dehman2015spatial">
+<p>Dehman, Alia. 2015. “Spatial Clustering of Linkage Disequilibrium Blocks for Genome-Wide Association Studies.” PhD thesis, Université d’Evry Val d’Essonne; Université Paris-Saclay; Laboratoire de Mathématiques et Modélisation d’Evry.</p>
+</div>
+<div id="ref-williams1964algorithm">
+<p>Williams, J. W. J. 1964. “Algorithm 232: Heapsort.” <em>Communications of the ACM</em> 7 (6): 347â348.</p>
+</div>
+<div id="ref-bousquet_stability_2002">
+<p>Bousquet, O., and A. Elisseeff. 2002. “Stability and Generalization.” <em>Journal of Machine Learning Research</em> 2: 499–526.</p>
+</div>
+<div id="ref-su_hapgen2_2011">
+<p>Su, Z., J. Marchini, and P. Donnelly. 2011. “HAPGEN2: Simulation of Multiple Disease Snps.” <em>Bioinformatics</em> 27 (16): 2304.</p>
+</div>
+<div id="ref-Diaz_simple_2012">
+<p>Diaz-Quijano, Fredi A. 2012. “A Simple Method for Estimating Relative Risk Using Logistic Regression".” <em>BMC Medical Research Methodology</em> 1 (1): 14.</p>
+</div>
+<div id="ref-benjamini_controlling_1995">
+<p>Benjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” <em>Journal of the Royal Statistical Society: Series B</em> 57 (1): 289–300.</p>
+</div>
+<div id="ref-brzyski_controlling_2017">
+<p>Brzyski, Damian, Christine B. Peterson, Piotr Sobczyk, Emmanuel J. CandÃšs, Malgorzata Bogdan, and Chiara Sabatti. 2017. “Controlling the Rate of GWAS False Discoveries.” <em>Genetics</em> 205 (January). <a href="https://doi.org/10.1534/genetics.116.193987">https://doi.org/10.1534/genetics.116.193987</a>.</p>
+</div>
+<div id="ref-yi2015penalized">
+<p>Yi, Hui, Patrick Breheny, Netsanet Imam, Yongmei Liu, and Ina Hoeschele. 2015. “Penalized Multimarker Vs. Single-Marker Regression Methods for Genome-Wide Association Studies of Quantitative Traits.” <em>Genetics</em> 199 (1): 205–22.</p>
+</div>
+<div id="ref-burton_genome-wide_2007">
+<p>WTCCC. 2007. “Genome-Wide Association Study of 14,000 Cases of Seven Common Diseases and 3,000 Shared Controls.” <em>Nature</em> 447 (7145): 661–78.</p>
+</div>
+<div id="ref-IGAS_2013_identification">
+<p>International Genetics of Ankylosing Spondylitis Consortium (IGAS), Adrian Cortes, Johanna Hadler, Jenny P. Pointon, Philip C. Robinson, and others. 2013. “Identification of Multiple Risk Variants for Ankylosing Spondylitis Through High-Density Genotyping of Immune-Related Loci.” <em>Nature Genetics</em> 45 (7): 730–38.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="genome-wide-association-studies.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

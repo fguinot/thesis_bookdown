@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>4.3 Numerical simulations | Statistical learning for omics association and interactions studies based on blockwise feature compression</title>
+  <meta name="description" content="PdD thesis">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="4.3 Numerical simulations | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="PdD thesis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4.3 Numerical simulations | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  
+  <meta name="twitter:description" content="PdD thesis" />
+  
+
+<meta name="author" content="Florent Guinot">
+
+
+<meta name="date" content="2019-01-11">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="leosmethod.html">
+<link rel="next" href="results.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>General introduction</a><ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#background"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#problematic"><i class="fa fa-check"></i>Problematic</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#objectives"><i class="fa fa-check"></i>Objectives</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contributions"><i class="fa fa-check"></i>Contributions</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contents-of-the-manuscript"><i class="fa fa-check"></i>Contents of the manuscript</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
+<li class="chapter" data-level="1.1" data-path="genome.html"><a href="genome.html"><i class="fa fa-check"></i><b>1.1</b> Genome description</a></li>
+<li class="chapter" data-level="1.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html"><i class="fa fa-check"></i><b>1.2</b> Genome sequencing</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="genome-sequencing.html"><a href="genome-sequencing.html#DNAseq"><i class="fa fa-check"></i><b>1.2.1</b> DNA sequencing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html#sequence-assembly"><i class="fa fa-check"></i><b>1.2.2</b> Sequence assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html"><i class="fa fa-check"></i><b>1.3</b> DNA polymorphism</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#restriction-fragment-length-polymorphisms-rflp"><i class="fa fa-check"></i><b>1.3.1</b> Restriction Fragment Length Polymorphisms (RFLP)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#simple-sequence-length-polymorphisms-sslp"><i class="fa fa-check"></i><b>1.3.2</b> Simple Sequence Length Polymorphisms (SSLP)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#single-nucleotide-polymorphisms-snp"><i class="fa fa-check"></i><b>1.3.3</b> Single Nucleotide Polymorphisms (SNP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="linkage.html"><a href="linkage.html"><i class="fa fa-check"></i><b>1.4</b> Linkage and partial linkage for genetic mapping</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html"><i class="fa fa-check"></i><b>1.5</b> Basic concepts in population genetics</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#HWE"><i class="fa fa-check"></i><b>1.5.1</b> Hardy-Weinberg equilibrium in large population</a></li>
+<li class="chapter" data-level="1.5.2" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#genetic-drift-in-small-population"><i class="fa fa-check"></i><b>1.5.2</b> Genetic drift in small population</a></li>
+<li class="chapter" data-level="1.5.3" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#concept-of-heritability"><i class="fa fa-check"></i><b>1.5.3</b> Concept of heritability</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="LD.html"><a href="LD.html"><i class="fa fa-check"></i><b>1.6</b> Linkage disequilibrium</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="LD.html"><a href="LD.html#definition"><i class="fa fa-check"></i><b>1.6.1</b> Definition</a></li>
+<li class="chapter" data-level="1.6.2" data-path="LD.html"><a href="LD.html#measure-of-ld"><i class="fa fa-check"></i><b>1.6.2</b> Measure of LD</a></li>
+<li class="chapter" data-level="1.6.3" data-path="LD.html"><a href="LD.html#estimation-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.3</b> Estimation of linkage disequilibrium</a></li>
+<li class="chapter" data-level="1.6.4" data-path="LD.html"><a href="LD.html#origins-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.4</b> Origins of linkage disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="haplo.html"><a href="haplo.html"><i class="fa fa-check"></i><b>1.7</b> Structure of haplotype blocks in the human genome</a><ul>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#definition-of-haplotype-blocks"><i class="fa fa-check"></i>Definition of haplotype blocks</a></li>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#patterns-in-human-genome"><i class="fa fa-check"></i>Patterns in human genome</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-context.html"><a href="statistical-context.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
+<li class="chapter" data-level="2.1" data-path="notations.html"><a href="notations.html"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
+<li class="chapter" data-level="2.2" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html"><i class="fa fa-check"></i><b>2.2</b> Concepts of statistical learning</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>2.2.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="parametric.html"><a href="parametric.html"><i class="fa fa-check"></i><b>2.3</b> Parametric methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="parametric.html"><a href="parametric.html#linmod"><i class="fa fa-check"></i><b>2.3.1</b> Linear models</a></li>
+<li class="chapter" data-level="2.3.2" data-path="parametric.html"><a href="parametric.html#penalized"><i class="fa fa-check"></i><b>2.3.2</b> Penalized linear regression</a></li>
+<li class="chapter" data-level="2.3.3" data-path="parametric.html"><a href="parametric.html#glm"><i class="fa fa-check"></i><b>2.3.3</b> Generalized linear models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="non-parametric.html"><a href="non-parametric.html"><i class="fa fa-check"></i><b>2.4</b> Splines and generalized additive models: Moving beyond linearit</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="non-parametric.html"><a href="non-parametric.html#introduction"><i class="fa fa-check"></i><b>2.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.4.2" data-path="non-parametric.html"><a href="non-parametric.html#splines"><i class="fa fa-check"></i><b>2.4.2</b> Regression splines</a></li>
+<li class="chapter" data-level="2.4.3" data-path="non-parametric.html"><a href="non-parametric.html#mathrmb-splines"><i class="fa fa-check"></i><b>2.4.3</b> <span class="math inline">\(\mathrm{B}\)</span>-splines</a></li>
+<li class="chapter" data-level="2.4.4" data-path="non-parametric.html"><a href="non-parametric.html#smoothing"><i class="fa fa-check"></i><b>2.4.4</b> Cubic smoothing splines</a></li>
+<li class="chapter" data-level="2.4.5" data-path="non-parametric.html"><a href="non-parametric.html#gam"><i class="fa fa-check"></i><b>2.4.5</b> Generalized additive models (GAM)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="non-parametric.html"><a href="non-parametric.html#hgam"><i class="fa fa-check"></i><b>2.4.6</b> High-dimensional generalized additive models (HGAM)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html"><i class="fa fa-check"></i><b>2.5</b> Combining cluster analysis and variable selection</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#CAH"><i class="fa fa-check"></i><b>2.5.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="2.5.2" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#HCAR"><i class="fa fa-check"></i><b>2.5.2</b> Hierarchical Clustering and Averaging Regression</a></li>
+<li class="chapter" data-level="2.5.3" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#MLGL"><i class="fa fa-check"></i><b>2.5.3</b> Multi-Layer Group-Lasso (MLGL)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>2.6</b> Statistical testing of significance</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="hypothesis.html"><a href="hypothesis.html#introduction-1"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.6.2" data-path="hypothesis.html"><a href="hypothesis.html#chi2"><i class="fa fa-check"></i><b>2.6.2</b> <span class="math inline">\(\chi^2\)</span> test</a></li>
+<li class="chapter" data-level="2.6.3" data-path="hypothesis.html"><a href="hypothesis.html#LRT"><i class="fa fa-check"></i><b>2.6.3</b> Likelihood ratio test</a></li>
+<li class="chapter" data-level="2.6.4" data-path="hypothesis.html"><a href="hypothesis.html#pvalGAM"><i class="fa fa-check"></i><b>2.6.4</b> Calculation of <em>p</em>-values in GAM</a></li>
+<li class="chapter" data-level="2.6.5" data-path="hypothesis.html"><a href="hypothesis.html#multiple"><i class="fa fa-check"></i><b>2.6.5</b> Multiple testing comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html"><i class="fa fa-check"></i><b>3</b> Genome-Wide Association Studies</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="genoquality.html"><a href="genoquality.html"><i class="fa fa-check"></i><b>3.2</b> Genotype quality control</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="genoquality.html"><a href="genoquality.html#deviation-from-hwe."><i class="fa fa-check"></i><b>3.2.1</b> Deviation from HWE.</a></li>
+<li class="chapter" data-level="3.2.2" data-path="genoquality.html"><a href="genoquality.html#missing-data."><i class="fa fa-check"></i><b>3.2.2</b> Missing data.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="genoquality.html"><a href="genoquality.html#distribution-of-test-statistics."><i class="fa fa-check"></i><b>3.2.3</b> Distribution of test statistics.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="OR.html"><a href="OR.html"><i class="fa fa-check"></i><b>3.3</b> Disease penetrance and odds ratio</a></li>
+<li class="chapter" data-level="3.4" data-path="SMA.html"><a href="SMA.html"><i class="fa fa-check"></i><b>3.4</b> Single Marker Analysis</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="SMA.html"><a href="SMA.html#pearsons-chi2-statistic"><i class="fa fa-check"></i><b>3.4.1</b> Pearson’s <span class="math inline">\(\chi^2\)</span> statistic</a></li>
+<li class="chapter" data-level="3.4.2" data-path="SMA.html"><a href="SMA.html#cochran-armitage-trend-test"><i class="fa fa-check"></i><b>3.4.2</b> Cochran-Armitage trend test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="SMA.html"><a href="SMA.html#logitGWAS"><i class="fa fa-check"></i><b>3.4.3</b> Logistic regression and likelihood ratio test</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="GWASlimits.html"><a href="GWASlimits.html"><i class="fa fa-check"></i><b>3.5</b> Limitations</a></li>
+<li class="chapter" data-level="3.6" data-path="popstructure.html"><a href="popstructure.html"><i class="fa fa-check"></i><b>3.6</b> Population structure</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="popstructure.html"><a href="popstructure.html#genomic-control"><i class="fa fa-check"></i><b>3.6.1</b> Genomic control</a></li>
+<li class="chapter" data-level="3.6.2" data-path="popstructure.html"><a href="popstructure.html#structured-association"><i class="fa fa-check"></i><b>3.6.2</b> Structured association</a></li>
+<li class="chapter" data-level="3.6.3" data-path="popstructure.html"><a href="popstructure.html#PCC"><i class="fa fa-check"></i><b>3.6.3</b> Principle components correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="multiloc.html"><a href="multiloc.html"><i class="fa fa-check"></i><b>3.7</b> Multi-locus analysis</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="multiloc.html"><a href="multiloc.html#haplotype-based-approaches"><i class="fa fa-check"></i><b>3.7.1</b> Haplotype-based approaches</a></li>
+<li class="chapter" data-level="3.7.2" data-path="multiloc.html"><a href="multiloc.html#rare-variant"><i class="fa fa-check"></i><b>3.7.2</b> Rare-variant association analysis</a></li>
+<li class="chapter" data-level="3.7.3" data-path="multiloc.html"><a href="multiloc.html#adjclust"><i class="fa fa-check"></i><b>3.7.3</b> LD based approach to variable selection in GWAS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="LEOS.html"><a href="LEOS.html"><i class="fa fa-check"></i><b>4</b> Learning the Optimal in GWAS through hierarchical SNP aggregation</a><ul>
+<li class="chapter" data-level="4.1" data-path="introleos.html"><a href="introleos.html"><i class="fa fa-check"></i><b>4.1</b> Related work</a></li>
+<li class="chapter" data-level="4.2" data-path="leosmethod.html"><a href="leosmethod.html"><i class="fa fa-check"></i><b>4.2</b> Method</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="leosmethod.html"><a href="leosmethod.html#CHAC"><i class="fa fa-check"></i><b>4.2.1</b> Step 1. Constrained-HAC</a></li>
+<li class="chapter" data-level="4.2.2" data-path="leosmethod.html"><a href="leosmethod.html#Dstar"><i class="fa fa-check"></i><b>4.2.2</b> Step 2. Dimension reduction function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="leosmethod.html"><a href="leosmethod.html#cutree"><i class="fa fa-check"></i><b>4.2.3</b> Step 3. Optimal number of groups estimation</a></li>
+<li class="chapter" data-level="4.2.4" data-path="leosmethod.html"><a href="leosmethod.html#step4"><i class="fa fa-check"></i><b>4.2.4</b> Step 4. Multiple testing on aggregated-SNP variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="numsim.html"><a href="numsim.html"><i class="fa fa-check"></i><b>4.3</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="numsim.html"><a href="numsim.html#simupheno"><i class="fa fa-check"></i><b>4.3.1</b> Simulation of the case-control phenotype</a></li>
+<li class="chapter" data-level="4.3.2" data-path="numsim.html"><a href="numsim.html#perfeval"><i class="fa fa-check"></i><b>4.3.2</b> Performance evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="results.html"><a href="results.html#results-and-discussions-of-the-numerical-simulations"><i class="fa fa-check"></i><b>4.4.1</b> Results and discussions of the numerical simulations</a></li>
+<li class="chapter" data-level="4.4.2" data-path="results.html"><a href="results.html#performance-results-for-simulated-data."><i class="fa fa-check"></i><b>4.4.2</b> Performance results for simulated data.</a></li>
+<li class="chapter" data-level="4.4.3" data-path="results.html"><a href="results.html#leosappli"><i class="fa fa-check"></i><b>4.4.3</b> Application in Wellcome Trust Case Control Consortium(WTCCC) and Ankylosing Spondylitis (AS) studies</a></li>
+<li class="chapter" data-level="4.4.4" data-path="results.html"><a href="results.html#realdata"><i class="fa fa-check"></i><b>4.4.4</b> Results in WTCCC and AS studies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="leosgam.html"><a href="leosgam.html"><i class="fa fa-check"></i><b>4.5</b> Generalized additive models in GWAS</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="leosgam.html"><a href="leosgam.html#comparison-of-predictive-power"><i class="fa fa-check"></i><b>4.5.1</b> Comparison of predictive power</a></li>
+<li class="chapter" data-level="4.5.2" data-path="leosgam.html"><a href="leosgam.html#results-of-univariate-smoothing-splines-on-aggregated-snp"><i class="fa fa-check"></i><b>4.5.2</b> Results of univariate smoothing splines on aggregated-SNP</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="discussions.html"><a href="discussions.html"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><a href="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><i class="fa fa-check"></i><b>5</b> Selection of interaction effects in compressed multiple omics representation</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="introduction-3.html"><a href="introduction-3.html#background-1"><i class="fa fa-check"></i><b>5.1.1</b> Background</a></li>
+<li class="chapter" data-level="5.1.2" data-path="introduction-3.html"><a href="introduction-3.html#combining-genome-and-metagenome-analyses."><i class="fa fa-check"></i><b>5.1.2</b> Combining genome and metagenome analyses.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="introduction-3.html"><a href="introduction-3.html#taking-structures-into-account-in-association-studies."><i class="fa fa-check"></i><b>5.1.3</b> Taking structures into account in association studies.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="modelsicomore.html"><a href="modelsicomore.html"><i class="fa fa-check"></i><b>5.2</b> Learning with complementary datasets</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="modelsicomore.html"><a href="modelsicomore.html#setting-and-notations"><i class="fa fa-check"></i><b>5.2.1</b> Setting and notations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="modelsicomore.html"><a href="modelsicomore.html#interactions-in-linear-models"><i class="fa fa-check"></i><b>5.2.2</b> Interactions in linear models</a></li>
+<li class="chapter" data-level="5.2.3" data-path="modelsicomore.html"><a href="modelsicomore.html#compressdata"><i class="fa fa-check"></i><b>5.2.3</b> Compact model</a></li>
+<li class="chapter" data-level="5.2.4" data-path="modelsicomore.html"><a href="modelsicomore.html#recoverinteractions"><i class="fa fa-check"></i><b>5.2.4</b> Recovering relevant interactions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="implementation.html"><a href="implementation.html"><i class="fa fa-check"></i><b>5.3</b> Method</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="implementation.html"><a href="implementation.html#preprocess"><i class="fa fa-check"></i><b>5.3.1</b> Preprocessing of the data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="implementation.html"><a href="implementation.html#preprocessing-of-metagenomic-data"><i class="fa fa-check"></i><b>5.3.2</b> Preprocessing of metagenomic data</a></li>
+<li class="chapter" data-level="5.3.3" data-path="implementation.html"><a href="implementation.html#structure"><i class="fa fa-check"></i><b>5.3.3</b> Structuring the data</a></li>
+<li class="chapter" data-level="5.3.4" data-path="implementation.html"><a href="implementation.html#using-the-structure-efficiently"><i class="fa fa-check"></i><b>5.3.4</b> Using the structure efficiently</a></li>
+<li class="chapter" data-level="5.3.5" data-path="implementation.html"><a href="implementation.html#identification-of-relevant-supervariables"><i class="fa fa-check"></i><b>5.3.5</b> Identification of relevant supervariables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="XPsimu.html"><a href="XPsimu.html"><i class="fa fa-check"></i><b>5.4</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="XPsimu.html"><a href="XPsimu.html#data-generation"><i class="fa fa-check"></i><b>5.4.1</b> Data generation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="XPsimu.html"><a href="XPsimu.html#generation-of-the-phenotype"><i class="fa fa-check"></i><b>5.4.2</b> Generation of the phenotype</a></li>
+<li class="chapter" data-level="5.4.3" data-path="XPsimu.html"><a href="XPsimu.html#comparison-of-methods"><i class="fa fa-check"></i><b>5.4.3</b> Comparison of methods</a></li>
+<li class="chapter" data-level="5.4.4" data-path="XPsimu.html"><a href="XPsimu.html#evaluation-metrics"><i class="fa fa-check"></i><b>5.4.4</b> Evaluation metrics</a></li>
+<li class="chapter" data-level="5.4.5" data-path="XPsimu.html"><a href="XPsimu.html#performance-results"><i class="fa fa-check"></i><b>5.4.5</b> Performance results</a></li>
+<li class="chapter" data-level="5.4.6" data-path="XPsimu.html"><a href="XPsimu.html#computational-time"><i class="fa fa-check"></i><b>5.4.6</b> Computational time</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="XPINRA.html"><a href="XPINRA.html"><i class="fa fa-check"></i><b>5.5</b> Application on real data: rhizosphere of <em>Medicago truncatula</em></a><ul>
+<li class="chapter" data-level="5.5.1" data-path="XPINRA.html"><a href="XPINRA.html#material"><i class="fa fa-check"></i><b>5.5.1</b> Material</a></li>
+<li class="chapter" data-level="5.5.2" data-path="XPINRA.html"><a href="XPINRA.html#analysis"><i class="fa fa-check"></i><b>5.5.2</b> Analysis</a></li>
+<li class="chapter" data-level="5.5.3" data-path="XPINRA.html"><a href="XPINRA.html#results-1"><i class="fa fa-check"></i><b>5.5.3</b> Results</a></li>
+<li class="chapter" data-level="5.5.4" data-path="XPINRA.html"><a href="XPINRA.html#results-on-root-shoot-ratio"><i class="fa fa-check"></i><b>5.5.4</b> Results on Root Shoot Ratio</a></li>
+<li class="chapter" data-level="5.5.5" data-path="XPINRA.html"><a href="XPINRA.html#results-on-specific-nitrogen-uptake"><i class="fa fa-check"></i><b>5.5.5</b> Results on Specific Nitrogen Uptake</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="discussions-1.html"><a href="discussions-1.html"><i class="fa fa-check"></i><b>5.6</b> Discussions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i>Conclusions</a><ul>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-leos-algorithm"><i class="fa fa-check"></i>Discussions on LEOS algorithm</a></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-sicomore-algorithm"><i class="fa fa-check"></i>Discussions on SICOMORE algorithm</a></li>
+<li class="chapter" data-level="" data-path="perspectives.html"><a href="perspectives.html"><i class="fa fa-check"></i>Perspectives</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical learning for omics association and interactions studies based on blockwise feature compression</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="numsim" class="section level2">
+<h2><span class="header-section-number">4.3</span> Numerical simulations</h2>
+<p>The performance evaluation described below was designed to assess the
+ability of our method to retrieve causal SNP or causal clusters of SNP
+under different simulation scenarios. For each scenario, we use a matrix
+<span class="math inline">\(\mathbf{Z}_{\text{HAPGEN}}\)</span> of SNP generated by the software
+<span class="citation">(Su, Marchini, and Donnelly <a href="#ref-su_hapgen2_2011">2011</a>)</span> with a sample size of 1000 individuals. This software
+allows to simulate an entire chromosome conditionally on a reference set
+of population haplotypes (from HapMap3) and an estimate of the
+fine-scale recombination rate across the region, so that the simulated
+data share similar patterns with the reference data. We generate the
+chromosome 1 (103 457 SNP) using the haplotype structure of CEU
+population (Utah residents with Northern and Western European ancestry
+from the CEPH collection) as reference set. The software allows to
+generate a controls-only matrix of SNP (no disease allele). We filtered
+this matrix according to the minor allele frequency to only keep SNP
+with a MAF greater than <span class="math inline">\(5\%\)</span> thus reducing the size of
+<span class="math inline">\(\mathbf{Z}_{\text{HAPGEN}}\)</span> to 60 179 SNP.</p>
+<p>We generate a posteriori the phenotype using the logit model with a
+given set of causal SNP or cluster of SNP. The main difference between
+the different scenarios is to be found in the way that the case-control
+phenotype <span class="math inline">\(\mathbf{y}\)</span> is simulated.</p>
+<div id="simupheno" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Simulation of the case-control phenotype</h3>
+<p>For each scenario, we simulated a case-control phenotype <span class="math inline">\(\mathbf{y}\)</span> under a
+logistic regression model. The case-control phenotype is generated
+following a Bernoulli distribution function, following the conditional
+probability <span class="math inline">\(\mathbb{P}(\mathrm{Y}=1|\mathbf{H})\)</span> with
+<span class="math inline">\(\mathbf{H} \in \mathbb{R}^{n \times \ell}\)</span> a matrix constructed by sampling
+<span class="math inline">\(\ell\)</span> causal variables from <span class="math inline">\(\mathbf{Z}_{\text{HAPGEN}}\)</span>.</p>
+<p>The conditional probability is calculated using the logit model:
+<span class="math display">\[\mathbb{P}(\mathrm{Y}=1|\mathbf{H}) = \frac{\exp(\beta_0 +
+    \boldsymbol{\beta}^T \mathbf{H})} {1 + \exp(\beta_0 +
+    \boldsymbol{\beta}^T \mathbf{H})},\]</span>
+where <span class="math inline">\(\boldsymbol{\beta} = [\beta_1, \dots, \beta_\ell]\)</span> is
+the vector of coefficients corresponding to the <span class="math inline">\(\ell\)</span> predictors and
+<span class="math inline">\(\beta_0\)</span> is the intercept defined as
+<span class="math inline">\({ \log \left(\frac{\pi}{(1-\pi)}\right)}\)</span>, with <span class="math inline">\(\pi\)</span> the true
+prevalence of the disease in the population. The predictors are centered
+to have zero-mean before generating the vector of probability.</p>
+<p>One way to have an association between the response and the predictors
+strong enough to be detected is to set large <span class="math inline">\(\boldsymbol{\beta}\)</span> coefficients on
+the predictors. Indeed, there is a direct relationship between the odd
+ratio of a covariate and its corresponding coefficients in the logistic
+regression model given by <span class="math inline">\(OR_i = e^{(\boldsymbol\beta_i)}\)</span>
+<span class="citation">(Diaz-Quijano <a href="#ref-Diaz_simple_2012">2012</a>)</span>. In our simulations, the difficulty of the problem,
+i.e. the power to detect an association, is linked to the number of
+causal predictors used to generate <span class="math inline">\(\mathbf{y}\)</span> and the <span class="math inline">\(OR\)</span> set to each
+predictor.</p>
+<p>To simulate different scenarios, we considered the following parameters:</p>
+<ol style="list-style-type: decimal">
+<li><p>Nature of the causal predictors:</p>
+<ul>
+<li><p><strong>Clusters of SNP:</strong> For each replicate,
+<span class="math inline">\(\ell = \lbrace 1, 2, 3 \rbrace\)</span> genomic regions have been
+identified to be causal. These regions have been chosen among
+the matrix <span class="math inline">\(\mathbf{Z}_{\text{HAPGEN}}\)</span> to have different levels of LD
+among the SNP that compose them. The average correlation
+coefficient among the SNP in these regions varies from <span class="math inline">\(r^2=0.6\)</span>
+to <span class="math inline">\(r^2=0.85\)</span> and the size of the region varies from 20 SNP to
+60 SNP. Once identified, the causal regions were aggregated
+using the function described in Step <a href="leosmethod.html#Dstar">4.2.2</a> to construct
+a matrix <span class="math inline">\(\tilde{\mathbf{H}}\)</span> of aggregated-SNP predictors. This matrix
+was then used to generate the case-control phenotype following
+<span class="math inline">\(\mathbb{P}(\mathrm{Y}=1|\tilde{\mathbf{H}})\)</span>. We will refer to this scenario
+as the <em>SNPclus</em> scenario.</p></li>
+<li><p><strong>Single SNP:</strong> In this scenario the phenotype was simulated by
+directly sampling SNP from the same causal regions identified in
+the <em>SNPclus</em> scenario. For each replicate, we chose 10
+individuals SNP among each of these regions to construct a
+matrix <span class="math inline">\(\mathbf{H}\)</span> with <span class="math inline">\(\ell = \lbrace 10 ,20 ,30 \rbrace\)</span> single SNP
+predictors, depending on the number of causal regions . This
+matrix is then used to generate the case-control phenotype. The
+chosen SNP have a MAF varying from <span class="math inline">\(10 \%\)</span> to <span class="math inline">\(30\%\)</span>. We will
+refer to this scenario as the <em>singleSNP</em> scenario.</p></li>
+</ul></li>
+<li><p>Number of causal predictors <span class="math inline">\(\ell\)</span> and number of replicates:</p>
+<p>We performed <span class="math inline">\(5\)</span> replicates for each combination <span class="math inline">\(\ell \times 2\)</span>
+scenarios and we evaluate the average performance over these <span class="math inline">\(5\)</span>
+replicates. For each scenario we considered from 1 to 3 causal
+genomic regions, thus, for <em>SNPclus</em> scenario, we used up to 3
+causal <em>aggregated</em>-SNP predictors, and for the <em>singleSNP</em>
+scenario, up to <span class="math inline">\(10 \times 3 = 30\)</span> causal single-SNP predictors to
+generate the phenotype.</p></li>
+<li><p>Odds ratio (<span class="math inline">\(\beta\)</span> coefficients) of the causal predictors:</p>
+<p>For the <em>SNPclus</em> scenario we chose an equal OR of 2.7 for each
+causal aggregated predictor, corresponding to a <span class="math inline">\(\beta\)</span> coefficient
+equal to 1. For the <em>singleSNP</em> scenario we chose an equal OR of 1.1
+for each causal predictor, corresponding to a <span class="math inline">\(\beta\)</span> coefficient
+equal to <span class="math inline">\(0.1\)</span>. The rationale behind these coefficients arises from
+the hypothesis that the combined effect of several low-effect SNP on
+the phenotype is stronger than the effects of each individual SNP.</p></li>
+</ol>
+<p>As previously mentioned, we generated the phenotype using causal SNP
+simulated with the software. However, as commercial micro-arrays such as
+Affymetrix and Illumina arrays do not genotype the full sequence of the
+genome, some SNP are thereby unmapped and the marker density is in
+general lower than the HapMap marker density. That is why we chose, in
+our numerical simulation, to generate the phenotype with causal
+variables chosen from <span class="math inline">\(\mathbf{Z}_{\text{HAPGEN}}\)</span> and to assess the
+performance of the methods using only those SNP which are mapped on a
+standard Affymetrix micro-array (about 23 823 mapped SNP in our case).
+By doing so, some causal SNP are not mapped on the commercial SNP set
+and thus simulations are more similar to real genome-wide analysis
+conditions.</p>
+</div>
+<div id="perfeval" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Performance evaluation</h3>
+<div id="competitors" class="section level4">
+<h4><span class="header-section-number">4.3.2.1</span> Competitors</h4>
+<p>The objective of our method being to identify the optimal scale at which
+to perform association studies, we compared our proposal with several
+methods working at different genomic scales. The purpose is to assess
+the ability of each method to retrieve true causal genomic regions in
+the different simulation scenarios.</p>
+<p>For each scenario, four approaches have been considered:</p>
+<ul>
+<li><p>SKAT<em>tree</em>, a SKAT model, as described in Section
+(rare-variant), which use our group definition,</p></li>
+<li><p>SKAT<em>notree</em>, a SKAT model using an alternative group definition
+produced by successive chunks of 20 SNP,</p></li>
+<li><p>SMA, the classical Single Marker Analysis described in Section
+<a href="SMA.html#SMA">3.4</a>,</p></li>
+<li><p>SASA (Single Aggregated-SNP Analysis) a method close to SMA, where
+instead of testing the genotype-phenotype association using each
+single SNP, we are testing it using aggregated-SNP variables.</p></li>
+</ul>
+<p>We chose to consider two different group definitions for SKAT in order
+to evaluate the impact of the group structure on the association
+findings. The comparison with SMA allows to highlight the advantage of
+working at a group scale. We hypothesize that grouping low-effect SNP
+should have a better statistical power than testing the main effects at
+single-SNP level.</p>
+<p>For all methods, we compare the results using 2 types of multiple
+testing corrections: the methods of Holm-Bonferroni <span class="citation">(Holm <a href="#ref-Holm_Bonferroni">1979</a><a href="#ref-Holm_Bonferroni">b</a>)</span>
+and <span class="citation">(Benjamini and Hochberg <a href="#ref-benjamini_controlling_1995">1995</a>)</span>.</p>
+</div>
+<div id="true-and-false-positive-definitions" class="section level4">
+<h4><span class="header-section-number">4.3.2.2</span> True and False Positive definitions</h4>
+<p>The problem of retrieving true causal associations can be represented as
+a binary decision problem where the compared methods are considered as
+classifiers. The decision made by a binary classifier can be summarized
+using four numbers: True Positives (<span class="math inline">\(TP\)</span>), False Positive (<span class="math inline">\(FP\)</span>), True
+Negatives (<span class="math inline">\(TN\)</span>) and False Negatives (<span class="math inline">\(FN\)</span>). We represent True Positive
+Rate (<span class="math inline">\(\text{Recall or Power} ={TP/(FN+TP)}\)</span>) versus Precision
+(<span class="math inline">\(\text{Precision}={TP/(FP+TP)}\)</span>). In this context, a true positive
+corresponds to a true causal genomic region associated to significant
+<em>p</em>-value. The definition of what can be considered as the true causal
+genomic region may nevertheless be subject to some ambiguity. In GWAS,
+the presence of LD between SNP often leads to consider the signal
+associated to multiple neighbouring SNP as indicating the existence of a
+single genomic locus with possible influence on the phenotype.</p>
+<p>In our simulations, a causal genomic region is defined <em>a priori</em> as a
+causal predictor in the logit model. However, since the clusters of SNP
+identified by our algorithm are not totally independent, some residual
+correlation may remain between clusters. This leads to question the
+notion of relevant variable when the variables are structured into
+strongly correlated groups. Should all the variables of the block be
+considered as explanatory, or should we define as only true positives
+the causal variables used to generate the phenotype? In order to
+circumvent this issue, we chose to relax the definition of a false
+positive joining the work of <span class="citation">(Brzyski et al. <a href="#ref-brzyski_controlling_2017">2017</a>)</span> and
+<span class="citation">(Yi et al. <a href="#ref-yi2015penalized">2015</a>)</span> where they propose to control the FDR in GWAS by
+considering significant SNP correlated to the true causal variables as
+true positives. For the simulation of the phenotype, we hypothesize an
+underlying multivariate regression model, but test for univariate model
+as it is the usual practice, which leads to reconsider the definition of
+true positive. As in <span class="citation">(Yi et al. <a href="#ref-yi2015penalized">2015</a>)</span> we consider the set of true
+positive as the union of the causal true positive and the linked true
+positive, which are regions adjacent to the causal regions and
+correlated with them at a level of at least 0.5. Regarding the
+single-marker analysis approach, since it works at the single SNP level,
+we compare it with the others in the <em>singleSNP</em> scenario only.</p>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-su_hapgen2_2011">
+<p>Su, Z., J. Marchini, and P. Donnelly. 2011. “HAPGEN2: Simulation of Multiple Disease Snps.” <em>Bioinformatics</em> 27 (16): 2304.</p>
+</div>
+<div id="ref-Diaz_simple_2012">
+<p>Diaz-Quijano, Fredi A. 2012. “A Simple Method for Estimating Relative Risk Using Logistic Regression".” <em>BMC Medical Research Methodology</em> 1 (1): 14.</p>
+</div>
+<div id="ref-Holm_Bonferroni">
+<p>Holm, Sture. 1979b. “A Simple Sequentially Rejective Multiple Test Procedure.” <em>Scandinavian Journal of Statistics</em> 6 (2): 65–70.</p>
+</div>
+<div id="ref-benjamini_controlling_1995">
+<p>Benjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” <em>Journal of the Royal Statistical Society: Series B</em> 57 (1): 289–300.</p>
+</div>
+<div id="ref-brzyski_controlling_2017">
+<p>Brzyski, Damian, Christine B. Peterson, Piotr Sobczyk, Emmanuel J. CandÃšs, Malgorzata Bogdan, and Chiara Sabatti. 2017. “Controlling the Rate of GWAS False Discoveries.” <em>Genetics</em> 205 (January). <a href="https://doi.org/10.1534/genetics.116.193987">https://doi.org/10.1534/genetics.116.193987</a>.</p>
+</div>
+<div id="ref-yi2015penalized">
+<p>Yi, Hui, Patrick Breheny, Netsanet Imam, Yongmei Liu, and Ina Hoeschele. 2015. “Penalized Multimarker Vs. Single-Marker Regression Methods for Genome-Wide Association Studies of Quantitative Traits.” <em>Genetics</em> 199 (1): 205–22.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="leosmethod.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

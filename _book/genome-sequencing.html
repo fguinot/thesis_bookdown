@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>1.2 Genome sequencing | Statistical learning for omics association and interactions studies based on blockwise feature compression</title>
+  <meta name="description" content="PdD thesis">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="1.2 Genome sequencing | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="PdD thesis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.2 Genome sequencing | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  
+  <meta name="twitter:description" content="PdD thesis" />
+  
+
+<meta name="author" content="Florent Guinot">
+
+
+<meta name="date" content="2019-01-11">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="genome.html">
+<link rel="next" href="dna-polymorphism.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>General introduction</a><ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#background"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#problematic"><i class="fa fa-check"></i>Problematic</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#objectives"><i class="fa fa-check"></i>Objectives</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contributions"><i class="fa fa-check"></i>Contributions</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contents-of-the-manuscript"><i class="fa fa-check"></i>Contents of the manuscript</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
+<li class="chapter" data-level="1.1" data-path="genome.html"><a href="genome.html"><i class="fa fa-check"></i><b>1.1</b> Genome description</a></li>
+<li class="chapter" data-level="1.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html"><i class="fa fa-check"></i><b>1.2</b> Genome sequencing</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="genome-sequencing.html"><a href="genome-sequencing.html#DNAseq"><i class="fa fa-check"></i><b>1.2.1</b> DNA sequencing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html#sequence-assembly"><i class="fa fa-check"></i><b>1.2.2</b> Sequence assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html"><i class="fa fa-check"></i><b>1.3</b> DNA polymorphism</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#restriction-fragment-length-polymorphisms-rflp"><i class="fa fa-check"></i><b>1.3.1</b> Restriction Fragment Length Polymorphisms (RFLP)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#simple-sequence-length-polymorphisms-sslp"><i class="fa fa-check"></i><b>1.3.2</b> Simple Sequence Length Polymorphisms (SSLP)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#single-nucleotide-polymorphisms-snp"><i class="fa fa-check"></i><b>1.3.3</b> Single Nucleotide Polymorphisms (SNP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="linkage.html"><a href="linkage.html"><i class="fa fa-check"></i><b>1.4</b> Linkage and partial linkage for genetic mapping</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html"><i class="fa fa-check"></i><b>1.5</b> Basic concepts in population genetics</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#HWE"><i class="fa fa-check"></i><b>1.5.1</b> Hardy-Weinberg equilibrium in large population</a></li>
+<li class="chapter" data-level="1.5.2" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#genetic-drift-in-small-population"><i class="fa fa-check"></i><b>1.5.2</b> Genetic drift in small population</a></li>
+<li class="chapter" data-level="1.5.3" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#concept-of-heritability"><i class="fa fa-check"></i><b>1.5.3</b> Concept of heritability</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="LD.html"><a href="LD.html"><i class="fa fa-check"></i><b>1.6</b> Linkage disequilibrium</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="LD.html"><a href="LD.html#definition"><i class="fa fa-check"></i><b>1.6.1</b> Definition</a></li>
+<li class="chapter" data-level="1.6.2" data-path="LD.html"><a href="LD.html#measure-of-ld"><i class="fa fa-check"></i><b>1.6.2</b> Measure of LD</a></li>
+<li class="chapter" data-level="1.6.3" data-path="LD.html"><a href="LD.html#estimation-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.3</b> Estimation of linkage disequilibrium</a></li>
+<li class="chapter" data-level="1.6.4" data-path="LD.html"><a href="LD.html#origins-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.4</b> Origins of linkage disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="haplo.html"><a href="haplo.html"><i class="fa fa-check"></i><b>1.7</b> Structure of haplotype blocks in the human genome</a><ul>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#definition-of-haplotype-blocks"><i class="fa fa-check"></i>Definition of haplotype blocks</a></li>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#patterns-in-human-genome"><i class="fa fa-check"></i>Patterns in human genome</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-context.html"><a href="statistical-context.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
+<li class="chapter" data-level="2.1" data-path="notations.html"><a href="notations.html"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
+<li class="chapter" data-level="2.2" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html"><i class="fa fa-check"></i><b>2.2</b> Concepts of statistical learning</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>2.2.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="parametric.html"><a href="parametric.html"><i class="fa fa-check"></i><b>2.3</b> Parametric methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="parametric.html"><a href="parametric.html#linmod"><i class="fa fa-check"></i><b>2.3.1</b> Linear models</a></li>
+<li class="chapter" data-level="2.3.2" data-path="parametric.html"><a href="parametric.html#penalized"><i class="fa fa-check"></i><b>2.3.2</b> Penalized linear regression</a></li>
+<li class="chapter" data-level="2.3.3" data-path="parametric.html"><a href="parametric.html#glm"><i class="fa fa-check"></i><b>2.3.3</b> Generalized linear models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="non-parametric.html"><a href="non-parametric.html"><i class="fa fa-check"></i><b>2.4</b> Splines and generalized additive models: Moving beyond linearit</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="non-parametric.html"><a href="non-parametric.html#introduction"><i class="fa fa-check"></i><b>2.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.4.2" data-path="non-parametric.html"><a href="non-parametric.html#splines"><i class="fa fa-check"></i><b>2.4.2</b> Regression splines</a></li>
+<li class="chapter" data-level="2.4.3" data-path="non-parametric.html"><a href="non-parametric.html#mathrmb-splines"><i class="fa fa-check"></i><b>2.4.3</b> <span class="math inline">\(\mathrm{B}\)</span>-splines</a></li>
+<li class="chapter" data-level="2.4.4" data-path="non-parametric.html"><a href="non-parametric.html#smoothing"><i class="fa fa-check"></i><b>2.4.4</b> Cubic smoothing splines</a></li>
+<li class="chapter" data-level="2.4.5" data-path="non-parametric.html"><a href="non-parametric.html#gam"><i class="fa fa-check"></i><b>2.4.5</b> Generalized additive models (GAM)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="non-parametric.html"><a href="non-parametric.html#hgam"><i class="fa fa-check"></i><b>2.4.6</b> High-dimensional generalized additive models (HGAM)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html"><i class="fa fa-check"></i><b>2.5</b> Combining cluster analysis and variable selection</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#CAH"><i class="fa fa-check"></i><b>2.5.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="2.5.2" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#HCAR"><i class="fa fa-check"></i><b>2.5.2</b> Hierarchical Clustering and Averaging Regression</a></li>
+<li class="chapter" data-level="2.5.3" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#MLGL"><i class="fa fa-check"></i><b>2.5.3</b> Multi-Layer Group-Lasso (MLGL)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>2.6</b> Statistical testing of significance</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="hypothesis.html"><a href="hypothesis.html#introduction-1"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.6.2" data-path="hypothesis.html"><a href="hypothesis.html#chi2"><i class="fa fa-check"></i><b>2.6.2</b> <span class="math inline">\(\chi^2\)</span> test</a></li>
+<li class="chapter" data-level="2.6.3" data-path="hypothesis.html"><a href="hypothesis.html#LRT"><i class="fa fa-check"></i><b>2.6.3</b> Likelihood ratio test</a></li>
+<li class="chapter" data-level="2.6.4" data-path="hypothesis.html"><a href="hypothesis.html#pvalGAM"><i class="fa fa-check"></i><b>2.6.4</b> Calculation of <em>p</em>-values in GAM</a></li>
+<li class="chapter" data-level="2.6.5" data-path="hypothesis.html"><a href="hypothesis.html#multiple"><i class="fa fa-check"></i><b>2.6.5</b> Multiple testing comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html"><i class="fa fa-check"></i><b>3</b> Genome-Wide Association Studies</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="genoquality.html"><a href="genoquality.html"><i class="fa fa-check"></i><b>3.2</b> Genotype quality control</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="genoquality.html"><a href="genoquality.html#deviation-from-hwe."><i class="fa fa-check"></i><b>3.2.1</b> Deviation from HWE.</a></li>
+<li class="chapter" data-level="3.2.2" data-path="genoquality.html"><a href="genoquality.html#missing-data."><i class="fa fa-check"></i><b>3.2.2</b> Missing data.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="genoquality.html"><a href="genoquality.html#distribution-of-test-statistics."><i class="fa fa-check"></i><b>3.2.3</b> Distribution of test statistics.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="OR.html"><a href="OR.html"><i class="fa fa-check"></i><b>3.3</b> Disease penetrance and odds ratio</a></li>
+<li class="chapter" data-level="3.4" data-path="SMA.html"><a href="SMA.html"><i class="fa fa-check"></i><b>3.4</b> Single Marker Analysis</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="SMA.html"><a href="SMA.html#pearsons-chi2-statistic"><i class="fa fa-check"></i><b>3.4.1</b> Pearson’s <span class="math inline">\(\chi^2\)</span> statistic</a></li>
+<li class="chapter" data-level="3.4.2" data-path="SMA.html"><a href="SMA.html#cochran-armitage-trend-test"><i class="fa fa-check"></i><b>3.4.2</b> Cochran-Armitage trend test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="SMA.html"><a href="SMA.html#logitGWAS"><i class="fa fa-check"></i><b>3.4.3</b> Logistic regression and likelihood ratio test</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="GWASlimits.html"><a href="GWASlimits.html"><i class="fa fa-check"></i><b>3.5</b> Limitations</a></li>
+<li class="chapter" data-level="3.6" data-path="popstructure.html"><a href="popstructure.html"><i class="fa fa-check"></i><b>3.6</b> Population structure</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="popstructure.html"><a href="popstructure.html#genomic-control"><i class="fa fa-check"></i><b>3.6.1</b> Genomic control</a></li>
+<li class="chapter" data-level="3.6.2" data-path="popstructure.html"><a href="popstructure.html#structured-association"><i class="fa fa-check"></i><b>3.6.2</b> Structured association</a></li>
+<li class="chapter" data-level="3.6.3" data-path="popstructure.html"><a href="popstructure.html#PCC"><i class="fa fa-check"></i><b>3.6.3</b> Principle components correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="multiloc.html"><a href="multiloc.html"><i class="fa fa-check"></i><b>3.7</b> Multi-locus analysis</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="multiloc.html"><a href="multiloc.html#haplotype-based-approaches"><i class="fa fa-check"></i><b>3.7.1</b> Haplotype-based approaches</a></li>
+<li class="chapter" data-level="3.7.2" data-path="multiloc.html"><a href="multiloc.html#rare-variant"><i class="fa fa-check"></i><b>3.7.2</b> Rare-variant association analysis</a></li>
+<li class="chapter" data-level="3.7.3" data-path="multiloc.html"><a href="multiloc.html#adjclust"><i class="fa fa-check"></i><b>3.7.3</b> LD based approach to variable selection in GWAS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="LEOS.html"><a href="LEOS.html"><i class="fa fa-check"></i><b>4</b> Learning the Optimal in GWAS through hierarchical SNP aggregation</a><ul>
+<li class="chapter" data-level="4.1" data-path="introleos.html"><a href="introleos.html"><i class="fa fa-check"></i><b>4.1</b> Related work</a></li>
+<li class="chapter" data-level="4.2" data-path="leosmethod.html"><a href="leosmethod.html"><i class="fa fa-check"></i><b>4.2</b> Method</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="leosmethod.html"><a href="leosmethod.html#CHAC"><i class="fa fa-check"></i><b>4.2.1</b> Step 1. Constrained-HAC</a></li>
+<li class="chapter" data-level="4.2.2" data-path="leosmethod.html"><a href="leosmethod.html#Dstar"><i class="fa fa-check"></i><b>4.2.2</b> Step 2. Dimension reduction function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="leosmethod.html"><a href="leosmethod.html#cutree"><i class="fa fa-check"></i><b>4.2.3</b> Step 3. Optimal number of groups estimation</a></li>
+<li class="chapter" data-level="4.2.4" data-path="leosmethod.html"><a href="leosmethod.html#step4"><i class="fa fa-check"></i><b>4.2.4</b> Step 4. Multiple testing on aggregated-SNP variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="numsim.html"><a href="numsim.html"><i class="fa fa-check"></i><b>4.3</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="numsim.html"><a href="numsim.html#simupheno"><i class="fa fa-check"></i><b>4.3.1</b> Simulation of the case-control phenotype</a></li>
+<li class="chapter" data-level="4.3.2" data-path="numsim.html"><a href="numsim.html#perfeval"><i class="fa fa-check"></i><b>4.3.2</b> Performance evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="results.html"><a href="results.html#results-and-discussions-of-the-numerical-simulations"><i class="fa fa-check"></i><b>4.4.1</b> Results and discussions of the numerical simulations</a></li>
+<li class="chapter" data-level="4.4.2" data-path="results.html"><a href="results.html#performance-results-for-simulated-data."><i class="fa fa-check"></i><b>4.4.2</b> Performance results for simulated data.</a></li>
+<li class="chapter" data-level="4.4.3" data-path="results.html"><a href="results.html#leosappli"><i class="fa fa-check"></i><b>4.4.3</b> Application in Wellcome Trust Case Control Consortium(WTCCC) and Ankylosing Spondylitis (AS) studies</a></li>
+<li class="chapter" data-level="4.4.4" data-path="results.html"><a href="results.html#realdata"><i class="fa fa-check"></i><b>4.4.4</b> Results in WTCCC and AS studies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="leosgam.html"><a href="leosgam.html"><i class="fa fa-check"></i><b>4.5</b> Generalized additive models in GWAS</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="leosgam.html"><a href="leosgam.html#comparison-of-predictive-power"><i class="fa fa-check"></i><b>4.5.1</b> Comparison of predictive power</a></li>
+<li class="chapter" data-level="4.5.2" data-path="leosgam.html"><a href="leosgam.html#results-of-univariate-smoothing-splines-on-aggregated-snp"><i class="fa fa-check"></i><b>4.5.2</b> Results of univariate smoothing splines on aggregated-SNP</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="discussions.html"><a href="discussions.html"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><a href="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><i class="fa fa-check"></i><b>5</b> Selection of interaction effects in compressed multiple omics representation</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="introduction-3.html"><a href="introduction-3.html#background-1"><i class="fa fa-check"></i><b>5.1.1</b> Background</a></li>
+<li class="chapter" data-level="5.1.2" data-path="introduction-3.html"><a href="introduction-3.html#combining-genome-and-metagenome-analyses."><i class="fa fa-check"></i><b>5.1.2</b> Combining genome and metagenome analyses.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="introduction-3.html"><a href="introduction-3.html#taking-structures-into-account-in-association-studies."><i class="fa fa-check"></i><b>5.1.3</b> Taking structures into account in association studies.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="modelsicomore.html"><a href="modelsicomore.html"><i class="fa fa-check"></i><b>5.2</b> Learning with complementary datasets</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="modelsicomore.html"><a href="modelsicomore.html#setting-and-notations"><i class="fa fa-check"></i><b>5.2.1</b> Setting and notations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="modelsicomore.html"><a href="modelsicomore.html#interactions-in-linear-models"><i class="fa fa-check"></i><b>5.2.2</b> Interactions in linear models</a></li>
+<li class="chapter" data-level="5.2.3" data-path="modelsicomore.html"><a href="modelsicomore.html#compressdata"><i class="fa fa-check"></i><b>5.2.3</b> Compact model</a></li>
+<li class="chapter" data-level="5.2.4" data-path="modelsicomore.html"><a href="modelsicomore.html#recoverinteractions"><i class="fa fa-check"></i><b>5.2.4</b> Recovering relevant interactions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="implementation.html"><a href="implementation.html"><i class="fa fa-check"></i><b>5.3</b> Method</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="implementation.html"><a href="implementation.html#preprocess"><i class="fa fa-check"></i><b>5.3.1</b> Preprocessing of the data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="implementation.html"><a href="implementation.html#preprocessing-of-metagenomic-data"><i class="fa fa-check"></i><b>5.3.2</b> Preprocessing of metagenomic data</a></li>
+<li class="chapter" data-level="5.3.3" data-path="implementation.html"><a href="implementation.html#structure"><i class="fa fa-check"></i><b>5.3.3</b> Structuring the data</a></li>
+<li class="chapter" data-level="5.3.4" data-path="implementation.html"><a href="implementation.html#using-the-structure-efficiently"><i class="fa fa-check"></i><b>5.3.4</b> Using the structure efficiently</a></li>
+<li class="chapter" data-level="5.3.5" data-path="implementation.html"><a href="implementation.html#identification-of-relevant-supervariables"><i class="fa fa-check"></i><b>5.3.5</b> Identification of relevant supervariables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="XPsimu.html"><a href="XPsimu.html"><i class="fa fa-check"></i><b>5.4</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="XPsimu.html"><a href="XPsimu.html#data-generation"><i class="fa fa-check"></i><b>5.4.1</b> Data generation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="XPsimu.html"><a href="XPsimu.html#generation-of-the-phenotype"><i class="fa fa-check"></i><b>5.4.2</b> Generation of the phenotype</a></li>
+<li class="chapter" data-level="5.4.3" data-path="XPsimu.html"><a href="XPsimu.html#comparison-of-methods"><i class="fa fa-check"></i><b>5.4.3</b> Comparison of methods</a></li>
+<li class="chapter" data-level="5.4.4" data-path="XPsimu.html"><a href="XPsimu.html#evaluation-metrics"><i class="fa fa-check"></i><b>5.4.4</b> Evaluation metrics</a></li>
+<li class="chapter" data-level="5.4.5" data-path="XPsimu.html"><a href="XPsimu.html#performance-results"><i class="fa fa-check"></i><b>5.4.5</b> Performance results</a></li>
+<li class="chapter" data-level="5.4.6" data-path="XPsimu.html"><a href="XPsimu.html#computational-time"><i class="fa fa-check"></i><b>5.4.6</b> Computational time</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="XPINRA.html"><a href="XPINRA.html"><i class="fa fa-check"></i><b>5.5</b> Application on real data: rhizosphere of <em>Medicago truncatula</em></a><ul>
+<li class="chapter" data-level="5.5.1" data-path="XPINRA.html"><a href="XPINRA.html#material"><i class="fa fa-check"></i><b>5.5.1</b> Material</a></li>
+<li class="chapter" data-level="5.5.2" data-path="XPINRA.html"><a href="XPINRA.html#analysis"><i class="fa fa-check"></i><b>5.5.2</b> Analysis</a></li>
+<li class="chapter" data-level="5.5.3" data-path="XPINRA.html"><a href="XPINRA.html#results-1"><i class="fa fa-check"></i><b>5.5.3</b> Results</a></li>
+<li class="chapter" data-level="5.5.4" data-path="XPINRA.html"><a href="XPINRA.html#results-on-root-shoot-ratio"><i class="fa fa-check"></i><b>5.5.4</b> Results on Root Shoot Ratio</a></li>
+<li class="chapter" data-level="5.5.5" data-path="XPINRA.html"><a href="XPINRA.html#results-on-specific-nitrogen-uptake"><i class="fa fa-check"></i><b>5.5.5</b> Results on Specific Nitrogen Uptake</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="discussions-1.html"><a href="discussions-1.html"><i class="fa fa-check"></i><b>5.6</b> Discussions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i>Conclusions</a><ul>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-leos-algorithm"><i class="fa fa-check"></i>Discussions on LEOS algorithm</a></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-sicomore-algorithm"><i class="fa fa-check"></i>Discussions on SICOMORE algorithm</a></li>
+<li class="chapter" data-level="" data-path="perspectives.html"><a href="perspectives.html"><i class="fa fa-check"></i>Perspectives</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical learning for omics association and interactions studies based on blockwise feature compression</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="genome-sequencing" class="section level2">
+<h2><span class="header-section-number">1.2</span> Genome sequencing</h2>
+<div id="DNAseq" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> DNA sequencing</h3>
+<p>Several methods for DNA sequencing exist, among them the chain
+termination method first developed by <span class="citation">(Sanger, Nicklen, and Coulson <a href="#ref-sanger1977dna">1977</a>)</span> is the most
+popular but alternative techniques such as chemical degradation
+sequencing <span class="citation">(Maxam and Gilbert <a href="#ref-maxam1977new">1977</a>)</span> and pyrosequencing <span class="citation">(Nyrén, Pettersson, and Uhlén <a href="#ref-nyren1993solid">1993</a>)</span> are also
+used.</p>
+<p>Chain termination method is based on the principle that single-stranded
+DNA molecules that differ in length by just a single nucleotide can be
+separated by polyacrylamide gel electrophoresis<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. This procedure is
+illustrated and explained in Figure <a href="genome-sequencing.html#fig:sanger">1.2</a>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:sanger"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/sanger_sequencing.jpg" alt="Chain termination DNA sequencing (Brown et al. 2007). (A) Use of universal primers for the synthesis of DNA complementary of a single-stranded template. (B) Incorporation of small amount of fluorescent dideoxynucleotides (ddATP, ddTTp, ddCTP and ddGTP), each with a different fluorescent label. (C) The ddNTP block the synthesis of DNA because they have a hydrogen atom rather than a hydroxyl group attached to the 3’ carbon. (D) Each labelled DNA strand passes through a polyacrylamide gel electrophoresis, migrating more or less according to their length, and after separation a fluorescent detector is capable of discriminating the labels attached to the ddNTP. (E) The information is passed to the imaging system and a sequence of DNA is printed out. The sequence is represented by a series of peaks, one for each nucleotide position." width="85%" />
+<p class="caption">
+Figure 1.2: Chain termination DNA sequencing <span class="citation">(Brown et al. <a href="#ref-brown2007genomes">2007</a>)</span>. (A) Use of universal primers for the synthesis of DNA complementary of a single-stranded template. (B) Incorporation of small amount of fluorescent dideoxynucleotides (ddATP, ddTTp, ddCTP and ddGTP), each with a different fluorescent label. (C) The ddNTP block the synthesis of DNA because they have a hydrogen atom rather than a hydroxyl group attached to the 3’ carbon. (D) Each labelled DNA strand passes through a polyacrylamide gel electrophoresis, migrating more or less according to their length, and after separation a fluorescent detector is capable of discriminating the labels attached to the ddNTP. (E) The information is passed to the imaging system and a sequence of DNA is printed out. The sequence is represented by a series of peaks, one for each nucleotide position.
+</p>
+</div>
+<p>Pyrosequencing is a method generally used for the rapid determination of
+very short sequence of DNA and does not required electrophoresis or any
+fragment separation procedure as with chemical degradation sequencing.
+Since it can only generate a few tens of base pairs per experiment, it
+is used when many short sequences must be generated as fast as possible,
+for instance in single-nucleotide polymorphism typing. With this
+technique, the template is copied in a straightforward manner without
+added ddNTP and, as the new strand is being made, the order in which the
+deoxynucleotide are incorporated can be followed (see Figure
+<a href="genome-sequencing.html#fig:pyro">1.3</a> for more details).</p>
+
+<div class="figure" style="text-align: center"><span id="fig:pyro"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/pyrosequencing.jpg" alt="Pyrosequencing (Brown et al. 2007). Each deoxynucleotide is added individually, along with a nucleotidase enzyme that degrades the deoxynucleotide if it is not synthesized. The incorporation is detected by a flash of chemiluminescence induced by the pyrophosphate released from the deoxynucleotide. The order in which the deoxynucleotide are added to the growing strand can therefore be followed." width="60%" />
+<p class="caption">
+Figure 1.3: Pyrosequencing <span class="citation">(Brown et al. <a href="#ref-brown2007genomes">2007</a>)</span>. Each deoxynucleotide is added individually, along with a nucleotidase enzyme that degrades the deoxynucleotide if it is not synthesized. The incorporation is detected by a flash of chemiluminescence induced by the pyrophosphate released from the deoxynucleotide. The order in which the deoxynucleotide are added to the growing strand can therefore be followed.
+</p>
+</div>
+</div>
+<div id="sequence-assembly" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Sequence assembly</h3>
+<p>One of the main challenges in genome sequencing is to master the
+assembly of the multitude of short sequences generated by DNA sequencing
+techniques in order to reconstruct the complete continuous sequence of
+chromosome that can reach a length of several tens of megabases. The
+most straightforward method to sequence assembly is to build up the
+master sequence by directly searching for overlaps between all the short
+sequences. This method is known as the shotgun method
+<span class="citation">(Anderson <a href="#ref-anderson1981shotgun">1981</a>)</span>. The shotgun method is the standard approach for
+sequencing small prokaryotic<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> genome but it is not suited to the
+analysis of larger genome because the required data analysis becomes too
+complex as the number of fragment increases (for <span class="math inline">\(n\)</span> fragments, the
+number of possible overlaps is <span class="math inline">\(2n^2 - 2n\)</span>). Moreover it can lead to
+errors when repetitive regions of a genome are analysed because when a
+repetitive sequence is broken into fragments, many of the resulting
+pieces contain the same sequence motifs.</p>
+<p>To overcome these issues, techniques that make use of a genome map to
+guide the assembly are used, namely the whole-shotgun method and clone
+contig method (Figure <a href="genome-sequencing.html#fig:genomeassembly">1.4</a>):</p>
+<ul>
+<li><p><strong>Whole-genome shotgun method.</strong> This method takes the same approach
+as the standard shotgun procedure but uses the distinctive features
+on the genome map as landmark to assemble the whole sequence.
+Reference to the map ensures that regions containing repetitive DNA
+are assembled correctly.</p></li>
+<li><p><strong>Clone contig method.</strong> In this method the genome is broken into
+manageable segments which are short enough to be assembled
+accurately by the shotgun method. Once the sequence of a segment has
+been completed, it is positioned at its correct location on the map</p></li>
+</ul>
+
+<div class="figure" style="text-align: center"><span id="fig:genomeassembly"></span>
+<img src="/Users/fguinot/Documents/bioptilamme/Manuscript/figures/genome_assembly.jpg" alt="Clone contig and whole-genome shotgun for sequence assembly (Brown et al. 2007). To illustrate both techniques, a genome map of linear DNA molecule of 2.5 Mb has been represented together with the location of 8 known markers(A-H). On the left, the clone contig approach starts with a segment of DNA whose position on the genome is known since it contains the markers A and B. The segment is sequenced by the shotgun method and the master sequence placed at its known position on the map. On the right, the whole-genome shotgun method involves random sequence of the entire genome resulting in pieces of contiguous sequence. If a contiguous sequence contains a marker then it can be positioned on the map." width="80%" />
+<p class="caption">
+Figure 1.4: Clone contig and whole-genome shotgun for sequence assembly <span class="citation">(Brown et al. <a href="#ref-brown2007genomes">2007</a>)</span>. To illustrate both techniques, a genome map of linear DNA molecule of 2.5 Mb has been represented together with the location of 8 known markers(A-H). On the left, the clone contig approach starts with a segment of DNA whose position on the genome is known since it contains the markers A and B. The segment is sequenced by the shotgun method and the master sequence placed at its known position on the map. On the right, the whole-genome shotgun method involves random sequence of the entire genome resulting in pieces of contiguous sequence. If a contiguous sequence contains a marker then it can be positioned on the map.
+</p>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-sanger1977dna">
+<p>Sanger, Frederick, Steven Nicklen, and Alan R Coulson. 1977. “DNA Sequencing with Chain-Terminating Inhibitors.” <em>Proceedings of the National Academy of Sciences</em> 74 (12): 5463–7.</p>
+</div>
+<div id="ref-maxam1977new">
+<p>Maxam, Allan M, and Walter Gilbert. 1977. “A New Method for Sequencing Dna.” <em>Proceedings of the National Academy of Sciences</em> 74 (2): 560–64.</p>
+</div>
+<div id="ref-nyren1993solid">
+<p>Nyrén, Pettersson, Bertil Pettersson, and Mathias Uhlén. 1993. “Solid Phase Dna Minisequencing by an Enzymatic Luminometric Inorganic Pyrophosphate Detection Assay.” <em>Analytical Biochemistry</em> 208 (1): 171–75.</p>
+</div>
+<div id="ref-brown2007genomes">
+<p>Brown, T.A., D.B.S.T. Brown, T.A. Brown, and L.B.T. Brown. 2007. <em>Genomes 3</em>. Taylor &amp; Francis Group, an Informa Business. Garland Science Pub. <a href="https://books.google.fr/books?id=Cjl98tqp6rsC">https://books.google.fr/books?id=Cjl98tqp6rsC</a>.</p>
+</div>
+<div id="ref-anderson1981shotgun">
+<p>Anderson, Stephen. 1981. “Shotgun Dna Sequencing Using Cloned Dnase I-Generated Fragments.” <em>Nucleic Acids Research</em> 9 (13): 3015–27.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>The rhizosphere is the term used to describe the zone of intense
+activity around the roots of leguminacea (Fabaceae) which contains a
+considerable diversity of microbial and mycorrhizal species.<a href="genome-sequencing.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>The metagenome corresponds to all the genetic material present in
+an environmental sample, consisting of the genomes of many
+individual organisms.<a href="genome-sequencing.html#fnref2" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="genome.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dna-polymorphism.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>2.3 Parametric methods | Statistical learning for omics association and interactions studies based on blockwise feature compression</title>
+  <meta name="description" content="PdD thesis">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="2.3 Parametric methods | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="PdD thesis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.3 Parametric methods | Statistical learning for omics association and interactions studies based on blockwise feature compression />
+  
+  <meta name="twitter:description" content="PdD thesis" />
+  
+
+<meta name="author" content="Florent Guinot">
+
+
+<meta name="date" content="2019-01-11">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="concepts-of-statistical-learning.html">
+<link rel="next" href="non-parametric.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>General introduction</a><ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#background"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#problematic"><i class="fa fa-check"></i>Problematic</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#objectives"><i class="fa fa-check"></i>Objectives</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contributions"><i class="fa fa-check"></i>Contributions</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#contents-of-the-manuscript"><i class="fa fa-check"></i>Contents of the manuscript</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="basic-concepts-of-molecular-genetics.html"><a href="basic-concepts-of-molecular-genetics.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
+<li class="chapter" data-level="1.1" data-path="genome.html"><a href="genome.html"><i class="fa fa-check"></i><b>1.1</b> Genome description</a></li>
+<li class="chapter" data-level="1.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html"><i class="fa fa-check"></i><b>1.2</b> Genome sequencing</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="genome-sequencing.html"><a href="genome-sequencing.html#DNAseq"><i class="fa fa-check"></i><b>1.2.1</b> DNA sequencing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html#sequence-assembly"><i class="fa fa-check"></i><b>1.2.2</b> Sequence assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html"><i class="fa fa-check"></i><b>1.3</b> DNA polymorphism</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#restriction-fragment-length-polymorphisms-rflp"><i class="fa fa-check"></i><b>1.3.1</b> Restriction Fragment Length Polymorphisms (RFLP)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#simple-sequence-length-polymorphisms-sslp"><i class="fa fa-check"></i><b>1.3.2</b> Simple Sequence Length Polymorphisms (SSLP)</a></li>
+<li class="chapter" data-level="1.3.3" data-path="dna-polymorphism.html"><a href="dna-polymorphism.html#single-nucleotide-polymorphisms-snp"><i class="fa fa-check"></i><b>1.3.3</b> Single Nucleotide Polymorphisms (SNP)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="linkage.html"><a href="linkage.html"><i class="fa fa-check"></i><b>1.4</b> Linkage and partial linkage for genetic mapping</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html"><i class="fa fa-check"></i><b>1.5</b> Basic concepts in population genetics</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#HWE"><i class="fa fa-check"></i><b>1.5.1</b> Hardy-Weinberg equilibrium in large population</a></li>
+<li class="chapter" data-level="1.5.2" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#genetic-drift-in-small-population"><i class="fa fa-check"></i><b>1.5.2</b> Genetic drift in small population</a></li>
+<li class="chapter" data-level="1.5.3" data-path="basic-concepts-in-population-genetics.html"><a href="basic-concepts-in-population-genetics.html#concept-of-heritability"><i class="fa fa-check"></i><b>1.5.3</b> Concept of heritability</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="LD.html"><a href="LD.html"><i class="fa fa-check"></i><b>1.6</b> Linkage disequilibrium</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="LD.html"><a href="LD.html#definition"><i class="fa fa-check"></i><b>1.6.1</b> Definition</a></li>
+<li class="chapter" data-level="1.6.2" data-path="LD.html"><a href="LD.html#measure-of-ld"><i class="fa fa-check"></i><b>1.6.2</b> Measure of LD</a></li>
+<li class="chapter" data-level="1.6.3" data-path="LD.html"><a href="LD.html#estimation-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.3</b> Estimation of linkage disequilibrium</a></li>
+<li class="chapter" data-level="1.6.4" data-path="LD.html"><a href="LD.html#origins-of-linkage-disequilibrium"><i class="fa fa-check"></i><b>1.6.4</b> Origins of linkage disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="haplo.html"><a href="haplo.html"><i class="fa fa-check"></i><b>1.7</b> Structure of haplotype blocks in the human genome</a><ul>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#definition-of-haplotype-blocks"><i class="fa fa-check"></i>Definition of haplotype blocks</a></li>
+<li class="chapter" data-level="" data-path="haplo.html"><a href="haplo.html#patterns-in-human-genome"><i class="fa fa-check"></i>Patterns in human genome</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-context.html"><a href="statistical-context.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
+<li class="chapter" data-level="2.1" data-path="notations.html"><a href="notations.html"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
+<li class="chapter" data-level="2.2" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html"><i class="fa fa-check"></i><b>2.2</b> Concepts of statistical learning</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>2.2.1</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="parametric.html"><a href="parametric.html"><i class="fa fa-check"></i><b>2.3</b> Parametric methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="parametric.html"><a href="parametric.html#linmod"><i class="fa fa-check"></i><b>2.3.1</b> Linear models</a></li>
+<li class="chapter" data-level="2.3.2" data-path="parametric.html"><a href="parametric.html#penalized"><i class="fa fa-check"></i><b>2.3.2</b> Penalized linear regression</a></li>
+<li class="chapter" data-level="2.3.3" data-path="parametric.html"><a href="parametric.html#glm"><i class="fa fa-check"></i><b>2.3.3</b> Generalized linear models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="non-parametric.html"><a href="non-parametric.html"><i class="fa fa-check"></i><b>2.4</b> Splines and generalized additive models: Moving beyond linearit</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="non-parametric.html"><a href="non-parametric.html#introduction"><i class="fa fa-check"></i><b>2.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.4.2" data-path="non-parametric.html"><a href="non-parametric.html#splines"><i class="fa fa-check"></i><b>2.4.2</b> Regression splines</a></li>
+<li class="chapter" data-level="2.4.3" data-path="non-parametric.html"><a href="non-parametric.html#mathrmb-splines"><i class="fa fa-check"></i><b>2.4.3</b> <span class="math inline">\(\mathrm{B}\)</span>-splines</a></li>
+<li class="chapter" data-level="2.4.4" data-path="non-parametric.html"><a href="non-parametric.html#smoothing"><i class="fa fa-check"></i><b>2.4.4</b> Cubic smoothing splines</a></li>
+<li class="chapter" data-level="2.4.5" data-path="non-parametric.html"><a href="non-parametric.html#gam"><i class="fa fa-check"></i><b>2.4.5</b> Generalized additive models (GAM)</a></li>
+<li class="chapter" data-level="2.4.6" data-path="non-parametric.html"><a href="non-parametric.html#hgam"><i class="fa fa-check"></i><b>2.4.6</b> High-dimensional generalized additive models (HGAM)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html"><i class="fa fa-check"></i><b>2.5</b> Combining cluster analysis and variable selection</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#CAH"><i class="fa fa-check"></i><b>2.5.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="2.5.2" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#HCAR"><i class="fa fa-check"></i><b>2.5.2</b> Hierarchical Clustering and Averaging Regression</a></li>
+<li class="chapter" data-level="2.5.3" data-path="combining-cluster-analysis-and-variable-selection.html"><a href="combining-cluster-analysis-and-variable-selection.html#MLGL"><i class="fa fa-check"></i><b>2.5.3</b> Multi-Layer Group-Lasso (MLGL)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>2.6</b> Statistical testing of significance</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="hypothesis.html"><a href="hypothesis.html#introduction-1"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.6.2" data-path="hypothesis.html"><a href="hypothesis.html#chi2"><i class="fa fa-check"></i><b>2.6.2</b> <span class="math inline">\(\chi^2\)</span> test</a></li>
+<li class="chapter" data-level="2.6.3" data-path="hypothesis.html"><a href="hypothesis.html#LRT"><i class="fa fa-check"></i><b>2.6.3</b> Likelihood ratio test</a></li>
+<li class="chapter" data-level="2.6.4" data-path="hypothesis.html"><a href="hypothesis.html#pvalGAM"><i class="fa fa-check"></i><b>2.6.4</b> Calculation of <em>p</em>-values in GAM</a></li>
+<li class="chapter" data-level="2.6.5" data-path="hypothesis.html"><a href="hypothesis.html#multiple"><i class="fa fa-check"></i><b>2.6.5</b> Multiple testing comparison</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="genome-wide-association-studies.html"><a href="genome-wide-association-studies.html"><i class="fa fa-check"></i><b>3</b> Genome-Wide Association Studies</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="genoquality.html"><a href="genoquality.html"><i class="fa fa-check"></i><b>3.2</b> Genotype quality control</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="genoquality.html"><a href="genoquality.html#deviation-from-hwe."><i class="fa fa-check"></i><b>3.2.1</b> Deviation from HWE.</a></li>
+<li class="chapter" data-level="3.2.2" data-path="genoquality.html"><a href="genoquality.html#missing-data."><i class="fa fa-check"></i><b>3.2.2</b> Missing data.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="genoquality.html"><a href="genoquality.html#distribution-of-test-statistics."><i class="fa fa-check"></i><b>3.2.3</b> Distribution of test statistics.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="OR.html"><a href="OR.html"><i class="fa fa-check"></i><b>3.3</b> Disease penetrance and odds ratio</a></li>
+<li class="chapter" data-level="3.4" data-path="SMA.html"><a href="SMA.html"><i class="fa fa-check"></i><b>3.4</b> Single Marker Analysis</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="SMA.html"><a href="SMA.html#pearsons-chi2-statistic"><i class="fa fa-check"></i><b>3.4.1</b> Pearson’s <span class="math inline">\(\chi^2\)</span> statistic</a></li>
+<li class="chapter" data-level="3.4.2" data-path="SMA.html"><a href="SMA.html#cochran-armitage-trend-test"><i class="fa fa-check"></i><b>3.4.2</b> Cochran-Armitage trend test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="SMA.html"><a href="SMA.html#logitGWAS"><i class="fa fa-check"></i><b>3.4.3</b> Logistic regression and likelihood ratio test</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="GWASlimits.html"><a href="GWASlimits.html"><i class="fa fa-check"></i><b>3.5</b> Limitations</a></li>
+<li class="chapter" data-level="3.6" data-path="popstructure.html"><a href="popstructure.html"><i class="fa fa-check"></i><b>3.6</b> Population structure</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="popstructure.html"><a href="popstructure.html#genomic-control"><i class="fa fa-check"></i><b>3.6.1</b> Genomic control</a></li>
+<li class="chapter" data-level="3.6.2" data-path="popstructure.html"><a href="popstructure.html#structured-association"><i class="fa fa-check"></i><b>3.6.2</b> Structured association</a></li>
+<li class="chapter" data-level="3.6.3" data-path="popstructure.html"><a href="popstructure.html#PCC"><i class="fa fa-check"></i><b>3.6.3</b> Principle components correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="multiloc.html"><a href="multiloc.html"><i class="fa fa-check"></i><b>3.7</b> Multi-locus analysis</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="multiloc.html"><a href="multiloc.html#haplotype-based-approaches"><i class="fa fa-check"></i><b>3.7.1</b> Haplotype-based approaches</a></li>
+<li class="chapter" data-level="3.7.2" data-path="multiloc.html"><a href="multiloc.html#rare-variant"><i class="fa fa-check"></i><b>3.7.2</b> Rare-variant association analysis</a></li>
+<li class="chapter" data-level="3.7.3" data-path="multiloc.html"><a href="multiloc.html#adjclust"><i class="fa fa-check"></i><b>3.7.3</b> LD based approach to variable selection in GWAS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="LEOS.html"><a href="LEOS.html"><i class="fa fa-check"></i><b>4</b> Learning the Optimal in GWAS through hierarchical SNP aggregation</a><ul>
+<li class="chapter" data-level="4.1" data-path="introleos.html"><a href="introleos.html"><i class="fa fa-check"></i><b>4.1</b> Related work</a></li>
+<li class="chapter" data-level="4.2" data-path="leosmethod.html"><a href="leosmethod.html"><i class="fa fa-check"></i><b>4.2</b> Method</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="leosmethod.html"><a href="leosmethod.html#CHAC"><i class="fa fa-check"></i><b>4.2.1</b> Step 1. Constrained-HAC</a></li>
+<li class="chapter" data-level="4.2.2" data-path="leosmethod.html"><a href="leosmethod.html#Dstar"><i class="fa fa-check"></i><b>4.2.2</b> Step 2. Dimension reduction function</a></li>
+<li class="chapter" data-level="4.2.3" data-path="leosmethod.html"><a href="leosmethod.html#cutree"><i class="fa fa-check"></i><b>4.2.3</b> Step 3. Optimal number of groups estimation</a></li>
+<li class="chapter" data-level="4.2.4" data-path="leosmethod.html"><a href="leosmethod.html#step4"><i class="fa fa-check"></i><b>4.2.4</b> Step 4. Multiple testing on aggregated-SNP variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="numsim.html"><a href="numsim.html"><i class="fa fa-check"></i><b>4.3</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="numsim.html"><a href="numsim.html#simupheno"><i class="fa fa-check"></i><b>4.3.1</b> Simulation of the case-control phenotype</a></li>
+<li class="chapter" data-level="4.3.2" data-path="numsim.html"><a href="numsim.html#perfeval"><i class="fa fa-check"></i><b>4.3.2</b> Performance evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="results.html"><a href="results.html#results-and-discussions-of-the-numerical-simulations"><i class="fa fa-check"></i><b>4.4.1</b> Results and discussions of the numerical simulations</a></li>
+<li class="chapter" data-level="4.4.2" data-path="results.html"><a href="results.html#performance-results-for-simulated-data."><i class="fa fa-check"></i><b>4.4.2</b> Performance results for simulated data.</a></li>
+<li class="chapter" data-level="4.4.3" data-path="results.html"><a href="results.html#leosappli"><i class="fa fa-check"></i><b>4.4.3</b> Application in Wellcome Trust Case Control Consortium(WTCCC) and Ankylosing Spondylitis (AS) studies</a></li>
+<li class="chapter" data-level="4.4.4" data-path="results.html"><a href="results.html#realdata"><i class="fa fa-check"></i><b>4.4.4</b> Results in WTCCC and AS studies</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="leosgam.html"><a href="leosgam.html"><i class="fa fa-check"></i><b>4.5</b> Generalized additive models in GWAS</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="leosgam.html"><a href="leosgam.html#comparison-of-predictive-power"><i class="fa fa-check"></i><b>4.5.1</b> Comparison of predictive power</a></li>
+<li class="chapter" data-level="4.5.2" data-path="leosgam.html"><a href="leosgam.html#results-of-univariate-smoothing-splines-on-aggregated-snp"><i class="fa fa-check"></i><b>4.5.2</b> Results of univariate smoothing splines on aggregated-SNP</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="discussions.html"><a href="discussions.html"><i class="fa fa-check"></i><b>4.6</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><a href="selection-of-interaction-effects-in-compressed-multiple-omics-representation.html"><i class="fa fa-check"></i><b>5</b> Selection of interaction effects in compressed multiple omics representation</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="introduction-3.html"><a href="introduction-3.html#background-1"><i class="fa fa-check"></i><b>5.1.1</b> Background</a></li>
+<li class="chapter" data-level="5.1.2" data-path="introduction-3.html"><a href="introduction-3.html#combining-genome-and-metagenome-analyses."><i class="fa fa-check"></i><b>5.1.2</b> Combining genome and metagenome analyses.</a></li>
+<li class="chapter" data-level="5.1.3" data-path="introduction-3.html"><a href="introduction-3.html#taking-structures-into-account-in-association-studies."><i class="fa fa-check"></i><b>5.1.3</b> Taking structures into account in association studies.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="modelsicomore.html"><a href="modelsicomore.html"><i class="fa fa-check"></i><b>5.2</b> Learning with complementary datasets</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="modelsicomore.html"><a href="modelsicomore.html#setting-and-notations"><i class="fa fa-check"></i><b>5.2.1</b> Setting and notations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="modelsicomore.html"><a href="modelsicomore.html#interactions-in-linear-models"><i class="fa fa-check"></i><b>5.2.2</b> Interactions in linear models</a></li>
+<li class="chapter" data-level="5.2.3" data-path="modelsicomore.html"><a href="modelsicomore.html#compressdata"><i class="fa fa-check"></i><b>5.2.3</b> Compact model</a></li>
+<li class="chapter" data-level="5.2.4" data-path="modelsicomore.html"><a href="modelsicomore.html#recoverinteractions"><i class="fa fa-check"></i><b>5.2.4</b> Recovering relevant interactions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="implementation.html"><a href="implementation.html"><i class="fa fa-check"></i><b>5.3</b> Method</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="implementation.html"><a href="implementation.html#preprocess"><i class="fa fa-check"></i><b>5.3.1</b> Preprocessing of the data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="implementation.html"><a href="implementation.html#preprocessing-of-metagenomic-data"><i class="fa fa-check"></i><b>5.3.2</b> Preprocessing of metagenomic data</a></li>
+<li class="chapter" data-level="5.3.3" data-path="implementation.html"><a href="implementation.html#structure"><i class="fa fa-check"></i><b>5.3.3</b> Structuring the data</a></li>
+<li class="chapter" data-level="5.3.4" data-path="implementation.html"><a href="implementation.html#using-the-structure-efficiently"><i class="fa fa-check"></i><b>5.3.4</b> Using the structure efficiently</a></li>
+<li class="chapter" data-level="5.3.5" data-path="implementation.html"><a href="implementation.html#identification-of-relevant-supervariables"><i class="fa fa-check"></i><b>5.3.5</b> Identification of relevant supervariables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="XPsimu.html"><a href="XPsimu.html"><i class="fa fa-check"></i><b>5.4</b> Numerical simulations</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="XPsimu.html"><a href="XPsimu.html#data-generation"><i class="fa fa-check"></i><b>5.4.1</b> Data generation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="XPsimu.html"><a href="XPsimu.html#generation-of-the-phenotype"><i class="fa fa-check"></i><b>5.4.2</b> Generation of the phenotype</a></li>
+<li class="chapter" data-level="5.4.3" data-path="XPsimu.html"><a href="XPsimu.html#comparison-of-methods"><i class="fa fa-check"></i><b>5.4.3</b> Comparison of methods</a></li>
+<li class="chapter" data-level="5.4.4" data-path="XPsimu.html"><a href="XPsimu.html#evaluation-metrics"><i class="fa fa-check"></i><b>5.4.4</b> Evaluation metrics</a></li>
+<li class="chapter" data-level="5.4.5" data-path="XPsimu.html"><a href="XPsimu.html#performance-results"><i class="fa fa-check"></i><b>5.4.5</b> Performance results</a></li>
+<li class="chapter" data-level="5.4.6" data-path="XPsimu.html"><a href="XPsimu.html#computational-time"><i class="fa fa-check"></i><b>5.4.6</b> Computational time</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="XPINRA.html"><a href="XPINRA.html"><i class="fa fa-check"></i><b>5.5</b> Application on real data: rhizosphere of <em>Medicago truncatula</em></a><ul>
+<li class="chapter" data-level="5.5.1" data-path="XPINRA.html"><a href="XPINRA.html#material"><i class="fa fa-check"></i><b>5.5.1</b> Material</a></li>
+<li class="chapter" data-level="5.5.2" data-path="XPINRA.html"><a href="XPINRA.html#analysis"><i class="fa fa-check"></i><b>5.5.2</b> Analysis</a></li>
+<li class="chapter" data-level="5.5.3" data-path="XPINRA.html"><a href="XPINRA.html#results-1"><i class="fa fa-check"></i><b>5.5.3</b> Results</a></li>
+<li class="chapter" data-level="5.5.4" data-path="XPINRA.html"><a href="XPINRA.html#results-on-root-shoot-ratio"><i class="fa fa-check"></i><b>5.5.4</b> Results on Root Shoot Ratio</a></li>
+<li class="chapter" data-level="5.5.5" data-path="XPINRA.html"><a href="XPINRA.html#results-on-specific-nitrogen-uptake"><i class="fa fa-check"></i><b>5.5.5</b> Results on Specific Nitrogen Uptake</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="discussions-1.html"><a href="discussions-1.html"><i class="fa fa-check"></i><b>5.6</b> Discussions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i>Conclusions</a><ul>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-leos-algorithm"><i class="fa fa-check"></i>Discussions on LEOS algorithm</a></li>
+<li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-sicomore-algorithm"><i class="fa fa-check"></i>Discussions on SICOMORE algorithm</a></li>
+<li class="chapter" data-level="" data-path="perspectives.html"><a href="perspectives.html"><i class="fa fa-check"></i>Perspectives</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical learning for omics association and interactions studies based on blockwise feature compression</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="parametric" class="section level2">
+<h2><span class="header-section-number">2.3</span> Parametric methods</h2>
+<div id="linmod" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Linear models</h3>
+<p>Linear models are statistical models where a univariate response
+<span class="math inline">\(\mathbf{y} \in \mathbb{R}^n\)</span> is modelled as the sum of <span class="math inline">\(D\)</span> linear predictor
+<span class="math inline">\(\mathbf{X} \in \mathbb{R}^{n \times D}\)</span> weighted by some unknown parameters,
+<span class="math inline">\(\boldsymbol{\beta} \in \mathbb{R}^D\)</span>, which have to be estimated, and a zero mean random
+error term, <span class="math inline">\(\boldsymbol{\epsilon}\)</span>. A linear model is generally written in the
+following matrix form:</p>
+<p><span class="math display">\[\mathbf{y} = \boldsymbol{\beta}\mathrm{\mathbf{X}} + \boldsymbol{\epsilon}.\]</span></p>
+<p>Statistical inference with such models is usually based on the
+assumption that the response variable has a normal distribution, i.e.
+<span class="math display">\[\epsilon \sim \mathcal{N}(0, \mathbf{I}\sigma^2).\]</span></p>
+<p>To estimate the unknown parameter, a sensible approach is to choose a
+value of <span class="math inline">\(\boldsymbol{\beta}\)</span> that makes the model fit closely the data. One
+possible way to proceed is to minimize a relevant cost function, defined
+by the residual sum of squares (RSS) of the model, with respect to
+<span class="math inline">\(\boldsymbol{\beta}\)</span>, known as the <em>least squares</em> method <span class="citation">(Gauss <a href="#ref-gauss1809theoria">1809</a>)</span>:
+<span class="math display">\[RSS(\boldsymbol{\beta}) = || \mathbf{y} - \mathbf{X} \boldsymbol{\beta}\ ||_2^2.
+\label{eq:RSS}\]</span></p>
+<p>The least squares estimator is obtained by minimizing <span class="math inline">\(RSS(\boldsymbol{\beta})\)</span>. To
+that end, we set the derivative of equal to zero to obtain the normal
+equations: <span class="math display">\[\mathbf{X}^T\mathbf{X}\boldsymbol{\beta} = \mathbf{X}^T\mathbf{y}.
+\label{eq:normaleq}\]</span></p>
+<p>Solving for <span class="math inline">\(\boldsymbol{\beta}\)</span>, we obtain the ordinary least squares estimate:
+<span class="math display">\[\hat{\boldsymbol{\beta}}^{OLS} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y},\]</span> provided that the
+inverse of <span class="math inline">\(\mathbf{X}^T\mathbf{X}\)</span> exists, which means that the matrix <span class="math inline">\(\mathbf{X}\)</span> should
+have rank <span class="math inline">\(D\)</span>. As <span class="math inline">\(\mathbf{X}\)</span> is an <span class="math inline">\(n \times D\)</span> matrix, this requires in
+particular that <span class="math inline">\(n \geqslant D\)</span>, i.e. that the number of parameters is
+smaller than or equal to the number of observations.</p>
+</div>
+<div id="penalized" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Penalized linear regression</h3>
+<p>The Gauss-Markov theorem <span class="citation">(Aitkin <a href="#ref-aitkin1935least">1935</a>)</span> asserts that the least
+squares estimates <span class="math inline">\(\hat{\boldsymbol{\beta}}^{OLS}\)</span> have the smallest variance among
+all linear unbiased estimates. However, there may well exist biased
+estimators with smaller mean squared error that would trade a little
+bias for a larger reduction in variance. Subset selection, shrinkage
+methods (ridge regression, lasso regression, <span class="math inline">\(\dots\)</span>) or dimension
+reduction approaches such as Principal Components Regression or Partial
+least Squares are useful approaches if we want to obtain such biased
+estimates with smaller variance. In this section we will only detailed
+the most commonly used shrinkage methods, as they are the ones used in
+association genetics.</p>
+<div id="ridge-regression" class="section level4 unnumbered">
+<h4>Ridge regression</h4>
+<p>The least squares estimates are the best unbiased linear estimators but
+this estimation procedure is valid only if the correlation matrix
+<span class="math inline">\(\mathbf{X}^T\mathbf{X}\)</span> is close to a unit matrix or full-rank, i.e. when the
+predictors are not orthogonal. If not, <span class="citation">(Hoerl and Kennard <a href="#ref-hoerl1970ridge">1970</a>)</span> proposed to
+base the estimation of the regression parameters on the matrix
+<span class="math inline">\((\mathbf{X}^T\mathbf{X} + \lambda\mathbf{I})\)</span>, <span class="math inline">\(\lambda \geq 0\)</span> rather than on <span class="math inline">\(\mathbf{X}^T\mathbf{X}\)</span>
+and have developed the method named <em>ridge regression</em> to estimate the
+biased coefficients <span class="math inline">\(\hat{\boldsymbol{\beta}}^{ridge}\)</span>. This method shrinks the
+coefficients of the regression towards zero by imposing a penalty on the
+sum of the squared coefficients. The ridge coefficients minimize a
+penalized residual sum of squares which can be written as follow:</p>
+<p><span class="math display">\[\hat{\boldsymbol{\beta}}^{ridge} = \underset{\beta}{\text{argmin}} \left\lbrace || \mathbf{y} - \mathbf{X}\boldsymbol{\beta} ||_2^2 + \lambda ||\boldsymbol{\beta}||_2^2 \right\rbrace, 
+\label{eq:ridge}\]</span></p>
+<p>or can be equivalently written as a constrained problem:
+<span class="math display">\[\underset{\beta}{\text{argmin}} \left\lbrace || \mathbf{y} - \mathbf{X}\boldsymbol{\beta} ||_2^2 \text{ subject to } \sum_{d=1}^D \boldsymbol{\beta}_d \leq t \right\rbrace,\]</span>
+with <span class="math inline">\(t \geqslant 0\)</span> a size constraint and <span class="math inline">\(\lambda \geqslant 0\)</span> a
+penalty parameter that controls the amount of shrinkage: the larger the
+value of <span class="math inline">\(\lambda\)</span>, the greater the amount of shrinkage. The ridge
+regression estimates can then be written as:</p>
+<p><span class="math display">\[\boldsymbol{\hat{\boldsymbol{\beta}}}^{ridge} = (\mathbf{X}^T\mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^T \mathbf{y},
+\label{eq:ridgesol}\]</span></p>
+<p>We can notice that the solution adds a positive constant to the diagonal
+of <span class="math inline">\(\mathbf{X}^T\mathbf{X}\)</span> before inversion, which makes the problem non-singular
+even if <span class="math inline">\(\mathbf{X}^T\mathbf{X}\)</span> is not full rank.</p>
+<p>The penalty parameter <span class="math inline">\(\lambda\)</span> can be chosen either by <span class="math inline">\(K\)</span>-fold
+cross-validation, leave-one-out cross-validation or by using the
+generalized cross-validation <span class="citation">(Golub, Heath, and Wahba <a href="#ref-golub1979generalized">1979</a>)</span>. In generalized
+cross-validation, the estimate <span class="math inline">\(\hat{\lambda}\)</span> is the minimizer of
+<span class="math inline">\(V(\lambda)\)</span> given by
+<span class="math display">\[V(\lambda) = \frac{1}{n} \frac{||(\mathbf{I} - \mathbf{A}(\lambda))\mathbf{y} ||_2^2}{\left[ 1/n \text{Trace}(\mathbf{I} - \mathbf{A}(\lambda))\right]^2},\]</span>
+where <span class="math inline">\(\mathbf{A}(\lambda) = \mathbf{X}(\mathbf{X}^T\mathbf{X} + n\lambda\mathbf{I})^{-1}\mathbf{X}^T\)</span> and is
+known as the hat matrix.</p>
+<p>Moreover <span class="citation">(Hoerl and Kennard <a href="#ref-hoerl1970ridge">1970</a>)</span> have shown that the total variance of the
+ridge coefficients decrease as <span class="math inline">\(\lambda\)</span> increases while the squared
+bias decrease with <span class="math inline">\(\lambda\)</span> and that there exists values <span class="math inline">\(\lambda\)</span> for
+which the MSE is less for <span class="math inline">\(\hat{\boldsymbol{\beta}}^{ridge}\)</span> than it is for
+<span class="math inline">\(\hat{\boldsymbol{\beta}}^{OLS}\)</span>. These properties lead to the conclusion that it is
+advantageous to take a little bias to substantially reduce the variance
+and thereby improving the mean square error of estimation and
+prediction.</p>
+</div>
+<div id="lasso" class="section level4 unnumbered">
+<h4>Lasso</h4>
+<p>The <em>lasso</em> <span class="citation">(Tibshirani <a href="#ref-tibshirani_regression_1996">1996</a>)</span> is also a shrinkage method but
+unlike ridge regression, it may set some coefficients to zero and thus
+perform variable selection. The lasso estimate is close to the ridge
+regression in the sense that it is a penalized linear regression with a
+penalty on the sum of the absolute value of the coefficients:</p>
+<p><span class="math display">\[\hat{\boldsymbol{\beta}}^{lasso} = \underset{\boldsymbol{\beta}}{\text{argmin}} \left\lbrace || \mathbf{y} - \mathbf{X}\boldsymbol{\beta} ||_2^2 + \lambda ||\boldsymbol{\beta}||_1 \right\rbrace, 
+\label{eq:lasso}\]</span></p>
+<p>which can be equivalently written as the constrained problem:
+<span class="math display">\[\underset{\boldsymbol{\beta}}{\text{argmin}} \left\lbrace || \mathbf{y} - \mathbf{X}\boldsymbol{\beta} ||_2^2 \text{ subject to } \sum_{d=1}^D |\beta_d| \leq t \right\rbrace,\]</span>
+with <span class="math inline">\(t \geqslant 0\)</span> a size constraint and <span class="math inline">\(\lambda \geqslant 0\)</span> a
+penalty parameter.</p>
+<p>Comparing and , we can see that the difference between lasso and ridge
+regression is found in the penalized term, the <span class="math inline">\(||\boldsymbol{\beta}||_2^2\)</span> term
+(<span class="math inline">\(\ell_2\)</span> squared norm) in ridge regression penalty has been replaced by
+<span class="math inline">\(||\boldsymbol{\beta}||_1\)</span> (<span class="math inline">\(\ell_1\)</span> norm) in the lasso penalty. The <span class="math inline">\(\ell_1\)</span>
+penalty has the effect of forcing some of the coefficient estimates to
+be exactly equal to 0 when the penalty parameter <span class="math inline">\(\lambda\)</span> is
+sufficiently large. This leads to <em>sparse</em> models much easily
+interpretable than those produced by ridge regression. Figure
+<a href="parametric.html#fig:sparsity">2.2</a> illustrates how the lasso procedure can achieve
+sparsity while the ridge coefficients are only shrinking to zero.</p>
+<p>However, the constraint put on the <span class="math inline">\(\ell_1\)</span> norm of the coefficients
+makes the solution of the lasso non-linear in <span class="math inline">\(\mathbf{y}\)</span> and therefore there
+is no closed form expression to calculate the solutions as in ridge
+regression. Efficient algorithms are available for computing the entire
+path of solutions as <span class="math inline">\(\lambda\)</span> varied, with the same computational cost
+as for the ridge regression (see homotopy methods <span class="citation">(Osborne, Presnell, and Turlach <a href="#ref-osborne2000new">2000</a>)</span> such
+as LARS <span class="citation">(Efron et al. <a href="#ref-efron2004least">2004</a>)</span>, or also proximal algorithms
+<span class="citation">(Parikh, Boyd, and others <a href="#ref-parikh2014proximal">2014</a>)</span> for more details).</p>
+<p>As for ridge regression, the tuning parameter <span class="math inline">\(\lambda\)</span> needs to be
+chosen but with the lasso we cannot rely on the generalized
+cross-validation to calculate the best value for <span class="math inline">\(\lambda\)</span>. However, it
+is possible to use an ordinary cross-validation where we choose a grid
+of <span class="math inline">\(\lambda\)</span> values and compute the cross-validation error for each
+value of <span class="math inline">\(\lambda\)</span>. We then select the tuning parameter for which the
+value of the cross-validation error is minimized and re-fit the model
+using all the available observations with the best <span class="math inline">\(\lambda\)</span>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:sparsity"></span>
+<img src="book_files/figure-html/sparsity-1.png" alt="Geometrical representation of sparsity in penalized linear regression. (A) A 2-dimensional representation of space of the coefficients \(\beta_1\) and \(\beta_2\). The blue geometric form represents two types of constraints, \(||\beta||_1\) and \(||\beta||^2_2\), applied to the coefficients. The circular coloured lines represent the contour of the cost function and the red dotted point is the true parameter \(\beta\) we seek to reach. (B) 3-dimensional view of (A) where the constraints are represented as a tube in which the penalized methods are forced to stay to estimate the coefficients \(\beta_1\) and \(\beta_2\) (Image credit: Yves Grandvalet)." width="90%" />
+<p class="caption">
+Figure 2.2: Geometrical representation of sparsity in penalized linear regression. (A) A 2-dimensional representation of space of the coefficients <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>. The blue geometric form represents two types of constraints, <span class="math inline">\(||\beta||_1\)</span> and <span class="math inline">\(||\beta||^2_2\)</span>, applied to the coefficients. The circular coloured lines represent the contour of the cost function and the red dotted point is the true parameter <span class="math inline">\(\beta\)</span> we seek to reach. (B) 3-dimensional view of (A) where the constraints are represented as a tube in which the penalized methods are forced to stay to estimate the coefficients <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> (Image credit: Yves Grandvalet).
+</p>
+</div>
+</div>
+<div id="group-lasso" class="section level4 unnumbered">
+<h4>Group-Lasso</h4>
+<p>In some problems, the predictors belong to pre-identified groups; for
+instance genes that belong to the same biological pathway, SNP included
+in the same haplotype block or collections of indicator (dummy)
+variables for representing the levels of a categorical predictor. In
+this context it may be desirable to shrink and select the members of a
+group together. The group-lasso regression <span class="citation">(Yuan and Lin <a href="#ref-yuan_model_2006">2006</a>)</span> is one way
+to achieve this.</p>
+<p>If we suppose that <span class="math inline">\(D\)</span> predictors are divided into <span class="math inline">\(G\)</span> groups, with
+<span class="math inline">\(p_g\)</span> the number of variables in the group <span class="math inline">\(g\)</span> then the group-lasso
+solution minimizes the following penalized criterion:</p>
+<p><span class="math display">\[\hat{\boldsymbol{\beta}}^{GL} = \underset{\boldsymbol{\beta}}{\text{argmin}} \left\lbrace || \mathbf{y} - \sum_{g=1}^G \mathbf{X}_g\boldsymbol{\beta}_g ||_2^2 + \lambda \sum_{g=1}^G \sqrt{p_g}||\beta_g||_2 \right\rbrace, 
+\label{eq:group-lasso}\]</span></p>
+<p>with <span class="math inline">\(\mathbf{X}_g\)</span> the matrix of predictors corresponding to the <span class="math inline">\(g^{th}\)</span>
+group, <span class="math inline">\(\sqrt{p_g}\)</span> the terms accounting for the varying groups sizes
+and <span class="math inline">\(||\beta_g||_2\)</span> the <span class="math inline">\(\ell_2\)</span>-norm of the coefficients corresponding
+to group <span class="math inline">\(g\)</span>. Since the Euclidean norm of a vector <span class="math inline">\(\beta_g\)</span> is zero
+only if all of its components are zero, this model encourages sparsity
+at the group level.</p>
+<p>Generalizations include more general <span class="math inline">\(\ell_2\)</span> norms
+<span class="math inline">\(||\nu^T||_K = (\nu^TK\nu)^{1/2}\)</span> as well as overlapping groups of
+predictors <span class="citation">(Jacob, Obozinski, and Vert <a href="#ref-jacob2009group">2009</a>; Jenatton, Audibert, and Bach <a href="#ref-jenatton2011structured">2011</a>)</span>.</p>
+</div>
+</div>
+<div id="glm" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Generalized linear models</h3>
+<p>Generalized linear models (GLMs) <span class="citation">(Nelder and Wedderburn <a href="#ref-nelder_generalized_1972">1972</a>)</span> are an
+extension of linear models where the strict linearity assumption of
+linear models is somewhat relaxed by allowing the expected value of the
+response to depend on a smooth monotonic function of the linear
+predictor and has the basic structure:
+<span class="math display">\[g(\theta) = \mathbf{X}\boldsymbol{\beta} = \beta_0 + \beta_1\boldsymbol{x}_1 + \dots + \beta_D\boldsymbol{x}_D,\]</span>
+where <span class="math inline">\(\theta \equiv \mathbb{E}(\mathrm{Y}|\mathrm{X})\)</span>, <span class="math inline">\(g\)</span> is a smooth monotonic
+’link function’, <span class="math inline">\(\mathbf{X}\)</span> the <span class="math inline">\(n \times D\)</span> model matrix and <span class="math inline">\(\boldsymbol{\beta}\)</span> the
+unknown parameters. In addition, the assumption that the response should
+be normally distributed is also relaxed by allowing it to follow any
+distribution from the exponential family. The exponential family of
+distribution includes many distributions useful for practical modelling
+such as the Poisson, Binomial, Gamma and Normal distribution (see
+<span class="citation">(Mc Cullagh and Nelder <a href="#ref-mc_cullagh_generalized_1989">1989</a>)</span> for comprehensive reference on GLMs). A
+distribution belongs to the exponential family of distributions if its
+probability density function can be written as
+<span class="math display">\[g_{\theta}(\mathbf{y}) = \text{exp} \left[ \dfrac{\mathbf{y}\theta - b(\theta)}{a(\phi)} + c(\mathbf{y},\phi) \right],\]</span>
+where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are arbitrary functions, <span class="math inline">\(\phi\)</span> the dispersion
+parameter and <span class="math inline">\(\theta\)</span> known as the canonical parameter of the
+distribution.</p>
+<p>Furthermore, it can be shown that <span class="math display">\[\mathbb{E}(\mathrm{Y}) = b&#39;(\theta) = \mu,
+\label{eq:mu}\]</span> and <span class="math display">\[Var(\mathrm{y}) = b&#39;&#39;(\theta)\phi.
+\label{eq:var}\]</span></p>
+<p>Estimation and inference with GLMs are based on maximum likelihood
+estimation theory <span class="citation">(RA Fisher <a href="#ref-ra1922mathematical">1922</a>)</span>. The log-likelihood for the
+observed response <span class="math inline">\(\mathbf{y}\)</span> is given by
+<span class="math display">\[l(f_{\theta}(\mathbf{y})) = \sum_{i=1}^n \dfrac{y_i\theta_i - b(\theta)}{a(\phi)} + c(y_i,\phi).\]</span></p>
+<p>The maximum-likelihood estimate of <span class="math inline">\(\boldsymbol{\beta}\)</span> are obtained by partially
+differentiating <span class="math inline">\(l\)</span> with respect to each element of <span class="math inline">\(\boldsymbol{\beta}\)</span>, setting
+the resulting expression to 0 and solving for <span class="math inline">\(\boldsymbol{\beta}\)</span>:
+<span class="math display">\[\dfrac{\partial l}{\partial \beta_d} = \sum_{i=1}^n \dfrac{(y_i - b&#39;_i(\theta_i))}{\phi b&#39;&#39;_i(\theta_i)} \dfrac{\partial \mu_i}{\partial \beta_d} = 0.\]</span>
+Substituting and into this equation gives</p>
+<p><span class="math display" id="eq:scores">\[\begin{equation}
+\sum_{i=1}^n \dfrac{(y_i - \mu_i)}{\text{Var}(\mu_i)} \dfrac{\partial \mu_i}{\partial \beta_d} = 0 \hspace{10pt} \forall d.
+\tag{2.1}
+\end{equation}\]</span></p>
+<p>There are several iterative methods to solve the equation and estimate
+the maximum likelihood estimates <span class="math inline">\(\hat{\beta_d}\)</span>. One can use the
+well-known Newton-Raphson method <span class="citation">(Fletcher <a href="#ref-fletcher1987practical">1987</a>)</span>, Fisher
+scoring method <span class="citation">(Longford <a href="#ref-longford1987fast">1987</a>)</span> which is a form of Newton’s method or
+the Iteratively Reweighted Least Squares method developed by
+<span class="citation">(Nelder and Wedderburn <a href="#ref-nelder_generalized_1972">1972</a>)</span>.</p>
+<div id="logistic-regression" class="section level4 unnumbered">
+<h4>Logistic regression</h4>
+<p>The logistic regression model <span class="citation">(Cox <a href="#ref-cox1958regression">1958</a>)</span> is a generalized
+linear model where the logit function, defined as
+<span class="math display">\[\text{logit}(t) = \log \left( \frac{t}{1-t} \right), \text{ with } t \in [0,1],\]</span>
+is used as the ’link’ function for <span class="math inline">\(g\)</span> and is applied in the case where
+we want to model a qualitative random variable <span class="math inline">\(\mathrm{Y}\)</span> with <span class="math inline">\(K\)</span> classes.
+The logit function allows to model the posterior probability
+<span class="math inline">\(\mathbb{P}(\mathrm{Y} = k)\)</span> via linear function of the observations while at
+the same ensuring that they sum to one and remain in <span class="math inline">\([0,1]\)</span>. The model
+has the form:</p>
+<p><span class="math display">\[\begin{aligned}
+  \log \left( \frac{\mathbb{P}(\mathrm{Y} = 1 |\mathrm{X} = \boldsymbol{x})}{1 - \mathbb{P}(\mathrm{Y} = K |\mathrm{X} = \boldsymbol{x})} \right)  &amp; = \beta_{10} + \boldsymbol{\beta}_1^T \boldsymbol{x},  \\
+  \log \left( \frac{\mathbb{P}(\mathrm{Y} = 2 |\mathrm{X} = \boldsymbol{x})}{1 - \mathbb{P}(\mathrm{Y} = K |\mathrm{X} = \boldsymbol{x})} \right)  &amp; = \beta_{20} + \boldsymbol{\beta}_2^T\boldsymbol{x},  \\
+  \vdots  \\
+  \log \left( \frac{\mathbb{P}(\mathrm{Y} = K-1 |\mathrm{X} = \boldsymbol{x})}{1 - \mathbb{P}(\mathrm{Y} = K |\mathrm{X} = \boldsymbol{x})} \right) &amp; = \beta_{(K-1)0} + \boldsymbol{\beta}_{K-1}^T\boldsymbol{x} ,
+ \label{eq=logit}\end{aligned}\]</span></p>
+<p>and equivalently
+<span class="math display">\[\mathbb{P}(\mathrm{Y} = k |\mathrm{X} = \boldsymbol{x}) = \frac{\text{exp}(\beta_{k0} + \boldsymbol{\beta}_k^T\boldsymbol{x})}{1 + \sum_{k=1}^{K-1} \text{exp}(\beta_{k0} + \boldsymbol{\beta}_k^T\boldsymbol{x})}, \text{ with } k \in [1,\dots,K-1].
+ \label{eq=logit2}\]</span></p>
+<p>When <span class="math inline">\(K=2\)</span> the model becomes simple since there is only a single linear
+function. It is widely used in biostatistics when we want to classify an
+individual as being a case or a control in genome-wide association
+studies for instance.</p>
+<p>Logistic regression models are usually fit by maximum likelihood using
+the conditional likelihood of the response given the observations. In
+the two class case where <span class="math inline">\(\mathbf{y}\)</span> is encoded as <span class="math inline">\(0/1\)</span>, the log-likelihood
+of the estimator can be written as:</p>
+<p><span class="math display">\[\begin{aligned}
+l(\boldsymbol{\beta}) &amp; = \sum_{i=1}^n \left[ y_i \log \left( \frac{e^{\boldsymbol{\beta}^T\boldsymbol{x}_i}}{1+e^{\boldsymbol{\beta}^T\boldsymbol{x}_i}}\right) +  (1-y_i)\log \left( 1- \frac{e^{\boldsymbol{\beta}^T\boldsymbol{x}_i}}{1+e^{\boldsymbol{\beta}^T\boldsymbol{x}_i}} \right) \right] \\
+&amp; =  \sum_{i=1}^n \left[ y_i\boldsymbol{\beta}^T\boldsymbol{x}_i - \log (1 + e^{\boldsymbol{\beta}^T\boldsymbol{x}_i}) \right]. \end{aligned}\]</span></p>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-gauss1809theoria">
+<p>Gauss, Carl Friedrich. 1809. <em>Theoria Motus Corporum Coelestium in Sectionibus Conicis Solem Ambientium Auctore Carolo Friderico Gauss</em>. sumtibus Frid. Perthes et IH Besser.</p>
+</div>
+<div id="ref-aitkin1935least">
+<p>Aitkin, AC. 1935. “On Least Squares and Linear Combination of Observations.” <em>Proceedings of the Royal Society of Edinburgh</em> 55: 42–48.</p>
+</div>
+<div id="ref-hoerl1970ridge">
+<p>Hoerl, Arthur E, and Robert W Kennard. 1970. “Ridge Regression: Biased Estimation for Nonorthogonal Problems.” <em>Technometrics</em> 12 (1): 55–67.</p>
+</div>
+<div id="ref-golub1979generalized">
+<p>Golub, Gene H, Michael Heath, and Grace Wahba. 1979. “Generalized Cross-Validation as a Method for Choosing a Good Ridge Parameter.” <em>Technometrics</em> 21 (2): 215–23.</p>
+</div>
+<div id="ref-tibshirani_regression_1996">
+<p>Tibshirani, Robert. 1996. “Regression Shrinkage and Selection via the Lasso.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 58 (1): 267–88.</p>
+</div>
+<div id="ref-osborne2000new">
+<p>Osborne, Michael R, Brett Presnell, and Berwin A Turlach. 2000. “A New Approach to Variable Selection in Least Squares Problems.” <em>IMA Journal of Numerical Analysis</em> 20 (3): 389–403.</p>
+</div>
+<div id="ref-efron2004least">
+<p>Efron, Bradley, Trevor Hastie, Iain Johnstone, Robert Tibshirani, and others. 2004. “Least Angle Regression.” <em>The Annals of Statistics</em> 32 (2): 407–99.</p>
+</div>
+<div id="ref-parikh2014proximal">
+<p>Parikh, Neal, Stephen Boyd, and others. 2014. “Proximal Algorithms.” <em>Foundations and Trends in Optimization</em> 1 (3): 127–239.</p>
+</div>
+<div id="ref-yuan_model_2006">
+<p>Yuan, Ming, and Yi Lin. 2006. “Model Selection and Estimation in Regression with Grouped Variables.” <em>JOURNAL OF THE ROYAL STATISTICAL SOCIETY, SERIES B</em> 68: 49–67.</p>
+</div>
+<div id="ref-jacob2009group">
+<p>Jacob, Laurent, Guillaume Obozinski, and Jean-Philippe Vert. 2009. “Group LAsso with Overlap and Graph LAsso.” In <em>Proceedings of the 26th Annual International Conference on Machine Learning</em>, 433–40. Montreal, Quebec, Canada.</p>
+</div>
+<div id="ref-jenatton2011structured">
+<p>Jenatton, Rodolphe, Jean-Yves Audibert, and Francis Bach. 2011. “Structured Variable Selection with Sparsity-Inducing Norms.” <em>Journal of Machine Learning Research</em> 12 (Oct): 2777–2824.</p>
+</div>
+<div id="ref-nelder_generalized_1972">
+<p>Nelder, J. A., and R. W. M. Wedderburn. 1972. “Generalized Linear Models.” <em>Journal of the Royal Statistical Society: Series A</em> 135 (3): 370–84.</p>
+</div>
+<div id="ref-mc_cullagh_generalized_1989">
+<p>Mc Cullagh, Peter, and J. A. Nelder. 1989. “Generalized Linear Models, Second Edition.” <em>CRC Press</em>. <a href="https://www.crcpress.com/Generalized-Linear-Models-Second-Edition/McCullagh-Nelder/p/book/9780412317606">https://www.crcpress.com/Generalized-Linear-Models-Second-Edition/McCullagh-Nelder/p/book/9780412317606</a>.</p>
+</div>
+<div id="ref-ra1922mathematical">
+<p>RA Fisher, MA. 1922. “On the Mathematical Foundations of Theoretical Statistics.” <em>Phil. Trans. R. Soc. Lond. A</em> 222 (594-604): 309–68.</p>
+</div>
+<div id="ref-fletcher1987practical">
+<p>Fletcher, Roger. 1987. “Practical Methods of Optimization John Wiley &amp; Sons.” <em>New York</em> 80.</p>
+</div>
+<div id="ref-longford1987fast">
+<p>Longford, Nicholas T. 1987. “A Fast Scoring Algorithm for Maximum Likelihood Estimation in Unbalanced Mixed Models with Nested Random Effects.” <em>Biometrika</em> 74 (4): 817–27.</p>
+</div>
+<div id="ref-cox1958regression">
+<p>Cox, David R. 1958. “The Regression Analysis of Binary Sequences.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em>, 215–42.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="concepts-of-statistical-learning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="non-parametric.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
