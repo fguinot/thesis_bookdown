@@ -1,0 +1,180 @@
+# (APPENDIX) Annexes {-}
+# Derivation of the MSE bias-variance decomposition {#biasvar}
+
+For the sake of brevity, we will abbreviate $f = f(\mathbf{x})$ and
+$\hat{f} = \hat{f}(\mathbf{x})$ estimated on a training set $\mathcal{T}$.
+
+$$\begin{aligned}
+ \label{eq:bias-var}
+\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] & = \mathbb{E}_\mathcal{T} [\mathrm{Y}^2 + 2\mathrm{\mathrm{Y}}\hat{f} + \hat{f}^2] \\ \nonumber
+& = \mathbb{E}_\mathcal{T}(\mathrm{Y}^2) + \mathbb{E}_\mathcal{T}[\hat{f}^2] - 2\mathbb{E}_\mathcal{T}[\mathrm{Y}\hat{f}].\end{aligned}$$
+
+Remembering the following properties of the variance and expectation:
+$$\begin{aligned}
+& Var(\mathrm{X}) = \mathbb{E}(\mathrm{X}^2) - \mathbb{E}^2(\mathrm{X}),& \\
+& \mathbb{E}(\mathrm{X} \mathrm{Y}) = \mathbb{E}(\mathrm{X})\mathbb{E}(\mathrm{Y}) + Cov(\mathrm{X},\mathrm{Y}),& \\
+& Var(\mathrm{X} + \mathrm{Y}) = Var(\mathrm{X}) + Var(\mathrm{Y}) + 2Cov(\mathrm{X},\mathrm{Y}),& \\
+& Var(\mathrm{X} - \mathrm{Y}) = Var(\mathrm{X}) + Var(\mathrm{Y}) - 2Cov(\mathrm{X},\mathrm{Y}),& \\
+& Cov(\mathrm{X},\mathrm{Y}) = 0 \text{ if $\mathrm{X}$ and $\mathrm{Y}$ are independent},& \end{aligned}$$
+and using them in we get: $$\label{eq:bias-var2}
+\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] = Var(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + Var(\hat{f}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}_\mathcal{T}[(f+\epsilon) \hat{f}].$$
+Developing the expression: $$\begin{aligned}
+2\mathbb{E}_\mathcal{T}[(f+\epsilon) \hat{f}] & = 2\mathbb{E}_\mathcal{T}(f\hat{f}) + 2\mathbb{E}_\mathcal{T}(\hat{f}\epsilon) \\
+& = 2\mathbb{E}_\mathcal{T}(f\hat{f}) + 2[\mathbb{E}_\mathcal{T}(\hat{f})\underbrace{\mathbb{E}_\mathcal{T}(\epsilon)}_{=0} + \underbrace{cov(\hat{f},\epsilon)}_{=0}] \\
+& = 2[\mathbb{E}_\mathcal{T}(f)\mathbb{E}_\mathcal{T}(\hat{f}) + Cov(f,\hat{f})],\end{aligned}$$
+and remplacing $Var(\mathrm{Y}) = Var(f) + Var(\epsilon) = Var(f) + \sigma^2$
+in , we get:
+
+$$\begin{aligned}
+ \label{eq:bias-var3}
+\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] & = Var(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + Var(\hat{f}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2[\mathbb{E}_\mathcal{T}(f)\mathbb{E}_\mathcal{T}(\hat{f}) + Cov(f,\hat{f})] \\ \nonumber
+& = \underbrace{Var(f) + Var(\hat{f}) - 2Cov(f,\hat{f})}_{Var(f-\hat{f})} + \sigma^2 + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\ \nonumber
+& = Var(f-\hat{f}) + \sigma^2 + \mathbb{E}_\mathcal{T}^2(\mathrm{Y}) + \mathbb{E}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f})\end{aligned}$$
+
+Knowing that
+$ \mathbb{E}_\mathcal{T}^2(\mathrm{Y}) = \mathbb{E}_\mathcal{T}^2(f + \epsilon) = \mathbb{E}^2(f)$
+and replacing in \[eq:bias-var3\], we finally obtain:
+
+$$\begin{aligned}
+ \label{eq:bias-var4}
+\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] & = Var(f-\hat{f}) + \sigma^2 + \mathbb{E}^2(f) + \mathbb{E}_\mathcal{T}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\ \nonumber
+& = \underbrace{Var(f - \hat{f})}_{Variance} + \underbrace{[\mathbb{E}(f) - \mathbb{E}_\mathcal{T}(\hat{f})]^2}_{Bias} + \underbrace{\sigma^2}_{noise}\end{aligned}$$
+
+# Linear smoother [@buja_linear_1989] {#linsmooth}
+
+One can also show that the smoothing spline is a linear smoother, and
+hence we can write down a smoother matrix. The following is taken from
+[@green_semi-parametric_1985].
+
+Let $h_i = x_{i+1} - x_i$, $i = 1,2,\dots,n-1$, $\Delta$ be a
+tridiagonal $(n-2) \times n$ matrix such as
+$$\Delta_{ii} = \frac{1}{h_i}, \hspace{.5cm} \Delta_{i,i+1} = -(\frac{1}{h_i}+\frac{1}{h_{i+1}}) , \hspace{.5cm} \Delta_{i,i+2} = \frac{1}{h_{i+1}},$$
+and let $\mathbf{C}$ be a symnetric tridiagonal matrix of order $n-2$ with :
+
+$$C_{i-1,i} = C_{i,i-1} = \frac{h_i}{6}, \hspace{.5cm} C_{ii} = \frac{h_i+h_{i+1}}{3},$$
+Then is can be showned that solving
+$$\sum_{i=1}^n||y_i - s(x_i)||^2 + \lambda \int_a^b{s''(t)}^2dt,$$ is
+equivalent to minimizing
+$$|| \mathbf{y} - s(\mathbf{x})||^2 + \lambda s(\mathbf{x}) \mathbf{K} s(\mathbf{x}) \hspace{.5cm} \text{where } \mathbf{K} = \Delta^T \mathbf{C}^{-1} \Delta$$
+with solution $\hat{\mathbf{y}} = \hat{s}(\mathbf{x}) = \mathbf{S}\mathbf{y}$, where
+$\mathbf{S} = (\mathbf{I}+\lambda \mathbf{K})^{-1}$.
+
+# Smoothing parameter $\lambda$ for smoothing splines {#lambdasmooth}
+
+A suitable criterion to choose $\lambda$ can be the mean-square error:
+
+$$MSE = \frac{1}{n}\sum_{i=1}^n(\hat{s}_i - s_i)^2,$$
+
+However $s$ is unknown so the $MSE$ cannot be used directly but it is
+possible to derive an estimate of $\mathbb{E}(MSE) + \sigma^2$, which is
+the expected squared error in predicting a new variable. We define the
+ordinary cross validation score as
+
+$$CV_o = \frac{1}{n}\sum_{i=1}^n(\hat{s}^{[-i]} - y_i)^2$$
+
+Substituting $y_i = s_i + \epsilon_i$, $$\begin{aligned}
+CV_o &= \frac{1}{n}\sum_{i=1}^n(\hat{s}_i^{[-i]} - s_i - \epsilon_i)^2 \\
+&= \frac{1}{n}\sum_{i=1}^n(\hat{s}_i^{[-i]} - s_i)^2 - (\hat{s}_i^{[-i]} - s_i)\epsilon_i + \epsilon_i^2.\end{aligned}$$
+
+Since $\mathbb{E}(\epsilon_i)$ $= 0$ , and that $\epsilon_i$ and
+$\hat{f}^{[-i]}$ are independent, the second term in the summation
+vanishes if expectations are taken:
+$$\mathbb{E}(CV_o) = \frac{1}{n}\mathbb{E}\left( \sum_{i=1}^n(\hat{s}_i^{[-i]} - s_i)^2\right) + \sigma^2.$$
+
+$\hat{s}^{[-i]} \approx \hat{s}$ with equality in the large sample
+limit, so $\mathbb{E}(CV_o) \approx \mathbb{E}(MSE) + \sigma^2$ also
+with equality in the large sample limit. Choosing $\lambda$ in order to
+minimize $CV_o$ is known as ordinary cross validation.
+
+It can be shown that ordinary leave-one-out cross validation is defined
+as follow
+$$LVOCV_o = \frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{s}_i)^2/(1-A_{ii})^2,$$
+where $\hat{s}$ is the estimate from fitting all the data and
+$\mathbf{A}$ is the corresponding influence matrix. In practice the
+weights, $1 - A_{ii}$, are often replaced the mean weight,
+$\text{trace}(\mathbf{I - A)}/n$ in order to get the generalized cross
+validation score
+$$GCV = \frac{n\sum_{i=1}^n(y_i-\hat{s}_i)^2}{\text{trace}(\mathbf{I-A})^2}.$$
+
+# $\mathit{B}$-spline basis {#Bspline}
+
+Given that the solution of the optimization problem is a natural cubic
+spline with $n-2$ interior knots, we can represent it in terms of
+$\mathit{B}$-spline basis functions.
+
+We can write $s(\mathbf{x}) = \sum_1^{n+2}\gamma_d\mathit{B}_d(\mathbf{x})$, where
+$\gamma_j$ are coefficients and the $\mathit{B}_d$ are the cubic
+$\mathit{B}$-spline basis functions. We define the $n \times (n+2)$
+matrix **$\mathbf{B}$** and the $(n+2) \times (n+2)$ matrix
+**$\mathbf{\Omega}$** by $$\mathit{B}_{id} = \mathit{B}_d(x_i)$$ and
+$$\Omega_{ii'} = \int \mathit{B}_i''(\mathbf{x}) \mathit{B}_{i'}''(\mathbf{x}) dx$$
+
+The optimization criterion
+$$\sum_{i=1}^n||y_i - s(x_i)||^2 + \lambda \int_a^b{s''(t)}^2dt,$$ can
+be rewrite as:
+
+$$(\mathbf{y} - \mathbf{B}\boldsymbol{\gamma})^T(\mathbf{y} - \mathbf{B}\boldsymbol{\gamma}) +
+\lambda\boldsymbol{\gamma}^T\boldsymbol{\Omega}\boldsymbol{\gamma} 
+\label{eq:optiBspline}$$
+
+We set the derivative of to 0 with respect to $\boldsymbol{\gamma}$ to get the
+solution:
+
+$$\frac{\partial [(\mathbf{y} - \mathbf{B}\boldsymbol{\gamma})^T(\mathbf{y} - \mathbf{B}\boldsymbol{\gamma}) +
+\lambda\boldsymbol{\gamma}^T\mathbf{\Omega}\boldsymbol{\gamma}]}{\partial \boldsymbol{\gamma}} = 0$$
+
+$$\frac{\partial [\mathbf{y}^T\mathbf{y} - 2 \mathbf{B}^T\mathbf{y}\boldsymbol{\gamma} + \mathbf{B}^T\boldsymbol{\gamma}^T \mathbf{B}\boldsymbol{\gamma} + \lambda\boldsymbol{\gamma}^T\boldsymbol{\Omega}\boldsymbol{\gamma}]}{\partial \boldsymbol{\gamma}} = 0$$
+
+$$-2\mathbf{B}^T\mathbf{y} + 2\mathbf{B}^T\mathbf{B} + 2\lambda\boldsymbol{\Omega}\boldsymbol{\gamma} = 0$$
+
+$$(\mathbf{B}^T\mathbf{B} + \lambda\boldsymbol{\Omega})\boldsymbol{\gamma} = \mathbf{B}^T\mathbf{y}$$
+
+$$\hat{\boldsymbol{\gamma}} = (\mathbf{B}^T\mathbf{B} + \lambda\boldsymbol{\Omega})^{-1}\mathbf{B}^T\mathbf{y}$$
+
+For computational purpose, it can be shown [@hastie_generalized_1990]
+that the $\mathit{B}$-spline basis function of size
+$n \times (\mathit{K} + 4)$ can be expressed as a
+$n \times (\mathit{K} + 2)$ basis matrix $\mathbf{N}$ for the natural
+cubic splines with the same interior and boundary knots at the extreme
+of $\mathbf{x}$.
+
+The solution vector $\hat{s}$ can be write as
+
+$$\hat{\mathbf{S}} = \mathbf{N}\hat{\mathbf{B}eta} = \mathbf{N}(\mathbf{N}^T\mathbf{N} + \lambda\mathbf{\Omega})^{-1}\mathbf{N}^T\mathbf{y} = (\mathbf{I} + \lambda\mathbf{K})^{-1}\mathbf{y}$$
+
+where $\mathbf{K} = \mathbf{N}^{-T}\mathbf{\Omega}\mathbf{N}^{-1}$ and
+$\hat{\mathbf{B}eta}$ the transformed version of $\hat{\boldsymbol{\gamma}}$ corresponding
+to the change in basis. In terms of the candidate fitted vector
+$\mathbf{f}$ and $\mathbf{K}$, the cubic smoothing spline $\hat{f}$
+minimizes $$(\mathbf{y}-\mathbf{s})^T(\mathbf{y}-\mathbf{s}) +
+\lambda\mathbf{s}^T\mathbf{K}\mathbf{s}$$ over all vectors $\mathbf{s}$.
+
+To compute all of this efficiently, the natural spline basis functions
+should be chosen so that $\mathbf{N}$ and (4) are band limited which
+thereby allow the fitted values to be computed in $O(n)$ calculations
+[@eubank_nonparametric_1999]. Specific ways to obtain such band limited
+structures are given in [@reinsch_smoothing_1967]. In our case, where
+the natural spline basis is a cubic spline basis, we can use the
+piecewise polynomial representation for the estimator describe in
+[@de_boor_practical_1975] to show that
+
+$$\hat{\mathbf{S}} = \mathbf{y} - \lambda\mathbf{Q}(\lambda\mathbf{Q}^T\mathbf{Q}+ \Delta)^{-1}\mathbf{Q}^T\mathbf{y},$$
+
+where $\mathbf{Q}^T$ is an $(n-2) \times n$ tridiagonal matrix with
+$\textit{i}$th row
+$$(\underbrace{0, \dots, 0}_{i-1}, \frac{1}{t_{i+1}- t_i}, -\frac{1}{t_{i+2}- t_{i+1}} - \frac{1}{t_{i+1}- t_i}, \frac{1}{t_{i+2}- t_{i+1}}, \underbrace{0,\dots,0}_{n-i-2})$$
+and $\Delta$ is symmetric, $(n-2) \times (n-2)$, tridiagonal matrix
+having first and last rows
+$(t_2 - t_1, t_3-t_2, \underbrace{0,\dots,0}_{n-4})$ and
+$(\underbrace{0,\dots,0}_{n-4}, t_{n-1}-t_{n-2}, t_n - t_{n_1}),$ and
+with $i^{th}$ row
+$$(\underbrace{0,\dots,0}_{i-2}, t_{i+1} - t_i, 2(t_{i+2}-t_i), t_{i+2}-t_{i+1}, \underbrace{0,\dots,0}_{n-i-3})$$
+
+for $i = 2, \dots, n-3$.
+
+The fitted values for the cubic smoothing splines can therefore be
+obtained in $O(n)$ operations by first solving the 5-banded system
+
+$$(\lambda\mathbf{Q}^T\mathbf{Q} + \Delta)\gamma = \mathbf{Q}^T\mathbf{y}$$
+and then using $\hat{\mathbf{S}} = \mathbf{y} - \lambda\mathbf{Q}\boldsymbol{\gamma}$.
+

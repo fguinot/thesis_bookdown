@@ -1,0 +1,1303 @@
+# Statistical context {#stat}
+
+This chapter is intended to introduce statistical learning and hypothesis testing. We will present some state-of-the-art linear statistical methods and also a thorough introduction to splines and generalized additive models. The understanding of these methods is required to grasp the statistical concepts used in the methodology presented in Chapter \@ref(LEOS) and \@ref(sicomore). 
+
+## Notations
+
+Let $\mathcal{T}$ be a training set consisting of $n$ pairs of examples
+labelled on a space $\mathcal{Z} = \mathcal{X} \times \mathcal{Y}$:
+$\mathcal{T} = \{(\boldsymbol{x}_{i}, y_{i})\}_{i=1}^{n}$, with
+$(\boldsymbol{x}_{i}, y_{i}) \in \mathcal{Z}$, $\forall i$. Each couple
+$(\boldsymbol{x}_{i}, y_{i})$ is the realization of an $i^{th}$ independent copy
+of a random vector couple $(\mathrm{X}, \mathrm{Y})$ distributed according to
+$\mathcal{U}$, an unknown but fixed distribution on $\mathcal{Z}$.
+
+Generally, we will represent the vectors in bold lowercase letters and
+the matrices in bold capital letters. Thus, when $\mathcal{X} \in \mathbb{R}^D$,
+the vector of the $i^{th}$ component of $\mathcal{T}$ represented by $D$
+variables, will be designated by the column vector
+$\boldsymbol{x}_i = (x_{i1}, \dots, x_{id}, \dots, x_{iD})^T \in \mathbb{R}^D$ and its
+associated matrix by
+$\mathbf{X} = (\boldsymbol{x}_1^T, \dots, \boldsymbol{x}_i^T, \dots, \boldsymbol{x}_n^T)^T \in \mathbb{R}^{n \times D}$.
+
+## Concepts of statistical learning
+
+Assuming that there is some relationship between an observed response
+vector $\mathbf{y} \in \mathbb{R}^n$ and $D$ different predictors in
+$\mathbf{X} \in \mathbb{R}^{n \times D}$, we can write this relationship in the very
+general from $$\mathbf{y} = f(\mathbf{X}) + \boldsymbol{\epsilon} ,$$ where $f$ :
+$\mathcal{X} \rightarrow \mathcal{Y}$ is some fixed but unknown function of
+$\mathbf{X}$ and $\boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I}\sigma^2)$ is a random error
+term, independent of $\mathbf{X}$ and with $\mathbf{I} \in \mathbb{R}^{n \times D}$ being the
+identity matrix.
+
+By definition, statistical learning refers to a set of approaches
+designed to estimate $f$ for 2 main reasons: prediction and explanation.
+
+### Prediction
+
+In the setting where we have a set of input variables $\mathbf{X}$ easily
+observable but where the output response $\mathbf{y}$ cannot be readily
+obtained, then, since the error term averages to zero, $\mathbf{y}$ can be
+predicted using $$\hat{\mathbf{y}} = \hat{f}(\mathbf{X}),$$ where $\hat{f}$ is the
+estimate of $f$ and $\hat{\mathbf{y}}$ is the resulting prediction for $\mathbf{y}$.
+In this configuration, we are not especially concerned with the exact
+form of $\hat{f}$ as long as it yields to an accurate prediction for
+$\mathbf{y}$. In this context, we want to find a function $\hat{f}$ that
+approximate the true function $f$ as well as possible by means of
+statistical learning method. We will make “as well as possible" in the
+sense of minimizing a particular cost function which must reflect how
+accurate we are in predicting $\mathbf{y}$. The most commonly used cost
+function in statistical regression is the mean-squared error (MSE)
+defined as: $$\| \mathbf{y} - \hat{f}(\mathbf{X})\|_2^2$$
+
+Most of statistical learning methods aim to minimize the MSE (also known
+as the quadratic loss function) to estimate $\hat{f}$ but other cost
+functions are also used in machine learning, depending on the task
+considered such as classification, regression or ranking (see for
+example the log loss, relative entropy, hinge loss, mean absolute
+error).
+
+#### Bias-variance decomposition of mean squared error{.unnumbered}
+
+Considering a couple of random variables $(\mathrm{X}, \mathrm{Y})$ defined on a
+training set $\mathcal{T}$, then it can be shown that the expected mean
+squared error $\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f}(\mathrm{X}))^2]$,
+conditionally to $\mathcal{T}$ and a noise term $\epsilon$, can be
+parsed into two errors terms, bias and variance:
+$$\mathbb{E}_\mathcal{T}\lbrace[\mathrm{Y} - \hat{f}(\mathrm{X})]^2\rbrace = \underbrace{\mathbb{E}_\mathcal{T}[\hat{f}(\mathrm{X})^2] - \mathbb{E}^2_\mathcal{T}[\hat{f}(\mathrm{X})]}_{\text{Variance}(\hat{f}(\mathrm{X}))} + \underbrace{(\mathbb{E}_\mathcal{T}[\hat{f}(\mathrm{X})] - \mathbb{E}[f(\mathrm{X})])^2}_{\text{Bias}[\hat{f}(\mathrm{X})\rbrace} + \underbrace{\sigma^2}_{\text{Variance}(\epsilon)}.$$
+
+Since the function $\hat{f}$ has been constructed on a training set
+$\mathcal{T}$, it is interesting to know how accurate it is on
+predicting $\mathbf{y}$ when applied to a new data set, this measure is
+represented by the variance term in the MSE. Estimates with high
+variance will tend to perform poorly when seeing new data, in general
+more complex models tend to have a higher variance.
+
+On the other hand, the bias error term refers to the error that is
+introduced by approximating the real, generally complex, function $f$.
+For instance, if we try to approximate a non-linear function using a
+learning method designed for linear models, there will be error in the
+estimate $\hat{f}$ due to this assumption. The more complex the model
+is, the lower the bias will be but at a cost of a higher variance.
+
+That is why when we try to fit a model on some data, we always search
+for the best compromise between variance and bias (the so-called
+bias-variance trade-off) and therefore between complexity and
+simplicity. The fact that highly complex models have a lower bias but
+generalize poorly on new data is known as overfitting and occurs when
+the model fit too closely the data, going so far as to interpolate them
+in the most extreme case (see Figure \@ref(fig:biasvar) for an
+illustration of bias-variance trade-off).
+
+(ref:biasvar) Bias and variance contribution to the total error. The bias (red curve) decreases as the model complexity increases unlike variance, which increases. The vertical dotted line shows the optimal model complexity, i.e. where the error criterion is minimized (image taken from http://scott.fortmann-roe.com/docs/BiasVariance.html).
+
+```{r biasvar, echo=FALSE, fig.cap='(ref:biasvar)', fig.align='center', fig.asp=.75, out.width='70%'}
+img <-  rasterGrob(as.raster(readPNG("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/biasvariance.png")), interpolate = FALSE)
+grid.arrange(img, ncol=1)
+```
+
+The last term, $\sigma^2$, corresponds to the variance of the noise,
+also called the *irreducible error* because the response variable is
+also a function of $\epsilon$ which, by definition, cannot be predicted
+using the observations. Since all terms are non-negative, this error
+forms a lower bound on the expected error on unseen samples
+[@friedman2001elements].
+
+#### Explanation{.unnumbered}
+
+We can also be interested in understanding the relationship between
+$\mathrm{Y}$ and $\mathrm{X}$. In this situation we are more interested by the exact
+form of $\hat{f}$ and we may want to answer the following questions:
+Which predictors are associated with the response? What is the
+relationship between the response and each predictor? Can the
+relationship be described using a linear equation or with a non-linear
+smoother? To answer these questions, we will tend to use more
+interpretable, i.e. simpler, models and to rely on the theory of
+hypothesis testing developed by [@neyman1933testing]. We will introduce
+the theory of hypothesis testing and the most common tests in Section
+\@ref(hypothesis).
+
+#### Estimation of $f${.unnumbered}
+
+All statistical learning methods can be roughly characterized as either
+parametric or non-parametric.
+
+-   **Parametric methods:** They are model-based approaches that reduce
+    the problem of estimating $f$ down to estimating a set of
+    parameters. Assuming a parametric form for $f$ simplifies the
+    estimation problem because it is generally easier to estimate a set
+    of parameters, as in the linear model, than to fit an entirely
+    arbitrary function. The main drawback is that the chosen model is
+    generally too far for the true form of $f$ leading to a poor
+    estimate. Even if more flexible models, such as polynomial models,
+    can fit more closely the true form of $f$, they require in general
+    to estimate a greater number of parameters which can lead to overfit
+    the data, meaning that they follow the errors to closely and cannot
+    be generalized to other data. We will present in Section
+    \@ref(linmod) the linear model with its extension known as
+    generalized linear models and some penalized approaches in Section
+    \@ref(penalized).
+
+-   **Non-parametric methods:** These approaches do not make explicit
+    assumptions about the functional form of $f$ but instead seek an
+    estimate that fit closely the data to some degree to avoid
+    overfitting. These methods have the advantage of being able to fit a
+    wider range of form for $f$ since no assumption about the functional
+    form for $f$ is made. However, they require a larger number of
+    observations than is typically needed for a parametric approach to
+    obtain an accurate estimate for $f$. We will present in Section
+    \@ref(non-parametric) some non-parametric models such as the
+    regression splines and the generalized additive model[^1].
+
+## Parametric methods{#parametric}
+
+### Linear models {#linmod}
+
+Linear models are statistical models where a univariate response
+$\mathbf{y} \in \mathbb{R}^n$ is modelled as the sum of $D$ linear predictor
+$\mathbf{X} \in \mathbb{R}^{n \times D}$ weighted by some unknown parameters,
+$\boldsymbol{\beta} \in \mathbb{R}^D$, which have to be estimated, and a zero mean random
+error term, $\boldsymbol{\epsilon}$. A linear model is generally written in the
+following matrix form:
+
+$$\mathbf{y} = \boldsymbol{\beta}\mathrm{\mathbf{X}} + \boldsymbol{\epsilon}.$$
+
+Statistical inference with such models is usually based on the
+assumption that the response variable has a normal distribution, i.e.
+$$\epsilon \sim \mathcal{N}(0, \mathbf{I}\sigma^2).$$
+
+To estimate the unknown parameter, a sensible approach is to choose a
+value of $\boldsymbol{\beta}$ that makes the model fit closely the data. One
+possible way to proceed is to minimize a relevant cost function, defined
+by the residual sum of squares (RSS) of the model, with respect to
+$\boldsymbol{\beta}$, known as the *least squares* method [@gauss1809theoria]:
+$$RSS(\boldsymbol{\beta}) = || \mathbf{y} - \mathbf{X} \boldsymbol{\beta}\ ||_2^2.
+\label{eq:RSS}$$
+
+The least squares estimator is obtained by minimizing $RSS(\boldsymbol{\beta})$. To
+that end, we set the derivative of equal to zero to obtain the normal
+equations: $$\mathbf{X}^T\mathbf{X}\boldsymbol{\beta} = \mathbf{X}^T\mathbf{y}.
+\label{eq:normaleq}$$
+
+Solving for $\boldsymbol{\beta}$, we obtain the ordinary least squares estimate:
+$$\hat{\boldsymbol{\beta}}^{OLS} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y},$$ provided that the
+inverse of $\mathbf{X}^T\mathbf{X}$ exists, which means that the matrix $\mathbf{X}$ should
+have rank $D$. As $\mathbf{X}$ is an $n \times D$ matrix, this requires in
+particular that \(n \geqslant D \), i.e. that the number of parameters is
+smaller than or equal to the number of observations.
+
+### Penalized linear regression {#penalized}
+
+The Gauss-Markov theorem [@aitkin1935least] asserts that the least
+squares estimates $\hat{\boldsymbol{\beta}}^{OLS}$ have the smallest variance among
+all linear unbiased estimates. However, there may well exist biased
+estimators with smaller mean squared error that would trade a little
+bias for a larger reduction in variance. Subset selection, shrinkage
+methods (ridge regression, lasso regression, $\dots$) or dimension
+reduction approaches such as Principal Components Regression or Partial
+least Squares are useful approaches if we want to obtain such biased
+estimates with smaller variance. In this section we will only detailed
+the most commonly used shrinkage methods, as they are the ones used in
+association genetics.
+
+#### Ridge regression{.unnumbered}
+
+The least squares estimates are the best unbiased linear estimators but
+this estimation procedure is valid only if the correlation matrix
+$\mathbf{X}^T\mathbf{X}$ is close to a unit matrix or full-rank, i.e. when the
+predictors are not orthogonal. If not, [@hoerl1970ridge] proposed to
+base the estimation of the regression parameters on the matrix
+$(\mathbf{X}^T\mathbf{X} + \lambda\mathbf{I})$, $\lambda \geq 0$ rather than on $\mathbf{X}^T\mathbf{X}$
+and have developed the method named *ridge regression* to estimate the
+biased coefficients $\hat{\boldsymbol{\beta}}^{ridge}$. This method shrinks the
+coefficients of the regression towards zero by imposing a penalty on the
+sum of the squared coefficients. The ridge coefficients minimize a
+penalized residual sum of squares which can be written as follow:
+
+$$\hat{\boldsymbol{\beta}}^{ridge} = \underset{\beta}{\text{argmin}} \left\lbrace || \mathbf{y} - \mathbf{X}\boldsymbol{\beta} ||_2^2 + \lambda ||\boldsymbol{\beta}||_2^2 \right\rbrace, 
+\label{eq:ridge}$$
+
+or can be equivalently written as a constrained problem:
+$$\underset{\beta}{\text{argmin}} \left\lbrace || \mathbf{y} - \mathbf{X}\boldsymbol{\beta} ||_2^2 \text{ subject to } \sum_{d=1}^D \boldsymbol{\beta}_d \leq t \right\rbrace,$$
+with \(t \geqslant 0 \) a size constraint and \(\lambda \geqslant 0\) a
+penalty parameter that controls the amount of shrinkage: the larger the
+value of $\lambda$, the greater the amount of shrinkage. The ridge
+regression estimates can then be written as:
+
+$$\boldsymbol{\hat{\boldsymbol{\beta}}}^{ridge} = (\mathbf{X}^T\mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^T \mathbf{y},
+\label{eq:ridgesol}$$
+
+We can notice that the solution adds a positive constant to the diagonal
+of $\mathbf{X}^T\mathbf{X}$ before inversion, which makes the problem non-singular
+even if $\mathbf{X}^T\mathbf{X}$ is not full rank.
+
+The penalty parameter $\lambda$ can be chosen either by $K$-fold
+cross-validation, leave-one-out cross-validation or by using the
+generalized cross-validation [@golub1979generalized]. In generalized
+cross-validation, the estimate $\hat{\lambda}$ is the minimizer of
+$V(\lambda)$ given by
+$$V(\lambda) = \frac{1}{n} \frac{||(\mathbf{I} - \mathbf{A}(\lambda))\mathbf{y} ||_2^2}{\left[ 1/n \text{Trace}(\mathbf{I} - \mathbf{A}(\lambda))\right]^2},$$
+where \( \mathbf{A}(\lambda) = \mathbf{X}(\mathbf{X}^T\mathbf{X} + n\lambda\mathbf{I})^{-1}\mathbf{X}^T\) and is
+known as the hat matrix.
+
+Moreover [@hoerl1970ridge] have shown that the total variance of the
+ridge coefficients decrease as $\lambda$ increases while the squared
+bias decrease with $\lambda$ and that there exists values $\lambda$ for
+which the MSE is less for $\hat{\boldsymbol{\beta}}^{ridge}$ than it is for
+$\hat{\boldsymbol{\beta}}^{OLS}$. These properties lead to the conclusion that it is
+advantageous to take a little bias to substantially reduce the variance
+and thereby improving the mean square error of estimation and
+prediction.
+
+#### Lasso{.unnumbered}
+
+The *lasso* [@tibshirani_regression_1996] is also a shrinkage method but
+unlike ridge regression, it may set some coefficients to zero and thus
+perform variable selection. The lasso estimate is close to the ridge
+regression in the sense that it is a penalized linear regression with a
+penalty on the sum of the absolute value of the coefficients:
+
+$$\hat{\boldsymbol{\beta}}^{lasso} = \underset{\boldsymbol{\beta}}{\text{argmin}} \left\lbrace || \mathbf{y} - \mathbf{X}\boldsymbol{\beta} ||_2^2 + \lambda ||\boldsymbol{\beta}||_1 \right\rbrace, 
+\label{eq:lasso}$$
+
+which can be equivalently written as the constrained problem:
+$$\underset{\boldsymbol{\beta}}{\text{argmin}} \left\lbrace || \mathbf{y} - \mathbf{X}\boldsymbol{\beta} ||_2^2 \text{ subject to } \sum_{d=1}^D |\beta_d| \leq t \right\rbrace,$$
+with \(t \geqslant 0 \) a size constraint and \(\lambda \geqslant 0\) a
+penalty parameter.
+
+Comparing and , we can see that the difference between lasso and ridge
+regression is found in the penalized term, the $||\boldsymbol{\beta}||_2^2$ term
+($\ell_2$ squared norm) in ridge regression penalty has been replaced by
+$||\boldsymbol{\beta}||_1$ ($\ell_1$ norm) in the lasso penalty. The $\ell_1$
+penalty has the effect of forcing some of the coefficient estimates to
+be exactly equal to 0 when the penalty parameter $\lambda$ is
+sufficiently large. This leads to *sparse* models much easily
+interpretable than those produced by ridge regression. Figure
+\@ref(fig:sparsity) illustrates how the lasso procedure can achieve
+sparsity while the ridge coefficients are only shrinking to zero.
+
+However, the constraint put on the $\ell_1$ norm of the coefficients
+makes the solution of the lasso non-linear in $\mathbf{y}$ and therefore there
+is no closed form expression to calculate the solutions as in ridge
+regression. Efficient algorithms are available for computing the entire
+path of solutions as $\lambda$ varied, with the same computational cost
+as for the ridge regression (see homotopy methods [@osborne2000new] such
+as LARS [@efron2004least], or also proximal algorithms
+[@parikh2014proximal] for more details).
+
+As for ridge regression, the tuning parameter $\lambda$ needs to be
+chosen but with the lasso we cannot rely on the generalized
+cross-validation to calculate the best value for $\lambda$. However, it
+is possible to use an ordinary cross-validation where we choose a grid
+of $\lambda$ values and compute the cross-validation error for each
+value of $\lambda$. We then select the tuning parameter for which the
+value of the cross-validation error is minimized and re-fit the model
+using all the available observations with the best $\lambda$.
+
+(ref:sparsity) Geometrical representation of sparsity in penalized linear regression. (A) A 2-dimensional representation of space of the coefficients $\beta_1$ and $\beta_2$. The blue geometric form represents two types of constraints, $||\beta||_1$ and $||\beta||^2_2$, applied to the coefficients. The circular coloured lines represent the contour of the cost function and the red dotted point is the true parameter $\beta$ we seek to reach. (B) 3-dimensional view of (A) where the constraints are represented as a tube in which the penalized methods are forced to stay to estimate the coefficients $\beta_1$ and $\beta_2$ (Image credit: Yves Grandvalet).
+
+```{r sparsity, echo=FALSE, fig.cap='(ref:sparsity)', out.width='90%', fig.align="center"}
+img1 <-  rasterGrob(as.raster(readPNG("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/sparsity.png")), interpolate = FALSE)
+img2 <-  rasterGrob(as.raster(readPNG("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/sparsity_2.png")), interpolate = FALSE)
+grid.arrange(img1, img2, ncol = 2)
+```
+
+#### Group-Lasso{.unnumbered}
+
+In some problems, the predictors belong to pre-identified groups; for
+instance genes that belong to the same biological pathway, SNP included
+in the same haplotype block or collections of indicator (dummy)
+variables for representing the levels of a categorical predictor. In
+this context it may be desirable to shrink and select the members of a
+group together. The group-lasso regression [@yuan_model_2006] is one way
+to achieve this.
+
+If we suppose that $D$ predictors are divided into $G$ groups, with
+$p_g$ the number of variables in the group $g$ then the group-lasso
+solution minimizes the following penalized criterion:
+
+$$\hat{\boldsymbol{\beta}}^{GL} = \underset{\boldsymbol{\beta}}{\text{argmin}} \left\lbrace || \mathbf{y} - \sum_{g=1}^G \mathbf{X}_g\boldsymbol{\beta}_g ||_2^2 + \lambda \sum_{g=1}^G \sqrt{p_g}||\beta_g||_2 \right\rbrace, 
+\label{eq:group-lasso}$$
+
+with $\mathbf{X}_g$ the matrix of predictors corresponding to the $g^{th}$
+group, $\sqrt{p_g}$ the terms accounting for the varying groups sizes
+and $||\beta_g||_2$ the $\ell_2$-norm of the coefficients corresponding
+to group $g$. Since the Euclidean norm of a vector $\beta_g$ is zero
+only if all of its components are zero, this model encourages sparsity
+at the group level.
+
+Generalizations include more general $\ell_2$ norms
+$||\nu^T||_K = (\nu^TK\nu)^{1/2}$ as well as overlapping groups of
+predictors [@jacob2009group; @jenatton2011structured].
+
+### Generalized linear models{#glm}
+
+Generalized linear models (GLMs) [@nelder_generalized_1972] are an
+extension of linear models where the strict linearity assumption of
+linear models is somewhat relaxed by allowing the expected value of the
+response to depend on a smooth monotonic function of the linear
+predictor and has the basic structure:
+$$g(\theta) = \mathbf{X}\boldsymbol{\beta} = \beta_0 + \beta_1\boldsymbol{x}_1 + \dots + \beta_D\boldsymbol{x}_D,$$
+where $\theta \equiv \mathbb{E}(\mathrm{Y}|\mathrm{X})$, $g$ is a smooth monotonic
+’link function’, $\mathbf{X}$ the $n \times D$ model matrix and $\boldsymbol{\beta}$ the
+unknown parameters. In addition, the assumption that the response should
+be normally distributed is also relaxed by allowing it to follow any
+distribution from the exponential family. The exponential family of
+distribution includes many distributions useful for practical modelling
+such as the Poisson, Binomial, Gamma and Normal distribution (see
+[@mc_cullagh_generalized_1989] for comprehensive reference on GLMs). A
+distribution belongs to the exponential family of distributions if its
+probability density function can be written as
+$$g_{\theta}(\mathbf{y}) = \text{exp} \left[ \dfrac{\mathbf{y}\theta - b(\theta)}{a(\phi)} + c(\mathbf{y},\phi) \right],$$
+where $a$, $b$ and $c$ are arbitrary functions, $\phi$ the dispersion
+parameter and $\theta$ known as the canonical parameter of the
+distribution.
+
+Furthermore, it can be shown that $$\mathbb{E}(\mathrm{Y}) = b'(\theta) = \mu,
+\label{eq:mu}$$ and $$Var(\mathrm{y}) = b''(\theta)\phi.
+\label{eq:var}$$
+
+Estimation and inference with GLMs are based on maximum likelihood
+estimation theory [@ra1922mathematical]. The log-likelihood for the
+observed response $\mathbf{y}$ is given by
+$$l(f_{\theta}(\mathbf{y})) = \sum_{i=1}^n \dfrac{y_i\theta_i - b(\theta)}{a(\phi)} + c(y_i,\phi).$$
+
+The maximum-likelihood estimate of $\boldsymbol{\beta}$ are obtained by partially
+differentiating $l$ with respect to each element of $\boldsymbol{\beta}$, setting
+the resulting expression to 0 and solving for $\boldsymbol{\beta}$:
+$$\dfrac{\partial l}{\partial \beta_d} = \sum_{i=1}^n \dfrac{(y_i - b'_i(\theta_i))}{\phi b''_i(\theta_i)} \dfrac{\partial \mu_i}{\partial \beta_d} = 0.$$
+Substituting and into this equation gives
+
+\begin{equation}
+\sum_{i=1}^n \dfrac{(y_i - \mu_i)}{\text{Var}(\mu_i)} \dfrac{\partial \mu_i}{\partial \beta_d} = 0 \hspace{10pt} \forall d.
+(\#eq:scores)
+\end{equation}
+
+There are several iterative methods to solve the equation and estimate
+the maximum likelihood estimates $\hat{\beta_d}$. One can use the
+well-known Newton-Raphson method [@fletcher1987practical], Fisher
+scoring method [@longford1987fast] which is a form of Newton’s method or
+the Iteratively Reweighted Least Squares method developed by
+[@nelder_generalized_1972].
+
+#### Logistic regression{.unnumbered}
+
+The logistic regression model [@cox1958regression] is a generalized
+linear model where the logit function, defined as
+$$\text{logit}(t) = \log \left( \frac{t}{1-t} \right), \text{ with } t \in [0,1],$$
+is used as the ’link’ function for $g$ and is applied in the case where
+we want to model a qualitative random variable $\mathrm{Y}$ with $K$ classes.
+The logit function allows to model the posterior probability
+$\mathbb{P}(\mathrm{Y} = k)$ via linear function of the observations while at
+the same ensuring that they sum to one and remain in $[0,1]$. The model
+has the form:
+
+$$\begin{aligned}
+  \log \left( \frac{\mathbb{P}(\mathrm{Y} = 1 |\mathrm{X} = \boldsymbol{x})}{1 - \mathbb{P}(\mathrm{Y} = K |\mathrm{X} = \boldsymbol{x})} \right)  & = \beta_{10} + \boldsymbol{\beta}_1^T \boldsymbol{x},  \\
+  \log \left( \frac{\mathbb{P}(\mathrm{Y} = 2 |\mathrm{X} = \boldsymbol{x})}{1 - \mathbb{P}(\mathrm{Y} = K |\mathrm{X} = \boldsymbol{x})} \right)  & = \beta_{20} + \boldsymbol{\beta}_2^T\boldsymbol{x},  \\
+  \vdots  \\
+  \log \left( \frac{\mathbb{P}(\mathrm{Y} = K-1 |\mathrm{X} = \boldsymbol{x})}{1 - \mathbb{P}(\mathrm{Y} = K |\mathrm{X} = \boldsymbol{x})} \right) & = \beta_{(K-1)0} + \boldsymbol{\beta}_{K-1}^T\boldsymbol{x} ,
+ \label{eq=logit}\end{aligned}$$
+
+and equivalently
+$$\mathbb{P}(\mathrm{Y} = k |\mathrm{X} = \boldsymbol{x}) = \frac{\text{exp}(\beta_{k0} + \boldsymbol{\beta}_k^T\boldsymbol{x})}{1 + \sum_{k=1}^{K-1} \text{exp}(\beta_{k0} + \boldsymbol{\beta}_k^T\boldsymbol{x})}, \text{ with } k \in [1,\dots,K-1].
+ \label{eq=logit2}$$
+
+When $K=2$ the model becomes simple since there is only a single linear
+function. It is widely used in biostatistics when we want to classify an
+individual as being a case or a control in genome-wide association
+studies for instance.
+
+Logistic regression models are usually fit by maximum likelihood using
+the conditional likelihood of the response given the observations. In
+the two class case where $\mathbf{y}$ is encoded as $0/1$, the log-likelihood
+of the estimator can be written as:
+
+$$\begin{aligned}
+l(\boldsymbol{\beta}) & = \sum_{i=1}^n \left[ y_i \log \left( \frac{e^{\boldsymbol{\beta}^T\boldsymbol{x}_i}}{1+e^{\boldsymbol{\beta}^T\boldsymbol{x}_i}}\right) +  (1-y_i)\log \left( 1- \frac{e^{\boldsymbol{\beta}^T\boldsymbol{x}_i}}{1+e^{\boldsymbol{\beta}^T\boldsymbol{x}_i}} \right) \right] \\
+& =  \sum_{i=1}^n \left[ y_i\boldsymbol{\beta}^T\boldsymbol{x}_i - \log (1 + e^{\boldsymbol{\beta}^T\boldsymbol{x}_i}) \right]. \end{aligned}$$
+
+
+## Splines and generalized additive models: Moving beyond linearit{#non-parametric}
+
+### Introduction
+
+So far, we have been interested in estimating a function $\hat{f}$
+linear in $\mathbf{X}$, but in reality, it is unlikely to be true. Linear
+models have the advantage of being easily interpretable and the
+approximation of $f$ by a simple linear function can avoid overfitting.
+On the other hand, when the true function is highly non-linear, they are
+often limited if one wants to be able to model a complex phenomenon or
+to make accurate prediction.
+
+In this section we will describe some methods that allow to take into
+account the non-linear form of $f$ by working on a linear basis
+expansion of the initial features. The idea is to augment/replace the
+matrix of inputs $\mathbf{X}$ with additional variables, which are
+transformations of $\mathbf{X}$, and then use linear models in this new space
+of derived input variables.
+
+We define the linear basis expansion of $x \in \mathbb{R}$ by:
+$$s(x) = \sum_{k=1}^K \beta_k h_k(x),$$ with
+$h_k(x) : \mathbb{R} \mapsto \mathbb{R}$ the $k^{th}$ transformation of
+$x$, $k \in [1, \dots, K]$. The function $s(\mathbf{x})$ is also referred as a
+*smoother* since it produces an estimate of the trend that is less
+variables than the response variable $\mathbf{y}$ itself. We call the estimate
+produced by a smoother a *smooth*.
+
+The linear basis expansion offers a wide range of possible
+transformations for $x$ such as:
+
+-   Third order polynomial transformation:
+    $h_1(x) = x, h_2(x) = x^2, h_3(x) = x^3$,
+
+-   non-linear transformation:
+    $h_k(x) = \text{log}(x), \sqrt{x}, \dots$,
+
+-   Piecewise constant transformation:
+    $h_1(x) = I(x < \xi_1), h_2(x) = I(\xi_1 \leq x \leq \xi_2), \dots, h_K(x) = I(x \geq \xi_{K-1})$.
+
+In the following sections we will present some methods based on the
+linear basis expansion such as the regression splines (Section
+\@ref(splines), smoothing splines (Section \@ref(smoothing) and
+generalized additive models (Section \@ref(gam)). Note that the
+splines are methods applied to a univariate function $x$ while the
+generalized additive models extend the uses of splines and other
+non-linear functions to the multivariate case.
+
+### Regression splines{#splines}
+
+#### Piecewise polynomials regression splines{.unnumbered}
+
+Here the data are divided into different regions, each being defined by
+a polynomial function and separated by a sequence of knots,
+$\xi_1, \xi_2, \dots, \xi_K$ and each piece are smoothly joined at those
+knots. For example, with one knot $\xi$, dividing the data into two
+regions and with third-order polynomial pieces, we can write:
+
+\[
+s(x)  = \left\{
+    \begin{array}{ll}
+        \beta_{01} + \beta_{11}x + \beta_{21}x^2 + \beta_{31}x^3 + \epsilon \text{ if } x < \xi, \\
+        \beta_{02} + \beta_{12}x + \beta_{22}x^2 + \beta_{32}x^3 + \epsilon \text{ if } x > \xi.  \\
+    \end{array}
+\right.
+\]
+
+Piecewise cubic polynomials are generally used and constrained to be
+continuous and to have continuous first and second derivatives at the
+knots. For any given set of knots, the smooth is computed by multiple
+regression on an appropriate set of basis vectors. These vectors are the
+basis functions representing the family of piecewise cubic polynomials,
+evaluated at the observed values of the predictor $x$.
+
+#### Cubic regression splines{.unnumbered}
+
+A simple choice of basis functions for piecewise-cubic splines
+(truncated power series basis) derives from the parametric expression
+for the smooth
+
+$$s(\boldsymbol{x}) = \beta_0 + \beta_1x + \beta_2x^2 + \beta_3x^3 + \sum_{k=1}^{\mathit{K}}\beta_k(x - \xi_k)_+^3, 
+\label{eq:cubic}$$
+
+which have the required properties:
+
+-   $s$ is cubic polynomial in any subinterval $[\xi_k,\xi_{k+1}]$,
+
+-   $s$ has two continuous derivatives,
+
+-   $s$ has a third derivative that is a step function with jumps at
+    $\xi_1,\dots,\xi_{\mathit{K}}$.
+
+The sequence of knots can be placed over the range of the data or at
+appropriate quantiles of the predictor variable (e.g., 3 interior knots
+at the three quartiles).
+
+A cubic spline satisfies the following properties:
+
+$$s(x) \in C^2[\xi_0,\xi_n] = \left\{
+    \begin{array}{ll}
+        s_{0}(x), \hspace{.5cm} \xi_0 \leq x \leq \xi_1, \\
+        s_{1}(x), \hspace{.5cm} \xi_1 \leq x \leq \xi_2, \\
+        \dots\\
+        s_{n-1}(x), \hspace{.5cm} \xi_{n-1} \leq x \leq \xi_n, \\
+    \end{array}
+\right.$$ and
+
+$$s(x): \left\{
+    \begin{array}{ll}
+        s_{k-1}(x_k) = s_k(x_k)  \\
+        s'_{k-1}(x_k) = s'_k(x_k) \\
+        s''_{k-1}(x_k) = s''_k(x_k) \\
+    \end{array}
+\right.
+ ,\text{ for } k = 1,2,\dots,(n-1).$$
+
+The choice of a third-order polynomial allows the function $s(x)$ to be
+continuous at the knots.
+
+#### Natural splines{.unnumbered}
+
+A variant of polynomial splines are the natural splines: these are
+simply splines with an additional constraint that forces the function to
+be linear beyond the boundary knots. It is common to supply an
+additional knot at each extreme of the data and impose linearity beyond
+them. Then, with $K-2$ interior knots (and two boundary knots), the
+dimension of the space of fits is $K$. The lesser flexibility at the
+boundaries of natural splines tends to decrease the variance we can get
+when fitting regular regression splines.
+
+We add the following condition to get a natural cubic spline:
+$$s''(\xi_0) = s''(\xi_n) = 0.$$
+
+Figure \@ref(fig:natcubspline) illustrates the use of natural cubic splines
+for the construction of an interpolating smooth curve.
+
+(ref:natcubespline) The black dashed line corresponds to the true distribution $y = \frac{1}{1+x^2}$ and each $n = 11$ black dots correspond to observations drawn from this distribution (with a little noise). In (A) we have represented the polynomial functions at each $K = 11$ knots, constituting the natural cubic splines basis and (B) the truncated polynomials to construct the smoother.
+
+```{r natcubspline, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='(ref:natcubespline)', out.width='90%'}
+img <-  rasterGrob(as.raster(readPNG("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/natcubspline.png")), interpolate = FALSE)
+grid.arrange(img, ncol=1)
+```
+
+### $\mathrm{B}$-splines
+
+The $\mathrm{B}$-spline basis functions provide a numerically superior
+alternative basis to the truncated power series. Their main feature is
+that any given basis function $\mathit{B}_k(x)$ is non-zero over a span
+of at most five distinct knots which means that the resulting basis
+function matrix $\mathbf{B}$ is banded. The $\mathit{B}_k$ are piecewise cubics
+and we need $K + 4$ of them ($K + 2$ for natural splines) if we want to
+span the entire space. The algebraic definition is detailed in
+[@de_boor_practical_1975].
+
+With the $\mathrm{B}$-spline basis, the functions are strictly local -
+each basis is only non-zero over the interval between $m+3$ adjacent
+knots, where $m$ is the order of the basis ($m = 2$ for cubic spline).
+To define a $K$ parameters $\mathrm{B}$-spline basis, we need to define
+$k+m+1$ knots, $x_1 < x_2 < \dots < x_{m+k+1}$, where the interval over
+which the spline is to be evaluated lies within $[x_{m+2},x_k]$ (so that
+the first and last $m+1$ knot locations are essentially arbitrary). An
+$(m+1)^{th}$ order $\mathrm{B}$-spline can be represented as
+
+$$s(x) = \sum_{k=1}^K B_k^m(x)\beta_k,$$ where the $\mathrm{B}$-spline
+basis functions are most conveniently defined recursively as follows:
+
+$$B_k^m (x) = \frac{x-x_k}{x_{k+m+1} - x_k}B_k^{k-1}(x) + \frac{x_{k+m+2} - x}{x_{k+m+2}-x_{k+1}}B_{k+1}^{x-1}(\boldsymbol{x}) \hspace{.5cm} \text{for } k=1,\dots,K,$$
+and
+
+$$B_k^{-1}(x) =  \left\{
+    \begin{array}{ll}
+        1 \hspace{1cm} x_k \leq x < x_{k+1}  \\
+        0 \hspace{1cm} \text{otherwise} \\
+    \end{array}
+\right. .$$
+
+For more detailed computational aspects see Annexe \@ref(Bspline) and
+for a representation of $\mathrm{B}$-spline functions see Figure
+\@ref(fig:Bspline).
+
+(ref:Bspline) **Quadratic $\mathrm{B}$-spline basis function representation** (for $m = 2$ and with $K=4$ internal knots). Each $B_k(\boldsymbol{x})$ functions are piecewise cubic and $K+4 = 8$ of them are need to span the entire space.
+
+```{r Bspline, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='(ref:Bspline)', out.width='90%'}
+img <-  rasterGrob(as.raster(readPNG("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/Bspline.png")), interpolate = FALSE)
+grid.arrange(img, ncol=1)
+```
+
+
+### Cubic smoothing splines {#smoothing}
+
+This smoother is constructed as the solution to an optimization problem:
+among all function $f(x)$ with two continuous derivatives, find one that
+minimizes the penalized residual sum of squares
+
+$$\sum_{i=1}^n||y_i - s(x_i)||_2^2 + \lambda \int_a^b{s''(t)}^2dt,
+  \label{eq:cubsmooth}$$
+
+where $\lambda$ is a penalty factor, and
+$a \leq x_1 \leq \dots \leq x_n \leq b$. The first term measures
+closeness to the data while the second penalizes curvature in the
+function, this criterion insuring a trade-off between bias and variance.
+The first term insures to fit as close as possible the data while the
+second penalizes the wiggliness of the smoothing curve to avoid
+interpolating the data. Large values of $\lambda$ produce smoother
+curves while smaller values produce more wiggly curves.
+
+As $\lambda \rightarrow \infty$, the penalty term dominates, forcing
+$s''(x) = 0$ everywhere and thus the solution is the least-squares line.
+On the contrary, as $\lambda \rightarrow 0$, the penalty term becomes
+unimportant and the solution tends to an interpolating
+twice-differentiable function.
+
+Furthermore, it can be shown that this optimization problem has an
+explicit, unique minimizer which proves to be a natural cubic spline
+with knots at the unique value of $x_i$ (see [@reinsch_smoothing_1967]).
+
+We consider the smoothing function in the form:
+$$s(x) = \sum_{k=1}^{K} N_k(x) \beta_k,
+\label{eq:smooth_fun}$$ where the $N_k(x)$ are an $(K)$-dimensional set
+of basis functions for representing the family of natural splines. The
+natural cubic splines basis is computed as follow: 
+$$\begin{aligned}
+N_1(x) &= 1,\\
+N_2(x) & = x, \\
+N_{k+2}(x) &= d_k(x) - d_{k-1}(x), \end{aligned}$$ 
+for
+$k \in [0, \dots, K-1]$ and with
+
+$$d_k = \frac{(x-\xi_k)^3_+ - (x-\xi_K)^3_+}{\xi_K - \xi_k}$$
+
+At first glance it would seems that the model is over-parametrized since
+there are as many as $K = n$ knots implying as many degrees of freedom.
+However, the penalty term converts into a penalty on the splines
+coefficients themselves, which are shrunk toward the linear fit.
+
+Using this cubic spline basis for $s(x)$ means that can be written in
+the following minimization problem:
+\begin{equation}
+\underset{\boldsymbol{\beta}}{\text{argmin}} ||\mathbf{y} - \mathbf{N} \boldsymbol{\beta}||^2 + \lambda \boldsymbol{\beta}^T \mathbf{W} \boldsymbol{\beta}
+(\#eq:ridgespline)
+\end{equation}
+ where 
+ $$\begin{aligned}
+N_{ik} &= N_k(x_i), \\
+W_{kk'} &= \int_0^1 N''_k(x) N''_{k'}(x)dx,\end{aligned}$$ with
+$\mathbf{W} \in \mathbb{R}^{n \times n}$ the penalty matrix and
+$\mathbf{} \in \mathbb{R}^{n \times n}$ the matrix of basis functions.
+
+Following [@gu_smoothing_2002], it can be shown that $$\begin{aligned}
+W_{i+2,i'+2} & = \frac{\left[\left(x_{i'} - \frac{1}{2}\right)^2 - \frac{1}{12}\right]\left[\left(x_{i}  - \frac{1}{2}\right)^2 - \frac{1}{12}\right]}{4} - \\
+& \frac{\left[\left(|x_{i} -x_{i'}| - \frac{1}{2}\right)^4 - \frac{1}{2}\left(|x_{i}-x_{i'} | - \frac{1}{2}\right)^2 + \frac{7}{240}\right]}{24},\end{aligned}$$
+for $i,i' \in [1,\dots,K]$ with the first 2 rows and columns of $\mathbf{W}$
+are equal to $0$. For a given $\lambda$, the minimizer of , the
+penalized least squares estimator of $\boldsymbol{\beta}$, is:
+
+$$\hat{\boldsymbol{\beta}} = (\mathbf{N}^T\mathbf{N} + \lambda\mathbf{W})^{-1}\mathbf{N}^T\mathbf{y}.$$
+
+It is interesting to note that this solution is similar to the ridge
+estimate , relating the smoothing splines to the shrinkage methods.
+Similarly the hat matrix, $\mathbf{A}$, for the model can be written as
+
+$$\mathbf{A} = \mathbf{N}(\mathbf{N}^T\mathbf{N} + \lambda\mathbf{W})^{-1}\mathbf{N}^T.$$
+
+However, in spite of their apparent simplicity, these expressions are
+not the ones to use for computation. More computationally stable methods
+are preferred, i.e. the linear smoother described in
+[@buja_linear_1989], to estimate the smooth function $s(x)$ (see Annexe
+\@ref(#linsmooth) for more details). For the choice of the smoothing
+parameter $\lambda$, see Annexe \@ref(#lambda_smooth) and for an
+illustration of the cubic smoothing spline fit see Figure
+\@ref(fig:smoothspline).
+
+(ref:smoothspline) **Cubic smoothing splines** with different values of the regularization parameter $\lambda$. The black dashed line corresponds to the true distribution $y = \frac{1}{1+x^2}$ and each black dot corresponds to observations drawn from this distribution (with a little noise). In red is represented the fit at the best value of $\lambda$ (chosen by GCV), in blue the fit with a value of lambda close to $0$ and in green the fit with a high value for $\lambda$. We can see that, as $\lambda$ increase, the fit pass from a ’wiggly’ interpolating curve (as in Figure \@ref(fig:smoothspline) to a very smoothed curve, which will eventually lead to a straight line as $\lambda$ become very large.
+
+```{r smoothspline, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='(ref:smoothspline)', out.width='90%'}
+img <-  rasterGrob(as.raster(readPNG("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/smoothspline.png")), interpolate = FALSE)
+grid.arrange(img, ncol=1)
+```
+### Generalized additive models (GAM){#gam}
+
+A generalized additive model [@hastie_generalized_1990] is a generalized
+linear model with a linear predictor involving a sum of smooth functions
+of $D$ covariates.
+
+$$g(\theta) = \beta_0 + \sum_{d=1}^D s_d(\boldsymbol{x}_d) + \boldsymbol{\epsilon} ,
+\label{eq:gam}$$
+
+where $\theta \equiv \mathbb{E}(\mathrm{Y} | \mathbf{X})$, $\mathrm{Y}$ belongs to some
+exponential family distribution and $g$ a known, monotonic, twice
+differentiable link function.
+
+To estimate such model we can specify a set of basis functions for each
+smooth function $s_d(x)$.
+
+For instance, with natural cubic splines, we get the following model:
+$$g(\theta) = \beta_0 + \sum_{d=1}^D \sum_{k=1}^{K_d} \beta_{dk} N_{dk}(\boldsymbol{x}_d) + \boldsymbol{\epsilon} ,$$
+where $K_d$ is the number of knots for variable $d$.
+
+Furthermore, if we use cubic smoothing splines for each smooth function
+$s_d(x)$, we can define a penalized sum of squares problem of the form:
+
+$$RSS(\beta_0, s_1, \dots, s_D) = \sum_{i=1}^n [y_i - \beta_0 - \sum_{d=1}^D s_d(x_{id})]^2 + \sum_{d=1}^D \lambda_d \int s''_d(t_d)^2dt_d.$$
+
+Each smoothing spline function $s_d(\boldsymbol{x})$ are then computed as
+described in Section \@ref(smoothing) and the general model can be
+fitted with several methods such as backfitting or P-IRLS
+(Penalized-Iteratively Reweighted Least Squares)
+[@hastie_generalized_1990].
+
+#### Fitting GAMs by backfitting{.unnumbered}
+
+Backfitting is a simple procedure to fit generalized additive models
+which allow to use a large range of smooth function to represent the
+non-linear part of the model. Each smooth component is estimate by
+iteratively smoothing partial residuals from the additive model, with
+respect to the covariates that the smooth relates to. The partial
+residuals relating to the $d^{th}$ smooth term are the residuals
+resulting from subtracting all the current model term estimates from the
+response variable except for the estimate of $d^{th}$ smooth.
+
+Given the following additive model:
+$$\mathbf{y} = \beta_0 + \sum_{d=1}^D s_d(\boldsymbol{x}_d) + \boldsymbol{\epsilon}.$$
+
+Let $\hat{\mathbf{s}}_d$ denote the vector whose $i^{th}$ element is the
+estimate of $s_d(x_{id})$. The backfitting algorithm is given in
+Algorithm 1.
+
+```{r algo_backfitting, echo=FALSE, fig.align='center', fig.asp=.45, out.width='100%'}
+img <-  rasterGrob(as.raster(readPNG("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/algo_backfitting.png")), interpolate = FALSE)
+grid.arrange(img, ncol=1)
+```
+
+
+### High-dimensional generalized additive models (HGAM){#hgam}
+
+We consider an additive regression models in an high-dimensional setting
+with a continuous response $\mathbf{y} \in \mathbb{R}^n$ and $D \gg n$
+covariates $\boldsymbol{x}_1, \dots, \boldsymbol{x}_D \in \mathbb{R}^D$ connected through
+the model
+
+$$\mathbf{y} = \beta_0 + \sum_{d=1}^D s_d(\boldsymbol{x}_d) + \boldsymbol{\epsilon},$$
+
+where $\beta_0$ is the intercept term,
+$\boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I}\sigma^2)$ and
+$s_d : \mathbb{R} \rightarrow \mathbb{R}$ are smooth univariate
+functions. For identification purposes, we assume that all $s_d$ are
+centered to have zero mean.
+
+#### Sparsity-smoothness penalty{.unnumbered}
+
+In order to get sparse and sufficiently smooth function estimates,
+[@meier_high-dimensional_2009], proposed the sparsity-smoothness penalty
+
+$$J(s_d) = \lambda_1\sqrt{||s_d||^2_n + \lambda_2\int[s''_d(\boldsymbol{x}_d)]^2d\boldsymbol{x}}.$$
+
+The two tuning parameters $\lambda_1, \lambda_2 \geq 0$ control the
+amount of penalization. The estimator is given by the following
+penalized least squares problem:
+
+$$\hat{s}_1,\dots,\hat{s}_D = \underset{s_1,\dots,s_D\in\mathcal{F}}{\text{argmin}} ||\mathbf{y} - \sum_{d=1}^D s_d||_n^2 + \sum_{d=1}^D J(s_d),$$
+where $\mathcal{F}$ is a suitable class of functions and the same level
+of regularity for each function $s_d$ is assumed.
+
+#### Computational algorithm{.unnumbered}
+
+For each functions $s_d$ we can use a cubic $\mathrm{B}$-spline
+parametrization with $K$ interior knots placed at the empirical quantile
+of $\boldsymbol{x}_d$. $$s_d(\boldsymbol{x}) = \sum_{k=1}^K\beta_{dk}b_{dk}(\boldsymbol{x}_d),$$ where
+$b_{dk}(x)$ are the B-spline basis functions and
+$\boldsymbol{\beta}_d = (\beta_{d1},\dots,\beta_{dK})^T \in \mathbb{R}^K$ is the
+parameter vector corresponding to $s_d$.
+
+For twice differentiable functions, the optimization problem can be
+reformulated as
+
+$$\hat{\boldsymbol{\beta}} = \underset{\boldsymbol{\beta}=(\beta_1,\dots,\beta_D)}{\text{argmin}} ||\mathbf{y} - \mathbf{B}\boldsymbol{\beta}||_n^2 + \lambda_1 \sum_{d=1}^D \sqrt{\frac{1}{n} \boldsymbol{\beta}_d^T\mathbf{B}_d^T\mathbf{B}_d\boldsymbol{\beta}_d + 
+\lambda_2 \boldsymbol{\beta}_d^T \mathbf{W}_d\boldsymbol{\beta}_d},$$
+
+$$= \underset{\boldsymbol{\beta}=(\boldsymbol{\beta}_1,\dots,\boldsymbol{\beta}_D)}{\text{argmin}} ||\mathbf{y} - \mathbf{B} \boldsymbol{\beta}||_n^2 +
+\lambda_1 \sum_{d=1}^D \sqrt{\boldsymbol{\beta}_d^T \left( \frac{1}{n} \mathbf{B}_d^T \mathbf{B}_d + \lambda_2 \mathbf{W}_d \right) \boldsymbol{\beta}_d},$$
+where $\mathbf{B} = [\mathbf{B}_1|\mathbf{B}_2|\dots|\mathbf{B}_D]$ with $\mathbf{B}_d$ is the $n \times K$
+design matrix of the $B$-spline basis of the $d^{th}$ predictor and
+where the $K \times K$ matrix $\mathbf{W}_d$ contains the inner products of the
+second derivative on the $B$-spline basis function.
+
+The term $(1/n)\mathbf{B}_d^T \mathbf{B}_d + \lambda_2\mathbf{W}_j$ can be decomposed using
+the Choleski decomposition
+$$(1/n) \mathbf{B}_d^T\mathbf{B}_d + \lambda_2\mathbf{W}_d = \mathbf{R}_d^T \mathbf{R}_d$$ to
+some quadratic $K \times K$ matrix $\mathbf{R}_d$ and by defining
+$$\tilde{\boldsymbol{\beta}}_d = \mathbf{R}_d \boldsymbol{\beta}_d \text{ and } \tilde{\mathbf{B}} = \mathbf{B}_d \mathbf{R}_d^{-1},$$
+the optimization problem reduces to
+
+$$\hat{\tilde{\boldsymbol{\beta}}} = \underset{\boldsymbol{\beta}=(\boldsymbol{\beta}_1,\dots,\boldsymbol{\beta}_D)}{\text{argmin}} ||\mathbf{y} - \tilde{\mathbf{B}}\tilde{\boldsymbol{\beta}}||^2_n + \lambda_1\sum_{d=1}^D||\tilde{\boldsymbol{\beta}_d}||,$$
+
+where $||\tilde{\boldsymbol{\beta}}_d|| = \sqrt{K}||\tilde{\boldsymbol{\beta}}_d||_K$ is the
+Euclidean norm in $\mathbb{R}^K$. This is an ordinary group lasso
+problem for any fixed $\lambda_2$, and hence the existence of a solution
+is guaranteed. For $\lambda_1$ large enough, some of the coefficient
+groups $\beta_d \in \mathbb{R}^K$ will be estimated to be exactly zero.
+Hence, the corresponding function estimate will be zero. Moreover, there
+exists a value $\lambda_{1,max} < \infty$ such that
+$\hat{\tilde{\boldsymbol{\beta}}}_1 = \dots = \hat{\tilde{\boldsymbol{\beta}}}_D = 0$ for
+\(\lambda_1 \geqslant \lambda_{1,max}\). This is especially useful to
+construct a grid of $\lambda_1$ candidate values for cross-validation
+(usually on the log-scale). By rewriting the original problem in this
+last form, already existing algorithms can be used to compute the
+estimator. Coordinate-wise approaches as in [@meier_group_2008] and
+[@yuan_model_2006] are efficient and have rigorous convergence
+properties.
+
+## Combining cluster analysis and variable selection
+
+### Hierarchical clustering{#CAH}
+
+Hierarchical clustering is a method of cluster analysis which aims at
+building a hierarchy of clusters and result in a tree-based
+representation of the observations called a *dendrogram*. The term
+hierarchical refers to the fact that clusters obtained by cutting the
+dendrogram at a given height are necessarily nested within the clusters
+obtained by cutting the dendrogram at any greater height.
+
+Strategies for hierarchical clustering generally fall into two types
+[@rokach2005clustering]:
+
+-   Agglomerative: This is a “bottom up" approach where each observation
+    starts in its own cluster, and pairs of clusters are merged as one
+    moves up the hierarchy.
+
+-   Divisive: This is a “top down" approach where all observations start
+    in one cluster, and splits are performed recursively as one moves
+    down the hierarchy.
+
+$\Omega$ being the training set to classify and $dist$ a measure of
+dissimilarity (metric) on this set, we define a distance $LC$ (linkage
+criterion) between the parts of $\Omega$. The agglomerative hierarchical
+clustering algorithm is described in Algorithm 2.
+
+```{r algo_CAH, echo=FALSE, fig.align='center', fig.asp=.4, out.width='100%'}
+img <-  rasterGrob(as.raster(readPNG("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/algo_CAH.png")), interpolate = FALSE)
+grid.arrange(img, ncol=1)
+```
+
+
+#### Metric{.unnumbered}
+
+The choice of an appropriate metric will influence the shape of the
+clusters, as some clusters may be similar according to one distance or
+farther away according to another. Given two sets of observations
+$A \subset \Omega$ and $B \subset \Omega$ with $i$ the index of the
+$i^{th}$ observation, the most commonly used metrics are:
+
+-   Euclidean distance: $||A - B||_2 = \sqrt(\sum_i(A_i - B_i)^2)$
+
+-   Manhattan distance: $||A - B||_1 = \sum_i |A_i - B_i|$
+
+-   Maximum distance:
+    $||A - B||_{\infty} = \underset{i}{\text{max}} |A_i - B_i|$
+
+#### Linkage criteria{.unnumbered}
+
+The linkage criterion determines the distance between sets of
+observations as a function of the pairwise distances between
+observations. Some commonly used linkage criteria between two sets of
+observations $A \subset \Omega$ and $B \subset \Omega$ are:
+
+-   Single linkage: The dissimilarity between two sets is measured as
+    the minimum dissimilarity between the observations of the sets:
+    $$LC(A,B) = \text{min} \lbrace dist(i,i'), i \in A \text{ and } i' \in B \rbrace$$
+
+-   Complete linkage: The dissimilarity between two clusters is measured
+    as the maximum dissimilarity between the observations of the groups:
+    $$LC(A,B) = \text{max} \lbrace dist(i,i'), i \in A \text{ and } i' \in B \rbrace$$
+
+-   Average linkage: The dissimilarity between two clusters is measured
+    as the averaged dissimilarity between the observations of the
+    groups:
+    $$LC(A,B) = \frac{\sum_{i \in A}\sum_{i'\in B} dist(i,i')}{\text{card}(A).\text{card}(B)}$$
+
+#### Ward’s method{.unnumbered}
+
+When the set $\Omega \in \mathbb{R}^D$ to classify is measured by $D$ variables
+and where each element of $\Omega$ is represented by a vector $\boldsymbol{x}$, we
+could use the method developed by [@ward_hierarchical_1963] to construct
+a hierarchy among these variables. We note
+\( \mathcal{G} = \lbrace \mathcal{G}^1, \dots, \mathcal{G}^s, \dots, \mathcal{G}^S \rbrace \)
+the group partitions coming from the $S$ levels of the hierarchical
+clustering performed on the matrix \( \mathbf{X} \in \mathbb{R}^{n \times D}\).
+
+Given $\mathcal{G}^s= (\mathcal{G}^s_1, \dots, \mathcal{G}^s_g, \dots, \mathcal{G}^s_{G_s})$ a
+partition of $\Omega$ in $G_s$ groups at a particular level $s$ of the
+hierarchy, the within-group inertia is defined as
+$$I_W (\mathcal{G}^s) = \sum_{g=1}^{G_s} \sum_{\boldsymbol{x} \in \mathcal{G}^s_g} dist^2(\boldsymbol{x}, \bar{\boldsymbol{x}}_g),$$
+where $\bar{\boldsymbol{x}}_g$ is the centroid of group $\mathcal{G}^s_g$.
+
+Equivalently we define the inter-group inertia as
+$$I_B(\mathcal{G}^s) = \sum_{g=1}^{G_s} \text{card}(\mathcal{G}^s_g) dist^2(\bar{\boldsymbol{x}}, \bar{\boldsymbol{x}}_g),$$
+where $\bar{\boldsymbol{x}}$ is the centroid of $\Omega$.
+
+It can be shown that the total inertia, at a given level $s$, can be
+decomposed as $$I_s = I_W (\mathcal{G}^s) + I_B(\mathcal{G}^s).$$
+
+A partition will then be all the more homogeneous as the within-group
+inertia will be close to 0 and it can be shown that the fusion of two
+groups necessarily increases the total inertia. It is then possible to
+propose an agglomerative hierarchical clustering algorithm that fuse, at
+each step, the two groups $\mathcal{G}^s_g \in \mathcal{G}^s$ and
+$\mathcal{G}^s_{g'} \in \mathcal{G}^s$ that minimize the Ward’s minimum variance
+criterion:
+
+$$LC( \mathcal{G}^s_g,  \mathcal{G}^s_{g'}) = \frac{\text{card}( \mathcal{G}^s_g).\text{card}( \mathcal{G}^s_{g'})}{\text{card}( \mathcal{G}^s_g) + \text{card}( \mathcal{G}^s_{g'})} d^2(\bar{\boldsymbol{x}}_g, \bar{\boldsymbol{x}}_{g'}),$$
+where $\bar{\boldsymbol{x}}_g$ and $\bar{\boldsymbol{x}}_{g'}$ are the centroids of groups
+$\mathcal{G}^s_g$ and $\mathcal{G}^s_{g'}$ respectively.
+
+#### Estimation of the number of clusters{.unnumbered}
+
+The choice of the number of groups in cluster analysis is often
+ambiguous and depends on many parameters of the dataset. Several model
+selection criteria have already been investigated to makes such a
+decision
+[@tibshirani_estimating_2001; @calinski_dendrite_1974; @krzanowski_criterion_1988].
+These methods are based on the measure of within-group dispersion $I_W$.
+
+The gap statistic was developed by [@tibshirani_estimating_2001] to find
+a way to compare the distribution of $\log I_W(\mathcal{G}^s)$,
+$\mathcal{G}^s = ( \mathcal{G}^s_1, \dots,  \mathcal{G}^s_g, \dots,  \mathcal{G}^s_{G_s})$,
+with its expectation $\mathbb{E}^*[\log I_W(\mathcal{G}^s)]$ under a
+reference distribution, i.e. a distribution with no obvious clustering.
+The gap statistic for a given number of groups $G_s$ is then defined as
+$$\text{Gap}(G_s) = \mathbb{E}^*[\log I_W(\mathcal{G}^s)] - \log I_W(\mathcal{G}^s).$$
+
+To obtain the estimate $\mathbb{E}^*[\log I_W(\mathcal{G}^s)]$, $B$ copies
+of $\log I_W(\mathcal{G}^s)$ are generated with a Monte Carlo sample drawn
+from the reference distribution and averaged.
+
+The gap statistic procedure to estimate the optimal number of groups
+$\hat{G}_s^*$ can be summarized as follows.
+
+**Step 1** : Construct the hierarchy on $\mathbf{X} \in \mathbb{R}^{n \times D}$, varying the
+    total number of clusters from $G = (G_1, \dots, G_S)$ and compute
+    the within-group inertia $I_W(\mathcal{G})$ for each partition
+    $\mathcal{G}= (\mathcal{G}^1,\dots,\mathcal{G}^s, \dots, \mathcal{G}^S)$.
+
+**Step 2** :  Generate $B$ reference data sets from a uniform distribution over
+    the range of observed values and cluster each one giving
+    $I_{W}^*(\mathcal{G}^b)$ for each bootstrapped partition
+    $\mathcal{G}^b= (\mathcal{G}^{b1},\dots,\mathcal{G}^{bs}, \dots, \mathcal{G}^{bS}), b = (1,\dots,B)$.
+    Compute the estimated gap statistic
+    $$\text{Gap}(G_s) = \frac{1}{B} \sum_{b=1}^B \log I_W^*(\mathcal{G}^{bs}) - \log I_W(\mathcal{G}^s).$$
+
+**Step 3** : Compute the standard deviation
+    $$sd(\mathcal{G}^s) = \sqrt{\frac{1}{B} \sum_{b=1}^B [\log I_W^*(\mathcal{G}^{bs}) - \bar{b}]^2},$$
+    where $\bar{b} = 1/B \sum_{b=1}^B \log I_W^*(\mathcal{G}^{bs})$, and
+    define \( SD_s = sd(\mathcal{G}^s) \sqrt{1 + 1/B}\).
+
+**Step 4** : Choose the estimated optimal number of clusters via
+    $$\hat{G}_s^* = \text{smallest } G_s \text{ such that } \text{Gap}(G_s) \geq  \text{Gap}(G_{s+1}) - SD_{s+1}.$$
+
+### Hierarchical Clustering and Averaging Regression {#HCAR}
+
+Hierarchical Clustering and Averaging Regression (HCAR) is a method
+developed by [@park_averaged_2007] that combines hierarchical clustering
+and penalized regression in the context of gene expression measurement.
+
+The Algorithm 3 can be summarized as follows: At first a
+hierarchical clustering is applied to the gene expression data to obtain
+a dendrogram that reveals their nested correlation structure. At each
+level of the hierarchy, a unique set of genes and supergenes is created
+by computing the average expression of the current clusters. Then, the
+different sets of genes and supergenes are used as inputs for a Lasso
+regression.
+
+
+```{r algo_HCAR, echo=FALSE, fig.align='center', fig.asp=.5, out.width='100%'}
+img <-  rasterGrob(as.raster(readPNG("/Users/fguinot/Documents/bioptilamme/Manuscript/figures/algo_HCAR.png")), interpolate = FALSE)
+grid.arrange(img, ncol=1)
+```
+
+Hierarchical clustering proved to be especially adapted in this context
+because it provides multiple levels at which the supergenes can be
+formed. Due to the fact that the Euclidean distance measure among the
+genes is a monotone function of their correlation (when the genes are
+properly standardized), hierarchical clustering provides flexibility in
+model selection in such a way that the genes are merged into supergenes
+in order of their correlation.
+
+[@park_averaged_2007] proved that, in the presence of strong
+collinearity among the predictors, an averaged predictor yields to an
+estimate of the OLS coefficients with lower expected squared error than
+the raw predictors. The authors claimed that this theorem could easily
+be generalized to a block-diagonal correlation structure. The average
+features within each block may yield a more accurate fit than the
+individual predictors.
+
+### Multi-Layer Group-Lasso (MLGL){#MLGL}
+
+[@grimonprez_selection_2016] define the Multi-layer Group-Lasso (MLGL)
+as a two-step procedure that combines a hierarchical clustering with a
+Group-Lasso regression. It is a weighted version of the overlapping
+Group-Lasso [@jacob2009group] which performs variable selection on
+multiple group partitions defined by the hierarchical clustering. A
+weight is attributed to each possible group identified at all levels of
+the hierarchy. Such weighting scheme favours groups creating at the
+origin of large gaps in the hierarchy.
+
+We note
+\( \mathcal{G} = \lbrace \mathcal{G}^1, \dots, \mathcal{G}^s, \dots, \mathcal{G}^S \rbrace \)
+the group partition coming from the $s= 1, \dots, S$ levels of the
+hierarchical clustering performed on the matrix \( \mathbf{X} \in \mathbb{R}^{n \times D}\).
+$\mathcal{G}^s = (\mathcal{G}_1^s, \dots,\mathcal{G}^s_{G_s})$ is the group
+partition at the level $s$ of the hierarchy and $G_s$ the total number
+of groups at the current level.
+
+A group-lasso procedure is then fitted on the concatenated matrix of all
+group partition at all levels of the hierarchy
+$$\mathbf{X}_{\mathcal{G}} = \left[ \mathbf{X}^1_{\mathcal{G}^1}, \dots, \mathbf{X}^s_{\mathcal{G}^s}, \dots, \mathbf{X}^S_{\mathcal{G}^S} \right] \text{ where } \mathbf{X}^s_{\mathcal{G}^s} = \left[ \mathbf{X}^s_{\mathcal{G}_1^s},\dots, \mathbf{X}^s_{\mathcal{G}_{Gs}^s} \right].$$
+The Multi-Layer Group-Lasso solution is defined by:
+
+$$\hat{\beta}^{MLGL} = \underset{\beta}{\text{argmin}} \left\lbrace \frac{1}{2} || \mathbf{y} - \mathbf{X}_{\mathcal{G}} \beta ||_2^2 + \lambda \sum_{s=1}^{S} \rho_s \sum_{g=1}^{G_s} \sqrt{\text{Card}(\mathcal{G}_g^s)} ||\boldsymbol{\beta}_{\mathcal{G}_g^s}||_2 \right\rbrace,
+\label{eq:MLGL}$$
+
+with \(\lambda \geqslant 0\) the penalty parameter,
+$\mathcal{G}_g^s \in \mathcal{G}^s$ the $g^{th}$ cluster coming from level $s$
+of the hierarchy. The parameter $\rho_s$ is a weight attributed to each
+group $\mathcal{G}_g^s$ and its purpose is to quantify the level of
+confidence in each level of the hierarchy. This weight is defined by:
+$$\rho_s = \frac{1}{\sqrt{l_s}}$$ with $l_s = h_{s-1} - h_s$ the length
+of the gap between two successive levels of the hierarchy. Thus, the
+weight $\rho_s$ is minimal when the length of the gap is maximal with
+the consequence of less penalizing in the groups at the origin of large
+gaps in the hierarchy.
+
+## Statistical testing of significance {#hypothesis}
+
+### Introduction
+
+In statistical hypothesis testing, statistical significance refers to
+the acceptance or reject of the null hypothesis and corresponds to the
+likelihood that the difference between a given variation and the
+baseline is not due to random chance. For a given study, the defined
+level of significance $\alpha$ is the probability to reject the true
+null hypothesis and the *p*-value, $p$, is the probability of obtaining
+a result at least as extreme given that $H_0$ is true. We can therefore
+state that the result is statistically significant, by the standard of
+the study, if $p < \alpha$.
+
+Ronald Fisher first advanced the idea of statistical hypothesis testing
+in his famous publication *Statistical Methods for Research Workers*
+[@fisher1935statistical]. He suggested a probability of $5\%$ has an
+acceptable threshold level to reject the null hypothesis and this
+cut-off was later taken over by Jezzy Neyman and Egon Pearson in
+[@neyman1933testing] where they named it the significance level
+$\alpha$.
+
+They proposed the following hypothesis testing procedure:
+
+(a) Before getting the experimental measures:
+
+-  Define the null hypothesis $H_0$ and the alternative hypothesis
+        $H_1$.
+
+-  Choose a level $\alpha$.
+
+-  Choose a test statistic, $T$, which is larger under $H_1$ than under $H_0$: $$\text{Reject } H_0 \Leftrightarrow  T \geq u.$$
+
+-  Study the distribution of $T$ under $H_0$ and set the following condition: 
+   
+  $$\mathbb{P}(T \geq u) \leq \alpha .$$
+
+-  Deduce the threshold $u$.
+
+-  Give the test with the value retained for $u$ and the real level: 
+        
+  $$ \text{Reject } H_0 \Leftrightarrow  T \geq u .$$
+
+(b) Once the measures are done:
+
+-  Perform the numerical application and conclude if we accept or reject $H_0$ based on the $p\text{-value} = \mathbb{P}(T \geq t_{obs})$.
+
+with
+
+-   Type I error: \(\alpha = \mathbb{P}\) (accept $H_1$, $H_0$ is true),
+
+-   Type II error: \(\beta = \mathbb{P}\) (accept $H_0$, $H_1$ is true),
+
+-   Power of the test: \( 1 - \beta = \mathbb{P}\) (accept $H_1$, $H_1$ is true).
+
+and the confusion matrix defined in Table \@ref(tab:confusion).
+
+```{r confusion, echo=FALSE, tidy=FALSE}
+knitr::kable(rbind(
+  c("","$H_0$ true", "$H_1$ true"),
+  c("$H_0$ accepted","True Positive", "False Positive"),
+  c("$H_1$ accepted","False Negative", "True Negative")),
+  caption = 'Confusion matrix',
+  booktabs = TRUE
+)
+```
+
+### $\chi^2$ test{#chi2}
+
+The chi-squared test, also written as $\chi^2$ test, is a statistical
+hypothesis test developed by Karl Pearson and first published in
+[@pearson1900on]. It is used when the sampling distribution of the test
+statistic under the null hypothesis follows a chi-squared distribution.
+
+The $\chi^2$ distribution with k degrees of freedom is the distribution
+of a sum of the squares of $D$ independent standard normal random
+variables. If $\mathrm{X}_1, ..., \mathrm{X}_D$ are independent, normally distributed
+random variables, then the sum of their squares:
+$$Z =\sum _{d=1}^{D} \mathrm{X}_d^2,$$ is distributed according to the $\chi^2$
+distribution with $D$ degrees of freedom. This is usually denoted as
+$Z \sim \chi^{2}(D)$ or $Z \sim \chi_D^2$. The chi-squared distribution
+has one parameter: $D$ — a positive integer that specifies the number of
+degrees of freedom.
+
+The chi-squared test is used to determine whether there is a significant
+difference between the expected frequencies and the observed frequencies
+in one or more categories. Test statistics that follow a chi-squared
+distribution arise from an assumption of independent normally
+distributed data, which is valid in many cases due to the central limit
+theorem.
+
+### Likelihood ratio test{#LRT}
+
+The likelihood ratio test is used for comparing the goodness of fit of
+two statistical models, a null model against an alternative model. The
+log-likelihood ratio statistic is generally used to compute a *p*-value
+to decide whether or not to reject the null model.
+
+Given the null $H_0 : \theta = \theta_0$ and the alternative hypothesis
+$H_1 = \theta = \theta_1$ for a statistical model $f(\boldsymbol{x}|\theta)$, the
+likelihood ratio is defined as
+
+$$\Lambda(\boldsymbol{x}) = \frac{l(\theta_0 | \boldsymbol{x})}{l(\theta_1 | \boldsymbol{x})},$$ where
+$\theta \mapsto l(\theta|\boldsymbol{x})$ is the likelihood function and with
+$\alpha = \mathbb{P}(\Lambda(\boldsymbol{x}) \leq u | H_0)$ the significance level
+at a threshold $u$.
+
+In practice we define the test statistic as $$\begin{aligned}
+T & = -2 \log \left( \frac{l(\theta_0 | \boldsymbol{x})}{l(\theta_1 | \boldsymbol{x})} \right) \\
+& = 2 \times [\log(l(\theta_1 | \boldsymbol{x})) - \log(l(\theta_0 | \boldsymbol{x}))]\end{aligned}$$
+
+The Neyman-Pearson lemma introduced in [@neyman1933testing] states that
+the likelihood ratio test is the most powerful test at a significance
+level $\alpha$.
+
+### Calculation of *p*-values in GAM {#pvalGAM}
+
+Let $\boldsymbol{\beta}^j \in \mathbb{R}^K$ be the coefficients vector of the $k$
+covariates for a single smooth term $j$ and $\mathbf{V}_{\boldsymbol{\beta}_j}$ the
+covariance matrix of $\boldsymbol{\beta}_j$. In the context of generalized additive
+models, if the covariates of the smooth are uncorrelated with other
+smooth terms in the model, then $\mathbb{E}(\hat{\boldsymbol{\beta}_j}) = 0$,
+otherwise there is little bias and
+$\mathbb{E}(\hat{\boldsymbol{\beta}_j}) \simeq 0$.
+
+Under the null hypothesis $H_0: \boldsymbol{\beta}_j = 0$ we have
+$$\hat{\boldsymbol{\beta}_j} \thicksim \mathcal{N}(0, \mathbf{V}_{\boldsymbol{\beta}_j}).$$
+
+It follows that if $\mathbf{V}_{\boldsymbol{\beta}_j}$ is of full rank, then under the null
+hypothesis
+
+$$\hat{\boldsymbol{\beta}_j}^T \mathbf{V}_{\boldsymbol{\beta}_j}^{-1} \hat{\boldsymbol{\beta}_j} \thicksim \chi^2_k.$$
+
+However, applying a penalty on the coefficients of the smooth, as it is
+the case with smoothing splines, often suppress some dimensions of the
+parameter space and consequently the covariance matrix $\mathbf{V}_{\boldsymbol{\beta}_j}$
+is not of full rank. If so, the test is performed using the rank
+$r = rank(\mathbf{V}_{\boldsymbol{\beta}_j})$ pseudo-inverse of the covariance matrix
+$\mathbf{V}_{\boldsymbol{\beta}_j}^{r-}$ and under the null,
+$$\hat{\boldsymbol{\beta}_j}^T \mathbf{V}_{\boldsymbol{\beta}_j}^{-r} \hat{\boldsymbol{\beta}_j} \thicksim \chi^2_r.$$
+
+As stated in [@wood_generalized_2006], as long as the *p*-values give a
+clear cut result it is usually safe to rely on them, but when they are
+close to the threshold of accepting or rejecting the null, they must be
+carefully treated. Indeed, as the uncertainty on the smoothing parameter
+estimation has been neglected in the reference distribution used for
+testing, these distributions are typically too narrow and attribute too
+low a probability to moderately high values in the test statistics. In
+that case, to obtain more accurate *p*-values, it may be preferable to
+perform test on overspecified unpenalized models even if it induces a
+cost in terms of statistical power.
+
+### Multiple testing comparison{#multiple}
+
+In some context, as it is the case with the analysis of genes expression
+data or in Genome-Wide Association Studies (GWASs) for instance, we may
+need to perform simultaneously a very large number, $d \in [1,\dots,D]$,
+of tests and therefore the same large number of *p*-value. If we reject,
+for the $d^{th}$ tests, the null hypothesis $H_{0,d}$ when its
+associated *p*-value $\hat{p}_d$ is not larger than $\alpha$, then for
+each tests $d$, the probability to reject wrongly $H_{0,d}$ is at most
+$\alpha$. Nevertheless, if we consider the $D$ tests simultaneously the
+number of hypothesis $H_{0,d}$ wrongly rejected (false positive or type
+I error) can be very large. Actually, the expectation of the number of
+false positives in given by:
+
+$$\mathbb{E}[\text{False Positives}] = \sum_{d:H{0,d}}^D \mathbb{P}_{H{0,d}}(T_d \geq u_{\alpha}) = \text{card} \lbrace d:H_{0,d} \text{ is true} \rbrace\times \alpha,$$
+if the threshold $u_{\alpha}$ is such that \( \mathbb{P}_{H{0,d}} = \alpha \)for every $d$. For instance, for a typical value of  \(\alpha = 5 \% \) and card $\lbrace d:H_{0,d} \text{ is true} \rbrace =1000$, then we obtain on
+average 500 false positives. It is therefore necessary to adjust the
+threshold $u_{\alpha}$ at which we reject the null hypothesis in order
+to control for the number of false positives while not losing too much
+power.
+
+#### Controlling the Family-Wise Error Rate{.unnumbered}
+
+There exist many adjustments methods for multiple testing, including
+controls of the Family-Wise Error Rate (FWER), i.e. the probability of
+rejecting $H_0$ when it is true at least one time, noted as
+$$\text{FWER} = \mathbb{P}(\text{card(False Positives)} \geq 1).$$
+
+- Bonferroni procedure:
+
+The most commonly used method for controlling the FWER is the
+    Bonferroni method [@bonferroni1936teoria]. The test of each $H_d$ is
+    controlled so that the probability of a Type I error is less than or
+    equal to $\alpha/D$, ensuring that the overall FWER is less than to
+    a given $\alpha$.
+
+- [Š]{}id[á]{}k method:
+
+The method of [@sidak1967rectangular] is closely related to
+    Bonferroni’s procedure where the *p*-value are adjusted as:
+    $$p_d^{adj} = 1 - (1-p_d)^D,$$ where $p_d$ is the unadjusted p-value
+    for the $d^{th}$ test.
+
+- Holm method:
+
+ A less conservative adjustment method is the [@holm1979simple]
+    method that orders the *p*-values and makes successively smaller
+    adjustments. Let the ordered *p*-values be denoted by
+    $p_{1} \leq p_{2} \leq \dots \leq p_{D}$. Then, the Holm method
+    calculates the adjusted *p*-values by $$\begin{aligned}
+    & p_{1}^{adj} = D \times p_{1}, & \nonumber\\
+    & p_{1}^{adj} = \text{max} \lbrace p_{d-1},(D-d+1) \times p_{d} \rbrace \ 1 \leq d \leq D.&\end{aligned}$$
+
+The principal issue with these approaches is that they control the
+probability of at least one false positive regardless of the number of
+hypothesis being tested. They reduce the number of type I error but
+tends to be very conservative in the sense that the number of type II
+error is increased resulting in a loss of power. That is why less
+conservative methods are preferred in high-dimensional settings.
+
+#### Controlling the False Discovery Rate {#BH .unnumbered}
+
+The False Discovery Proportion (FDP) corresponds to the proportion of
+false positives among the positive FP/(FP+TP). The False Discovery Rate,
+introduced in the seminal paper of [BH, @benjamini_controlling_1995], is
+defined as the expected value of the FDP:
+
+$$\text{FDR} = \mathbb{E} \left[ \frac{\text{FP}}{\text{FP+TP}} \mathbb{1}_{\text{FP+TP} \geq 1} \right]. 
+\label{eq:FDR}$$
+
+Controlling the FDR quantity offers a less conservative multiple-testing
+criterion than the FWER control. [@benjamini_controlling_1995] proved
+that their approach, referred as the BH procedure, control the FDR at
+level $\alpha$ under the condition that the *p*-values following the
+null distribution are independent and uniformly distributed.
+
+The BH procedure can be described as follow:
+Step 1 :  Let $p_{1} \leq p_{2} \leq \dots \leq p_{D}$ be the observed *p*-values.
+
+Step 2 :   Calculate
+    $$\hat{k} = \underset{1\leq k \leq D}{\text{argmax}} \lbrace k:p_k \leq \alpha k/D \rbrace.$$
+
+Step 3 :   If $\hat{k}$ exists, then reject the null hypothesis corresponding
+    to $p_1 \leq \dots \leq p_k$. If not, accept the null hypothesis for
+    all tests.
+
+[@benjamini_controlling_1995] have shown that the FDR is upper-bounded
+by: $$\text{FDR} \leq \alpha d_0/D,$$ with $d_0$ the number of true null
+hypothesis and have shown that this upper bounding is also true for
+positively dependent test statistics, i.e. when the distribution of
+*p*-values fulfils the Weak Positive Regression Dependency Property
+(WPRDS).
+
+Since the BH procedure controls the FDR at a level of $\alpha d_0/D$
+instead of $\alpha$, a lot of work has been done in order to achieve a
+better level, mainly by trying to estimate $d_0$ (see [@roquain2010type]
+and references therein for more details).
+
+[^1]: To be more specific, we will present the semi-parametric forms of
+    these models using a linear basis expansion.

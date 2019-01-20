@@ -1,0 +1,12 @@
+# Notations {.unnumbered}
+
+```{r notations, echo=F}
+tab <- read.csv("~/Documents/bioptilamme/Manuscript/includes/notations.csv", header=T, sep=";")
+knitr::kable(tab, format = "html",booktabs = TRUE, row.names = F)
+```
+
+# Abbreviations {.unnumbered}
+```{r abbrev, echo=F}
+tab <- read.csv("~/Documents/bioptilamme/Manuscript/includes/abbreviations.csv", header=T, sep=";")
+knitr::kable(tab[-1,], format = "html",booktabs = TRUE, row.names = F)
+```
