@@ -148,7 +148,7 @@ parametric or non-parametric.
     observations than is typically needed for a parametric approach to
     obtain an accurate estimate for $f$. We will present in Section
     \@ref(non-parametric) some non-parametric models such as the
-    regression splines and the generalized additive model[^1].
+    regression splines and the generalized additive model[^5].
 
 ## Parametric methods{#parametric}
 
@@ -1299,5 +1299,5 @@ instead of $\alpha$, a lot of work has been done in order to achieve a
 better level, mainly by trying to estimate $d_0$ (see [@roquain2010type]
 and references therein for more details).
 
-[^1]: To be more specific, we will present the semi-parametric forms of
+[^5]: To be more specific, we will present the semi-parametric forms of
     these models using a linear basis expansion.

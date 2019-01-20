@@ -32,7 +32,7 @@ $$\begin{aligned}
 & = Var(f-\hat{f}) + \sigma^2 + \mathbb{E}_\mathcal{T}^2(\mathrm{Y}) + \mathbb{E}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f})\end{aligned}$$
 
 Knowing that
-$ \mathbb{E}_\mathcal{T}^2(\mathrm{Y}) = \mathbb{E}_\mathcal{T}^2(f + \epsilon) = \mathbb{E}^2(f)$
+$\mathbb{E}_\mathcal{T}^2(\mathrm{Y}) = \mathbb{E}_\mathcal{T}^2(f + \epsilon) = \mathbb{E}^2(f)$
 and replacing in \[eq:bias-var3\], we finally obtain:
 
 $$\begin{aligned}

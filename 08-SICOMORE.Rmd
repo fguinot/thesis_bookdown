@@ -29,11 +29,11 @@ a phenotype. Indeed, there is growing evidences of the role of gut
 microbiota in basic biological processes and in the development and
 progression of major human diseases such as infectious diseases,
 gastrointestinal cancers, metabolic diseases…[@wang_2107_human]. In
-plants, the role of rhizosphere[^1] microflora on plant growth is well
+plants, the role of rhizosphere[^13] microflora on plant growth is well
 known and has been widely studied
 [@mukerji2002techniques; @pinton2007rhizosphere].
 
-Analysis equivalent to GWAS have been conducted using the metagenome[^2]
+Analysis equivalent to GWAS have been conducted using the metagenome[^14]
 rather than the genome of an individual and are known as Metagenome Wide
 Association Study (MWAS) [@wang2016metagenome; @segata2011metagenomic].
 Those metagenome association analyses may often explain larger variation
@@ -131,7 +131,7 @@ $N_I = N_{\mathit{G}} \cdot N_{\mathit{M}}$, the number of variables and the num
 groups that may interact.
 
 Finally, we use the following convention: vectors of observations
-indexed with $i$, such as $\mathbf{x}_i$, will usually be row vectors[^3] while
+indexed with $i$, such as $\mathbf{x}_i$, will usually be row vectors[^15] while
 vectors of coefficients, such as $\boldsymbol{\beta}$, will usually be column
 vectors.
 
@@ -173,7 +173,7 @@ in a regression model by solving a constrained overlapping Group-Lasso
 [@jacob2009group] in a manner that satisfies strong dependencies,
 [@she2016group] propose a formulation with an overlapping regularization
 that fits both kind of hypotheses and provide theoretical insights on
-the resulting estimators[^4].
+the resulting estimators[^16].
 
 Yet, the dimension $D_{\mathit{G}} + D_{\mathit{M}} + D_I$ involved in Problem  to
 estimate $\boldsymbol{\gamma}_{\mathit{G}}$, $\boldsymbol{\gamma}_{\mathit{M}}$ and $\boldsymbol{\Delta}_{\mathit{G}\mathit{M}}$ may be
@@ -296,7 +296,7 @@ reduce the dimension may be achieved at this step.
 
 #### Normalization.
 
-In shotgun metagenomics,[^5] microorganisms are studied by sequencing
+In shotgun metagenomics,[^17] microorganisms are studied by sequencing
 DNA fragments directly from samples, without the need for cultivation of
 individual isolates [@sharpton2014introduction].
 
@@ -1106,18 +1106,18 @@ very fast even with large genomic dataset, an analysis of the full
 genomic data only takes a few hours to run and only a few tens of
 minutes if we work on a small subset of the data.
 
-[^1]: The rhizosphere is the term used to describe the zone of intense
+[^13]: The rhizosphere is the term used to describe the zone of intense
     activity around the roots of leguminacea (Fabaceae) which contains a
     considerable diversity of microbial and mycorrhizal species.
 
-[^2]: The metagenome corresponds to all the genetic material present in
+[^14]: The metagenome corresponds to all the genetic material present in
     an environmental sample, consisting of the genomes of many
     individual organisms.
 
-[^3]: For the sake of clarity, we use these lightened notations which
+[^15]: For the sake of clarity, we use these lightened notations which
     slightly differ from those used in the previous chapters.
 
-[^4]: To our knowledge, their implementation based on alternating
+[^16]: To our knowledge, their implementation based on alternating
     direction method of multipliers is not publicly available.
 
-[^5]: see Section \@ref(DNAseq) for details on shotgun sequencing.
+[^17]: see Section \@ref(DNAseq) for details on shotgun sequencing.

@@ -219,14 +219,11 @@
 <li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-sicomore-algorithm"><i class="fa fa-check"></i>Discussions on SICOMORE algorithm</a></li>
 <li class="chapter" data-level="" data-path="perspectives.html"><a href="perspectives.html"><i class="fa fa-check"></i>Perspectives</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="annexes.html"><a href="annexes.html"><i class="fa fa-check"></i>Annexes</a><ul>
-<li class="chapter" data-level="" data-path="biasvar.html"><a href="biasvar.html"><i class="fa fa-check"></i>Derivation of the MSE bias-variance decomposition</a></li>
-<li class="chapter" data-level="" data-path="computational-aspect-of-splines-calculation.html"><a href="computational-aspect-of-splines-calculation.html"><i class="fa fa-check"></i>Computational aspect of splines calculation</a><ul>
-<li><a href="computational-aspect-of-splines-calculation.html#linsmooth">Linear smoother <span class="citation">(Buja, Hastie, and Tibshirani <span>1989</span>)</span></a></li>
-<li><a href="computational-aspect-of-splines-calculation.html#lambdasmooth">Smoothing parameter <span class="math inline">\(\lambda\)</span> for smoothing splines</a></li>
-<li><a href="computational-aspect-of-splines-calculation.html#Bspline"><span class="math inline">\(\mathit{B}\)</span>-spline basis</a></li>
-</ul></li>
-</ul></li>
+<li class="appendix"><span><b>Annexes</b></span></li>
+<li class="chapter" data-level="A" data-path="biasvar.html"><a href="biasvar.html"><i class="fa fa-check"></i><b>A</b> Derivation of the MSE bias-variance decomposition</a></li>
+<li class="chapter" data-level="B" data-path="linsmooth.html"><a href="linsmooth.html"><i class="fa fa-check"></i><b>B</b> Linear smoother <span class="citation">(Buja, Hastie, and Tibshirani <span>1989</span>)</span></a></li>
+<li class="chapter" data-level="C" data-path="lambdasmooth.html"><a href="lambdasmooth.html"><i class="fa fa-check"></i><b>C</b> Smoothing parameter <span class="math inline">\(\lambda\)</span> for smoothing splines</a></li>
+<li class="chapter" data-level="D" data-path="Bspline.html"><a href="Bspline.html"><i class="fa fa-check"></i><b>D</b> <span class="math inline">\(\mathit{B}\)</span>-spline basis</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -304,16 +301,19 @@ massive data.</p>
 <div class="footnotes">
 <hr />
 <ol start="6">
-<li id="fn6"><p>The rhizosphere is the term used to describe the zone of intense
-activity around the roots of leguminacea (Fabaceae) which contains a
-considerable diversity of microbial and mycorrhizal species.<a href="introduction-2.html#fnref6" class="footnote-back">↩</a></p></li>
-<li id="fn7"><p>The metagenome corresponds to all the genetic material present in
-an environmental sample, consisting of the genomes of many
-individual organisms.<a href="introduction-2.html#fnref7" class="footnote-back">↩</a></p></li>
-<li id="fn8"><p>For the sake of clarity, we use these lightened notations which
-slightly differ from those used in the previous chapters.<a href="introduction-2.html#fnref8" class="footnote-back">↩</a></p></li>
-<li id="fn9"><p>To our knowledge, their implementation based on alternating
-direction method of multipliers is not publicly available.<a href="introduction-2.html#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p>A non-synonymous SNP is a SNP that modifies the protein sequence
+in opposition to a synonymous SNP.<a href="introduction-2.html#fnref6" class="footnote-back">↩</a></p></li>
+<li id="fn7"><p>A genetic alteration in the DNA sequence that occurs at the
+boundary of an exon and an intron (splice site). This change can
+disrupt RNA splicing, resulting in the loss of exons or the
+inclusion of introns leading to an altered protein-coding sequence.<a href="introduction-2.html#fnref7" class="footnote-back">↩</a></p></li>
+<li id="fn8"><p>A CNP is a normal variation in DNA due to the varying number of
+copies of a sequence within the DNA. Large-scale copy number
+polymorphisms are common and widely distributed throughout the
+genome.<a href="introduction-2.html#fnref8" class="footnote-back">↩</a></p></li>
+<li id="fn9"><p>In the remainder of the paper, the terms variant, marker, locus,
+SNP or polymorphism will equivalently refer to the variable studied
+in GWAS.<a href="introduction-2.html#fnref9" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -356,7 +356,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["book.epub"],
+"download": ["book.epub", "book.pdf"],
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true

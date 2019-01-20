@@ -25,8 +25,8 @@ for traditional linkage analysis. WGA rely in two types of association
 study: *direct association* and *indirect association*. On one hand,
 direct association focus on directly genotyping and studying functional
 polymorphisms which have relatively high prior probability of functional
-relevance such as non-synonymous polymorphisms[^1], splice-site
-variants[^2], and copy number polymorphisms (CNP[^3]). One the other
+relevance such as non-synonymous polymorphisms[^6], splice-site
+variants[^7], and copy number polymorphisms (CNP[^8]). One the other
 hand, indirect association, also referred as Genome-Wide Association
 Study (GWAS), focuses on both functional SNP, such as non-synonymous
 SNP, and those flanking them. Even if the flanking SNP are themselves
@@ -42,7 +42,7 @@ genome of an individual with up to a million genetic markers. These
 rapid advances in DNA sequencing technologies have also made it possible
 to carry out exome and whole-genome sequencing studies of complex
 diseases. In this context, Genome-Wide Association Studies have been
-widely used to identify causal genomic variants[^4] implied in the
+widely used to identify causal genomic variants[^9] implied in the
 expression of different human diseases (rare, Mendelian or
 multifactorial diseases). Thanks to the Next Generation Sequencing
 techniques, it is now possible to genotype the complete DNA sequence of
@@ -456,7 +456,7 @@ $$\chi^2_{CA-adj}=\chi_{CA}^2/\lambda.$$
 ### Structured association
 
 The method known as structured association, implemented in the STRUCTURE
-software [@pritchard2000inference], uses an admixture model[^5] where
+software [@pritchard2000inference], uses an admixture model[^10] where
 the proportion of an individual’s genome into $K$ specific ancestral
 strata is treated as unknown. The posterior distribution of ancestry for
 each individual is then approximated using bayesian Markov Chain Monte
@@ -686,7 +686,7 @@ kernels specifically for the purpose of rare-variant analysis:
     terms for the gene variants and the first-order variant by variant
     interactions.
 
--   The weighted identity by state (IBS[^6]) kernel:
+-   The weighted identity by state (IBS[^11]) kernel:
     $$K(\mathbf{z}_{i},\mathbf{z}_{i'}) = \sum_{m=1}^M \omega_m IBS(z_{im},z_{i'm})$$
     defines similarity between individuals as the number of alleles that
     share IBS.
@@ -701,7 +701,7 @@ Region-based multi-marker analysis necessarily need that we define a
 group structure among SNP either by using the gene definition or
 biochemical pathway. However, these approaches limit the search for
 association to coding region only and therefore potential interesting
-associations located in non-coding region[^7] are set aside.
+associations located in non-coding region[^12] are set aside.
 
 One way to circumvent this issue is to use non-supervised clustering
 techniques such as hierarchical clustering described in Section
@@ -741,32 +741,32 @@ factor and $\boldsymbol{\beta}_g$ the vector of regression coefficients
 corresponding to the $g^{th}$ group, so that
 $\boldsymbol{\beta} = (\boldsymbol{\beta}^1,\dots,\boldsymbol{\beta}^G)$.
 
-[^1]: A non-synonymous SNP is a SNP that modifies the protein sequence
+[^6]: A non-synonymous SNP is a SNP that modifies the protein sequence
     in opposition to a synonymous SNP.
 
-[^2]: A genetic alteration in the DNA sequence that occurs at the
+[^7]: A genetic alteration in the DNA sequence that occurs at the
     boundary of an exon and an intron (splice site). This change can
     disrupt RNA splicing, resulting in the loss of exons or the
     inclusion of introns leading to an altered protein-coding sequence.
 
-[^3]: A CNP is a normal variation in DNA due to the varying number of
+[^8]: A CNP is a normal variation in DNA due to the varying number of
     copies of a sequence within the DNA. Large-scale copy number
     polymorphisms are common and widely distributed throughout the
     genome.
 
-[^4]: In the remainder of the paper, the terms variant, marker, locus,
+[^9]: In the remainder of the paper, the terms variant, marker, locus,
     SNP or polymorphism will equivalently refer to the variable studied
     in GWAS.
 
-[^5]: An admixture model is a statistical model taking in account the
+[^10]: An admixture model is a statistical model taking in account the
     phenomenon known as population admixture (see Section
     \@ref(#originLD)).
 
-[^6]: A DNA segment is identical by state (IBS) in two or more
+[^11]: A DNA segment is identical by state (IBS) in two or more
     individuals if they have identical nucleotide sequences in this
     segment.
 
-[^7]: Non-coding DNA (formerly referred as ’junk’ DNA) represents 99$\%$
+[^12]: Non-coding DNA (formerly referred as ’junk’ DNA) represents 99$\%$
     of the genome and does not provide instructions for making proteins.
     However, recent studies have shown that non-coding DNA sequences can
     act as regulatory elements like sites for transcription factors

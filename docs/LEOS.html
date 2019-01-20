@@ -219,14 +219,11 @@
 <li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-sicomore-algorithm"><i class="fa fa-check"></i>Discussions on SICOMORE algorithm</a></li>
 <li class="chapter" data-level="" data-path="perspectives.html"><a href="perspectives.html"><i class="fa fa-check"></i>Perspectives</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="annexes.html"><a href="annexes.html"><i class="fa fa-check"></i>Annexes</a><ul>
-<li class="chapter" data-level="" data-path="biasvar.html"><a href="biasvar.html"><i class="fa fa-check"></i>Derivation of the MSE bias-variance decomposition</a></li>
-<li class="chapter" data-level="" data-path="computational-aspect-of-splines-calculation.html"><a href="computational-aspect-of-splines-calculation.html"><i class="fa fa-check"></i>Computational aspect of splines calculation</a><ul>
-<li><a href="computational-aspect-of-splines-calculation.html#linsmooth">Linear smoother <span class="citation">(Buja, Hastie, and Tibshirani <span>1989</span>)</span></a></li>
-<li><a href="computational-aspect-of-splines-calculation.html#lambdasmooth">Smoothing parameter <span class="math inline">\(\lambda\)</span> for smoothing splines</a></li>
-<li><a href="computational-aspect-of-splines-calculation.html#Bspline"><span class="math inline">\(\mathit{B}\)</span>-spline basis</a></li>
-</ul></li>
-</ul></li>
+<li class="appendix"><span><b>Annexes</b></span></li>
+<li class="chapter" data-level="A" data-path="biasvar.html"><a href="biasvar.html"><i class="fa fa-check"></i><b>A</b> Derivation of the MSE bias-variance decomposition</a></li>
+<li class="chapter" data-level="B" data-path="linsmooth.html"><a href="linsmooth.html"><i class="fa fa-check"></i><b>B</b> Linear smoother <span class="citation">(Buja, Hastie, and Tibshirani <span>1989</span>)</span></a></li>
+<li class="chapter" data-level="C" data-path="lambdasmooth.html"><a href="lambdasmooth.html"><i class="fa fa-check"></i><b>C</b> Smoothing parameter <span class="math inline">\(\lambda\)</span> for smoothing splines</a></li>
+<li class="chapter" data-level="D" data-path="Bspline.html"><a href="Bspline.html"><i class="fa fa-check"></i><b>D</b> <span class="math inline">\(\mathit{B}\)</span>-spline basis</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -249,12 +246,15 @@
             <section class="normal" id="section-">
 <div id="LEOS" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Learning the Optimal in GWAS through hierarchical SNP aggregation</h1>
-<p>The present chapter proposes a block-wise approach for GWAS analysis which leverages the LD structure among the genomic variants to reduce the number of hypothesis testing. We named this method <strong>LEOS</strong> for <strong>LE</strong>arning the <strong>O</strong>ptimal <strong>S</strong>cale in GWAS. Section <a href="introleos.html#introleos">4.1</a> introduces some related works that have been studied to develop our methodology. The method is presented in Section <a href="leosmethod.html#leosmethod">4.2</a>. In Section <a href="numsim.html#numsim">4.3</a>, we compare our method in different scenarios with the baseline approach, i.e. univariate hypothesis testing <span class="citation">(Purcell et al. <a href="#ref-purcell_2007_plink">2007</a>)</span> and with the logistic kernel machine method presented in Section <a href="multiloc.html#rare-variant">3.7.2</a> on both synthetic and real datasets from the Wellcome Trust Case Control Consortium @[burton_genome-wide_2007] and on ankylosing spondylitis data <span class="citation">(International Genetics of Ankylosing Spondylitis Consortium (IGAS) et al. <a href="#ref-IGAS_2013_identification">2013</a>)</span>. Finally, an example of an application using the generalized additive models in the context of GWAS is exposed in Section <a href="leosgam.html#leosgam">4.5</a>.</p> 
+<p>The present chapter proposes a block-wise approach for GWAS analysis which leverages the LD structure among the genomic variants to reduce the number of hypothesis testing. We named this method <strong>LEOS</strong> for <strong>LE</strong>arning the <strong>O</strong>ptimal <strong>S</strong>cale in GWAS. Section <a href="introleos.html#introleos">4.1</a> introduces some related works that have been studied to develop our methodology. The method is presented in Section <a href="leosmethod.html#leosmethod">4.2</a>. In Section <a href="numsim.html#numsim">4.3</a>, we compare our method in different scenarios with the baseline approach, i.e. univariate hypothesis testing <span class="citation">(Purcell et al. <a href="#ref-purcell_2007_plink">2007</a>)</span> and with the logistic kernel machine method presented in Section <a href="multiloc.html#rare-variant">3.7.2</a> on both synthetic and real datasets from the Wellcome Trust Case Control Consortium <span class="citation">(WTCCC <a href="#ref-burton_genome-wide_2007">2007</a>)</span> and on ankylosing spondylitis data <span class="citation">(International Genetics of Ankylosing Spondylitis Consortium (IGAS) et al. <a href="#ref-IGAS_2013_identification">2013</a>)</span>. Finally, an example of an application using the generalized additive models in the context of GWAS is exposed in Section <a href="leosgam.html#leosgam">4.5</a>.</p> 
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-purcell_2007_plink">
 <p>Purcell, S., B. Neale, K. Todd-Brown, L. Thomas, M. A. R. Ferreira, D. Bender, J. Maller, et al. 2007. “PLINK: A Tool Set for Whole-Genome Association and Population-Based Linkage Analyses.” <em>The American Journal of Human Genetics</em> 81 (3): 559–75.</p>
+</div>
+<div id="ref-burton_genome-wide_2007">
+<p>WTCCC. 2007. “Genome-Wide Association Study of 14,000 Cases of Seven Common Diseases and 3,000 Shared Controls.” <em>Nature</em> 447 (7145): 661–78.</p>
 </div>
 <div id="ref-IGAS_2013_identification">
 <p>International Genetics of Ankylosing Spondylitis Consortium (IGAS), Adrian Cortes, Johanna Hadler, Jenny P. Pointon, Philip C. Robinson, and others. 2013. “Identification of Multiple Risk Variants for Ankylosing Spondylitis Through High-Density Genotyping of Immune-Related Loci.” <em>Nature Genetics</em> 45 (7): 730–38.</p>
@@ -300,7 +300,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["book.epub"],
+"download": ["book.epub", "book.pdf"],
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
