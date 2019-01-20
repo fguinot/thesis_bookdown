@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>2.1 Notations | book.utf8.md</title>
+  <title>Notations | book.utf8.md</title>
   <meta name="description" content="PdD thesis">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="2.1 Notations | book.utf8.md />
+  <meta property="og:title" content="Notations | book.utf8.md />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.1 Notations | book.utf8.md />
+  <meta name="twitter:title" content="Notations | book.utf8.md />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="stat.html">
-<link rel="next" href="concepts-of-statistical-learning.html">
+<link rel="prev" href="intro.html">
+<link rel="next" href="abbreviations.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -68,6 +68,8 @@
 <li><a href="index.html#section"></a></li>
 <li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
 <li class="chapter" data-level="" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i>General introduction</a></li>
+<li class="chapter" data-level="" data-path="notations.html"><a href="notations.html"><i class="fa fa-check"></i>Notations</a></li>
+<li class="chapter" data-level="" data-path="abbreviations.html"><a href="abbreviations.html"><i class="fa fa-check"></i>Abbreviations</a></li>
 <li class="chapter" data-level="1" data-path="genet.html"><a href="genet.html"><i class="fa fa-check"></i><b>1</b> Basic concepts of molecular genetics</a><ul>
 <li class="chapter" data-level="1.1" data-path="genome.html"><a href="genome.html"><i class="fa fa-check"></i><b>1.1</b> Genome description</a></li>
 <li class="chapter" data-level="1.2" data-path="genome-sequencing.html"><a href="genome-sequencing.html"><i class="fa fa-check"></i><b>1.2</b> Genome sequencing</a><ul>
@@ -97,7 +99,7 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="stat.html"><a href="stat.html"><i class="fa fa-check"></i><b>2</b> Statistical context</a><ul>
-<li class="chapter" data-level="2.1" data-path="notations.html"><a href="notations.html"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
+<li class="chapter" data-level="2.1" data-path="notations-1.html"><a href="notations-1.html"><i class="fa fa-check"></i><b>2.1</b> Notations</a></li>
 <li class="chapter" data-level="2.2" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html"><i class="fa fa-check"></i><b>2.2</b> Concepts of statistical learning</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="concepts-of-statistical-learning.html"><a href="concepts-of-statistical-learning.html#prediction"><i class="fa fa-check"></i><b>2.2.1</b> Prediction</a></li>
 </ul></li>
@@ -217,6 +219,14 @@
 <li class="chapter" data-level="" data-path="conclusions.html"><a href="conclusions.html#discussions-on-sicomore-algorithm"><i class="fa fa-check"></i>Discussions on SICOMORE algorithm</a></li>
 <li class="chapter" data-level="" data-path="perspectives.html"><a href="perspectives.html"><i class="fa fa-check"></i>Perspectives</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="annexes.html"><a href="annexes.html"><i class="fa fa-check"></i>Annexes</a><ul>
+<li class="chapter" data-level="" data-path="biasvar.html"><a href="biasvar.html"><i class="fa fa-check"></i>Derivation of the MSE bias-variance decomposition</a></li>
+<li class="chapter" data-level="" data-path="computational-aspect-of-splines-calculation.html"><a href="computational-aspect-of-splines-calculation.html"><i class="fa fa-check"></i>Computational aspect of splines calculation</a><ul>
+<li><a href="computational-aspect-of-splines-calculation.html#linsmooth">Linear smoother <span class="citation">(Buja, Hastie, and Tibshirani <span>1989</span>)</span></a></li>
+<li><a href="computational-aspect-of-splines-calculation.html#lambdasmooth">Smoothing parameter <span class="math inline">\(\lambda\)</span> for smoothing splines</a></li>
+<li><a href="computational-aspect-of-splines-calculation.html#Bspline"><span class="math inline">\(\mathit{B}\)</span>-spline basis</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -237,30 +247,446 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="notations" class="section level2">
-<h2><span class="header-section-number">2.1</span> Notations</h2>
-<p>Let <span class="math inline">\(\mathcal{T}\)</span> be a training set consisting of <span class="math inline">\(n\)</span> pairs of examples
-labelled on a space <span class="math inline">\(\mathcal{Z} = \mathcal{X} \times \mathcal{Y}\)</span>:
-<span class="math inline">\(\mathcal{T} = \{(\boldsymbol{x}_{i}, y_{i})\}_{i=1}^{n}\)</span>, with
-<span class="math inline">\((\boldsymbol{x}_{i}, y_{i}) \in \mathcal{Z}\)</span>, <span class="math inline">\(\forall i\)</span>. Each couple
-<span class="math inline">\((\boldsymbol{x}_{i}, y_{i})\)</span> is the realization of an <span class="math inline">\(i^{th}\)</span> independent copy
-of a random vector couple <span class="math inline">\((\mathrm{X}, \mathrm{Y})\)</span> distributed according to
-<span class="math inline">\(\mathcal{U}\)</span>, an unknown but fixed distribution on <span class="math inline">\(\mathcal{Z}\)</span>.</p>
-<p>Generally, we will represent the vectors in bold lowercase letters and
-the matrices in bold capital letters. Thus, when <span class="math inline">\(\mathcal{X} \in \mathbb{R}^D\)</span>,
-the vector of the <span class="math inline">\(i^{th}\)</span> component of <span class="math inline">\(\mathcal{T}\)</span> represented by <span class="math inline">\(D\)</span>
-variables, will be designated by the column vector
-<span class="math inline">\(\boldsymbol{x}_i = (x_{i1}, \dots, x_{id}, \dots, x_{iD})^T \in \mathbb{R}^D\)</span> and its
-associated matrix by
-<span class="math inline">\(\mathbf{X} = (\boldsymbol{x}_1^T, \dots, \boldsymbol{x}_i^T, \dots, \boldsymbol{x}_n^T)^T \in \mathbb{R}^{n \times D}\)</span>.</p>
+<div id="notations" class="section level1 unnumbered">
+<h1>Notations</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Notations
+</th>
+<th style="text-align:left;">
+Explanation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(n\)</span> or <span class="math inline">\(N\)</span>
+</td>
+<td style="text-align:left;">
+number of observations
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(D\)</span>
+</td>
+<td style="text-align:left;">
+number of variables
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(d\)</span>
+</td>
+<td style="text-align:left;">
+index of the variables in <span class="math inline">\([1, \dots, D]\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(K\)</span>
+</td>
+<td style="text-align:left;">
+number of classes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(k\)</span>
+</td>
+<td style="text-align:left;">
+index of the classes in <span class="math inline">\([1, \dots, K]\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathcal{T}\)</span>
+</td>
+<td style="text-align:left;">
+training set space
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathcal{X}\)</span>
+</td>
+<td style="text-align:left;">
+space of variables
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathrm{X}\)</span>
+</td>
+<td style="text-align:left;">
+random variable from <span class="math inline">\(\mathcal{X}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(x\)</span>
+</td>
+<td style="text-align:left;">
+realization of <span class="math inline">\(\mathrm{X}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathbf{X}\)</span>
+</td>
+<td style="text-align:left;">
+matrix of variables in <span class="math inline">\(\mathbb{R}^{n \times D}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\boldsymbol{x}_i\)</span>
+</td>
+<td style="text-align:left;">
+column vector of the <span class="math inline">\(i^{th}\)</span> observation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(x_{id}\)</span>
+</td>
+<td style="text-align:left;">
+scalar of the <span class="math inline">\(i^{th}\)</span> observation and the <span class="math inline">\(d^{th}\)</span> variable of <span class="math inline">\(\mathbf{X}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathcal{Y}\)</span>
+</td>
+<td style="text-align:left;">
+space of response
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathrm{Y}\)</span>
+</td>
+<td style="text-align:left;">
+random variable from <span class="math inline">\(\mathcal{Y}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(y\)</span>
+</td>
+<td style="text-align:left;">
+realization of <span class="math inline">\(\mathrm{Y}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathbf{y}\)</span>
+</td>
+<td style="text-align:left;">
+observed response vector in <span class="math inline">\(\mathbb{R}^n\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(y_i\)</span>
+</td>
+<td style="text-align:left;">
+scalar of the <span class="math inline">\(i^{th}\)</span> observation of <span class="math inline">\(\mathbf{y}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\eta_i\)</span>
+</td>
+<td style="text-align:left;">
+linear predictor of <span class="math inline">\(i^{th}\)</span> observation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(f : X \rightarrow Y\)</span>
+</td>
+<td style="text-align:left;">
+some fixed but unknown function of <span class="math inline">\(\mathbf{X}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(s(x)\)</span>
+</td>
+<td style="text-align:left;">
+smooth monotonic function of <span class="math inline">\(x\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(||.||_1\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\ell_1\)</span> norm
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(||.||_2^2\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\ell_2\)</span> squared norm
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\xi\)</span>
+</td>
+<td style="text-align:left;">
+knot
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(K_d\)</span>
+</td>
+<td style="text-align:left;">
+number of knots of variable <span class="math inline">\(d\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathrm{B}(x)\)</span>
+</td>
+<td style="text-align:left;">
+B-spline basis functions of <span class="math inline">\(x\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(m\)</span>
+</td>
+<td style="text-align:left;">
+polynomial order
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathbf{B}\)</span>
+</td>
+<td style="text-align:left;">
+B-spline basis function matrix in <span class="math inline">\(\mathbb{R}^{n \times (k + m +1)}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(N(x)\)</span>
+</td>
+<td style="text-align:left;">
+natural spline basis functions of <span class="math inline">\(x\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathbf{N}\)</span>
+</td>
+<td style="text-align:left;">
+natural splines basis function matrix in <span class="math inline">\(\mathbb{R}^{n \times n}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathbf{W}\)</span>
+</td>
+<td style="text-align:left;">
+penalty matrix of natural splines in <span class="math inline">\(\mathbb{R}^{n \times n}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\Omega\)</span>
+</td>
+<td style="text-align:left;">
+training set to classify
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(S\)</span>
+</td>
+<td style="text-align:left;">
+number of levels in the hierarchical tree of <span class="math inline">\(\Omega\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(s\)</span>
+</td>
+<td style="text-align:left;">
+index of the levels of the hierarchy in <span class="math inline">\([1, \dots, S]\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(h_s\)</span>
+</td>
+<td style="text-align:left;">
+height of the <span class="math inline">\(s^{th}\)</span> level of the hierarchy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathcal{G}\)</span>
+</td>
+<td style="text-align:left;">
+group partition of all <span class="math inline">\(S\)</span> levels of the hierarchy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(G_s\)</span>
+</td>
+<td style="text-align:left;">
+number of groups at <span class="math inline">\(s^{th}\)</span> level of the hierarchy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\hat{G}_s^*\)</span>
+</td>
+<td style="text-align:left;">
+optimal number of groups
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(g\)</span>
+</td>
+<td style="text-align:left;">
+index of number of groups in <span class="math inline">\([1, \dots, G_s]\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathcal{G}^s\)</span>
+</td>
+<td style="text-align:left;">
+a partition of <span class="math inline">\(\Omega\)</span> at the <span class="math inline">\(s^{th}\)</span> level
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathcal{G}^s_g\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(g^{th}\)</span> group of variables at the <span class="math inline">\(s^{th}\)</span> level
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\rho_s\)</span>
+</td>
+<td style="text-align:left;">
+weights attributed to group partition <span class="math inline">\(\mathcal{G}^s\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\tilde{\mathbf{X}}^{(s)}\)</span>
+</td>
+<td style="text-align:left;">
+matrix of supervariables at <span class="math inline">\(s^{th}\)</span> level of the hierarchy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\tilde{\mathbf{X}}^{(s)}_{\mathcal{G}^s}\)</span>
+</td>
+<td style="text-align:left;">
+matrix of supervariables for partition <span class="math inline">\(\mathcal{G}^s\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathbf{X}_{\mathcal{G}}\)</span>
+</td>
+<td style="text-align:left;">
+variables matrix of concatenated group partition
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathbf{X}^s_{\mathcal{G}^s}\)</span>
+</td>
+<td style="text-align:left;">
+variables matrix of group partition <span class="math inline">\(\mathcal{G}^s\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathit{G}\)</span>
+</td>
+<td style="text-align:left;">
+genomic view
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathbf{G}\)</span>
+</td>
+<td style="text-align:left;">
+matrix of genotype data
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathbf{Z}\)</span>
+</td>
+<td style="text-align:left;">
+matrix of additively coded SNPs
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathit{M}\)</span>
+</td>
+<td style="text-align:left;">
+metagenomic view
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathbf{M}\)</span>
+</td>
+<td style="text-align:left;">
+matrix of metagenomic data
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathcal{M}\)</span>
+</td>
+<td style="text-align:left;">
+group structure of metagenomic data
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\boldsymbol{\Delta}_{\mathit{G}\mathit{M}}\)</span>
+</td>
+<td style="text-align:left;">
+matrix of interaction terms between genome and metagenome data
+</td>
+</tr>
+</tbody>
+</table>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="stat.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="concepts-of-statistical-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="abbreviations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
