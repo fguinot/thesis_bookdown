@@ -6226,7 +6226,7 @@ in \eqref{eq:bias-var2}, we get:
 \begin{equation}
 \begin{aligned}
 \mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] & = Var(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + Var(\hat{f}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2[\mathbb{E}_\mathcal{T}(f)\mathbb{E}_\mathcal{T}(\hat{f}) + Cov(f,\hat{f})] \\ \nonumber
-& = Var(f) + Var(\hat{f}) - 2Cov(f,\hat{f}) + \sigma^2 + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\ \nonumber
+& = Var(\hat{f}) + \sigma^2 + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\
 & = Var(\hat{f}) + \sigma^2 + \mathbb{E}_\mathcal{T}^2(\mathrm{Y}) + \mathbb{E}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f})
 \end{aligned}
 \label{eq:bias-var3}
