@@ -1,0 +1,3928 @@
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.4.7)  30 MAY 2022 14:41
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**book.tex
+(./book.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks15
+\ex@=\dimen103
+)) (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks16
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks17
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/base/fixltx2e.sty
+Package: fixltx2e 2015/02/21 v2.0a fixes to LaTeX (obsolete)
+
+Package fixltx2e Warning: fixltx2e is not required with releases after 2015
+(fixltx2e)                All fixes are now in the LaTeX kernel.
+(fixltx2e)                See the latexrelease package for details.
+
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/unicode-math/unicode-math.sty
+Package: unicode-math 2014/06/30 v0.7f Unicode maths in XeLaTeX and LuaLaTeX
+(/usr/local/texlive/2015/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2015/03/01 v5547 L3 programming layer (loader) 
+(/usr/local/texlive/2015/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2015/03/01 v5547 L3 programming layer (code) 
+L3 Module: l3bootstrap 2015/02/28 v5542 L3 Bootstrap code
+L3 Module: l3names 2015/02/24 v5535 L3 Namespace for primitives
+L3 Module: l3basics 2015/01/27 v5500 L3 Basic definitions
+L3 Module: l3expan 2014/11/27 v5472 L3 Argument expansion
+L3 Module: l3tl 2015/01/27 v5500 L3 Token lists
+L3 Module: l3str 2015/03/01 v5545 L3 Strings
+L3 Module: l3seq 2014/08/23 v5354 L3 Sequences and stacks
+L3 Module: l3int 2015/02/21 v5529 L3 Integers
+\c_max_int=\count100
+\l_tmpa_int=\count101
+\l_tmpb_int=\count102
+\g_tmpa_int=\count103
+\g_tmpb_int=\count104
+L3 Module: l3quark 2014/08/23 v5354 L3 Quarks
+L3 Module: l3prg 2014/08/23 v5354 L3 Control structures
+\g__prg_map_int=\count105
+L3 Module: l3clist 2014/08/23 v5354 L3 Comma separated lists
+L3 Module: l3token 2014/09/15 v5422 L3 Experimental token manipulation
+L3 Module: l3prop 2014/08/23 v5354 L3 Property lists
+L3 Module: l3msg 2015/02/26 v5537 L3 Messages
+L3 Module: l3file 2014/08/24 v5369 L3 File and I/O operations
+\l_iow_line_count_int=\count106
+\l__iow_target_count_int=\count107
+\l__iow_current_line_int=\count108
+\l__iow_current_word_int=\count109
+\l__iow_current_indentation_int=\count110
+L3 Module: l3skip 2014/08/23 v5354 L3 Dimensions and skips
+\c_zero_dim=\dimen112
+\c_max_dim=\dimen113
+\l_tmpa_dim=\dimen114
+\l_tmpb_dim=\dimen115
+\g_tmpa_dim=\dimen116
+\g_tmpb_dim=\dimen117
+\c_zero_skip=\skip46
+\c_max_skip=\skip47
+\l_tmpa_skip=\skip48
+\l_tmpb_skip=\skip49
+\g_tmpa_skip=\skip50
+\g_tmpb_skip=\skip51
+\c_zero_muskip=\muskip11
+\c_max_muskip=\muskip12
+\l_tmpa_muskip=\muskip13
+\l_tmpb_muskip=\muskip14
+\g_tmpa_muskip=\muskip15
+\g_tmpb_muskip=\muskip16
+L3 Module: l3keys 2015/01/27 v5500 L3 Key-value interfaces
+\g__keyval_level_int=\count111
+\l_keys_choice_int=\count112
+L3 Module: l3fp 2014/08/22 v5336 L3 Floating points
+\c__fp_leading_shift_int=\count113
+\c__fp_middle_shift_int=\count114
+\c__fp_trailing_shift_int=\count115
+\c__fp_big_leading_shift_int=\count116
+\c__fp_big_middle_shift_int=\count117
+\c__fp_big_trailing_shift_int=\count118
+\c__fp_Bigg_leading_shift_int=\count119
+\c__fp_Bigg_middle_shift_int=\count120
+\c__fp_Bigg_trailing_shift_int=\count121
+L3 Module: l3box 2014/08/23 v5354 L3 Experimental boxes
+\c_empty_box=\box28
+\l_tmpa_box=\box29
+\l_tmpb_box=\box30
+\g_tmpa_box=\box31
+\g_tmpb_box=\box32
+L3 Module: l3coffins 2014/08/23 v5354 L3 Coffin code layer
+\l__coffin_internal_box=\box33
+\l__coffin_internal_dim=\dimen118
+\l__coffin_offset_x_dim=\dimen119
+\l__coffin_offset_y_dim=\dimen120
+\l__coffin_x_dim=\dimen121
+\l__coffin_y_dim=\dimen122
+\l__coffin_x_prime_dim=\dimen123
+\l__coffin_y_prime_dim=\dimen124
+\c_empty_coffin=\box34
+\l__coffin_aligned_coffin=\box35
+\l__coffin_aligned_internal_coffin=\box36
+\l_tmpa_coffin=\box37
+\l_tmpb_coffin=\box38
+\l__coffin_display_coffin=\box39
+\l__coffin_display_coord_coffin=\box40
+\l__coffin_display_pole_coffin=\box41
+\l__coffin_display_offset_dim=\dimen125
+\l__coffin_display_x_dim=\dimen126
+\l__coffin_display_y_dim=\dimen127
+L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
+L3 Module: l3candidates 2015/03/01 v5544 L3 Experimental additions to l3kernel
+\l__box_top_dim=\dimen128
+\l__box_bottom_dim=\dimen129
+\l__box_left_dim=\dimen130
+\l__box_right_dim=\dimen131
+\l__box_top_new_dim=\dimen132
+\l__box_bottom_new_dim=\dimen133
+\l__box_left_new_dim=\dimen134
+\l__box_right_new_dim=\dimen135
+\l__box_internal_box=\box42
+\l__coffin_bounding_shift_dim=\dimen136
+\l__coffin_left_corner_dim=\dimen137
+\l__coffin_right_corner_dim=\dimen138
+\l__coffin_bottom_corner_dim=\dimen139
+\l__coffin_top_corner_dim=\dimen140
+\l__coffin_scaled_total_height_dim=\dimen141
+\l__coffin_scaled_width_dim=\dimen142
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/l3kernel/l3unicode-data.def
+File: l3unicode-data.def 2015/03/01 v5544 L3 Unicode data
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/l3kernel/l3xdvipdfmx.def
+File: l3xdvidpfmx.def 2015/03/01 v5544 L3 Experimental driver: xdvipdfmx
+)) (/usr/local/texlive/2015/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2014/11/25 v5471 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count122
+\l__xparse_m_args_int=\count123
+\l__xparse_mandatory_args_int=\count124
+\l__xparse_processor_int=\count125
+\l__xparse_v_nesting_int=\count126
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.st
+y
+Package: l3keys2e 2014/11/25 v5471 LaTeX2e option processing using LaTeX3 keys
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2015/03/14 v2.4c Font selection for XeLaTeX and LuaLaTeX
+\l_fontspec_script_int=\count127
+\l_fontspec_language_int=\count128
+\l_fontspec_strnum_int=\count129
+\l__fontspec_tmpa_dim=\dimen143
+\l__fontspec_tmpb_dim=\dimen144
+\l__fontspec_tmpc_dim=\dimen145
+Variant \tl_gset:cV already defined; not changing it on line 71
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fontspec/fontspec-patches.sty
+Package: fontspec-patches 2015/03/14 v2.4c Font selection for XeLaTeX and LuaLa
+TeX
+LaTeX Info: Redefining \em on input line 49.
+LaTeX Info: Redefining \emph on input line 57.
+LaTeX Info: Redefining \- on input line 60.
+.................................................
+. LaTeX info: "xparse/redefine-command"
+. 
+. Redefining command \oldstylenums with sig. 'm' on line 155.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \liningnums with sig. 'm' on line 159.
+.................................................
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2015/03/14 v2.4c Font selection for XeLaTeX and LuaLaTe
+X
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+(/usr/local/texlive/2015/texmf-dist/tex/latex/euenc/eu1enc.def
+File: eu1enc.def 2010/05/27 v0.1h Experimental Unicode font encodings
+)
+LaTeX Font Info:    Try loading font information for EU1+lmr on input line 105.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/euenc/eu1lmr.fd
+File: eu1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)) (/usr/local/texlive/2015/texmf-dist/tex/xelatex/xunicode/xunicode.sty
+File: xunicode.sty 2011/09/09 v0.981 provides access to latin accents and many 
+other characters in Unicode lower plane
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tipa/t3enc.def
+File: t3enc.def 2001/12/31 T3 encoding
+LaTeX Font Info:    Try loading font information for EU1+lmss on input line 357
+.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/euenc/eu1lmss.fd
+File: eu1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+))
+\tipaTiiicode=\count130
+\tipasavetokens=\toks20
+\tipachecktokens=\toks21
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: xetex.def on input line 94.
+(/usr/local/texlive/2015/texmf-dist/tex/xelatex/xetex-def/xetex.def
+File: xetex.def 2015/03/25 v4.04 LaTeX color/graphics driver for XeTeX (TeX Liv
+e/RRM/JK)
+))
+\Gin@req@height=\dimen146
+\Gin@req@width=\dimen147
+))
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \__fontspec_post_arg:w with sig. 'mmO{}' on line 42.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \fontspec with sig. 'om' on line 44.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmainfont with sig. 'om' on line 54.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setsansfont with sig. 'om' on line 64.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmonofont with sig. 'om' on line 74.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathrm with sig. 'om' on line 88.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setboldmathrm with sig. 'om' on line 96.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathsf with sig. 'om' on line 104.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathtt with sig. 'om' on line 112.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontfamily with sig. 'mom' on line 126.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontface with sig. 'mom' on line 141.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \defaultfontfeatures with sig. 't+om' on line 155.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \addfontfeatures with sig. 'm' on line 210.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontfeature with sig. 'mm' on line 221.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newAATfeature with sig. 'mmmm' on line 229.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newopentypefeature with sig. 'mmm' on line 237.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \aliasfontfeature with sig. 'mm' on line 261.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \aliasfontfeatureoption with sig. 'mmm' on line 270.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontscript with sig. 'mm' on line 275.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontlanguage with sig. 'mm' on line 301.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareFontsExtensions with sig. 'm' on line 321.
+.................................................
+Variant \prop_gput:cnV already defined; not changing it on line 704
+Variant \prop_gput:cnx already defined; not changing it on line 705
+\l__fontspec_tmp_int=\count131
+LaTeX Info: Redefining \itshape on input line 2232.
+LaTeX Info: Redefining \slshape on input line 2237.
+LaTeX Info: Redefining \scshape on input line 2242.
+LaTeX Info: Redefining \upshape on input line 2247.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/lo
+cal/texlive/2015/texmf-dist/tex/generic/oberdiek/catchfile.sty
+Package: catchfile 2011/03/01 v1.6 Catch the contents of a file (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)) (/usr/local/texlive/2015/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)) (/usr/local/texlive/2015/texmf-dist/tex/latex/filehook/filehook.sty
+Package: filehook 2011/10/12 v0.5d Hooks for input files
+)
+Variant \tl_put_right:cx already defined; not changing it on line 67
+Variant \seq_if_in:NVTF already defined; not changing it on line 68
+\g_um_fam_int=\count132
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \unimathsetup with sig. 'm' on line 156.
+.................................................
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.s
+ty
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathfont with sig. 'O{}m' on line 384.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \addnolimits with sig. 'm' on line 627.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \removenolimits with sig. 'm' on line 631.
+.................................................
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/unicode-math/unicode-math-table.t
+ex)
+\g_um_primekern_muskip=\muskip17
+\l_um_primecount_int=\count133
+.................................................
+. unicode-math info: "patch-macro"
+. 
+. I'm going to patch macro \subarray.
+.................................................
+.................................................
+. unicode-math info: "patch-macro"
+. 
+. I'm going to patch macro \r@@t.
+.................................................
+)) (/usr/local/texlive/2015/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+)
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)) (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
+\MT@toks=\toks23
+\MT@count=\count134
+LaTeX Info: Redefining \textls on input line 766.
+\MT@outer@kern=\dimen148
+LaTeX Info: Redefining \textmicrotypecontext on input line 1285.
+\MT@listname@count=\count135
+(/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/microtype-xetex.def
+File: microtype-xetex.def 2013/05/23 v2.5a Definitions specific to xetex (RS)
+LaTeX Info: Redefining \lsstyle on input line 254.
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2013/05/23 v2.5a microtype main configuration file (RS)
+)) (/usr/local/texlive/2015/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2001/04/09 non-zero parskip adjustments
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package hobsub Info: Skipping package `ifluatex' (already loaded).
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
+Package hobsub Info: Skipping package `etexcmds' (already loaded).
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen149
+\Hy@linkcounter=\count136
+\Hy@pagecounter=\count137
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count138
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4319.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2012/11/06 v6.83m Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count139
+(/usr/local/texlive/2015/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen150
+\Fld@menulength=\count140
+\Field@Width=\dimen151
+\Fld@charsize=\dimen152
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count141
+\c@Item=\count142
+\c@Hfootnote=\count143
+)
+
+Package hyperref Message: Driver (autodetected): hxetex.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2012/11/06 v6.83m Hyperref driver for XeTeX
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/stringenc.sty
+Package: stringenc 2011/12/02 v1.10 Convert strings between diff. encodings (HO
+)
+)
+\pdfm@box=\box43
+\c@Hy@AnnotLevel=\count144
+\HyField@AnnotCount=\count145
+\Fld@listcount=\count146
+\c@bookmark@seq@number=\count147
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package rerunfilecheck Info: Feature \pdfmdfivesum is not available
+(rerunfilecheck)             (e.g. pdfTeX or LuaTeX with package `pdftexcmds').
+
+(rerunfilecheck)             Therefore file contents cannot be checked efficien
+tly
+(rerunfilecheck)             and the loading of the package is aborted.
+)
+\Hy@SectionHShift=\skip52
+)
+Package hyperref Info: Option `breaklinks' set `true' on input line 33.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip53
+\LTright=\skip54
+\LTpre=\skip55
+\LTpost=\skip56
+\LTchunksize=\count148
+\LTcapwidth=\dimen153
+\LT@head=\box44
+\LT@firsthead=\box45
+\LT@foot=\box46
+\LT@lastfoot=\box47
+\LT@cols=\count149
+\LT@rows=\count150
+\c@LT@tables=\count151
+\c@LT@chunks=\count152
+\LT@p@ftn=\toks24
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen154
+\lightrulewidth=\dimen155
+\cmidrulewidth=\dimen156
+\belowrulesep=\dimen157
+\belowbottomsep=\dimen158
+\aboverulesep=\dimen159
+\abovetopsep=\dimen160
+\cmidrulesep=\dimen161
+\cmidrulekern=\dimen162
+\defaultaddspace=\dimen163
+\@cmidla=\count153
+\@cmidlb=\count154
+\@aboverulesep=\dimen164
+\@belowrulesep=\dimen165
+\@thisruleclass=\count155
+\@lastruleclass=\count156
+\@thisrulewidth=\dimen166
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/mdwtools/footnote.sty
+Package: footnote 1997/01/28 1.13 Save footnotes around boxes
+\fn@notes=\box48
+\fn@width=\dimen167
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grffile.sty
+Package: grffile 2012/04/05 v1.16 Extended file name support for graphics (HO)
+Package grffile Info: \Gread@QTm patched on input line 253.
+Package grffile Info: \Gread@eps patched on input line 303.
+Package grffile Info: Option `multidot' is set to `true'.
+Package grffile Info: Option `extendedchars' is set to `false'.
+Package grffile Info: Option `space' is set to `true'.
+Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 486.
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Invalid UTF-8 byte or sequence at line 164 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 414 replaced by U+FFFD.
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count157
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+********************************************************
+Package `algorithm2e' Release 5.0 -- january 06 2013 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (cfiorio@um2.fr)
+********************************************************
+\skiptotal=\skip57
+\skiplinenumber=\skip58
+\skiprule=\skip59
+\skiphlne=\skip60
+\skiptext=\skip61
+\skiplength=\skip62
+\algomargin=\skip63
+\skipalgocfslide=\skip64
+\algowidth=\dimen168
+\inoutsize=\dimen169
+\inoutindent=\dimen170
+\interspacetitleruled=\dimen171
+\interspacealgoruled=\dimen172
+\interspacetitleboxruled=\dimen173
+\algocf@inoutbox=\box49
+\algocf@inputbox=\box50
+\AlCapSkip=\skip65
+\AlCapHSkip=\skip66
+\algoskipindent=\skip67
+\algocf@nlbox=\box51
+\algocf@hangingbox=\box52
+\algocf@untilbox=\box53
+\algocf@skipuntil=\skip68
+\algocf@capbox=\box54
+\algoheightruledefault=\skip69
+\algoheightrule=\skip70
+\algotitleheightruledefault=\skip71
+\algotitleheightrule=\skip72
+\c@algocfline=\count158
+\c@algocfproc=\count159
+\c@algocf=\count160
+\algocf@algoframe=\box55
+\algocf@algobox=\box56
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/was/upgreek.sty
+Package: upgreek 2003/02/12 v2.0 (WaS)
+Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
+\symugrf@m=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
+(Font)                  U/eur/m/n --> U/eur/b/n on input line 38.
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/us
+r/local/texlive/2015/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/te
+xlive/2015/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks25
+\pgfutil@tempdima=\dimen174
+\pgfutil@tempdimb=\dimen175
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box57
+(/usr/local/texlive/2015/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+)) (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.te
+x
+Package: pgfrcs 2013/12/20 v3.0.0 (rcs-revision 1.28)
+))
+Package: pgf 2013/12/18 v3.0.0 (rcs-revision 1.14)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/
+local/texlive/2015/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks26
+\pgfkeys@temptoks=\toks27
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex
+\pgfkeys@tmptoks=\toks28
+))
+\pgf@x=\dimen176
+\pgf@y=\dimen177
+\pgf@xa=\dimen178
+\pgf@ya=\dimen179
+\pgf@xb=\dimen180
+\pgf@yb=\dimen181
+\pgf@xc=\dimen182
+\pgf@yc=\dimen183
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count161
+\c@pgf@countb=\count162
+\c@pgf@countc=\count163
+\c@pgf@countd=\count164
+\t@pgf@toka=\toks29
+\t@pgf@tokb=\toks30
+\t@pgf@tokc=\toks31
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-xetex.def
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.de
+f
+File: pgfsys-xetex.def 2013/07/16  (rcs-revision 1.9)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx
+.def
+File: pgfsys-dvipdfmx.def 2013/08/28  (rcs-revision 1.12)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)
+\pgfsys@objnum=\count165
+)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count166
+\pgfsyssoftpath@bigbuffer@items=\count167
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) (/usr/local/texlive/2015/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: xetex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr
+/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/
+local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen184
+\pgfmath@count=\count168
+\pgfmath@box=\box58
+\pgfmath@toks=\toks32
+\pgfmath@stack@operand=\toks33
+\pgfmath@stack@operation=\toks34
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex))) (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/m
+ath/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count169
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen185
+\pgf@picmaxx=\dimen186
+\pgf@picminy=\dimen187
+\pgf@picmaxy=\dimen188
+\pgf@pathminx=\dimen189
+\pgf@pathmaxx=\dimen190
+\pgf@pathminy=\dimen191
+\pgf@pathmaxy=\dimen192
+\pgf@xx=\dimen193
+\pgf@xy=\dimen194
+\pgf@yx=\dimen195
+\pgf@yy=\dimen196
+\pgf@zx=\dimen197
+\pgf@zy=\dimen198
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen199
+\pgf@path@lasty=\dimen200
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2013/12/13  (rcs-revision 1.23)
+\pgf@shorten@end@additional=\dimen201
+\pgf@shorten@start@additional=\dimen202
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
+\pgfpic=\box59
+\pgf@hbox=\box60
+\pgf@layerbox@main=\box61
+\pgf@picture@serial@count=\count170
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
+\pgflinewidth=\dimen203
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2013/10/10  (rcs-revision 1.17)
+\pgf@pt@x=\dimen204
+\pgf@pt@y=\dimen205
+\pgf@pt@temp=\dimen206
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
+\pgfarrowsep=\dimen207
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen208
+\pgf@sys@shading@range@num=\count171
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex
+File: pgfcoreexternal.code.tex 2013/07/15  (rcs-revision 1.20)
+\pgfexternal@startupbox=\box62
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex
+File: pgfmoduleshapes.code.tex 2013/10/31  (rcs-revision 1.34)
+\pgfnodeparttextbox=\box63
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2013/07/31  (rcs-revision 1.12)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.0 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen209
+\pgf@nodesepend=\dimen210
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.0 (rcs-revision 1.1)
+)) (/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr
+/local/texlive/2015/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/
+texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/loca
+l/texlive/2015/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/20
+15/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2015/
+texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.0 (rcs-revision 1.25)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen211
+\pgffor@skip=\dimen212
+\pgffor@stack=\toks35
+\pgffor@toks=\toks36
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2013/12/13 v3.0.0 (rcs-revision 1.142)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.0 (rcs-revision 1.20)
+\pgf@plot@mark@count=\count172
+\pgfplotmarksize=\dimen213
+)
+\tikz@lastx=\dimen214
+\tikz@lasty=\dimen215
+\tikz@lastxsaved=\dimen216
+\tikz@lastysaved=\dimen217
+\tikzleveldistance=\dimen218
+\tikzsiblingdistance=\dimen219
+\tikz@figbox=\box64
+\tikz@figbox@bg=\box65
+\tikz@tempbox=\box66
+\tikz@tempbox@bg=\box67
+\tikztreelevel=\count173
+\tikznumberofchildren=\count174
+\tikznumberofcurrentchild=\count175
+\tikz@fig@count=\count176
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count177
+\pgfmatrixcurrentcolumn=\count178
+\pgf@matrix@numberofcolumns=\count179
+)
+\tikz@expandcount=\count180
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
+)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+code.tex
+File: pgflibraryarrows.code.tex 2013/09/23 v3.0.0 (rcs-revision 1.16)
+\arrowsize=\dimen220
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2008/06/26 v3.0.0 (rcs-revision 1.1)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2013/07/18 v3.0.0 (rcs-revision 1.5)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2013/09/11 v3.0.0 (rcs-revision 1.6)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2008/06/26 v3.0.0 (rcs-revision 1.1)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.callouts.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.callouts.code.tex))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.0 (rcs-revision 1.2)
+\pgfnodepartlowerbox=\box68
+\pgfnodeparttwobox=\box69
+\pgfnodepartthreebox=\box70
+\pgfnodepartfourbox=\box71
+\pgfnodeparttwentybox=\box72
+\pgfnodepartnineteenbox=\box73
+\pgfnodeparteighteenbox=\box74
+\pgfnodepartseventeenbox=\box75
+\pgfnodepartsixteenbox=\box76
+\pgfnodepartfifteenbox=\box77
+\pgfnodepartfourteenbox=\box78
+\pgfnodepartthirteenbox=\box79
+\pgfnodeparttwelvebox=\box80
+\pgfnodepartelevenbox=\box81
+\pgfnodeparttenbox=\box82
+\pgfnodepartninebox=\box83
+\pgfnodeparteightbox=\box84
+\pgfnodepartsevenbox=\box85
+\pgfnodepartsixbox=\box86
+\pgfnodepartfivebox=\box87
+)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarysnakes.code.tex
+File: tikzlibrarysnakes.code.tex 2013/07/15 v3.0.0 (rcs-revision 1.7)
+
+Package pgf Warning: Snakes have been superseded by decorations. Please use the
+ decoration libraries instead of the snakes library on input line 14.
+
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathmorphing.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex
+\pgfdecoratedcompleteddistance=\dimen221
+\pgfdecoratedremainingdistance=\dimen222
+\pgfdecoratedinputsegmentcompleteddistance=\dimen223
+\pgfdecoratedinputsegmentremainingdistance=\dimen224
+\pgf@decorate@distancetomove=\dimen225
+\pgf@decorate@repeatstate=\count181
+\pgfdecorationsegmentamplitude=\dimen226
+\pgfdecorationsegmentlength=\dimen227
+)
+\tikz@lib@dec@box=\box88
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathmorphing.code.tex))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathreplacing.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathreplacing.code.tex))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.shapes.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.shapes.code.tex)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2013/07/18 v3.0.0 (rcs-revision 1.3)
+\pgf@layerbox@background=\box89
+\pgf@layerboxsaved@background=\box90
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2008/01/15 v3.0.0 (rcs-revision 1.2)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
+s.code.tex
+File: pgflibrarypatterns.code.tex 2008/03/03 v3.0.0 (rcs-revision 1.13)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.0 (rcs-revision 1.9)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.0 (rcs-revision 1.7)
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen228
+\extrarowheight=\dimen229
+\NC@list=\toks37
+\extratabsurround=\skip73
+\backup@length=\skip74
+)
+\rotheadsize=\dimen230
+\c@nlinenum=\count182
+\TeXr@lab=\toks38
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip75
+\bibsep=\skip76
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count183
+)
+No file book.aux.
+\openout1 = `book.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 107.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 107.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tipa/t3cmr.fd
+File: t3cmr.fd 2001/12/31 TIPA font definitions
+)
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+\g__file_internal_ior=\read2
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math.otf scale = 1.
+.................................................
+\g__fontspec_family_latinmodern-math.otf_int=\count184
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'latinmodern-math.otf(0)' created for font
+. 'latinmodern-math.otf' with options
+. [Ligatures=TeX,Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Script=Ma
+th,SizeFeatures={{Size=10-},{Size=7-10,Font=latinmodern-math.otf,Style=MathScri
+pt},{Size=-7,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latin
+modern-math.otf}].
+. 
+. This font family consists of the following shapes:
+. 
+. * 'normal' with NFSS spec.:
+. 
+. <10->s*[1]"[latinmodern-math]/OT:script=math;language=DFLT;mapping=tex-text;"
+<7-10>s*[1]"[latinmodern-math]/OT:script=math;language=DFLT;mapping=tex-text;+s
+sty=0;"<-7>s*[1]"[latinmodern-math]/OT:script=math;language=DFLT;mapping=tex-te
+xt;+ssty=1;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+. 
+. * 'bold' with NFSS spec.:
+. <->s*[1]"[latinmodern-math]/OT:script=math;language=DFLT;mapping=tex-text;"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+.................................................
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 107.
+LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
+(Font)              `operators' in the math version `normal' on input line 107.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> EU1/latinmodern-math.otf(0)/m/n on inpu
+t line 107.
+LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
+(Font)              `operators' in the math version `bold' on input line 107.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> EU1/latinmodern-math.otf(0)/bx/n on in
+put line 107.
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math.otf scale = 1.
+.................................................
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'latinmodern-math.otf(1)' created for font
+. 'latinmodern-math.otf' with options
+. [Ligatures=TeX,Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Script=Ma
+th,SizeFeatures={{Size=10-},{Size=7-10,Font=latinmodern-math.otf,Style=MathScri
+pt},{Size=-7,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latin
+modern-math.otf},Scale=1.00001,FontAdjustment={\fontdimen
+. 8\font =6.77pt\relax \relax \fontdimen 9\font =3.94pt\relax \relax
+. \fontdimen 10\font =4.44pt\relax \relax \fontdimen 11\font =6.86pt\relax
+. \relax \fontdimen 12\font =3.45pt\relax \relax \fontdimen 13\font
+. =3.63pt\relax \relax \fontdimen 14\font =3.63pt\relax \relax \fontdimen
+. 15\font =2.89pt\relax \relax \fontdimen 16\font =2.47pt\relax \relax
+. \fontdimen 17\font =2.47pt\relax \relax \fontdimen 18\font =2.5pt\relax
+. \relax \fontdimen 19\font =2.0pt\relax \relax \fontdimen 20\font =0pt\relax
+. \fontdimen 21\font =0pt\relax \fontdimen 22\font =2.5pt\relax \relax }].
+. 
+. This font family consists of the following shapes:
+. 
+. * 'normal' with NFSS spec.:
+. 
+. <10->s*[1.00001]"[latinmodern-math]/OT:script=math;language=DFLT;mapping=tex-
+text;"<7-10>s*[1.00001]"[latinmodern-math]/OT:script=math;language=DFLT;mapping
+=tex-text;+ssty=0;"<-7>s*[1.00001]"[latinmodern-math]/OT:script=math;language=D
+FLT;mapping=tex-text;+ssty=1;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 8\font =6.77pt\relax \relax \fontdimen 9\font =3.94pt\relax
+. \relax \fontdimen 10\font =4.44pt\relax \relax \fontdimen 11\font
+. =6.86pt\relax \relax \fontdimen 12\font =3.45pt\relax \relax \fontdimen
+. 13\font =3.63pt\relax \relax \fontdimen 14\font =3.63pt\relax \relax
+. \fontdimen 15\font =2.89pt\relax \relax \fontdimen 16\font =2.47pt\relax
+. \relax \fontdimen 17\font =2.47pt\relax \relax \fontdimen 18\font
+. =2.5pt\relax \relax \fontdimen 19\font =2.0pt\relax \relax \fontdimen
+. 20\font =0pt\relax \fontdimen 21\font =0pt\relax \fontdimen 22\font
+. =2.5pt\relax \relax 
+. 
+. * 'bold' with NFSS spec.:
+. 
+. <->s*[1.00001]"[latinmodern-math]/OT:script=math;language=DFLT;mapping=tex-te
+xt;"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 8\font =6.77pt\relax \relax \fontdimen 9\font =3.94pt\relax
+. \relax \fontdimen 10\font =4.44pt\relax \relax \fontdimen 11\font
+. =6.86pt\relax \relax \fontdimen 12\font =3.45pt\relax \relax \fontdimen
+. 13\font =3.63pt\relax \relax \fontdimen 14\font =3.63pt\relax \relax
+. \fontdimen 15\font =2.89pt\relax \relax \fontdimen 16\font =2.47pt\relax
+. \relax \fontdimen 17\font =2.47pt\relax \relax \fontdimen 18\font
+. =2.5pt\relax \relax \fontdimen 19\font =2.0pt\relax \relax \fontdimen
+. 20\font =0pt\relax \fontdimen 21\font =0pt\relax \fontdimen 22\font
+. =2.5pt\relax \relax 
+.................................................
+LaTeX Font Info:    Encoding `OMS' has changed to `EU1' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 107.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> EU1/latinmodern-math.otf(1)/m/n on inp
+ut line 107.
+LaTeX Font Info:    Encoding `OMS' has changed to `EU1' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 107.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> EU1/latinmodern-math.otf(1)/bx/n on in
+put line 107.
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math.otf scale = 1.
+.................................................
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "set-scale"
+. 
+. latinmodern-math scale = 1.
+.................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'latinmodern-math.otf(2)' created for font
+. 'latinmodern-math.otf' with options
+. [Ligatures=TeX,Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Script=Ma
+th,SizeFeatures={{Size=10-},{Size=7-10,Font=latinmodern-math.otf,Style=MathScri
+pt},{Size=-7,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latin
+modern-math.otf},Scale=0.99999,FontAdjustment={\fontdimen
+. 8\font =0.4pt\relax \relax \fontdimen 9\font =2.0pt\relax \relax \fontdimen
+. 10\font =1.67pt\relax \relax \fontdimen 11\font =1.11pt\relax \relax
+. \fontdimen 12\font =6.0pt\relax \relax \fontdimen 13\font =0pt\relax }].
+. 
+. This font family consists of the following shapes:
+. 
+. * 'normal' with NFSS spec.:
+. 
+. <10->s*[0.99999]"[latinmodern-math]/OT:script=math;language=DFLT;mapping=tex-
+text;"<7-10>s*[0.99999]"[latinmodern-math]/OT:script=math;language=DFLT;mapping
+=tex-text;+ssty=0;"<-7>s*[0.99999]"[latinmodern-math]/OT:script=math;language=D
+FLT;mapping=tex-text;+ssty=1;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 8\font =0.4pt\relax \relax \fontdimen 9\font =2.0pt\relax \relax
+. \fontdimen 10\font =1.67pt\relax \relax \fontdimen 11\font =1.11pt\relax
+. \relax \fontdimen 12\font =6.0pt\relax \relax \fontdimen 13\font =0pt\relax 
+. 
+. * 'bold' with NFSS spec.:
+. 
+. <->s*[0.99999]"[latinmodern-math]/OT:script=math;language=DFLT;mapping=tex-te
+xt;"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 8\font =0.4pt\relax \relax \fontdimen 9\font =2.0pt\relax \relax
+. \fontdimen 10\font =1.67pt\relax \relax \fontdimen 11\font =1.11pt\relax
+. \relax \fontdimen 12\font =6.0pt\relax \relax \fontdimen 13\font =0pt\relax 
+.................................................
+LaTeX Font Info:    Encoding `OMX' has changed to `EU1' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 1
+07.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/lmex/m/n --> EU1/latinmodern-math.otf(2)/m/n on inp
+ut line 107.
+LaTeX Font Info:    Encoding `OMX' has changed to `EU1' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 107
+.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/lmex/m/n --> EU1/latinmodern-math.otf(2)/bx/n on in
+put line 107.
+LaTeX Info: Redefining \microtypecontext on input line 107.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using protrusion set `basicmath'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of spacing.
+Package microtype Info: No adjustment of kerning.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
+File: mt-LatinModernRoman.cfg 2013/03/13 v1.0 microtype config. file: Latin Mod
+ern Roman (RS)
+)
+\AtBeginShipoutBox=\box91
+Package hyperref Info: Link coloring OFF on input line 107.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count185
+)
+LaTeX Info: Redefining \ref on input line 107.
+LaTeX Info: Redefining \pageref on input line 107.
+LaTeX Info: Redefining \nameref on input line 107.
+\@outlinefile=\write4
+\openout4 = `book.out'.
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+ABD: EveryShipout initializing macros
+\tf@toc=\write5
+\openout5 = `book.toc'.
+
+[1
+
+
+] [2
+
+]
+File: book_files/figure-latex/1ere-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/1ere-1.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[3]
+Overfull \vbox (72.41783pt too high) has occurred while \output is active []
+
+[4] [5
+
+] [6
+
+]
+
+Package natbib Warning: Citation `benjamini_controlling_1995' on page 7 undefin
+ed on input line 182.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[7]
+
+Package natbib Warning: Citation `burton_genome-wide_2007' on page 8 undefined 
+on input line 189.
+
+
+Package natbib Warning: Citation `manolio_finding_2009' on page 8 undefined on 
+input line 191.
+
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 6.99997pt on input line 219.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 219.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 219.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.00015pt on input line 219.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.00006pt on input line 219.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.00008pt on input line 219.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 9.99985pt on input line 219.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.99986pt on input line 219.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 4.99992pt on input line 219.
+LaTeX Font Info:    Try loading font information for U+msa on input line 219.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 219.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-eur.cfg
+File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
+) [8]
+
+LaTeX Warning: Reference `LEOS' on page 9 undefined on input line 251.
+
+
+LaTeX Warning: Reference `sicomore' on page 9 undefined on input line 251.
+
+
+LaTeX Warning: Reference `genet' on page 9 undefined on input line 252.
+
+
+LaTeX Warning: Reference `stat' on page 9 undefined on input line 253.
+
+
+LaTeX Warning: Reference `asso' on page 9 undefined on input line 254.
+
+
+LaTeX Warning: Reference `LEOS' on page 9 undefined on input line 257.
+
+
+LaTeX Warning: Reference `sicomore' on page 9 undefined on input line 257.
+
+[9] [10
+
+]
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/bx/n' will be
+(Font)              scaled to size 10.0pt on input line 308.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/bx/n' will be
+(Font)              scaled to size 6.99997pt on input line 308.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/bx/n' will be
+(Font)              scaled to size 5.0pt on input line 308.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/bx/n' will be
+(Font)              scaled to size 10.00015pt on input line 308.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/bx/n' will be
+(Font)              scaled to size 7.00006pt on input line 308.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/bx/n' will be
+(Font)              scaled to size 5.00008pt on input line 308.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/bx/n' will be
+(Font)              scaled to size 9.99985pt on input line 308.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/bx/n' will be
+(Font)              scaled to size 6.99986pt on input line 308.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/bx/n' will be
+(Font)              scaled to size 4.99992pt on input line 308.
+[11] [12] [13] [14] [15
+
+] [16] [17] [18]
+Chapter 1.
+
+LaTeX Warning: Reference `LEOS' on page 19 undefined on input line 683.
+
+[19
+
+]
+
+LaTeX Warning: Reference `fig:dna' on page 20 undefined on input line 729.
+
+File: book_files/figure-latex/dna-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/dna-1.pdf" >
+
+Package natbib Warning: Citation `crick_watson_prsl1954' on page 20 undefined o
+n input line 747.
+
+
+Package natbib Warning: Citation `sanger1977dna' on page 20 undefined on input 
+line 762.
+
+
+Package natbib Warning: Citation `maxam1977new' on page 20 undefined on input l
+ine 764.
+
+
+Package natbib Warning: Citation `nyren1993solid' on page 20 undefined on input
+ line 764.
+
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 771.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 771.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.00012pt on input line 771.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.00009pt on input line 771.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.99988pt on input line 771.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.99991pt on input line 771.
+
+LaTeX Warning: Reference `fig:sanger' on page 20 undefined on input line 772.
+
+File: book_files/figure-latex/sanger-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/sanger-1.pdf" >
+
+Package natbib Warning: Citation `brown2007genomes' on page 20 undefined on inp
+ut line 782.
+
+
+Package natbib Warning: Citation `brown2007genomes' on page 20 undefined on inp
+ut line 782.
+
+[20] [21]
+
+LaTeX Warning: Reference `fig:pyro' on page 22 undefined on input line 794.
+
+File: book_files/figure-latex/pyro-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/pyro-1.pdf" >
+
+Package natbib Warning: Citation `brown2007genomes' on page 22 undefined on inp
+ut line 804.
+
+
+Package natbib Warning: Citation `brown2007genomes' on page 22 undefined on inp
+ut line 804.
+
+
+Package natbib Warning: Citation `anderson1981shotgun' on page 22 undefined on 
+input line 817.
+
+[22] [23]
+
+LaTeX Warning: Reference `fig:genomeassembly' on page 24 undefined on input lin
+e 829.
+
+File: book_files/figure-latex/genomeassembly-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/genomeassembly-1.pdf" >
+
+Package natbib Warning: Citation `brown2007genomes' on page 24 undefined on inp
+ut line 853.
+
+
+Package natbib Warning: Citation `brown2007genomes' on page 24 undefined on inp
+ut line 853.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 860--860
+[]\EU1/lmr/bx/n/12 Restriction Fragment Length Polymorphisms
+ []
+
+
+Package natbib Warning: Citation `garibyan2013research' on page 24 undefined on
+ input line 871.
+
+[24] [25]
+
+LaTeX Warning: Reference `fig:snp' on page 26 undefined on input line 892.
+
+File: book_files/figure-latex/snp-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/snp-1.pdf" >
+
+LaTeX Warning: Reference `fig:microarray' on page 26 undefined on input line 93
+4.
+
+
+Package natbib Warning: Citation `brown2007genomes' on page 26 undefined on inp
+ut line 939.
+
+[26] [27]
+File: book_files/figure-latex/microarray-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/microarray-1.pdf" >
+
+Package natbib Warning: Citation `brown2007genomes' on page 28 undefined on inp
+ut line 949.
+
+
+Package natbib Warning: Citation `brown2007genomes' on page 28 undefined on inp
+ut line 949.
+
+
+Package natbib Warning: Citation `sturtevant_history_2001' on page 28 undefined
+ on input line 967.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[28]
+
+Package natbib Warning: Citation `mendel_1865_experiments' on page 29 undefined
+ on input line 976.
+
+
+LaTeX Warning: Reference `haplo' on page 29 undefined on input line 1008.
+
+
+Package natbib Warning: Citation `weinberg1908ber' on page 29 undefined on inpu
+t line 1023.
+
+
+Underfull \vbox (badness 1983) has occurred while \output is active []
+
+[29]
+
+Package natbib Warning: Citation `thomas2004statistical' on page 30 undefined o
+n input line 1044.
+
+
+Overfull \hbox (80.79008pt too wide) in paragraph at lines 1050--1059
+ [][] 
+ []
+
+
+Underfull \vbox (badness 1112) has occurred while \output is active []
+
+[30]
+
+Package natbib Warning: Citation `wright1929evolution' on page 31 undefined on 
+input line 1083.
+
+
+LaTeX Warning: Reference `fig:drift' on page 31 undefined on input line 1085.
+
+File: book_files/figure-latex/drift-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/drift-1.pdf" >
+
+Package natbib Warning: Citation `wright1921correlation' on page 31 undefined o
+n input line 1106.
+
+
+Package natbib Warning: Citation `fisher1919xv' on page 31 undefined on input l
+ine 1110.
+
+[31] [32]
+
+Package natbib Warning: Citation `visscher_heritability_2008' on page 33 undefi
+ned on input line 1137.
+
+
+Package natbib Warning: Citation `mc_cullagh_generalized_1989' on page 33 undef
+ined on input line 1143.
+
+
+Package natbib Warning: Citation `stroup2012generalized' on page 33 undefined o
+n input line 1143.
+
+
+Package natbib Warning: Citation `dandine2015use' on page 33 undefined on input
+ line 1144.
+
+
+Package natbib Warning: Citation `ardlie_patterns_2002' on page 33 undefined on
+ input line 1166.
+
+
+LaTeX Warning: Reference `tab:LE' on page 33 undefined on input line 1176.
+
+[33]
+
+LaTeX Warning: Reference `tab:LD' on page 34 undefined on input line 1203.
+
+
+Overfull \hbox (311.30005pt too wide) in paragraph at lines 1209--1218
+ [][] 
+ []
+
+
+Package natbib Warning: Citation `robbins_1918_breeding' on page 34 undefined o
+n input line 1226.
+
+
+Package natbib Warning: Citation `hill_1974_estimation' on page 34 undefined on
+ input line 1248.
+
+[34]
+
+Package natbib Warning: Citation `hedrick_1987_gametic' on page 35 undefined on
+ input line 1269.
+
+
+Package natbib Warning: Citation `Lewontin_1964_interaction' on page 35 undefin
+ed on input line 1271.
+
+
+Package natbib Warning: Citation `devlin_1995_comparison' on page 35 undefined 
+on input line 1292.
+
+
+Package natbib Warning: Citation `hill_1974_estimation' on page 35 undefined on
+ input line 1292.
+
+[35]
+
+Package natbib Warning: Citation `hill_1968_linkage' on page 36 undefined on in
+put line 1298.
+
+
+Package natbib Warning: Citation `pritchard2001linkage' on page 36 undefined on
+ input line 1316.
+
+
+Package natbib Warning: Citation `chapman2003detecting' on page 36 undefined on
+ input line 1316.
+
+
+Package natbib Warning: Citation `weir1990genetic' on page 36 undefined on inpu
+t line 1343.
+
+
+Package natbib Warning: Citation `barrett2004haploview' on page 36 undefined on
+ input line 1349.
+
+
+LaTeX Warning: Reference `fig:LDhaploview' on page 36 undefined on input line 1
+349.
+
+[36]
+File: book_files/figure-latex/LDhaploview-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/LDhaploview-1.pdf" >
+Underfull \vbox (badness 4291) has occurred while \output is active []
+
+[37]
+
+Package natbib Warning: Citation `simpson1951interpretation' on page 38 undefin
+ed on input line 1397.
+
+
+Package natbib Warning: Citation `gabriel_structure_2002' on page 38 undefined 
+on input line 1428.
+
+
+Package natbib Warning: Citation `smith1974hitch' on page 38 undefined on input
+ line 1432.
+
+
+Package natbib Warning: Citation `charlesworth1993effect' on page 38 undefined 
+on input line 1437.
+
+[38]
+
+Package natbib Warning: Citation `wall2003haplotype' on page 39 undefined on in
+put line 1461.
+
+
+Package natbib Warning: Citation `frisse2001gene' on page 39 undefined on input
+ line 1466.
+
+
+Package natbib Warning: Citation `reich2001linkage' on page 39 undefined on inp
+ut line 1466.
+
+
+Package natbib Warning: Citation `laan1997demographic' on page 39 undefined on 
+input line 1468.
+
+
+Package natbib Warning: Citation `kaessmann2002extensive' on page 39 undefined 
+on input line 1468.
+
+
+Package natbib Warning: Citation `daly2001high' on page 39 undefined on input l
+ine 1474.
+
+
+Package natbib Warning: Citation `gabriel_structure_2002' on page 39 undefined 
+on input line 1474.
+
+
+Package natbib Warning: Citation `daly2001high' on page 39 undefined on input l
+ine 1475.
+
+
+Package natbib Warning: Citation `gabriel_structure_2002' on page 39 undefined 
+on input line 1498.
+
+
+Underfull \vbox (badness 1360) has occurred while \output is active []
+
+
+Overfull \hbox (3.74232pt too wide) has occurred while \output is active
+\EU1/lmr/m/sl/10 1.7.  STRUCTURE OF HAPLOTYPE BLOCKS IN THE HUMAN GENOME \EU1/l
+mr/m/n/10 39
+ []
+
+[39]
+
+Package natbib Warning: Citation `gabriel_structure_2002' on page 40 undefined 
+on input line 1528.
+
+
+Package natbib Warning: Citation `wall2003haplotype' on page 40 undefined on in
+put line 1531.
+
+
+LaTeX Warning: Reference `fig:haploprop' on page 40 undefined on input line 153
+3.
+
+File: book_files/figure-latex/haploprop-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/haploprop-1.pdf" >
+
+Package natbib Warning: Citation `wall2003haplotype' on page 40 undefined on in
+put line 1550.
+
+
+Package natbib Warning: Citation `wall2003haplotype' on page 40 undefined on in
+put line 1550.
+
+
+LaTeX Warning: Reference `fig:haplostructure' on page 40 undefined on input lin
+e 1553.
+
+File: book_files/figure-latex/haplostructure-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/haplostructure-1.pdf" >
+
+Package natbib Warning: Citation `wall2003haplotype' on page 40 undefined on in
+put line 1569.
+
+
+Package natbib Warning: Citation `wall2003haplotype' on page 40 undefined on in
+put line 1569.
+
+[40]
+Overfull \hbox (3.74232pt too wide) has occurred while \output is active
+\EU1/lmr/m/sl/10 1.7.  STRUCTURE OF HAPLOTYPE BLOCKS IN THE HUMAN GENOME \EU1/l
+mr/m/n/10 41
+ []
+
+[41] [42]
+Chapter 2.
+
+LaTeX Warning: Reference `LEOS' on page 43 undefined on input line 1575.
+
+
+LaTeX Warning: Reference `sicomore' on page 43 undefined on input line 1575.
+
+[43
+
+] [44]
+
+LaTeX Warning: Reference `fig:biasvar' on page 45 undefined on input line 1667.
+
+
+File: book_files/figure-latex/biasvar-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/biasvar-1.pdf" >
+
+Package natbib Warning: Citation `friedman2001elements' on page 45 undefined on
+ input line 1686.
+
+
+Package natbib Warning: Citation `neyman1933testing' on page 45 undefined on in
+put line 1700.
+
+
+LaTeX Warning: Reference `hypothesis' on page 45 undefined on input line 1702.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[45]
+
+LaTeX Warning: Reference `linmod' on page 46 undefined on input line 1725.
+
+
+LaTeX Warning: Reference `penalized' on page 46 undefined on input line 1727.
+
+
+LaTeX Warning: Reference `non-parametric' on page 46 undefined on input line 17
+37.
+
+
+Underfull \vbox (badness 1803) has occurred while \output is active []
+
+[46]
+
+Package natbib Warning: Citation `gauss1809theoria' on page 47 undefined on inp
+ut line 1765.
+
+
+Package natbib Warning: Citation `aitkin1935least' on page 47 undefined on inpu
+t line 1784.
+
+[47]
+
+Package natbib Warning: Citation `hoerl1970ridge' on page 48 undefined on input
+ line 1803.
+
+
+Package natbib Warning: Citation `golub1979generalized' on page 48 undefined on
+ input line 1831.
+
+
+Package natbib Warning: Citation `hoerl1970ridge' on page 48 undefined on input
+ line 1838.
+
+[48]
+
+Package natbib Warning: Citation `tibshirani_regression_1996' on page 49 undefi
+ned on input line 1851.
+
+
+LaTeX Warning: Reference `fig:sparsity' on page 49 undefined on input line 1873
+.
+
+
+Package natbib Warning: Citation `osborne2000new' on page 49 undefined on input
+ line 1881.
+
+
+Package natbib Warning: Citation `efron2004least' on page 49 undefined on input
+ line 1882.
+
+
+Package natbib Warning: Citation `parikh2014proximal' on page 49 undefined on i
+nput line 1883.
+
+File: book_files/figure-latex/sparsity-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/sparsity-1.pdf" >
+
+Package natbib Warning: Citation `yuan_model_2006' on page 49 undefined on inpu
+t line 1914.
+
+[49] [50]
+
+Package natbib Warning: Citation `jacob2009group' on page 51 undefined on input
+ line 1933.
+
+
+Package natbib Warning: Citation `jenatton2011structured' on page 51 undefined 
+on input line 1933.
+
+
+Package natbib Warning: Citation `nelder_generalized_1972' on page 51 undefined
+ on input line 1938.
+
+
+Package natbib Warning: Citation `mc_cullagh_generalized_1989' on page 51 undef
+ined on input line 1951.
+
+[51]
+
+Package natbib Warning: Citation `ra1922mathematical' on page 52 undefined on i
+nput line 1964.
+
+
+Package natbib Warning: Citation `fletcher1987practical' on page 52 undefined o
+n input line 1981.
+
+
+Package natbib Warning: Citation `longford1987fast' on page 52 undefined on inp
+ut line 1982.
+
+
+Package natbib Warning: Citation `nelder_generalized_1972' on page 52 undefined
+ on input line 1984.
+
+
+Package natbib Warning: Citation `cox1958regression' on page 52 undefined on in
+put line 1990.
+
+[52]
+Overfull \hbox (76.19344pt too wide) has occurred while \output is active
+\EU1/lmr/m/sl/10 2.4.  SPLINES AND GENERALIZED ADDITIVE MODELS: MOVING BEYOND L
+INEARIT \EU1/lmr/m/n/10 53
+ []
+
+[53]
+
+LaTeX Warning: Reference `splines' on page 54 undefined on input line 2071.
+
+
+LaTeX Warning: Reference `smoothing' on page 54 undefined on input line 2071.
+
+
+LaTeX Warning: Reference `gam' on page 54 undefined on input line 2072.
+
+[54]
+
+LaTeX Warning: Reference `fig:natcubspline' on page 55 undefined on input line 
+2172.
+
+File: book_files/figure-latex/natcubspline-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/natcubspline-1.pdf" >
+Overfull \hbox (76.19344pt too wide) has occurred while \output is active
+\EU1/lmr/m/sl/10 2.4.  SPLINES AND GENERALIZED ADDITIVE MODELS: MOVING BEYOND L
+INEARIT \EU1/lmr/m/n/10 55
+ []
+
+[55]
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 2187.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 12.00018pt on input line 2187.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 11.99982pt on input line 2187.
+
+Package natbib Warning: Citation `de_boor_practical_1975' on page 56 undefined 
+on input line 2196.
+
+[56]
+
+LaTeX Warning: Reference `Bspline' on page 57 undefined on input line 2220.
+
+
+LaTeX Warning: Reference `fig:Bspline' on page 57 undefined on input line 2222.
+
+
+File: book_files/figure-latex/Bspline-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/Bspline-1.pdf" >
+Overfull \hbox (76.19344pt too wide) has occurred while \output is active
+\EU1/lmr/m/sl/10 2.4.  SPLINES AND GENERALIZED ADDITIVE MODELS: MOVING BEYOND L
+INEARIT \EU1/lmr/m/n/10 57
+ []
+
+[57]
+
+Package natbib Warning: Citation `reinsch_smoothing_1967' on page 58 undefined 
+on input line 2262.
+
+[58]
+
+Package natbib Warning: Citation `gu_smoothing_2002' on page 59 undefined on in
+put line 2296.
+
+
+Package natbib Warning: Citation `buja_linear_1989' on page 59 undefined on inp
+ut line 2314.
+
+
+LaTeX Warning: Reference `fig:smoothspline' on page 59 undefined on input line 
+2318.
+
+File: book_files/figure-latex/smoothspline-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/smoothspline-1.pdf" >
+
+LaTeX Warning: Reference `fig:smoothspline' on page 59 undefined on input line 
+2328.
+
+
+LaTeX Warning: Reference `fig:smoothspline' on page 59 undefined on input line 
+2328.
+
+
+Package natbib Warning: Citation `hastie_generalized_1990' on page 59 undefined
+ on input line 2334.
+
+
+Overfull \hbox (76.19344pt too wide) has occurred while \output is active
+\EU1/lmr/m/sl/10 2.4.  SPLINES AND GENERALIZED ADDITIVE MODELS: MOVING BEYOND L
+INEARIT \EU1/lmr/m/n/10 59
+ []
+
+[59]
+
+LaTeX Warning: Reference `smoothing' on page 60 undefined on input line 2358.
+
+
+Package natbib Warning: Citation `hastie_generalized_1990' on page 60 undefined
+ on input line 2361.
+
+[60]
+File: book_files/figure-latex/algo_backfitting-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/algo_backfitting-1.pdf" >
+Underfull \hbox (badness 10000) in paragraph at lines 2386--2386
+[]\EU1/lmr/bx/n/12 High-dimensional generalized additive models
+ []
+
+
+Package natbib Warning: Citation `meier_high-dimensional_2009' on page 61 undef
+ined on input line 2406.
+
+
+Overfull \hbox (76.19344pt too wide) has occurred while \output is active
+\EU1/lmr/m/sl/10 2.4.  SPLINES AND GENERALIZED ADDITIVE MODELS: MOVING BEYOND L
+INEARIT \EU1/lmr/m/n/10 61
+ []
+
+[61] [62]
+
+Package natbib Warning: Citation `meier_group_2008' on page 63 undefined on inp
+ut line 2463.
+
+
+Package natbib Warning: Citation `yuan_model_2006' on page 63 undefined on inpu
+t line 2464.
+
+
+Package natbib Warning: Citation `rokach2005clustering' on page 63 undefined on
+ input line 2481.
+
+File: book_files/figure-latex/algo_CAH-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/algo_CAH-1.pdf" > [63]
+
+Package natbib Warning: Citation `ward_hierarchical_1963' on page 64 undefined 
+on input line 2552.
+
+[64]
+
+Package natbib Warning: Citation `tibshirani_estimating_2001' on page 65 undefi
+ned on input line 2591.
+
+
+Package natbib Warning: Citation `calinski_dendrite_1974' on page 65 undefined 
+on input line 2591.
+
+
+Package natbib Warning: Citation `krzanowski_criterion_1988' on page 65 undefin
+ed on input line 2591.
+
+
+Package natbib Warning: Citation `tibshirani_estimating_2001' on page 65 undefi
+ned on input line 2594.
+
+[65]
+
+Package natbib Warning: Citation `park_averaged_2007' on page 66 undefined on i
+nput line 2633.
+
+File: book_files/figure-latex/algo_HCAR-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/algo_HCAR-1.pdf" > [66]
+
+Package natbib Warning: Citation `park_averaged_2007' on page 67 undefined on i
+nput line 2654.
+
+
+Package natbib Warning: Citation `grimonprez_selection_2016' on page 67 undefin
+ed on input line 2665.
+
+
+Package natbib Warning: Citation `jacob2009group' on page 67 undefined on input
+ line 2668.
+
+[67]
+
+Package natbib Warning: Citation `fisher1935statistical' on page 68 undefined o
+n input line 2719.
+
+
+Package natbib Warning: Citation `neyman1933testing' on page 68 undefined on in
+put line 2722.
+
+[68]
+
+LaTeX Warning: Reference `tab:confusion' on page 69 undefined on input line 278
+2.
+
+
+Package natbib Warning: Citation `pearson1900on' on page 69 undefined on input 
+line 2802.
+
+[69]
+
+Package natbib Warning: Citation `neyman1933testing' on page 70 undefined on in
+put line 2843.
+
+[70]
+
+Package natbib Warning: Citation `wood_generalized_2006' on page 71 undefined o
+n input line 2874.
+
+[71]
+
+Package natbib Warning: Citation `bonferroni1936teoria' on page 72 undefined on
+ input line 2923.
+
+
+Package natbib Warning: Citation `sidak1967rectangular' on page 72 undefined on
+ input line 2934.
+
+
+Package natbib Warning: Citation `holm1979simple' on page 72 undefined on input
+ line 2945.
+
+
+Package natbib Warning: Citation `benjamini_controlling_1995' on page 72 undefi
+ned on input line 2966.
+
+[72]
+
+Package natbib Warning: Citation `benjamini_controlling_1995' on page 73 undefi
+ned on input line 2973.
+
+
+Package natbib Warning: Citation `benjamini_controlling_1995' on page 73 undefi
+ned on input line 2988.
+
+
+Package natbib Warning: Citation `roquain2010type' on page 73 undefined on inpu
+t line 2997.
+
+[73] [74
+
+]
+Chapter 3.
+
+LaTeX Warning: Reference `genoquality' on page 75 undefined on input line 3003.
+
+
+
+LaTeX Warning: Reference `OR' on page 75 undefined on input line 3003.
+
+
+LaTeX Warning: Reference `popstructure' on page 75 undefined on input line 3003
+.
+
+
+LaTeX Warning: Reference `SMA' on page 75 undefined on input line 3003.
+
+
+LaTeX Warning: Reference `multiloc' on page 75 undefined on input line 3003.
+
+
+LaTeX Warning: Reference `LEOS' on page 75 undefined on input line 3003.
+
+
+LaTeX Warning: Reference `sicomore' on page 75 undefined on input line 3003.
+
+
+LaTeX Warning: Reference `linkage' on page 75 undefined on input line 3008.
+
+
+LaTeX Warning: Reference `LD' on page 75 undefined on input line 3043.
+
+[75]
+
+Package natbib Warning: Citation `NGS' on page 76 undefined on input line 3059.
+
+
+
+Package natbib Warning: Citation `wright2001complex' on page 76 undefined on in
+put line 3075.
+
+
+Package natbib Warning: Citation `clayton2005population' on page 76 undefined o
+n input line 3082.
+
+
+Package natbib Warning: Citation `barrett2006evaluating' on page 76 undefined o
+n input line 3082.
+
+[76]
+
+LaTeX Warning: Reference `HWE' on page 77 undefined on input line 3091.
+
+
+LaTeX Warning: Reference `chi2' on page 77 undefined on input line 3094.
+
+
+Package natbib Warning: Citation `weir1996genetic' on page 77 undefined on inpu
+t line 3095.
+
+
+Package natbib Warning: Citation `weir2005measures' on page 77 undefined on inp
+ut line 3105.
+
+
+Package natbib Warning: Citation `clayton2005population' on page 77 undefined o
+n input line 3112.
+
+
+Package natbib Warning: Citation `zondervan2004complex' on page 77 undefined on
+ input line 3130.
+
+
+LaTeX Warning: Reference `fig:qqplot' on page 77 undefined on input line 3135.
+
+[77]
+File: book_files/figure-latex/qqplot-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/qqplot-1.pdf" >
+
+Package natbib Warning: Citation `burton_genome-wide_2007' on page 78 undefined
+ on input line 3145.
+
+
+Package natbib Warning: Citation `burton_genome-wide_2007' on page 78 undefined
+ on input line 3145.
+
+[78]
+
+LaTeX Warning: Reference `tab:penetrancetab' on page 79 undefined on input line
+ 3177.
+
+File: book_files/figure-latex/penetrancetabfig-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/penetrancetabfig-1.pdf" >
+
+Package natbib Warning: Citation `clarke2011basic' on page 79 undefined on inpu
+t line 3191.
+
+
+Package natbib Warning: Citation `balding2008handbook' on page 79 undefined on 
+input line 3199.
+
+[79]
+
+LaTeX Warning: Reference `tab:contingencytab' on page 80 undefined on input lin
+e 3219.
+
+File: book_files/figure-latex/contingencytabfig-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/contingencytabfig-1.pdf" >
+
+LaTeX Warning: Reference `tab:contingencytab' on page 80 undefined on input lin
+e 3226.
+
+
+LaTeX Warning: Reference `fig:penetrancefig' on page 80 undefined on input line
+ 3240.
+
+File: book_files/figure-latex/penetrancefig-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/penetrancefig-1.pdf" > [80]
+
+LaTeX Warning: Reference `tab:contingencytab' on page 81 undefined on input lin
+e 3271.
+
+
+LaTeX Warning: Reference `tab:penetrancetab' on page 81 undefined on input line
+ 3287.
+
+[81]
+
+Package natbib Warning: Citation `clarke2011basic' on page 82 undefined on inpu
+t line 3298.
+
+
+Package natbib Warning: Citation `cochran1954some' on page 82 undefined on inpu
+t line 3305.
+
+
+Package natbib Warning: Citation `armitage1955tests' on page 82 undefined on in
+put line 3305.
+
+
+LaTeX Warning: Reference `glm' on page 82 undefined on input line 3326.
+
+[82]
+
+LaTeX Warning: Reference `tab:SNPcode' on page 83 undefined on input line 3342.
+
+
+File: book_files/figure-latex/SNPcodefig-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/SNPcodefig-1.pdf" >
+
+Package natbib Warning: Citation `rice2006mathematical' on page 83 undefined on
+ input line 3360.
+
+
+LaTeX Warning: Reference `multiple' on page 83 undefined on input line 3383.
+
+[83]
+
+Package natbib Warning: Citation `dudbridge2008estimation' on page 84 undefined
+ on input line 3398.
+
+
+Package natbib Warning: Citation `bush2012genome' on page 84 undefined on input
+ line 3404.
+
+
+Package natbib Warning: Citation `maher_personal_2008' on page 84 undefined on 
+input line 3406.
+
+
+Package natbib Warning: Citation `lee_rare-variant_2014' on page 84 undefined o
+n input line 3427.
+
+
+Package natbib Warning: Citation `manolio_finding_2009' on page 84 undefined on
+ input line 3434.
+
+[84]
+
+Package natbib Warning: Citation `balding2008handbook' on page 85 undefined on 
+input line 3454.
+
+
+Package natbib Warning: Citation `devlin1999genomic' on page 85 undefined on in
+put line 3464.
+
+
+Package natbib Warning: Citation `pritchard2000inference' on page 85 undefined 
+on input line 3478.
+
+[85]
+
+Package natbib Warning: Citation `reich2008principal' on page 86 undefined on i
+nput line 3500.
+
+
+Package natbib Warning: Citation `price_principal_2006' on page 86 undefined on
+ input line 3508.
+
+
+Package natbib Warning: Citation `price_principal_2006' on page 86 undefined on
+ input line 3520.
+
+
+LaTeX Warning: Reference `rare-variant' on page 86 undefined on input line 3539
+.
+
+
+LaTeX Warning: Reference `adjclust' on page 86 undefined on input line 3539.
+
+[86]
+
+LaTeX Warning: Reference `penalized' on page 87 undefined on input line 3547.
+
+
+Package natbib Warning: Citation `stanislas_eigen-epistasis_2016' on page 87 un
+defined on input line 3551.
+
+
+Package natbib Warning: Citation `yoo_multiple_2016' on page 87 undefined on in
+put line 3555.
+
+
+Package natbib Warning: Citation `pare_contribution_2015' on page 87 undefined 
+on input line 3557.
+
+
+Package natbib Warning: Citation `kwak_adaptive_2016' on page 87 undefined on i
+nput line 3560.
+
+
+Package natbib Warning: Citation `petersen_assessing_2013' on page 87 undefined
+ on input line 3561.
+
+
+LaTeX Warning: Reference `haplo' on page 87 undefined on input line 3567.
+
+
+Package natbib Warning: Citation `balding2008handbook' on page 87 undefined on 
+input line 3578.
+
+
+LaTeX Warning: Reference `logitGWAS' on page 87 undefined on input line 3580.
+
+[87]
+
+Package natbib Warning: Citation `stephens2001new' on page 88 undefined on inpu
+t line 3592.
+
+
+Package natbib Warning: Citation `excoffier1995maximum' on page 88 undefined on
+ input line 3594.
+
+
+Package natbib Warning: Citation `balding2008handbook' on page 88 undefined on 
+input line 3597.
+
+
+Package natbib Warning: Citation `asimit_ariel_2012' on page 88 undefined on in
+put line 3604.
+
+
+Package natbib Warning: Citation `wu_rare-variant_2011' on page 88 undefined on
+ input line 3605.
+
+
+Package natbib Warning: Citation `lee_optimal_2012' on page 88 undefined on inp
+ut line 3606.
+
+
+LaTeX Warning: Reference `logitGWAS' on page 88 undefined on input line 3613.
+
+
+Package natbib Warning: Citation `asimit_ariel_2012' on page 88 undefined on in
+put line 3633.
+
+
+Package natbib Warning: Citation `li2008methods' on page 88 undefined on input 
+line 3633.
+
+[88]
+
+Package natbib Warning: Citation `morgenthaler2007strategy' on page 89 undefine
+d on input line 3651.
+
+
+Package natbib Warning: Citation `madsen2009groupwise' on page 89 undefined on 
+input line 3659.
+
+
+Package natbib Warning: Citation `lee_rare-variant_2014' on page 89 undefined o
+n input line 3665.
+
+
+Package natbib Warning: Citation `wu_powerful_2010' on page 89 undefined on inp
+ut line 3671.
+
+
+Package natbib Warning: Citation `wu_rare-variant_2011' on page 89 undefined on
+ input line 3675.
+
+
+Package natbib Warning: Citation `lin1997variance' on page 89 undefined on inpu
+t line 3687.
+
+[89]
+
+Package natbib Warning: Citation `wu_rare-variant_2011' on page 90 undefined on
+ input line 3702.
+
+
+LaTeX Warning: Reference `logitGWAS' on page 90 undefined on input line 3711.
+
+
+Package natbib Warning: Citation `davies1980algorithm' on page 90 undefined on 
+input line 3729.
+
+[90]
+
+LaTeX Warning: Reference `CAH' on page 91 undefined on input line 3747.
+
+
+Package natbib Warning: Citation `dehman_performance_2015' on page 91 undefined
+ on input line 3747.
+
+
+Package natbib Warning: Citation `dehman:tel-01288568' on page 91 undefined on 
+input line 3757.
+
+
+LaTeX Warning: Reference `CAH' on page 91 undefined on input line 3760.
+
+[91] [92]
+Chapter 4.
+
+LaTeX Warning: Reference `introleos' on page 93 undefined on input line 3785.
+
+
+LaTeX Warning: Reference `leosmethod' on page 93 undefined on input line 3785.
+
+
+LaTeX Warning: Reference `numsim' on page 93 undefined on input line 3785.
+
+
+Package natbib Warning: Citation `purcell_2007_plink' on page 93 undefined on i
+nput line 3785.
+
+
+LaTeX Warning: Reference `rare-variant' on page 93 undefined on input line 3785
+.
+
+
+Package natbib Warning: Citation `burton_genome-wide_2007' on page 93 undefined
+ on input line 3785.
+
+
+Package natbib Warning: Citation `IGAS_2013_identification' on page 93 undefine
+d on input line 3785.
+
+
+LaTeX Warning: Reference `leosgam' on page 93 undefined on input line 3785.
+
+
+Package natbib Warning: Citation `meinshausen_hierarchical_2008' on page 93 und
+efined on input line 3795.
+
+
+Package natbib Warning: Citation `Holm_Bonferroni' on page 93 undefined on inpu
+t line 3800.
+
+[93
+
+]
+
+Package natbib Warning: Citation `listgarten_powerful_2013' on page 94 undefine
+d on input line 3803.
+
+
+Package natbib Warning: Citation `yoo_multiple_2016' on page 94 undefined on in
+put line 3812.
+
+
+Package natbib Warning: Citation `pare_contribution_2015' on page 94 undefined 
+on input line 3814.
+
+
+Package natbib Warning: Citation `kwak_adaptive_2016' on page 94 undefined on i
+nput line 3819.
+
+
+Package natbib Warning: Citation `petersen_assessing_2013' on page 94 undefined
+ on input line 3820.
+
+
+Package natbib Warning: Citation `petersen_assessing_2013' on page 94 undefined
+ on input line 3822.
+
+
+Package natbib Warning: Citation `lee_rare-variant_2014' on page 94 undefined o
+n input line 3829.
+
+
+LaTeX Warning: Reference `adjclust' on page 94 undefined on input line 3845.
+
+
+Package natbib Warning: Citation `dehman_performance_2015' on page 94 undefined
+ on input line 3846.
+
+
+LaTeX Warning: Reference `fig:step2' on page 94 undefined on input line 3850.
+
+
+Overfull \hbox (144.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 94 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS TH
+ROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[94]
+
+Package natbib Warning: Citation `dehman_performance_2015' on page 95 undefined
+ on input line 3873.
+
+
+LaTeX Warning: Reference `adjclust' on page 95 undefined on input line 3875.
+
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 387
+5.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/euenc/eu1lmtt.fd
+File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+
+Package natbib Warning: Citation `grimm1987coniss' on page 95 undefined on inpu
+t line 3879.
+
+
+LaTeX Warning: Reference `haplo' on page 95 undefined on input line 3887.
+
+
+LaTeX Warning: Reference `fig:penciltrick' on page 95 undefined on input line 3
+917.
+
+[95]
+File: book_files/figure-latex/penciltrick-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/penciltrick-1.pdf" >
+
+LaTeX Warning: Reference `eq:pencilsums' on page 96 undefined on input line 392
+7.
+
+
+LaTeX Warning: Reference `eq:pencilsums' on page 96 undefined on input line 392
+7.
+
+
+Package natbib Warning: Citation `dehman2015spatial' on page 96 undefined on in
+put line 3945.
+
+
+LaTeX Warning: Reference `CAH' on page 96 undefined on input line 3951.
+
+
+Package natbib Warning: Citation `williams1964algorithm' on page 96 undefined o
+n input line 3957.
+
+
+Overfull \hbox (144.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 96 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS TH
+ROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[96]
+
+LaTeX Warning: Reference `perfeval' on page 97 undefined on input line 3989.
+
+
+LaTeX Warning: Reference `leosappli' on page 97 undefined on input line 3990.
+
+
+LaTeX Warning: Reference `multiple' on page 97 undefined on input line 3998.
+
+
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 4016.
+
+
+LaTeX Warning: Command \nobreakspace invalid in math mode on input line 4016.
+
+
+LaTeX Warning: Reference `rare-variant' on page 97 undefined on input line 4019
+.
+
+[97]
+File: book_files/figure-latex/step2-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/step2-1.pdf" >
+
+LaTeX Warning: Reference `haplo' on page 98 undefined on input line 4044.
+
+
+LaTeX Warning: Reference `CAH' on page 98 undefined on input line 4051.
+
+
+Overfull \hbox (144.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 98 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS TH
+ROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[98]
+
+LaTeX Warning: Reference `penalized' on page 99 undefined on input line 4077.
+
+
+Package natbib Warning: Citation `bousquet_stability_2002' on page 99 undefined
+ on input line 4079.
+
+File: book_files/figure-latex/algocutlevel-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/algocutlevel-1.pdf" >
+
+LaTeX Warning: Reference `SMA' on page 99 undefined on input line 4103.
+
+[99]
+
+LaTeX Warning: Reference `LRT' on page 100 undefined on input line 4108.
+
+
+LaTeX Warning: Reference `multiple' on page 100 undefined on input line 4112.
+
+
+LaTeX Warning: Reference `multiple' on page 100 undefined on input line 4118.
+
+
+Package natbib Warning: Citation `su_hapgen2_2011' on page 100 undefined on inp
+ut line 4128.
+
+
+Overfull \hbox (149.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 100 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS T
+HROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[100]
+
+Package natbib Warning: Citation `Diaz_simple_2012' on page 101 undefined on in
+put line 4172.
+
+
+LaTeX Warning: Reference `Dstar' on page 101 undefined on input line 4194.
+
+[101]
+
+LaTeX Warning: Reference `(' on page 102 undefined on input line 4262.
+
+
+LaTeX Warning: Reference `SMA' on page 102 undefined on input line 4268.
+
+
+Package natbib Warning: Citation `Holm_Bonferroni' on page 102 undefined on inp
+ut line 4283.
+
+
+Package natbib Warning: Citation `benjamini_controlling_1995' on page 102 undef
+ined on input line 4284.
+
+
+Overfull \hbox (149.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 102 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS T
+HROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[102]
+
+Package natbib Warning: Citation `brzyski_controlling_2017' on page 103 undefin
+ed on input line 4312.
+
+
+Package natbib Warning: Citation `yi2015penalized' on page 103 undefined on inp
+ut line 4313.
+
+
+Package natbib Warning: Citation `yi2015penalized' on page 103 undefined on inp
+ut line 4318.
+
+
+LaTeX Warning: Reference `simupheno' on page 103 undefined on input line 4341.
+
+
+LaTeX Warning: Reference `fig:AUCcurvesimu' on page 103 undefined on input line
+ 4341.
+
+[103]
+File: book_files/figure-latex/AUCcurvesimu-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/AUCcurvesimu-1.pdf" >
+Overfull \hbox (149.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 104 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS T
+HROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[104]
+File: book_files/figure-latex/scatterperfsimu-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/scatterperfsimu-1.pdf" >
+
+LaTeX Warning: Reference `fig:scatterperfsimu' on page 105 undefined on input l
+ine 4396.
+
+[105]
+
+Package natbib Warning: Citation `burton_genome-wide_2007' on page 106 undefine
+d on input line 4427.
+
+
+Package natbib Warning: Citation `IGAS_2013_identification' on page 106 undefin
+ed on input line 4441.
+
+
+LaTeX Warning: Reference `PCC' on page 106 undefined on input line 4452.
+
+
+Overfull \hbox (149.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 106 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS T
+HROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[106]
+
+LaTeX Warning: Reference `fig:histomaf' on page 107 undefined on input line 445
+9.
+
+File: book_files/figure-latex/histomaf-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/histomaf-1.pdf" >
+
+LaTeX Warning: Reference `fig:WTCCC' on page 107 undefined on input line 4489.
+
+File: book_files/figure-latex/WTCCC-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/WTCCC-1.pdf" >
+
+LaTeX Warning: Reference `fig:spondy' on page 107 undefined on input line 4504.
+
+
+[107]
+File: book_files/figure-latex/spondy-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/spondy-1.pdf" >
+
+LaTeX Warning: Reference `tab:markerdensity' on page 108 undefined on input lin
+e 4528.
+
+
+LaTeX Warning: Reference `fig:ggheat' on page 108 undefined on input line 4529.
+
+
+
+Overfull \hbox (149.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 108 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS T
+HROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[108]
+File: book_files/figure-latex/markerdensityfig-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/markerdensityfig-1.pdf" >
+File: book_files/figure-latex/ggheat-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/ggheat-1.pdf" >
+
+LaTeX Warning: Reference `fig:manhattanspondy' on page 109 undefined on input l
+ine 4558.
+
+File: book_files/figure-latex/manhattanspondy-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/manhattanspondy-1.pdf" >
+
+Package natbib Warning: Citation `woodrow_HLA_1978' on page 109 undefined on in
+put line 4577.
+
+[109]
+Overfull \hbox (149.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 110 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS T
+HROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[110]
+
+LaTeX Warning: Reference `fig:qqplotWTCCC' on page 111 undefined on input line 
+4583.
+
+File: book_files/figure-latex/qqplotWTCCC-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/qqplotWTCCC-1.pdf" >
+
+LaTeX Warning: Reference `smoothing' on page 111 undefined on input line 4605.
+
+
+LaTeX Warning: Reference `gam' on page 111 undefined on input line 4605.
+
+[111]
+
+LaTeX Warning: Reference `hgam' on page 112 undefined on input line 4622.
+
+
+LaTeX Warning: Reference `fig:AUCgam' on page 112 undefined on input line 4638.
+
+
+File: book_files/figure-latex/AUCgam-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/AUCgam-1.pdf" >
+Overfull \hbox (149.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 112 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS T
+HROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[112]
+Overfull \hbox (9.30002pt too wide) in paragraph at lines 4661--4661
+[]\EU1/lmr/bx/n/12 Results of univariate smoothing splines on aggregated-
+ []
+
+
+LaTeX Warning: Reference `pvalGAM' on page 113 undefined on input line 4670.
+
+
+LaTeX Warning: Reference `fig:manhattangam' on page 113 undefined on input line
+ 4671.
+
+File: book_files/figure-latex/manhattangam-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/manhattangam-1.pdf" >
+
+LaTeX Warning: Reference `fig:fittedgamspondy' on page 113 undefined on input l
+ine 4688.
+
+
+LaTeX Warning: Reference `realdata' on page 113 undefined on input line 4693.
+
+File: book_files/figure-latex/fittedgamspondy-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/fittedgamspondy-1.pdf" > [113]
+Overfull \hbox (149.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 114 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS T
+HROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[114] [115]
+Overfull \hbox (149.08124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 116 \EU1/lmr/m/sl/10 CHAPTER 4.  LEARNING THE OPTIMAL IN GWAS T
+HROUGH HIERARCHICAL SNP AGGREGATION
+ []
+
+[116]
+Chapter 5.
+
+LaTeX Warning: Reference `modelsicomore' on page 117 undefined on input line 47
+77.
+
+
+LaTeX Warning: Reference `implementation' on page 117 undefined on input line 4
+780.
+
+
+LaTeX Warning: Reference `XPsimu' on page 117 undefined on input line 4782.
+
+
+LaTeX Warning: Reference `XPINRA' on page 117 undefined on input line 4782.
+
+
+LaTeX Warning: Reference `GWASlimits' on page 117 undefined on input line 4794.
+
+
+[117
+
+]
+
+Package natbib Warning: Citation `wang_2107_human' on page 118 undefined on inp
+ut line 4806.
+
+
+Package natbib Warning: Citation `mukerji2002techniques' on page 118 undefined 
+on input line 4811.
+
+
+Package natbib Warning: Citation `pinton2007rhizosphere' on page 118 undefined 
+on input line 4811.
+
+
+Package natbib Warning: Citation `wang2016metagenome' on page 118 undefined on 
+input line 4817.
+
+
+Package natbib Warning: Citation `segata2011metagenomic' on page 118 undefined 
+on input line 4817.
+
+
+Package natbib Warning: Citation `wang2016genome' on page 118 undefined on inpu
+t line 4830.
+
+
+Package natbib Warning: Citation `srinivas2013genome' on page 118 undefined on 
+input line 4830.
+
+
+Package natbib Warning: Citation `lin2013interactionsGLM' on page 118 undefined
+ on input line 4836.
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 118 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[118]
+
+LaTeX Warning: Reference `LEOS' on page 119 undefined on input line 4862.
+
+
+Package natbib Warning: Citation `qin2012metagenome' on page 119 undefined on i
+nput line 4863.
+
+
+Package natbib Warning: Citation `park_averaged_2007' on page 119 undefined on 
+input line 4865.
+
+
+LaTeX Warning: Reference `HCAR' on page 119 undefined on input line 4865.
+
+
+Package natbib Warning: Citation `mary2009tailored' on page 119 undefined on in
+put line 4867.
+
+[119]
+
+Package natbib Warning: Citation `bien2013lasso' on page 120 undefined on input
+ line 4937.
+
+
+Package natbib Warning: Citation `bien2013lasso' on page 120 undefined on input
+ line 4953.
+
+
+Package natbib Warning: Citation `lim2015learning' on page 120 undefined on inp
+ut line 4955.
+
+
+Package natbib Warning: Citation `she2016group' on page 120 undefined on input 
+line 4955.
+
+
+Package natbib Warning: Citation `lim2015learning' on page 120 undefined on inp
+ut line 4956.
+
+
+Package natbib Warning: Citation `jacob2009group' on page 120 undefined on inpu
+t line 4958.
+
+
+Package natbib Warning: Citation `she2016group' on page 120 undefined on input 
+line 4959.
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 120 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[120]
+
+Package natbib Warning: Citation `DT:IEEEIT2008' on page 121 undefined on input
+ line 5041.
+
+[121]
+Overfull \hbox (74.97003pt too wide) detected at line 5048
+[] []
+ []
+
+
+Package natbib Warning: Citation `bien2013lasso' on page 122 undefined on input
+ line 5057.
+
+
+Package natbib Warning: Citation `lim2015learning' on page 122 undefined on inp
+ut line 5057.
+
+
+Package natbib Warning: Citation `she2016group' on page 122 undefined on input 
+line 5057.
+
+
+LaTeX Warning: Reference `DNAseq' on page 122 undefined on input line 5091.
+
+
+Package natbib Warning: Citation `sharpton2014introduction' on page 122 undefin
+ed on input line 5093.
+
+
+Underfull \vbox (badness 1248) has occurred while \output is active []
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 122 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[122]
+
+Package natbib Warning: Citation `pereira2018comparison' on page 123 undefined 
+on input line 5101.
+
+
+Package natbib Warning: Citation `jonsson2017variability' on page 123 undefined
+ on input line 5107.
+
+
+Package natbib Warning: Citation `wooley2010primer' on page 123 undefined on in
+put line 5107.
+
+
+Package natbib Warning: Citation `pereira2018comparison' on page 123 undefined 
+on input line 5107.
+
+
+Package natbib Warning: Citation `robinson2010scaling' on page 123 undefined on
+ input line 5119.
+
+
+Package natbib Warning: Citation `Aitchison:JRSSB82' on page 123 undefined on i
+nput line 5137.
+
+
+Package natbib Warning: Citation `Pearson:RSL1896' on page 123 undefined on inp
+ut line 5139.
+
+
+Package natbib Warning: Citation `Aitchison:JRSSB82' on page 123 undefined on i
+nput line 5139.
+
+[123]
+
+Package natbib Warning: Citation `tibshirani1988estimating' on page 124 undefin
+ed on input line 5147.
+
+
+Package natbib Warning: Citation `huber2003parameter' on page 124 undefined on 
+input line 5147.
+
+
+Package natbib Warning: Citation `law2014voom' on page 124 undefined on input l
+ine 5148.
+
+
+Package natbib Warning: Citation `love2014moderated' on page 124 undefined on i
+nput line 5149.
+
+
+Package natbib Warning: Citation `rau2017transformation' on page 124 undefined 
+on input line 5151.
+
+
+Package natbib Warning: Citation `rau2017transformation' on page 124 undefined 
+on input line 5163.
+
+
+Package natbib Warning: Citation `Aitchison:JRSSB82' on page 124 undefined on i
+nput line 5165.
+
+
+LaTeX Warning: Reference `modelsicomore' on page 124 undefined on input line 51
+73.
+
+
+Package natbib Warning: Citation `Lee:PAMI17' on page 124 undefined on input li
+ne 5182.
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 124 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[124]
+
+Package natbib Warning: Citation `chen2013OTU' on page 125 undefined on input l
+ine 5201.
+
+
+LaTeX Warning: Reference `CAH' on page 125 undefined on input line 5207.
+
+
+Package natbib Warning: Citation `dehman_performance_2015' on page 125 undefine
+d on input line 5216.
+
+
+Package natbib Warning: Citation `Milligan:Ps1985' on page 125 undefined on inp
+ut line 5224.
+
+
+Package natbib Warning: Citation `Gordon:1999' on page 125 undefined on input l
+ine 5224.
+
+
+LaTeX Warning: Reference `fig:hierarchy' on page 125 undefined on input line 52
+59.
+
+
+LaTeX Warning: Reference `fig:hierarchy' on page 125 undefined on input line 52
+60.
+
+
+LaTeX Warning: Reference `fig:hierarchy' on page 125 undefined on input line 52
+61.
+
+File: book_files/figure-latex/hierarchy-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/hierarchy-1.pdf" >
+
+LaTeX Warning: Reference `fig:hierarchy' on page 125 undefined on input line 52
+82.
+
+[125]
+
+Package natbib Warning: Citation `grimonprez_selection_2016' on page 126 undefi
+ned on input line 5292.
+
+
+LaTeX Warning: Reference `MLGL' on page 126 undefined on input line 5293.
+
+
+LaTeX Warning: Reference `fig:hierarchy' on page 126 undefined on input line 52
+95.
+
+
+LaTeX Warning: Reference `fig:hierarchy' on page 126 undefined on input line 52
+95.
+
+
+LaTeX Warning: Reference `Dstar' on page 126 undefined on input line 5305.
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 126 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[126]
+
+LaTeX Warning: Reference `structure' on page 127 undefined on input line 5337.
+
+
+Package natbib Warning: Citation `su_hapgen2_2011' on page 127 undefined on inp
+ut line 5382.
+
+
+LaTeX Warning: Reference `fig:X' on page 127 undefined on input line 5391.
+
+[127]
+
+Package natbib Warning: Citation `aitchison1989multivariate' on page 128 undefi
+ned on input line 5399.
+
+
+LaTeX Warning: Reference `fig:X' on page 128 undefined on input line 5413.
+
+
+LaTeX Warning: Reference `preprocess' on page 128 undefined on input line 5418.
+
+
+File: book_files/figure-latex/X-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/X-1.pdf" >
+
+LaTeX Warning: Reference `CAH' on page 128 undefined on input line 5439.
+
+
+LaTeX Warning: Reference `fig:X' on page 128 undefined on input line 5440.
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 128 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[128]
+
+Package natbib Warning: Citation `park_averaged_2007' on page 129 undefined on 
+input line 5471.
+
+
+Package natbib Warning: Citation `grimonprez_selection_2016' on page 129 undefi
+ned on input line 5471.
+
+
+Package natbib Warning: Citation `lim2015learning' on page 129 undefined on inp
+ut line 5472.
+
+
+Underfull \vbox (badness 3503) has occurred while \output is active []
+
+[129]
+
+LaTeX Warning: Reference `implementation' on page 130 undefined on input line 5
+489.
+
+
+LaTeX Warning: Reference `fig:hierarchy' on page 130 undefined on input line 54
+90.
+
+
+LaTeX Warning: Reference `fig:hierarchy' on page 130 undefined on input line 55
+02.
+
+
+Package natbib Warning: Citation `lim2015learning' on page 130 undefined on inp
+ut line 5511.
+
+
+Package natbib Warning: Citation `lim2015learning' on page 130 undefined on inp
+ut line 5524.
+
+
+Package natbib Warning: Citation `tibshirani2012strong' on page 130 undefined o
+n input line 5528.
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 130 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[130]
+
+LaTeX Warning: Reference `fig:hierarchy' on page 131 undefined on input line 55
+42.
+
+
+Package natbib Warning: Citation `lim2015learning' on page 131 undefined on inp
+ut line 5559.
+
+File: book_files/figure-latex/tabconfusionfig-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/tabconfusionfig-1.pdf" >
+Underfull \vbox (badness 5939) has occurred while \output is active []
+
+[131]
+
+LaTeX Warning: Reference `fig:ggheatheta' on page 132 undefined on input line 5
+584.
+
+File: book_files/figure-latex/ggheatheta-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/ggheatheta-1.pdf" >
+
+LaTeX Warning: Reference `fig:precisionBONF' on page 132 undefined on input lin
+e 5610.
+
+
+LaTeX Warning: Reference `fig:recallBONF' on page 132 undefined on input line 5
+611.
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 132 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[132]
+
+LaTeX Warning: Reference `fig:theta2by2' on page 133 undefined on input line 56
+34.
+
+File: book_files/figure-latex/theta2by2-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/theta2by2-1.pdf" >
+File: book_files/figure-latex/precisionBONF-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/precisionBONF-1.pdf" >
+File: book_files/figure-latex/recallBONF-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/recallBONF-1.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[133]
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 134 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[134]
+File: book_files/figure-latex/tabcomptimefig-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/tabcomptimefig-1.pdf" >
+
+LaTeX Warning: Reference `tab:tabcomptime' on page 135 undefined on input line 
+5692.
+
+
+Overfull \hbox (69.16344pt too wide) has occurred while \output is active
+\EU1/lmr/m/sl/10 5.5.  APPLICATION ON REAL DATA: RHIZOSPHERE OF \EU1/lmr/m/n/10
+ MEDICAGO TRUNCATULA 135
+ []
+
+[135]
+
+LaTeX Warning: Reference `fig:histopheno' on page 136 undefined on input line 5
+734.
+
+File: book_files/figure-latex/histopheno-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/histopheno-1.pdf" >
+
+LaTeX Warning: Reference `fig:piechart1' on page 136 undefined on input line 57
+53.
+
+File: book_files/figure-latex/piechart1-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/piechart1-1.pdf" >
+
+LaTeX Warning: Reference `fig:heatmapchr4' on page 136 undefined on input line 
+5776.
+
+File: book_files/figure-latex/heatmapchr4-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/heatmapchr4-1.pdf" >
+Underfull \vbox (badness 3623) has occurred while \output is active []
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 136 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[136]
+Overfull \hbox (69.16344pt too wide) has occurred while \output is active
+\EU1/lmr/m/sl/10 5.5.  APPLICATION ON REAL DATA: RHIZOSPHERE OF \EU1/lmr/m/n/10
+ MEDICAGO TRUNCATULA 137
+ []
+
+[137]
+File: book_files/figure-latex/tabBMtotfig-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/tabBMtotfig-1.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 138 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[138]
+File: book_files/figure-latex/tabresBMtotfig-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/tabresBMtotfig-1.pdf" >
+File: book_files/figure-latex/tabRTRfig-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/tabRTRfig-1.pdf" >
+File: book_files/figure-latex/tabresRTR1-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/tabresRTR1-1.pdf" >
+Overfull \hbox (69.16344pt too wide) has occurred while \output is active
+\EU1/lmr/m/sl/10 5.5.  APPLICATION ON REAL DATA: RHIZOSPHERE OF \EU1/lmr/m/n/10
+ MEDICAGO TRUNCATULA 139
+ []
+
+[139]
+File: book_files/figure-latex/tabresRTR2-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/tabresRTR2-1.pdf" >
+File: book_files/figure-latex/tabSNUfig-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/tabSNUfig-1.pdf" >
+File: book_files/figure-latex/tabresSNU-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/tabresSNU-1.pdf" >
+Underfull \vbox (badness 4454) has occurred while \output is active []
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 140 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[140]
+
+LaTeX Warning: Reference `fig:piechart2' on page 141 undefined on input line 58
+98.
+
+File: book_files/figure-latex/piechart2-1.pdf Graphic file (type QTm)
+<use  "book_files/figure-latex/piechart2-1.pdf" > [141]
+Underfull \hbox (badness 1418) in paragraph at lines 5952--5958
+[]\EU1/lmr/m/n/10 To conclude we can state that SICOMORE is able to find signif
+icant
+ []
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 142 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[142]
+
+Package natbib Warning: Citation `risch1996future' on page 143 undefined on inp
+ut line 5969.
+
+
+Package natbib Warning: Citation `lander1996new' on page 143 undefined on input
+ line 5974.
+
+
+Package natbib Warning: Citation `klein2005complement' on page 143 undefined on
+ input line 5981.
+
+
+Package natbib Warning: Citation `manolio2008hapmap' on page 143 undefined on i
+nput line 5984.
+
+[143
+
+]
+
+LaTeX Warning: Reference `LEOS' on page 144 undefined on input line 6016.
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 144 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[144]
+
+Package natbib Warning: Citation `hunter2005gene' on page 145 undefined on inpu
+t line 6087.
+
+
+LaTeX Warning: Reference `sicomore' on page 145 undefined on input line 6102.
+
+
+Package natbib Warning: Citation `dehman_performance_2015' on page 145 undefine
+d on input line 6107.
+
+
+Package natbib Warning: Citation `park_averaged_2007' on page 145 undefined on 
+input line 6110.
+
+
+Package natbib Warning: Citation `grimonprez_selection_2016' on page 145 undefi
+ned on input line 6111.
+
+
+LaTeX Warning: Reference `structure' on page 145 undefined on input line 6114.
+
+[145]
+
+Package natbib Warning: Citation `goeman2011multiple' on page 146 undefined on 
+input line 6138.
+
+
+Package natbib Warning: Citation `bach2008bolasso' on page 146 undefined on inp
+ut line 6144.
+
+
+Package natbib Warning: Citation `meinshausen2010stability' on page 146 undefin
+ed on input line 6146.
+
+
+Package natbib Warning: Citation `listgarten_improved_2012' on page 146 undefin
+ed on input line 6166.
+
+
+Package natbib Warning: Citation `segura2012efficient' on page 146 undefined on
+ input line 6166.
+
+
+Package natbib Warning: Citation `kang2010variance' on page 146 undefined on in
+put line 6166.
+
+
+Package natbib Warning: Citation `finucane2015partitioning' on page 146 undefin
+ed on input line 6168.
+
+
+Package natbib Warning: Citation `yang2010common' on page 146 undefined on inpu
+t line 6168.
+
+
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 146 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[146]
+
+Package natbib Warning: Citation `mieth2016combining' on page 147 undefined on 
+input line 6172.
+
+
+Package natbib Warning: Citation `geurst_exploiting_2014' on page 147 undefined
+ on input line 6175.
+
+
+Package natbib Warning: Citation `maciukiewicz2018gwas' on page 147 undefined o
+n input line 6176.
+
+
+Package natbib Warning: Citation `fergus2018utilising' on page 147 undefined on
+ input line 6177.
+
+
+Package natbib Warning: Citation `davey2003mendelian' on page 147 undefined on 
+input line 6185.
+
+
+Package natbib Warning: Citation `zhu2018causal' on page 147 undefined on input
+ line 6185.
+
+
+Package natbib Warning: Citation `rau2013joint' on page 147 undefined on input 
+line 6186.
+
+[147]
+Overfull \hbox (209.41124pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 148 \EU1/lmr/m/sl/10 CHAPTER 5.  SELECTION OF INTERACTION EFFEC
+TS IN COMPRESSED MULTIPLE OMICS REPRESENTATION
+ []
+
+[148
+
+]
+Appendix A.
+
+LaTeX Warning: Reference `eq:bias-var2' on page 149 undefined on input line 622
+4.
+
+[149]
+Overfull \hbox (27.10677pt too wide) detected at line 6233
+[][] [][]
+ []
+
+
+LaTeX Warning: Reference `eq:bias-var3' on page 150 undefined on input line 623
+7.
+
+
+Overfull \hbox (43.64453pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 150 \EU1/lmr/m/sl/10 APPENDIX A.  DERIVATION OF THE MSE BIAS-VA
+RIANCE DECOMPOSITION
+ []
+
+[150]
+Appendix B.
+
+Package natbib Warning: Citation `buja_linear_1989' on page 151 undefined on in
+put line 6245.
+
+
+Package natbib Warning: Citation `green_semi-parametric_1985' on page 151 undef
+ined on input line 6249.
+
+[151
+
+]
+
+Package natbib Warning: Citation `BUJA_LINEAR_1989' on page 152 undefined on in
+put line 6265.
+
+[152
+
+]
+Appendix C.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 24.88pt on input line 6265.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 20.74pt on input line 6265.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 17.28pt on input line 6265.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 24.88037pt on input line 6265.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 20.74031pt on input line 6265.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 17.28026pt on input line 6265.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 24.87962pt on input line 6265.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 20.73969pt on input line 6265.
+LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 17.27972pt on input line 6265.
+[153]
+Overfull \hbox (14.90564pt too wide) has occurred while \output is active
+\EU1/lmr/m/n/10 154 \EU1/lmr/m/sl/10 APPENDIX C.  SMOOTHING PARAMETER $[]$ FOR 
+SMOOTHING SPLINES
+ []
+
+[154]
+Appendix D.
+[155
+
+]
+
+Package natbib Warning: Citation `hastie_generalized_1990' on page 156 undefine
+d on input line 6338.
+
+
+Package natbib Warning: Citation `eubank_nonparametric_1999' on page 156 undefi
+ned on input line 6359.
+
+
+Package natbib Warning: Citation `reinsch_smoothing_1967' on page 156 undefined
+ on input line 6360.
+
+
+Package natbib Warning: Citation `de_boor_practical_1975' on page 156 undefined
+ on input line 6363.
+
+[156] [157] [158
+
+]
+No file book.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+[159]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6391.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 6391.
+(./book.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6391.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6391.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6391.
+ ) 
+Here is how much of TeX's memory you used:
+ 43064 strings out of 493706
+ 845330 string characters out of 6145770
+ 988519 words of memory out of 5000000
+ 45723 multiletter control sequences out of 15000+600000
+ 20396 words of font info for 131 fonts, out of 8000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 66i,15n,103p,10413b,870s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on book.pdf (159 pages).

@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>1.6 Linkage disequilibrium | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.6 Linkage disequilibrium | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.6 Linkage disequilibrium | book.utf8.md />
+  <meta property="og:title" content="1.6 Linkage disequilibrium | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.6 Linkage disequilibrium | book.utf8.md />
+  <meta name="twitter:title" content="1.6 Linkage disequilibrium | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="basic-concepts-in-population-genetics.html">
-<link rel="next" href="haplo.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="basic-concepts-in-population-genetics.html"/>
+<link rel="next" href="haplo.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,8 +250,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="LD" class="section level2">
-<h2><span class="header-section-number">1.6</span> Linkage disequilibrium</h2>
+<div id="LD" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.6</span> Linkage disequilibrium<a href="LD.html#LD" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Every human genome has a unique DNA sequence, in part due to the few
 hundred novel mutations inherited from their parents, and by chromosomal
 segregation combined with crossovers that shuffle existing variation.
@@ -264,8 +269,8 @@ become the focus of intense study in the hope that it might facilitate
 the mapping of complex disease loci through whole-genome association
 studies. This approach depends crucially on the patterns of LD in the
 human genome <span class="citation">(Ardlie, Kruglyak, and Seielstad <a href="#ref-ardlie_patterns_2002">2002</a>)</span>.</p>
-<div id="definition" class="section level3">
-<h3><span class="header-section-number">1.6.1</span> Definition</h3>
+<div id="definition" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.6.1</span> Definition<a href="LD.html#definition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We consider two neighbouring biallelic loci <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (<span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span> for
 locus <span class="math inline">\(A\)</span>, and <span class="math inline">\(B\)</span> and <span class="math inline">\(b\)</span> for locus <span class="math inline">\(B\)</span>) with allele frequencies
 <span class="math inline">\(f_{A}\)</span>, <span class="math inline">\(f_{a}\)</span>, <span class="math inline">\(f_{B}\)</span> and <span class="math inline">\(f_{b}\)</span> respectively.</p>
@@ -308,6 +313,12 @@ when alleles occur together on the same haplotype less often than
 expected (Table <a href="LD.html#tab:LD">1.3</a>).</p>
 <table>
 <caption><span id="tab:LD">Table 1.3: </span>Haplotype frequencies under linkage disequilibrium</caption>
+<colgroup>
+<col width="7%" />
+<col width="15%" />
+<col width="38%" />
+<col width="38%" />
+</colgroup>
 <tbody>
 <tr class="odd">
 <td align="left">Haplotype</td>
@@ -342,8 +353,8 @@ expected (Table <a href="LD.html#tab:LD">1.3</a>).</p>
 </tbody>
 </table>
 </div>
-<div id="measure-of-ld" class="section level3">
-<h3><span class="header-section-number">1.6.2</span> Measure of LD</h3>
+<div id="measure-of-ld" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.6.2</span> Measure of LD<a href="LD.html#measure-of-ld" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The deviation of the observed from expected haplotype frequencies can be
 quantified by several linkage disequilibrium measures. The very first
 linkage disequilibrium measure was introduced by
@@ -441,8 +452,8 @@ counts, respectively, of the <span class="math inline">\(ij\)</span> haplotype. 
 specified level <span class="math inline">\(\alpha\)</span> if <span class="math inline">\(n\hat{r}^2\)</span> is greater than the critical
 value of the test statistic.</p>
 </div>
-<div id="estimation-of-linkage-disequilibrium" class="section level3">
-<h3><span class="header-section-number">1.6.3</span> Estimation of linkage disequilibrium</h3>
+<div id="estimation-of-linkage-disequilibrium" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.6.3</span> Estimation of linkage disequilibrium<a href="LD.html#estimation-of-linkage-disequilibrium" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Estimation of linkage disequilibrium between alleles at two loci
 requires observations of haplotype frequencies which is usually not the
 case. Therefore, haplotype frequencies are often estimated using
@@ -454,17 +465,17 @@ the nine possible combinations of AA, Aa, and aa, with BB, Bb, and bb).</p>
 different populations (as given by the software Haploview
 <span class="citation">(Barrett et al. <a href="#ref-barrett2004haploview">2004</a>)</span>) is illustrated in Figure <a href="LD.html#fig:LDhaploview">1.8</a>.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:LDhaploview"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LDhaploview"></span>
 <img src="book_files/figure-html/LDhaploview-1.png" alt="Plots of pairwise linkage disequilibrium for polymorphisms in the ACE (Angiotensin I Converting Enzyme) genomic region genotyped in three populations by the International HapMap Project. CEU, Utah residents with ancestry from northern and western Europe; ACB, African Caribbean in Barbados; JPT, Japanese in Tokyo; white, \(r^2\) = 0; black, \(r^2\) = 1; HapMap Release 22; chromosome 17 NCBI Build 37." width="80%" />
 <p class="caption">
 Figure 1.8: Plots of pairwise linkage disequilibrium for polymorphisms in the ACE (Angiotensin I Converting Enzyme) genomic region genotyped in three populations by the International HapMap Project. CEU, Utah residents with ancestry from northern and western Europe; ACB, African Caribbean in Barbados; JPT, Japanese in Tokyo; white, <span class="math inline">\(r^2\)</span> = 0; black, <span class="math inline">\(r^2\)</span> = 1; HapMap Release 22; chromosome 17 NCBI Build 37.
 </p>
 </div>
 </div>
-<div id="origins-of-linkage-disequilibrium" class="section level3">
-<h3><span class="header-section-number">1.6.4</span> Origins of linkage disequilibrium</h3>
-<div id="founder-mutations" class="section level4 unnumbered">
-<h4>Founder mutations</h4>
+<div id="origins-of-linkage-disequilibrium" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.6.4</span> Origins of linkage disequilibrium<a href="LD.html#origins-of-linkage-disequilibrium" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="founder-mutations" class="section level4 unnumbered hasAnchor">
+<h4>Founder mutations<a href="LD.html#founder-mutations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Assume that a new mutation was introduced into the population at some
 point in the recent past. That mutation would have occurred on a single
 chromosome and would be transmitted with all alleles that are on the
@@ -479,8 +490,8 @@ genetic drift, expanded to sufficient prevalence to account for a
 significant burden of disease in present-day descendants of the affected
 founder.</p>
 </div>
-<div id="admixture" class="section level4 unnumbered">
-<h4>Admixture</h4>
+<div id="admixture" class="section level4 unnumbered hasAnchor">
+<h4>Admixture<a href="LD.html#admixture" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We consider a population that consists in a mixture of two
 subpopulations and two alleles, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, having the following
 frequencies <span class="math inline">\(p_1 = q_1 = 0.9\)</span> and <span class="math inline">\(p_2 = q_2 = 0.1\)</span>. If the two loci
@@ -493,8 +504,8 @@ population stratification. In statistical term, it is simply a
 reflection of Simpson’s paradox <span class="citation">(Simpson <a href="#ref-simpson1951interpretation">1951</a>)</span> or
 confounding by ethnicity in epidemiologic term.</p>
 </div>
-<div id="others-factors-that-influence-ld" class="section level4 unnumbered">
-<h4>Others factors that influence LD</h4>
+<div id="others-factors-that-influence-ld" class="section level4 unnumbered hasAnchor">
+<h4>Others factors that influence LD<a href="LD.html#others-factors-that-influence-ld" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Mutation and recombination may have the most evident impact on linkage
 disequilibrium, but there exist other factors that influence the
 distribution of disequilibrium. Most of these involve demographic
@@ -539,52 +550,52 @@ hotspots.</p></li>
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
 <div id="ref-ardlie_patterns_2002">
 <p>Ardlie, K. G., L. Kruglyak, and M. Seielstad. 2002. “Patterns of Linkage Disequilibrium in the Human Genome.” <em>Nature Reviews Genetics</em> 3 (4): 299–309.</p>
 </div>
-<div id="ref-robbins_1918_breeding">
-<p>Robbins, RB. 1918. “Some Applications of Mathematics to Breeding Problems Iii.” <em>Genetics</em> 3 (4). <a href="http://europepmc.org/articles/PMC1200443">http://europepmc.org/articles/PMC1200443</a>.</p>
-</div>
-<div id="ref-hill_1974_estimation">
-<p>Hill, William G. 1974. “Estimation of Linkage Disequilibrium in Randomly Mating Populations.” <em>Heredity</em> 33 (2): 229.</p>
-</div>
-<div id="ref-hedrick_1987_gametic">
-<p>Hedrick, Philip W. 1987. “Gametic Disequilibrium Measures: Proceed with Caution.” <em>Genetics</em> 117 (2): 331–41.</p>
-</div>
-<div id="ref-Lewontin_1964_interaction">
-<p>Lewontin, R. C. 1964. “THE Interaction of Selection and Linkage. I. GENERAL Considerations; Heterotic Models.” <em>Genetics</em> 49 (1): 49–67.</p>
-</div>
-<div id="ref-devlin_1995_comparison">
-<p>Devlin, B, and Neil Risch. 1995. “A Comparison of Linkage Disequilibrium Measures for Fine-Scale Mapping.” <em>Genomics</em> 29 (2): 311–22.</p>
-</div>
-<div id="ref-hill_1968_linkage">
-<p>Hill, WG, and Alan Robertson. 1968. “Linkage Disequilibrium in Finite Populations.” <em>Theoretical and Applied Genetics</em> 38 (6): 226–31.</p>
-</div>
-<div id="ref-pritchard2001linkage">
-<p>Pritchard, Jonathan K, and Molly Przeworski. 2001. “Linkage Disequilibrium in Humans: Models and Data.” <em>The American Journal of Human Genetics</em> 69 (1): 1–14.</p>
+<div id="ref-barrett2004haploview">
+<p>Barrett, Jeffrey C, B Fry, JDMJ Maller, and Mark J Daly. 2004. “Haploview: Analysis and Visualization of Ld and Haplotype Maps.” <em>Bioinformatics</em> 21 (2): 263–65.</p>
 </div>
 <div id="ref-chapman2003detecting">
 <p>Chapman, Juliet M, Jason D Cooper, John A Todd, and David G Clayton. 2003. “Detecting Disease Associations Due to Linkage Disequilibrium Using Haplotype Tags: A Class of Tests and the Determinants of Statistical Power.” <em>Human Heredity</em> 56 (1-3): 18–31.</p>
 </div>
-<div id="ref-weir1990genetic">
-<p>Weir, Bruce S, and others. 1990. <em>Genetic Data Analysis. Methods for Discrete Population Genetic Data.</em> Sinauer Associates, Inc. Publishers.</p>
+<div id="ref-charlesworth1993effect">
+<p>Charlesworth, Brian, MT Morgan, and D Charlesworth. 1993. “The Effect of Deleterious Mutations on Neutral Molecular Variation.” <em>Genetics</em> 134 (4): 1289–1303.</p>
 </div>
-<div id="ref-barrett2004haploview">
-<p>Barrett, Jeffrey C, B Fry, JDMJ Maller, and Mark J Daly. 2004. “Haploview: Analysis and Visualization of Ld and Haplotype Maps.” <em>Bioinformatics</em> 21 (2): 263–65.</p>
-</div>
-<div id="ref-simpson1951interpretation">
-<p>Simpson, Edward H. 1951. “The Interpretation of Interaction in Contingency Tables.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em>, 238–41.</p>
+<div id="ref-devlin_1995_comparison">
+<p>Devlin, B, and Neil Risch. 1995. “A Comparison of Linkage Disequilibrium Measures for Fine-Scale Mapping.” <em>Genomics</em> 29 (2): 311–22.</p>
 </div>
 <div id="ref-gabriel_structure_2002">
 <p>Gabriel, S. B., S. F. Schaffner, H. Nguyen, J. M. Moore, J. Roy, B. Blumenstiel, J. Higgins, et al. 2002. “The Structure of Haplotype Blocks in the Human Genome.” <em>Science</em> 296 (5576): 2225–9.</p>
 </div>
+<div id="ref-hedrick_1987_gametic">
+<p>Hedrick, Philip W. 1987. “Gametic Disequilibrium Measures: Proceed with Caution.” <em>Genetics</em> 117 (2): 331–41.</p>
+</div>
+<div id="ref-hill_1968_linkage">
+<p>Hill, WG, and Alan Robertson. 1968. “Linkage Disequilibrium in Finite Populations.” <em>Theoretical and Applied Genetics</em> 38 (6): 226–31.</p>
+</div>
+<div id="ref-hill_1974_estimation">
+<p>Hill, William G. 1974. “Estimation of Linkage Disequilibrium in Randomly Mating Populations.” <em>Heredity</em> 33 (2): 229.</p>
+</div>
+<div id="ref-Lewontin_1964_interaction">
+<p>Lewontin, R. C. 1964. “THE Interaction of Selection and Linkage. I. GENERAL Considerations; Heterotic Models.” <em>Genetics</em> 49 (1): 49–67.</p>
+</div>
+<div id="ref-pritchard2001linkage">
+<p>Pritchard, Jonathan K, and Molly Przeworski. 2001. “Linkage Disequilibrium in Humans: Models and Data.” <em>The American Journal of Human Genetics</em> 69 (1): 1–14.</p>
+</div>
+<div id="ref-robbins_1918_breeding">
+<p>Robbins, RB. 1918. “Some Applications of Mathematics to Breeding Problems Iii.” <em>Genetics</em> 3 (4). <a href="http://europepmc.org/articles/PMC1200443">http://europepmc.org/articles/PMC1200443</a>.</p>
+</div>
+<div id="ref-simpson1951interpretation">
+<p>Simpson, Edward H. 1951. “The Interpretation of Interaction in Contingency Tables.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em>, 238–41.</p>
+</div>
 <div id="ref-smith1974hitch">
 <p>Smith, John Maynard, and John Haigh. 1974. “The Hitch-Hiking Effect of a Favourable Gene.” <em>Genetics Research</em> 23 (1): 23–35.</p>
 </div>
-<div id="ref-charlesworth1993effect">
-<p>Charlesworth, Brian, MT Morgan, and D Charlesworth. 1993. “The Effect of Deleterious Mutations on Neutral Molecular Variation.” <em>Genetics</em> 134 (4): 1289–1303.</p>
+<div id="ref-weir1990genetic">
+<p>Weir, Bruce S, and others. 1990. <em>Genetic Data Analysis. Methods for Discrete Population Genetic Data.</em> Sinauer Associates, Inc. Publishers.</p>
 </div>
 </div>
             </section>
@@ -597,12 +608,13 @@ hotspots.</p></li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -610,12 +622,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -627,7 +639,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -646,8 +666,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

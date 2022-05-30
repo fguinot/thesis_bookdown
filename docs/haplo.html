@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>1.7 Structure of haplotype blocks in the human genome | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.7 Structure of haplotype blocks in the human genome | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.7 Structure of haplotype blocks in the human genome | book.utf8.md />
+  <meta property="og:title" content="1.7 Structure of haplotype blocks in the human genome | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.7 Structure of haplotype blocks in the human genome | book.utf8.md />
+  <meta name="twitter:title" content="1.7 Structure of haplotype blocks in the human genome | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="LD.html">
-<link rel="next" href="stat.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="LD.html"/>
+<link rel="next" href="stat.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,8 +250,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="haplo" class="section level2">
-<h2><span class="header-section-number">1.7</span> Structure of haplotype blocks in the human genome</h2>
+<div id="haplo" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.7</span> Structure of haplotype blocks in the human genome<a href="haplo.html#haplo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The distribution of linkage disequilibrium patterns along the genome can
 be seen as being noisy and unpredictable. For example, pairs of loci
 that are tens of kilobases apart might be in complete LD due to
@@ -279,8 +284,8 @@ chromosome.</p>
 <p>The number of tag SNP that capture most of the information of genetic
 variation patterns is estimated to be between 300,000 and 600,000, far
 fewer than the ten million common SNP.</p>
-<div id="definition-of-haplotype-blocks" class="section level3 unnumbered">
-<h3>Definition of haplotype blocks</h3>
+<div id="definition-of-haplotype-blocks" class="section level3 unnumbered hasAnchor">
+<h3>Definition of haplotype blocks<a href="haplo.html#definition-of-haplotype-blocks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A definition of haplotype block has been proposed by
 <span class="citation">(Gabriel et al. <a href="#ref-gabriel_structure_2002">2002</a>)</span> where they focused on <span class="math inline">\(|D&#39;|\)</span> measure of LD and
 defined haplotype blocks as sets of consecutive sites between which
@@ -302,8 +307,8 @@ pair of sites is in strong LD, and if, for all pairwise comparisons in
 the block, the number of pairs in strong LD is at least 19-folds greater
 than the number of pairs in weak LD.</p>
 </div>
-<div id="patterns-in-human-genome" class="section level3 unnumbered">
-<h3>Patterns in human genome</h3>
+<div id="patterns-in-human-genome" class="section level3 unnumbered hasAnchor">
+<h3>Patterns in human genome<a href="haplo.html#patterns-in-human-genome" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To illustrate the patterns of LD in human genome, we refer to the
 results obtained by <span class="citation">(Gabriel et al. <a href="#ref-gabriel_structure_2002">2002</a>)</span> where they characterized
 haplotype patterns across 51 autosomal regions (spanning 13 megabases of
@@ -318,7 +323,7 @@ samples and it is worth mentioning that in all four populations less
 than half of the total sequence is contained in identified haplotype
 blocks.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:haploprop"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:haploprop"></span>
 <img src="book_files/figure-html/haploprop-1.png" alt="Proportion of sequence contained in haplotype blocks of various sizes from (Wall and Pritchard 2003). (a) European-American sample; (b) African-American sample; (c) East Asian sample; (d) Sub-Saharan African sample." width="80%" />
 <p class="caption">
 Figure 1.9: Proportion of sequence contained in haplotype blocks of various sizes from <span class="citation">(Wall and Pritchard <a href="#ref-wall2003haplotype">2003</a>)</span>. (a) European-American sample; (b) African-American sample; (c) East Asian sample; (d) Sub-Saharan African sample.
@@ -332,7 +337,7 @@ heterogeneity of LD within same regions: areas of strong LD that
 correspond well to the haplotype-block definition are often surrounded
 by equally large regions with little or no LD.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:haplostructure"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:haplostructure"></span>
 <img src="book_files/figure-html/haplostructure-1.png" alt="Pairwise \(\mid D&#39; \mid\) plots for representative regions from different population samples from (Wall and Pritchard 2003). Each square in the triangle plots the level of linkage disequilibrium (LD) between a pair of sites in a region; comparisons between neighbouring sites lie along the diagonal. Red color indicates strong LD, green indicates weak LD and light brown indicates intermediate or uninformative LD. The long diagonal line indicates the physical length of the region, and the short black lines plot the position of each marker in this region." width="80%" />
 <p class="caption">
 Figure 1.10: Pairwise <span class="math inline">\(\mid D&#39; \mid\)</span> plots for representative regions from different population samples from <span class="citation">(Wall and Pritchard <a href="#ref-wall2003haplotype">2003</a>)</span>. Each square in the triangle plots the level of linkage disequilibrium (LD) between a pair of sites in a region; comparisons between neighbouring sites lie along the diagonal. Red color indicates strong LD, green indicates weak LD and light brown indicates intermediate or uninformative LD. The long diagonal line indicates the physical length of the region, and the short black lines plot the position of each marker in this region.
@@ -342,28 +347,28 @@ Figure 1.10: Pairwise <span class="math inline">\(\mid D&#39; \mid\)</span> plot
 </div>
 </div>
 <!-- </div> -->
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
-<div id="ref-wall2003haplotype">
-<p>Wall, Jeffrey D, and Jonathan K Pritchard. 2003. “Haplotype Blocks and Linkage Disequilibrium in the Human Genome.” <em>Nature Reviews Genetics</em> 4 (8): 587.</p>
+<div id="ref-daly2001high">
+<p>Daly, Mark J, John D Rioux, Stephen F Schaffner, Thomas J Hudson, and Eric S Lander. 2001. “High-Resolution Haplotype Structure in the Human Genome.” <em>Nature Genetics</em> 29 (2): 229.</p>
 </div>
 <div id="ref-frisse2001gene">
 <p>Frisse, L, RR Hudson, A Bartoszewicz, JD Wall, J Donfack, and A Di Rienzo. 2001. “Gene Conversion and Different Population Histories May Explain the Contrast Between Polymorphism and Linkage Disequilibrium Levels.” <em>The American Journal of Human Genetics</em> 69 (4): 831–43.</p>
 </div>
-<div id="ref-reich2001linkage">
-<p>Reich, David E, Michele Cargill, Stacey Bolk, James Ireland, Pardis C Sabeti, Daniel J Richter, Thomas Lavery, et al. 2001. “Linkage Disequilibrium in the Human Genome.” <em>Nature</em> 411 (6834): 199.</p>
-</div>
-<div id="ref-laan1997demographic">
-<p>Laan, Maris, and Svante Pääbo. 1997. “Demographic History and Linkage Disequilibrium in Human Populations.” <em>Nature Genetics</em> 17 (4): 435.</p>
+<div id="ref-gabriel_structure_2002">
+<p>Gabriel, S. B., S. F. Schaffner, H. Nguyen, J. M. Moore, J. Roy, B. Blumenstiel, J. Higgins, et al. 2002. “The Structure of Haplotype Blocks in the Human Genome.” <em>Science</em> 296 (5576): 2225–9.</p>
 </div>
 <div id="ref-kaessmann2002extensive">
 <p>Kaessmann, Henrik, Sebastian Zöllner, Anna C Gustafsson, Victor Wiebe, Maris Laan, Joakim Lundeberg, Mathias Uhlén, and Svante Pääbo. 2002. “Extensive Linkage Disequilibrium in Small Human Populations in Eurasia.” <em>The American Journal of Human Genetics</em> 70 (3): 673–85.</p>
 </div>
-<div id="ref-daly2001high">
-<p>Daly, Mark J, John D Rioux, Stephen F Schaffner, Thomas J Hudson, and Eric S Lander. 2001. “High-Resolution Haplotype Structure in the Human Genome.” <em>Nature Genetics</em> 29 (2): 229.</p>
+<div id="ref-laan1997demographic">
+<p>Laan, Maris, and Svante Pääbo. 1997. “Demographic History and Linkage Disequilibrium in Human Populations.” <em>Nature Genetics</em> 17 (4): 435.</p>
 </div>
-<div id="ref-gabriel_structure_2002">
-<p>Gabriel, S. B., S. F. Schaffner, H. Nguyen, J. M. Moore, J. Roy, B. Blumenstiel, J. Higgins, et al. 2002. “The Structure of Haplotype Blocks in the Human Genome.” <em>Science</em> 296 (5576): 2225–9.</p>
+<div id="ref-reich2001linkage">
+<p>Reich, David E, Michele Cargill, Stacey Bolk, James Ireland, Pardis C Sabeti, Daniel J Richter, Thomas Lavery, et al. 2001. “Linkage Disequilibrium in the Human Genome.” <em>Nature</em> 411 (6834): 199.</p>
+</div>
+<div id="ref-wall2003haplotype">
+<p>Wall, Jeffrey D, and Jonathan K Pritchard. 2003. “Haplotype Blocks and Linkage Disequilibrium in the Human Genome.” <em>Nature Reviews Genetics</em> 4 (8): 587.</p>
 </div>
 </div>
             </section>
@@ -376,12 +381,13 @@ Figure 1.10: Pairwise <span class="math inline">\(\mid D&#39; \mid\)</span> plot
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -389,12 +395,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -406,7 +412,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -425,8 +439,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

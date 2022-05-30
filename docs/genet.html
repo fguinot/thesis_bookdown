@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 1 Basic concepts of molecular genetics | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Basic concepts of molecular genetics | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Basic concepts of molecular genetics | book.utf8.md />
+  <meta property="og:title" content="Chapter 1 Basic concepts of molecular genetics | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Basic concepts of molecular genetics | book.utf8.md />
+  <meta name="twitter:title" content="Chapter 1 Basic concepts of molecular genetics | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="abbreviations.html">
-<link rel="next" href="genome.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="abbreviations.html"/>
+<link rel="next" href="genome.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,9 +250,9 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="genet" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Basic concepts of molecular genetics</h1>
-<p>The purpose of this chapter is to provide the basic concepts in genetics necessary to the understanding of the Genome-Wide Associations Studies. The first section focuses on the description of the genome, sequencing analysis and introduces the notion of genetic mapping. The second section brings some concepts in population genetics necessary to a good understanding of linkage disequilibrium and association studies. The last section gives the definition of linkage disequilibrium and its origins. This section also explains the notion of haplotype structure, which is a key feature of the human genome that we leveraged with the methodology described in Chapter <a href="LEOS.html#LEOS">4</a>.</p> 
+<div id="genet" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 1</span> Basic concepts of molecular genetics<a href="genet.html#genet" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The purpose of this chapter is to provide the basic concepts in genetics necessary to the understanding of the Genome-Wide Associations Studies. The first section focuses on the description of the genome, sequencing analysis and introduces the notion of genetic mapping. The second section brings some concepts in population genetics necessary to a good understanding of linkage disequilibrium and association studies. The last section gives the definition of linkage disequilibrium and its origins. This section also explains the notion of haplotype structure, which is a key feature of the human genome that we leveraged with the methodology described in Chapter <a href="LEOS.html#LEOS">4</a>.</p>
 </div>
             </section>
 
@@ -259,12 +264,13 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -272,12 +278,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -289,7 +295,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -308,8 +322,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

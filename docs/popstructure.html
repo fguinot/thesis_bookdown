@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>3.6 Population structure | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.6 Population structure | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.6 Population structure | book.utf8.md />
+  <meta property="og:title" content="3.6 Population structure | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.6 Population structure | book.utf8.md />
+  <meta name="twitter:title" content="3.6 Population structure | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="GWASlimits.html">
-<link rel="next" href="multiloc.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="GWASlimits.html"/>
+<link rel="next" href="multiloc.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,8 +250,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="popstructure" class="section level2">
-<h2><span class="header-section-number">3.6</span> Population structure</h2>
+<div id="popstructure" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.6</span> Population structure<a href="popstructure.html#popstructure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One of the most important covariate to consider in GWAS is the measure
 of population structure which, if not accounted for, can inflate the
 false positive error rate. As stated in Section @ref(#originLD), we
@@ -260,8 +265,8 @@ there is no association within each stratum. Several methods to identify
 and adjust for population stratification have been developed of which
 the most commonly used are genomic control, structured association and
 principle components correction <span class="citation">(Balding, Bishop, and Cannings <a href="#ref-balding2008handbook">2008</a>)</span>.</p>
-<div id="genomic-control" class="section level3">
-<h3><span class="header-section-number">3.6.1</span> Genomic control</h3>
+<div id="genomic-control" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.6.1</span> Genomic control<a href="popstructure.html#genomic-control" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Under the null hypothesis of no disease association, the distribution of
 Cochran–Armitage test statistics is <span class="math inline">\(\chi_{CA}^2\)</span> with 1 d.f. However,
 in a stratified population, we expect different allele frequency at many
@@ -276,8 +281,8 @@ rescaling of observed test statistics to approximately restore the
 <span class="math inline">\(\chi_{CA}^2\)</span> with 1 d.f null distribution:
 <span class="math display">\[\chi^2_{CA-adj}=\chi_{CA}^2/\lambda.\]</span></p>
 </div>
-<div id="structured-association" class="section level3">
-<h3><span class="header-section-number">3.6.2</span> Structured association</h3>
+<div id="structured-association" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.6.2</span> Structured association<a href="popstructure.html#structured-association" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The method known as structured association, implemented in the STRUCTURE
 software <span class="citation">(Pritchard, Stephens, and Donnelly <a href="#ref-pritchard2000inference">2000</a>)</span>, uses an admixture model<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> where
 the proportion of an individual’s genome into <span class="math inline">\(K\)</span> specific ancestral
@@ -291,8 +296,8 @@ using an ad hoc estimation procedure and the computational load of the
 MCMC algorithm is such that it cannot accommodate for the numbers of
 markers commonly used in GWAS.</p>
 </div>
-<div id="PCC" class="section level3">
-<h3><span class="header-section-number">3.6.3</span> Principle components correction</h3>
+<div id="PCC" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.6.3</span> Principle components correction<a href="popstructure.html#PCC" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This method makes use of the Principal Component Analysis (PCA) to
 detect and correct for population structure. In PCA, the few first
 principal components, calculated using the eigen-decomposition of a
@@ -320,7 +325,7 @@ populations, which will minimize spurious associations as well as
 maximize power to detect true associations <span class="citation">(Price et al. <a href="#ref-price_principal_2006">2006</a>)</span> .</p>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
 <div id="ref-balding2008handbook">
 <p>Balding, David J, Martin Bishop, and Chris Cannings. 2008. <em>Handbook of Statistical Genetics</em>. John Wiley &amp; Sons.</p>
@@ -328,14 +333,14 @@ maximize power to detect true associations <span class="citation">(Price et al. 
 <div id="ref-devlin1999genomic">
 <p>Devlin, Bernie, and Kathryn Roeder. 1999. “Genomic Control for Association Studies.” <em>Biometrics</em> 55 (4): 997–1004.</p>
 </div>
+<div id="ref-price_principal_2006">
+<p>Price, A. L., N. J. Patterson, R. M. Plenge, M. E. Weinblatt, N. A. Shadick, and D. Reich. 2006. “Principal Components Analysis Corrects for Stratification in Genome-Wide Association Studies.” <em>Nature Genetics</em> 38: 904–9.</p>
+</div>
 <div id="ref-pritchard2000inference">
 <p>Pritchard, Jonathan K, Matthew Stephens, and Peter Donnelly. 2000. “Inference of Population Structure Using Multilocus Genotype Data.” <em>Genetics</em> 155 (2): 945–59.</p>
 </div>
 <div id="ref-reich2008principal">
 <p>Reich, David, Alkes L Price, and Nick Patterson. 2008. “Principal Component Analysis of Genetic Data.” <em>Nature Genetics</em> 40 (5): 491.</p>
-</div>
-<div id="ref-price_principal_2006">
-<p>Price, A. L., N. J. Patterson, R. M. Plenge, M. E. Weinblatt, N. A. Shadick, and D. Reich. 2006. “Principal Components Analysis Corrects for Stratification in Genome-Wide Association Studies.” <em>Nature Genetics</em> 38: 904–9.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -356,12 +361,13 @@ phenomenon known as population admixture (see Section
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -369,12 +375,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -386,7 +392,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -405,8 +419,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

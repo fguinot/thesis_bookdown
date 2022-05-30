@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>3.7 Multi-locus analysis | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.7 Multi-locus analysis | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.7 Multi-locus analysis | book.utf8.md />
+  <meta property="og:title" content="3.7 Multi-locus analysis | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.7 Multi-locus analysis | book.utf8.md />
+  <meta name="twitter:title" content="3.7 Multi-locus analysis | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="popstructure.html">
-<link rel="next" href="LEOS.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="popstructure.html"/>
+<link rel="next" href="LEOS.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,8 +250,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multiloc" class="section level2">
-<h2><span class="header-section-number">3.7</span> Multi-locus analysis</h2>
+<div id="multiloc" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.7</span> Multi-locus analysis<a href="multiloc.html#multiloc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As previously mentioned, in GWAS it is necessary for the SNP to be
 correlated to the causal polymorphisms in order to have an efficient
 disease mapping and, in complex disease, each single SNP have small
@@ -281,8 +286,8 @@ on the aggregation of summary statistics of single SNP within a same
 gene with for instance the data-driven aggregation of summary statistics
 described in <span class="citation">(Kwak and Pan <a href="#ref-kwak_adaptive_2016">2016</a>)</span> or the procedures of <span class="math inline">\(p\)</span>-value
 combination in <span class="citation">(Petersen et al. <a href="#ref-petersen_assessing_2013">2013</a>)</span>.</p>
-<div id="haplotype-based-approaches" class="section level3">
-<h3><span class="header-section-number">3.7.1</span> Haplotype-based approaches</h3>
+<div id="haplotype-based-approaches" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.7.1</span> Haplotype-based approaches<a href="multiloc.html#haplotype-based-approaches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One approach to multi-locus analysis is to focus on haplotype effects.
 As seen in Section <a href="haplo.html#haplo">1.7</a>, the human genome can be partitioned
 into haplotype blocks where most of the intra-block variability is
@@ -313,8 +318,8 @@ haplotype reconstruction process, the variances of the model parameters
 are under-estimated leading to an inflation of type I error
 <span class="citation">(Balding, Bishop, and Cannings <a href="#ref-balding2008handbook">2008</a>)</span>.</p>
 </div>
-<div id="rare-variant" class="section level3">
-<h3><span class="header-section-number">3.7.2</span> Rare-variant association analysis</h3>
+<div id="rare-variant" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.7.2</span> Rare-variant association analysis<a href="multiloc.html#rare-variant" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the context of rare-variant association analysis, a number of region-
 or gene-based multimarker tests have been proposed as burden
 tests <span class="citation">(Asimit et al. <a href="#ref-asimit_ariel_2012">2012</a>)</span>, variance-component
@@ -338,8 +343,8 @@ covariate. We define the score statistic of the model for variant <span class="m
 positive when marker <span class="math inline">\(m\)</span> is associated with increased disease risk or
 trait values and negative when marker <span class="math inline">\(m\)</span> is associated with decreased
 risk or trait values.</p>
-<div id="burden-tests" class="section level4 unnumbered">
-<h4>Burden tests</h4>
+<div id="burden-tests" class="section level4 unnumbered hasAnchor">
+<h4>Burden tests<a href="multiloc.html#burden-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Burden tests <span class="citation">(Asimit et al. <a href="#ref-asimit_ariel_2012">2012</a>; Li and Leal <a href="#ref-li2008methods">2008</a>)</span> compute a single
 genetic score from multiple genetic markers and test for association
 between this score and a phenotype of interest. A simple approach
@@ -371,8 +376,8 @@ magnitude of effect (after adjustment for the weights) which may in a
 substantial loss of power if these assumptions prove to be false
 <span class="citation">(Lee et al. <a href="#ref-lee_rare-variant_2014">2014</a>)</span>.</p>
 </div>
-<div id="sequence-kernel-association-test-skat" class="section level4 unnumbered">
-<h4>Sequence Kernel Association Test (SKAT)</h4>
+<div id="sequence-kernel-association-test-skat" class="section level4 unnumbered hasAnchor">
+<h4>Sequence Kernel Association Test (SKAT)<a href="multiloc.html#sequence-kernel-association-test-skat" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In <span class="citation">(Wu et al. <a href="#ref-wu_powerful_2010">2010</a>)</span>, the authors proposed to group SNP into sets on
 the basis of their proximity to genomic features such as genes or
 haplotype blocks and then to identify the joint effect of each set via a
@@ -426,8 +431,8 @@ distributions, which can be closely approximated with the
 computationally efficient Davies method <span class="citation">(Davies <a href="#ref-davies1980algorithm">1980</a>)</span>.</p>
 </div>
 </div>
-<div id="adjclust" class="section level3">
-<h3><span class="header-section-number">3.7.3</span> LD based approach to variable selection in GWAS</h3>
+<div id="adjclust" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.7.3</span> LD based approach to variable selection in GWAS<a href="multiloc.html#adjclust" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Region-based multi-marker analysis necessarily need that we define a
 group structure among SNP either by using the gene definition or
 biochemical pathway. However, these approaches limit the search for
@@ -469,58 +474,13 @@ corresponding to the <span class="math inline">\(g^{th}\)</span> group, so that
 </div>
 </div>
 <!-- </div> -->
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
-<div id="ref-stanislas_eigen-epistasis_2016">
-<p>Stanislas, Virginie, Cyril Dalmasso, and Christophe Ambroise. 2017. “Eigen-Epistasis for Detecting Gene-Gene Interactions.” <em>BMC Bioinformatics</em> 18 (1): 54.</p>
-</div>
-<div id="ref-yoo_multiple_2016">
-<p>Yoo, Yun Joo, Lei Sun, Julia G. Poirier, Andrew D. Paterson, and Shelley B. Bull. 2016. “Multiple Linear Combination (MLC) Regression Tests for Common Variants Adapted to Linkage Disequilibrium Structure: Yoo et Al.” <em>Genetic Epidemiology</em> 41. <a href="https://doi.org/10.1002/gepi.22024">https://doi.org/10.1002/gepi.22024</a>.</p>
-</div>
-<div id="ref-pare_contribution_2015">
-<p>ParÃ©, Guillaume, Senay Asma, and Wei Q. Deng. 2015. “Contribution of Large Region Joint Associations to Complex Traits Genetics.” <em>PLOS Genetics</em> 11. <a href="https://doi.org/10.1371/journal.pgen.1005103">https://doi.org/10.1371/journal.pgen.1005103</a>.</p>
-</div>
-<div id="ref-kwak_adaptive_2016">
-<p>Kwak, Il-Youp, and Wei Pan. 2016. “Adaptive Gene- and Pathway-Trait Association Testing with GWAS Summary Statistics.” <em>Bioinformatics</em> 32: 1178–84. <a href="https://doi.org/10.1093/bioinformatics/btv719">https://doi.org/10.1093/bioinformatics/btv719</a>.</p>
-</div>
-<div id="ref-petersen_assessing_2013">
-<p>Petersen, Ashley, Carolina Alvarez, Scott DeClaire, and Nathan L. Tintle. 2013. “Assessing Methods for Assigning SNPs to Genes in Gene-Based Tests of Association Using Common Variants.” <em>PLOS ONE</em> 8. <a href="https://doi.org/10.1371/journal.pone.0062161">https://doi.org/10.1371/journal.pone.0062161</a>.</p>
-</div>
-<div id="ref-balding2008handbook">
-<p>Balding, David J, Martin Bishop, and Chris Cannings. 2008. <em>Handbook of Statistical Genetics</em>. John Wiley &amp; Sons.</p>
-</div>
-<div id="ref-stephens2001new">
-<p>Stephens, Matthew, Nicholas J Smith, and Peter Donnelly. 2001. “A New Statistical Method for Haplotype Reconstruction from Population Data.” <em>The American Journal of Human Genetics</em> 68 (4): 978–89.</p>
-</div>
-<div id="ref-excoffier1995maximum">
-<p>Excoffier, Laurent, and Montgomery Slatkin. 1995. “Maximum-Likelihood Estimation of Molecular Haplotype Frequencies in a Diploid Population.” <em>Molecular Biology and Evolution</em> 12 (5): 921–27.</p>
-</div>
 <div id="ref-asimit_ariel_2012">
 <p>Asimit, J. L., A. G. Day-Williams, A. P. Morris, and E. Zeggini. 2012. “ARIEL and AMELIA: Testing for an Accumulation of Rare Variants Using Next-Generation Sequencing Data.” <em>Human Heredity</em> 73 (2): 84–94.</p>
 </div>
-<div id="ref-wu_rare-variant_2011">
-<p>Wu, M. C., S. Lee, T. Cai, Y. Li, M. Boehnke, and X. Lin. 2011. “Rare-Variant Association Testing for Sequencing Data with the Sequence Kernel Association Test.” <em>American Journal of Human Genetics</em> 89 (1): 82–93.</p>
-</div>
-<div id="ref-lee_optimal_2012">
-<p>Lee, S., M. C. Wu, and X. Lin. 2012. “Optimal Tests for Rare Variant Effects in Sequencing Association Studies.” <em>Biostatistics</em> 13 (4): 762–75.</p>
-</div>
-<div id="ref-li2008methods">
-<p>Li, Bingshan, and Suzanne M Leal. 2008. “Methods for Detecting Associations with Rare Variants for Common Diseases: Application to Analysis of Sequence Data.” <em>The American Journal of Human Genetics</em> 83 (3): 311–21.</p>
-</div>
-<div id="ref-morgenthaler2007strategy">
-<p>Morgenthaler, Stephan, and William G Thilly. 2007. “A Strategy to Discover Genes That Carry Multi-Allelic or Mono-Allelic Risk for Common Diseases: A Cohort Allelic Sums Test (Cast).” <em>Mutation Research/Fundamental and Molecular Mechanisms of Mutagenesis</em> 615 (1): 28–56.</p>
-</div>
-<div id="ref-madsen2009groupwise">
-<p>Madsen, Bo Eskerod, and Sharon R Browning. 2009. “A Groupwise Association Test for Rare Mutations Using a Weighted Sum Statistic.” <em>PLoS Genetics</em> 5 (2): e1000384.</p>
-</div>
-<div id="ref-lee_rare-variant_2014">
-<p>Lee, S., G. R. Abecasis, M. Boehnke, and X. Lin. 2014. “Rare-Variant Association Analysis: Study Designs and Statistical Tests.” <em>American Journal of Human Genetics</em> 95 (1): 5–23.</p>
-</div>
-<div id="ref-wu_powerful_2010">
-<p>Wu, M. C., P. Kraft, M. P. Epstein, D. M. Taylor, S. J. Chanock, D. J. Hunter, and X. Lin. 2010. “Powerful SNP-Set Analysis for Case-Control Genome-Wide Association Studies.” <em>American Journal of Human Genetics</em> 86 (6): 929–42.</p>
-</div>
-<div id="ref-lin1997variance">
-<p>Lin, Xihong. 1997. “Variance Component Testing in Generalised Linear Models with Random Effects.” <em>Biometrika</em> 84 (2): 309–26.</p>
+<div id="ref-balding2008handbook">
+<p>Balding, David J, Martin Bishop, and Chris Cannings. 2008. <em>Handbook of Statistical Genetics</em>. John Wiley &amp; Sons.</p>
 </div>
 <div id="ref-davies1980algorithm">
 <p>Davies, Robert B. 1980. “Algorithm as 155: The Distribution of a Linear Combination of <span class="math inline">\(\chi\)</span> 2 Random Variables.” <em>Journal of the Royal Statistical Society. Series C (Applied Statistics)</em> 29 (3): 323–33.</p>
@@ -530,6 +490,51 @@ corresponding to the <span class="math inline">\(g^{th}\)</span> group, so that
 </div>
 <div id="ref-dehman:tel-01288568">
 <p>Dehman, Alia. 2015b. “Spatial Clustering of Linkage Disequilibrium blocks for Genome-Wide Association Studies.” Theses, Université d’Evry Val d’Essonne ; Université Paris-Saclay ; Laboratoire de Mathématiques et Modélisation d’Evry. <a href="https://tel.archives-ouvertes.fr/tel-01288568">https://tel.archives-ouvertes.fr/tel-01288568</a>.</p>
+</div>
+<div id="ref-excoffier1995maximum">
+<p>Excoffier, Laurent, and Montgomery Slatkin. 1995. “Maximum-Likelihood Estimation of Molecular Haplotype Frequencies in a Diploid Population.” <em>Molecular Biology and Evolution</em> 12 (5): 921–27.</p>
+</div>
+<div id="ref-kwak_adaptive_2016">
+<p>Kwak, Il-Youp, and Wei Pan. 2016. “Adaptive Gene- and Pathway-Trait Association Testing with GWAS Summary Statistics.” <em>Bioinformatics</em> 32: 1178–84. <a href="https://doi.org/10.1093/bioinformatics/btv719">https://doi.org/10.1093/bioinformatics/btv719</a>.</p>
+</div>
+<div id="ref-lee_rare-variant_2014">
+<p>Lee, S., G. R. Abecasis, M. Boehnke, and X. Lin. 2014. “Rare-Variant Association Analysis: Study Designs and Statistical Tests.” <em>American Journal of Human Genetics</em> 95 (1): 5–23.</p>
+</div>
+<div id="ref-lee_optimal_2012">
+<p>Lee, S., M. C. Wu, and X. Lin. 2012. “Optimal Tests for Rare Variant Effects in Sequencing Association Studies.” <em>Biostatistics</em> 13 (4): 762–75.</p>
+</div>
+<div id="ref-li2008methods">
+<p>Li, Bingshan, and Suzanne M Leal. 2008. “Methods for Detecting Associations with Rare Variants for Common Diseases: Application to Analysis of Sequence Data.” <em>The American Journal of Human Genetics</em> 83 (3): 311–21.</p>
+</div>
+<div id="ref-lin1997variance">
+<p>Lin, Xihong. 1997. “Variance Component Testing in Generalised Linear Models with Random Effects.” <em>Biometrika</em> 84 (2): 309–26.</p>
+</div>
+<div id="ref-madsen2009groupwise">
+<p>Madsen, Bo Eskerod, and Sharon R Browning. 2009. “A Groupwise Association Test for Rare Mutations Using a Weighted Sum Statistic.” <em>PLoS Genetics</em> 5 (2): e1000384.</p>
+</div>
+<div id="ref-morgenthaler2007strategy">
+<p>Morgenthaler, Stephan, and William G Thilly. 2007. “A Strategy to Discover Genes That Carry Multi-Allelic or Mono-Allelic Risk for Common Diseases: A Cohort Allelic Sums Test (Cast).” <em>Mutation Research/Fundamental and Molecular Mechanisms of Mutagenesis</em> 615 (1): 28–56.</p>
+</div>
+<div id="ref-pare_contribution_2015">
+<p>ParÃ©, Guillaume, Senay Asma, and Wei Q. Deng. 2015. “Contribution of Large Region Joint Associations to Complex Traits Genetics.” <em>PLOS Genetics</em> 11. <a href="https://doi.org/10.1371/journal.pgen.1005103">https://doi.org/10.1371/journal.pgen.1005103</a>.</p>
+</div>
+<div id="ref-petersen_assessing_2013">
+<p>Petersen, Ashley, Carolina Alvarez, Scott DeClaire, and Nathan L. Tintle. 2013. “Assessing Methods for Assigning SNPs to Genes in Gene-Based Tests of Association Using Common Variants.” <em>PLOS ONE</em> 8. <a href="https://doi.org/10.1371/journal.pone.0062161">https://doi.org/10.1371/journal.pone.0062161</a>.</p>
+</div>
+<div id="ref-stanislas_eigen-epistasis_2016">
+<p>Stanislas, Virginie, Cyril Dalmasso, and Christophe Ambroise. 2017. “Eigen-Epistasis for Detecting Gene-Gene Interactions.” <em>BMC Bioinformatics</em> 18 (1): 54.</p>
+</div>
+<div id="ref-stephens2001new">
+<p>Stephens, Matthew, Nicholas J Smith, and Peter Donnelly. 2001. “A New Statistical Method for Haplotype Reconstruction from Population Data.” <em>The American Journal of Human Genetics</em> 68 (4): 978–89.</p>
+</div>
+<div id="ref-wu_powerful_2010">
+<p>Wu, M. C., P. Kraft, M. P. Epstein, D. M. Taylor, S. J. Chanock, D. J. Hunter, and X. Lin. 2010. “Powerful SNP-Set Analysis for Case-Control Genome-Wide Association Studies.” <em>American Journal of Human Genetics</em> 86 (6): 929–42.</p>
+</div>
+<div id="ref-wu_rare-variant_2011">
+<p>Wu, M. C., S. Lee, T. Cai, Y. Li, M. Boehnke, and X. Lin. 2011. “Rare-Variant Association Testing for Sequencing Data with the Sequence Kernel Association Test.” <em>American Journal of Human Genetics</em> 89 (1): 82–93.</p>
+</div>
+<div id="ref-yoo_multiple_2016">
+<p>Yoo, Yun Joo, Lei Sun, Julia G. Poirier, Andrew D. Paterson, and Shelley B. Bull. 2016. “Multiple Linear Combination (MLC) Regression Tests for Common Variants Adapted to Linkage Disequilibrium Structure: Yoo et Al.” <em>Genetic Epidemiology</em> 41. <a href="https://doi.org/10.1002/gepi.22024">https://doi.org/10.1002/gepi.22024</a>.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -556,12 +561,13 @@ implied in the control of gene transcription (source:
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -569,12 +575,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -586,7 +592,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -605,8 +619,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

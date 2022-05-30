@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>5.2 Learning with complementary datasets | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5.2 Learning with complementary datasets | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.2 Learning with complementary datasets | book.utf8.md />
+  <meta property="og:title" content="5.2 Learning with complementary datasets | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.2 Learning with complementary datasets | book.utf8.md />
+  <meta name="twitter:title" content="5.2 Learning with complementary datasets | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduction-3.html">
-<link rel="next" href="implementation.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="introduction-3.html"/>
+<link rel="next" href="implementation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,13 +250,13 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="modelsicomore" class="section level2">
-<h2><span class="header-section-number">5.2</span> Learning with complementary datasets</h2>
+<div id="modelsicomore" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.2</span> Learning with complementary datasets<a href="modelsicomore.html#modelsicomore" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section introduces the setting with the notations. It also sketches
 the approach to define a compact model of interactions between
 complementary datasets.</p>
-<div id="setting-and-notations" class="section level3">
-<h3><span class="header-section-number">5.2.1</span> Setting and notations</h3>
+<div id="setting-and-notations" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.2.1</span> Setting and notations<a href="modelsicomore.html#setting-and-notations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let us consider observations stemming from two complementary views,
 <span class="math inline">\(\mathit{G}\)</span> (for Genomic data) and <span class="math inline">\(\mathit{M}\)</span> (for Metagenomic data), which are
 gathered into a training set
@@ -275,8 +280,8 @@ indexed with <span class="math inline">\(i\)</span>, such as <span class="math i
 vectors of coefficients, such as <span class="math inline">\(\boldsymbol{\beta}\)</span>, will usually be column
 vectors.</p>
 </div>
-<div id="interactions-in-linear-models" class="section level3">
-<h3><span class="header-section-number">5.2.2</span> Interactions in linear models</h3>
+<div id="interactions-in-linear-models" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.2.2</span> Interactions in linear models<a href="modelsicomore.html#interactions-in-linear-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Interactions between data stemming from views <span class="math inline">\(\mathit{G}\)</span> and <span class="math inline">\(\mathit{M}\)</span> may be
 captured in the model <span class="math display">\[\label{eq:classical_interaction_model}
   y_i =   \mathbf{x}^{\mathit{G}}_i \boldsymbol{\gamma}_{\mathit{G}}   
@@ -320,8 +325,8 @@ dimension, we propose to compress the data according to an underlying
 structure which may be defined thanks to a prior knowledge or be
 uncovered with clustering algorithms.</p>
 </div>
-<div id="compressdata" class="section level3">
-<h3><span class="header-section-number">5.2.3</span> Compact model</h3>
+<div id="compressdata" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.2.3</span> Compact model<a href="modelsicomore.html#compressdata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Assuming we are given a compression function for each group of <span class="math inline">\(\mathit{G}\)</span> and
 <span class="math inline">\(\mathit{M}\)</span>, we can shape Problem  into a compact form
 <span class="math display">\[\label{eq:compact_detailled_model}  
@@ -378,8 +383,8 @@ component is given by <span class="math inline">\(\boldsymbol{\phi}^{gm}_i\)</sp
   \boldsymbol{\phi}_{i}  \boldsymbol{\theta}  +
   \epsilon_i \,,\]</span> of dimension <span class="math inline">\(N_{\mathit{G}} + N_{\mathit{M}} + N_I\)</span>.</p>
 </div>
-<div id="recoverinteractions" class="section level3">
-<h3><span class="header-section-number">5.2.4</span> Recovering relevant interactions</h3>
+<div id="recoverinteractions" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.2.4</span> Recovering relevant interactions<a href="modelsicomore.html#recoverinteractions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Compared to Problem  and provided that <span class="math inline">\(N_\mathit{G}\)</span> and <span class="math inline">\(N_\mathit{M}\)</span> are
 reasonably lower than <span class="math inline">\(D_{\mathit{G}}\)</span> and <span class="math inline">\(D_{\mathit{M}}\)</span>, the dimension of Problem 
 decreases drastically so that it might be solved thanks to an
@@ -403,22 +408,22 @@ mentioned above. We present in the next Section another way to reduce
 further the dimension and fulfil the strong dependency hypothesis.</p>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
 <div id="ref-bien2013lasso">
 <p>Bien, Jacob, Jonathan Taylor, and Robert Tibshirani. 2013. “A Lasso for Hierarchical Interactions.” <em>Annals of Statistics</em> 41 (3): 1111.</p>
+</div>
+<div id="ref-DT:IEEEIT2008">
+<p>Donoho, David L, and Yaakov Tsaig. 2008. “Fast Solution of-Norm Minimization Problems When the Solution May Be Sparse.” <em>IEEE Transactions on Information Theory</em> 54 (11): 4789–4812.</p>
+</div>
+<div id="ref-jacob2009group">
+<p>Jacob, Laurent, Guillaume Obozinski, and Jean-Philippe Vert. 2009. “Group LAsso with Overlap and Graph LAsso.” In <em>Proceedings of the 26th Annual International Conference on Machine Learning</em>, 433–40. Montreal, Quebec, Canada.</p>
 </div>
 <div id="ref-lim2015learning">
 <p>Lim, Michael, and Trevor Hastie. 2015. “Learning Interactions via Hierarchical Group-Lasso Regularization.” <em>Journal of Computational and Graphical Statistics</em> 24 (3): 627–54.</p>
 </div>
 <div id="ref-she2016group">
 <p>She, Yiyuan, Zhifeng Wang, and He Jiang. 2016. “Group Regularized Estimation Under Structural Hierarchy.” <em>Journal of the American Statistical Association</em> 113 (521): 445–54.</p>
-</div>
-<div id="ref-jacob2009group">
-<p>Jacob, Laurent, Guillaume Obozinski, and Jean-Philippe Vert. 2009. “Group LAsso with Overlap and Graph LAsso.” In <em>Proceedings of the 26th Annual International Conference on Machine Learning</em>, 433–40. Montreal, Quebec, Canada.</p>
-</div>
-<div id="ref-DT:IEEEIT2008">
-<p>Donoho, David L, and Yaakov Tsaig. 2008. “Fast Solution of-Norm Minimization Problems When the Solution May Be Sparse.” <em>IEEE Transactions on Information Theory</em> 54 (11): 4789–4812.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -440,12 +445,13 @@ direction method of multipliers is not publicly available.<a href="modelsicomore
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -453,12 +459,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -470,7 +476,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -489,8 +503,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

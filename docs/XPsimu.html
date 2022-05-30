@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>5.4 Numerical simulations | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5.4 Numerical simulations | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Numerical simulations | book.utf8.md />
+  <meta property="og:title" content="5.4 Numerical simulations | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Numerical simulations | book.utf8.md />
+  <meta name="twitter:title" content="5.4 Numerical simulations | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="implementation.html">
-<link rel="next" href="XPINRA.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="implementation.html"/>
+<link rel="next" href="XPINRA.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,18 +250,18 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="XPsimu" class="section level2">
-<h2><span class="header-section-number">5.4</span> Numerical simulations</h2>
+<div id="XPsimu" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.4</span> Numerical simulations<a href="XPsimu.html#XPsimu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We provide here numerical simulations to assess the ability of SICOMORE
 to recover relevant interactions against three other methods. We also
 show that our method is computationally competitive compared to the
 others.</p>
-<div id="data-generation" class="section level3">
-<h3><span class="header-section-number">5.4.1</span> Data generation</h3>
-<div id="generation-of-metagenomic-and-genomic-data-matrices" class="section level4 unnumbered">
-<h4>Generation of metagenomic and genomic data matrices</h4>
-<div id="genomic-data" class="section level5 unnumbered">
-<h5>Genomic data</h5>
+<div id="data-generation" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.4.1</span> Data generation<a href="XPsimu.html#data-generation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="generation-of-metagenomic-and-genomic-data-matrices" class="section level4 unnumbered hasAnchor">
+<h4>Generation of metagenomic and genomic data matrices<a href="XPsimu.html#generation-of-metagenomic-and-genomic-data-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="genomic-data" class="section level5 unnumbered hasAnchor">
+<h5>Genomic data<a href="XPsimu.html#genomic-data" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>In order to get a matrix <span class="math inline">\(\mathbf{x}^{\mathit{G}}\)</span> close to real genomic data, we used
 the software software <span class="citation">(Su, Marchini, and Donnelly <a href="#ref-su_hapgen2_2011">2011</a>)</span>. This software allows to
 simulate an entire chromosome conditionally on a reference set of
@@ -269,8 +274,8 @@ reference set and we selected <span class="math inline">\(D_\mathit{G}=200\)</sp
 obtain our simulated dataset. An example of the linkage disequilibrium
 structure among the simulated SNP is illustrated in Figure <a href="XPsimu.html#fig:X">5.2</a>(a).</p>
 </div>
-<div id="metagenomic-data" class="section level5 unnumbered">
-<h5>Metagenomic data</h5>
+<div id="metagenomic-data" class="section level5 unnumbered hasAnchor">
+<h5>Metagenomic data<a href="XPsimu.html#metagenomic-data" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>The data matrix <span class="math inline">\(\mathbf{x}^{\mathit{M}}\)</span>, with <span class="math inline">\(D_\mathit{M}=100\)</span> variables, has been
 generated using a multivariate Poisson-log normal distribution
 <span class="citation">(Aitchison and Ho <a href="#ref-aitchison1989multivariate">1989</a>)</span> with block structure dependencies.</p>
@@ -293,7 +298,7 @@ observed with metagenomic data. As stated in Section <a href="implementation.htm
 we calculated the proportions in each random variable and transformed
 them using centered log-ratios.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:X"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:X"></span>
 <img src="book_files/figure-html/X-1.png" alt="Examples of hierarchical structures}: correlations observed on (a) genomic data \(\mathbf{x}^\mathit{G}\) and (b) metagenomic data \(\mathbf{x}^\mathit{M}\)." width="100%" />
 <p class="caption">
 Figure 5.2: Examples of hierarchical structures}: correlations observed on (a) genomic data <span class="math inline">\(\mathbf{x}^\mathit{G}\)</span> and (b) metagenomic data <span class="math inline">\(\mathbf{x}^\mathit{M}\)</span>.
@@ -302,8 +307,8 @@ Figure 5.2: Examples of hierarchical structures}: correlations observed on (a) g
 </div>
 </div>
 </div>
-<div id="generation-of-the-phenotype" class="section level3">
-<h3><span class="header-section-number">5.4.2</span> Generation of the phenotype</h3>
+<div id="generation-of-the-phenotype" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.4.2</span> Generation of the phenotype<a href="XPsimu.html#generation-of-the-phenotype" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For all simulations, we used a fixed value of <span class="math inline">\(N_{\mathit{M}} = 6\)</span> groups for
 the matrix <span class="math inline">\(\mathbf{x}^{\mathit{M}}\)</span> and for the case of the matrix <span class="math inline">\(\mathbf{x}^{\mathit{G}}\)</span>, since
 we cannot exactly control the block structure with , we used the Gap
@@ -330,8 +335,8 @@ coefficients of <span class="math inline">\(\theta_{gm}\)</span> have non-zero v
 was repeated 30 times for each couple of parameters in
 <span class="math inline">\(N=\{50, 100, 200\} \times mean(\boldsymbol{\epsilon})=\{0.5, 1, 2\}\)</span>.</p>
 </div>
-<div id="comparison-of-methods" class="section level3">
-<h3><span class="header-section-number">5.4.3</span> Comparison of methods</h3>
+<div id="comparison-of-methods" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.4.3</span> Comparison of methods<a href="XPsimu.html#comparison-of-methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To evaluate the performance of our method, SICOMORE, to retrieve the
 true causal interaction, we compared it with three other methods, namely
 <strong>HCAR</strong> <span class="citation">(Park, Hastie, and Tibshirani <a href="#ref-park_averaged_2007">2007</a>)</span>, <strong>MLGL</strong> <span class="citation">(Grimonprez <a href="#ref-grimonprez_selection_2016">2016</a>)</span>
@@ -343,8 +348,8 @@ following sections, they are therefore not evaluated in the context they
 were meant to be used. Thus, the purpose of this evaluation is to know
 if SICOMORE is capable of improving the individual performance of these
 methods by combining them to detect statistical interactions.</p>
-<div id="hierarchical-clustering-and-averaging-regression-hcar" class="section level4 unnumbered">
-<h4>Hierarchical Clustering and Averaging Regression (HCAR)</h4>
+<div id="hierarchical-clustering-and-averaging-regression-hcar" class="section level4 unnumbered hasAnchor">
+<h4>Hierarchical Clustering and Averaging Regression (HCAR)<a href="XPsimu.html#hierarchical-clustering-and-averaging-regression-hcar" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This methodology can be simply adapted to our problematic by performing
 two hierarchical clustering on each data matrix <span class="math inline">\(\mathbf{x}^{\mathit{G}}\)</span> and
 <span class="math inline">\(\mathbf{x}^{\mathit{M}}\)</span> and then compute the unweighted compressed representations
@@ -356,8 +361,8 @@ possible groups. We consider that HCAR is able to retrieve a true
 causal interaction if the Lasso procedure selects the interaction term
 at the correct levels of the two hierarchies.</p>
 </div>
-<div id="multi-layer-group-lasso-mlgl" class="section level4 unnumbered">
-<h4>Multi-Layer Group-Lasso (MLGL)</h4>
+<div id="multi-layer-group-lasso-mlgl" class="section level4 unnumbered hasAnchor">
+<h4>Multi-Layer Group-Lasso (MLGL)<a href="XPsimu.html#multi-layer-group-lasso-mlgl" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The model is fitted with weights on the groups defined by the expanded
 representation of the two hierarchies as illustrated in Figure
 <a href="implementation.html#fig:hierarchy">5.1</a>(b). This method does not work on the compressed
@@ -366,8 +371,8 @@ that the method is able to retrieve real interactions if it selects the
 correct interaction terms between two groups of variables at the right
 level in both hierarchies.</p>
 </div>
-<div id="group-lasso-interaction-network-glinternet" class="section level4">
-<h4><span class="header-section-number">5.4.3.1</span> Group-Lasso interaction network (glinternet)</h4>
+<div id="group-lasso-interaction-network-glinternet" class="section level4 hasAnchor">
+<h4><span class="header-section-number">5.4.3.1</span> Group-Lasso interaction network (glinternet)<a href="XPsimu.html#group-lasso-interaction-network-glinternet" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>glinternet <span class="citation">(Lim and Hastie <a href="#ref-lim2015learning">2015</a>)</span> is a procedure that considers pairwise
 interactions in a linear model in a manner that satisfies strong
 dependencies between main and interaction effects: whenever an
@@ -418,8 +423,8 @@ interactions were fitted when evaluating the method on real data
 examples).</p>
 </div>
 </div>
-<div id="evaluation-metrics" class="section level3">
-<h3><span class="header-section-number">5.4.4</span> Evaluation metrics</h3>
+<div id="evaluation-metrics" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.4.4</span> Evaluation metrics<a href="XPsimu.html#evaluation-metrics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For each run, we evaluated the quality of the variable selection using
 Precision and Recall. More precisely, we compared the true interaction
 matrix <span class="math inline">\(\boldsymbol{\theta}\)</span> that we used to generate the phenotype with the
@@ -444,7 +449,7 @@ false negative to a non-significant <span class="math inline">\(p\)</span>-value
 interaction. An example of the interaction matrix <span class="math inline">\(\boldsymbol{\theta}\)</span> is
 given in Figure <a href="XPsimu.html#fig:ggheatheta">5.3</a> for <span class="math inline">\(I=5\)</span> blocks in interaction.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:ggheatheta"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ggheatheta"></span>
 <img src="book_files/figure-html/ggheatheta-1.png" alt="Illustration of the true interaction matrix \(\boldsymbol{\theta}\) with \(I = 5\), \(\sigma = 0.5\) and \(n=100\). Each non-zero value in this matrix is considered as a true interaction between two variables." width="90%" />
 <p class="caption">
 Figure 5.3: Illustration of the true interaction matrix <span class="math inline">\(\boldsymbol{\theta}\)</span> with <span class="math inline">\(I = 5\)</span>, <span class="math inline">\(\sigma = 0.5\)</span> and <span class="math inline">\(n=100\)</span>. Each non-zero value in this matrix is considered as a true interaction between two variables.
@@ -459,8 +464,8 @@ high-dimensional context such as with the analysis of real DNA chip
 data, we would rather use the Benjamini-Hochberg method for the control
 of the false discovery rate.</p>
 </div>
-<div id="performance-results" class="section level3">
-<h3><span class="header-section-number">5.4.5</span> Performance results</h3>
+<div id="performance-results" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.4.5</span> Performance results<a href="XPsimu.html#performance-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The performances of each method to retrieve the true causal interactions
 are illustrated in Figure <a href="XPsimu.html#fig:precisionBONF">5.5</a> for precision and
 Figure <a href="XPsimu.html#fig:recallBONF">5.6</a> for recall. For the sake of clarity we only show
@@ -488,29 +493,29 @@ Figure <a href="XPsimu.html#fig:theta2by2">5.4</a> represent the recovered confu
 interaction <span class="math inline">\(\theta_{gm}\)</span> for each compared algorithm for one particular
 set of simulation parameters (<span class="math inline">\(I = 5\)</span>, <span class="math inline">\(\sigma = 0.5\)</span>, <span class="math inline">\(n=100\)</span>).</p>
 
-<div class="figure" style="text-align: center"><span id="fig:theta2by2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:theta2by2"></span>
 <img src="book_files/figure-html/theta2by2-1.png" alt="Confusion matrices of interactions \(\theta_{gm}\) for each compared algorithm with the following simulation parameters: \(I = 5\), \(\sigma = 0.5\), \(n=100\). We can see in this example that MLGL and SICOMORE behaves similarly with very large genomic regions identified while HCAR tends to work with smaller genomic and metagenomic regions." width="100%" />
 <p class="caption">
 Figure 5.4: Confusion matrices of interactions <span class="math inline">\(\theta_{gm}\)</span> for each compared algorithm with the following simulation parameters: <span class="math inline">\(I = 5\)</span>, <span class="math inline">\(\sigma = 0.5\)</span>, <span class="math inline">\(n=100\)</span>. We can see in this example that MLGL and SICOMORE behaves similarly with very large genomic regions identified while HCAR tends to work with smaller genomic and metagenomic regions.
 </p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:precisionBONF"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:precisionBONF"></span>
 <img src="book_files/figure-html/precisionBONF-1.png" alt="Boxplots of precision for each couple of parameters \(N\) (number of examples in rows) and \(\epsilon\) (difficulty of the problem in columns) for \(I=7\)." width="100%" />
 <p class="caption">
 Figure 5.5: Boxplots of precision for each couple of parameters <span class="math inline">\(N\)</span> (number of examples in rows) and <span class="math inline">\(\epsilon\)</span> (difficulty of the problem in columns) for <span class="math inline">\(I=7\)</span>.
 </p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:recallBONF"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:recallBONF"></span>
 <img src="book_files/figure-html/recallBONF-1.png" alt="Boxplots of recall for each couple of parameters \(N\) (in rows) and \(\epsilon\) (in columns) for \(I=7\)." width="100%" />
 <p class="caption">
 Figure 5.6: Boxplots of recall for each couple of parameters <span class="math inline">\(N\)</span> (in rows) and <span class="math inline">\(\epsilon\)</span> (in columns) for <span class="math inline">\(I=7\)</span>.
 </p>
 </div>
 </div>
-<div id="computational-time" class="section level3">
-<h3><span class="header-section-number">5.4.6</span> Computational time</h3>
+<div id="computational-time" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.4.6</span> Computational time<a href="XPsimu.html#computational-time" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to decrease the calculation time in our algorithm, we chose to
 restrain the search space in the tree to a certain amount, depending on
 the number of initial features. We can choose to limit the search in the
@@ -549,22 +554,22 @@ models while SICOMORE only has to compress <span class="math inline">\(h_T-1\)</
 the final model.</p>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
-<div id="ref-su_hapgen2_2011">
-<p>Su, Z., J. Marchini, and P. Donnelly. 2011. “HAPGEN2: Simulation of Multiple Disease Snps.” <em>Bioinformatics</em> 27 (16): 2304.</p>
-</div>
 <div id="ref-aitchison1989multivariate">
 <p>Aitchison, John, and C. H. Ho. 1989. “The Multivariate Poisson-Log Normal Distribution.” <em>Biometrika</em> 76 (4): 643–53.</p>
-</div>
-<div id="ref-park_averaged_2007">
-<p>Park, Mee Young, Trevor Hastie, and Robert Tibshirani. 2007. “Averaged Gene Expressions for Regression.” <em>Biostatistics</em> 8 (2): 212–27.</p>
 </div>
 <div id="ref-grimonprez_selection_2016">
 <p>Grimonprez, Quentin. 2016. “Selection de Groupes de Variables corrÃÂ©lÃÂ©es En Grande Dimension.” PhD thesis, Université de Lille; Lille 1.</p>
 </div>
 <div id="ref-lim2015learning">
 <p>Lim, Michael, and Trevor Hastie. 2015. “Learning Interactions via Hierarchical Group-Lasso Regularization.” <em>Journal of Computational and Graphical Statistics</em> 24 (3): 627–54.</p>
+</div>
+<div id="ref-park_averaged_2007">
+<p>Park, Mee Young, Trevor Hastie, and Robert Tibshirani. 2007. “Averaged Gene Expressions for Regression.” <em>Biostatistics</em> 8 (2): 212–27.</p>
+</div>
+<div id="ref-su_hapgen2_2011">
+<p>Su, Z., J. Marchini, and P. Donnelly. 2011. “HAPGEN2: Simulation of Multiple Disease Snps.” <em>Bioinformatics</em> 27 (16): 2304.</p>
 </div>
 <div id="ref-tibshirani2012strong">
 <p>Tibshirani, Robert, Jacob Bien, Jerome Friedman, Trevor Hastie, Noah Simon, Jonathan Taylor, and Ryan J Tibshirani. 2012. “Strong Rules for Discarding Predictors in Lasso-Type Problems.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 74 (2): 245–66.</p>
@@ -580,12 +585,13 @@ the final model.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -593,12 +599,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -610,7 +616,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -629,8 +643,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

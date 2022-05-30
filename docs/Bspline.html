@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>D \(\mathit{B}\)-spline basis | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>D \(\mathit{B}\)-spline basis | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="D \(\mathit{B}\)-spline basis | book.utf8.md />
+  <meta property="og:title" content="D \(\mathit{B}\)-spline basis | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="D \(\mathit{B}\)-spline basis | book.utf8.md />
+  <meta name="twitter:title" content="D \(\mathit{B}\)-spline basis | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="lambdasmooth.html">
-<link rel="next" href="references.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="lambdasmooth.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,8 +250,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Bspline" class="section level1">
-<h1><span class="header-section-number">D</span> <span class="math inline">\(\mathit{B}\)</span>-spline basis</h1>
+<div id="Bspline" class="section level1 hasAnchor">
+<h1><span class="header-section-number">D</span> <span class="math inline">\(\mathit{B}\)</span>-spline basis<a href="Bspline.html#Bspline" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Given that the solution of the optimization problem is a natural cubic
 spline with <span class="math inline">\(n-2\)</span> interior knots, we can represent it in terms of
 <span class="math inline">\(\mathit{B}\)</span>-spline basis functions.</p>
@@ -309,19 +314,19 @@ obtained in <span class="math inline">\(O(n)\)</span> operations by first solvin
 and then using <span class="math inline">\(\hat{\mathbf{S}} = \mathbf{y} - \lambda\mathbf{Q}\boldsymbol{\gamma}\)</span>.</p>
 
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
-<div id="ref-hastie_generalized_1990">
-<p>Hastie, T. J., and R. J. Tibshirani. 1990. <em>Generalized Additive Models</em>. CRC Press.</p>
+<div id="ref-de_boor_practical_1975">
+<p>Boor, Carl de. 1975. <em>A Practical Guide to Splines</em>. Springer. Springer. <a href="http://www.springer.com/gb/book/9780387953663">http://www.springer.com/gb/book/9780387953663</a>.</p>
 </div>
 <div id="ref-eubank_nonparametric_1999">
 <p>Eubank, Randall L. 1999. <em>Nonparametric Regression and Spline Smoothing, Second Edition</em>. CRC Press.</p>
 </div>
+<div id="ref-hastie_generalized_1990">
+<p>Hastie, T. J., and R. J. Tibshirani. 1990. <em>Generalized Additive Models</em>. CRC Press.</p>
+</div>
 <div id="ref-reinsch_smoothing_1967">
 <p>Reinsch, Christian H. 1967. “Smoothing by Spline Functions.” <em>Numer. Math.</em> 10 (3): 177–83. <a href="http://dx.doi.org/10.1007/BF02162161">http://dx.doi.org/10.1007/BF02162161</a>.</p>
-</div>
-<div id="ref-de_boor_practical_1975">
-<p>Boor, Carl de. 1975. <em>A Practical Guide to Splines</em>. Springer. Springer. <a href="http://www.springer.com/gb/book/9780387953663">http://www.springer.com/gb/book/9780387953663</a>.</p>
 </div>
 </div>
             </section>
@@ -334,12 +339,13 @@ and then using <span class="math inline">\(\hat{\mathbf{S}} = \mathbf{y} - \lamb
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -347,12 +353,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -364,7 +370,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -383,8 +397,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 4 Learning the Optimal in GWAS through hierarchical SNP aggregation | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Learning the Optimal in GWAS through hierarchical SNP aggregation | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Learning the Optimal in GWAS through hierarchical SNP aggregation | book.utf8.md />
+  <meta property="og:title" content="Chapter 4 Learning the Optimal in GWAS through hierarchical SNP aggregation | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Learning the Optimal in GWAS through hierarchical SNP aggregation | book.utf8.md />
+  <meta name="twitter:title" content="Chapter 4 Learning the Optimal in GWAS through hierarchical SNP aggregation | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="multiloc.html">
-<link rel="next" href="introleos.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="multiloc.html"/>
+<link rel="next" href="introleos.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,20 +250,20 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="LEOS" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Learning the Optimal in GWAS through hierarchical SNP aggregation</h1>
-<p>The present chapter proposes a block-wise approach for GWAS analysis which leverages the LD structure among the genomic variants to reduce the number of hypothesis testing. We named this method <strong>LEOS</strong> for <strong>LE</strong>arning the <strong>O</strong>ptimal <strong>S</strong>cale in GWAS. Section <a href="introleos.html#introleos">4.1</a> introduces some related works that have been studied to develop our methodology. The method is presented in Section <a href="leosmethod.html#leosmethod">4.2</a>. In Section <a href="numsim.html#numsim">4.3</a>, we compare our method in different scenarios with the baseline approach, i.e. univariate hypothesis testing <span class="citation">(Purcell et al. <a href="#ref-purcell_2007_plink">2007</a>)</span> and with the logistic kernel machine method presented in Section <a href="multiloc.html#rare-variant">3.7.2</a> on both synthetic and real datasets from the Wellcome Trust Case Control Consortium <span class="citation">(WTCCC <a href="#ref-burton_genome-wide_2007">2007</a>)</span> and on ankylosing spondylitis data <span class="citation">(International Genetics of Ankylosing Spondylitis Consortium (IGAS) et al. <a href="#ref-IGAS_2013_identification">2013</a>)</span>. Finally, an example of an application using the generalized additive models in the context of GWAS is exposed in Section <a href="leosgam.html#leosgam">4.5</a>.</p> 
+<div id="LEOS" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 4</span> Learning the Optimal in GWAS through hierarchical SNP aggregation<a href="LEOS.html#LEOS" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The present chapter proposes a block-wise approach for GWAS analysis which leverages the LD structure among the genomic variants to reduce the number of hypothesis testing. We named this method <strong>LEOS</strong> for <strong>LE</strong>arning the <strong>O</strong>ptimal <strong>S</strong>cale in GWAS. Section <a href="introleos.html#introleos">4.1</a> introduces some related works that have been studied to develop our methodology. The method is presented in Section <a href="leosmethod.html#leosmethod">4.2</a>. In Section <a href="numsim.html#numsim">4.3</a>, we compare our method in different scenarios with the baseline approach, i.e. univariate hypothesis testing <span class="citation">(Purcell et al. <a href="#ref-purcell_2007_plink">2007</a>)</span> and with the logistic kernel machine method presented in Section <a href="multiloc.html#rare-variant">3.7.2</a> on both synthetic and real datasets from the Wellcome Trust Case Control Consortium <span class="citation">(WTCCC <a href="#ref-burton_genome-wide_2007">2007</a>)</span> and on ankylosing spondylitis data <span class="citation">(International Genetics of Ankylosing Spondylitis Consortium (IGAS) et al. <a href="#ref-IGAS_2013_identification">2013</a>)</span>. Finally, an example of an application using the generalized additive models in the context of GWAS is exposed in Section <a href="leosgam.html#leosgam">4.5</a>.</p>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
+<div id="ref-IGAS_2013_identification">
+<p>International Genetics of Ankylosing Spondylitis Consortium (IGAS), Adrian Cortes, Johanna Hadler, Jenny P. Pointon, Philip C. Robinson, and others. 2013. “Identification of Multiple Risk Variants for Ankylosing Spondylitis Through High-Density Genotyping of Immune-Related Loci.” <em>Nature Genetics</em> 45 (7): 730–38.</p>
+</div>
 <div id="ref-purcell_2007_plink">
 <p>Purcell, S., B. Neale, K. Todd-Brown, L. Thomas, M. A. R. Ferreira, D. Bender, J. Maller, et al. 2007. “PLINK: A Tool Set for Whole-Genome Association and Population-Based Linkage Analyses.” <em>The American Journal of Human Genetics</em> 81 (3): 559–75.</p>
 </div>
 <div id="ref-burton_genome-wide_2007">
 <p>WTCCC. 2007. “Genome-Wide Association Study of 14,000 Cases of Seven Common Diseases and 3,000 Shared Controls.” <em>Nature</em> 447 (7145): 661–78.</p>
-</div>
-<div id="ref-IGAS_2013_identification">
-<p>International Genetics of Ankylosing Spondylitis Consortium (IGAS), Adrian Cortes, Johanna Hadler, Jenny P. Pointon, Philip C. Robinson, and others. 2013. “Identification of Multiple Risk Variants for Ankylosing Spondylitis Through High-Density Genotyping of Immune-Related Loci.” <em>Nature Genetics</em> 45 (7): 730–38.</p>
 </div>
 </div>
             </section>
@@ -271,12 +276,13 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -284,12 +290,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -301,7 +307,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -320,8 +334,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

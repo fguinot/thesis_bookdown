@@ -16,29 +16,39 @@ $$\begin{aligned}
 & Var(\mathrm{X} + \mathrm{Y}) = Var(\mathrm{X}) + Var(\mathrm{Y}) + 2Cov(\mathrm{X},\mathrm{Y}),& \\
 & Var(\mathrm{X} - \mathrm{Y}) = Var(\mathrm{X}) + Var(\mathrm{Y}) - 2Cov(\mathrm{X},\mathrm{Y}),& \\
 & Cov(\mathrm{X},\mathrm{Y}) = 0 \text{ if $\mathrm{X}$ and $\mathrm{Y}$ are independent},& \end{aligned}$$
-and using them in we get: $$\label{eq:bias-var2}
-\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] = Var(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + Var(\hat{f}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}_\mathcal{T}[(f+\epsilon) \hat{f}].$$
+and using them in we get: 
+
+\begin{equation}
+\begin{aligned}
+\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] = Var(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + Var(\hat{f}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}_\mathcal{T}[(f+\epsilon) \hat{f}].
+\end{aligned}
+(\#eq:bias-var2)
+\end{equation}
+
 Developing the expression: $$\begin{aligned}
 2\mathbb{E}_\mathcal{T}[(f+\epsilon) \hat{f}] & = 2\mathbb{E}_\mathcal{T}(f\hat{f}) + 2\mathbb{E}_\mathcal{T}(\hat{f}\epsilon) \\
 & = 2\mathbb{E}_\mathcal{T}(f\hat{f}) + 2[\mathbb{E}_\mathcal{T}(\hat{f})\underbrace{\mathbb{E}_\mathcal{T}(\epsilon)}_{=0} + \underbrace{cov(\hat{f},\epsilon)}_{=0}] \\
 & = 2[\mathbb{E}_\mathcal{T}(f)\mathbb{E}_\mathcal{T}(\hat{f}) + Cov(f,\hat{f})],\end{aligned}$$
-and remplacing $Var(\mathrm{Y}) = Var(f) + Var(\epsilon) = Var(f) + \sigma^2$
-in , we get:
+and remplacing $Var(\mathrm{Y}) = \underbrace{Var(f)}_{=0} + Var(\epsilon) + \underbrace{2Cov(f,\epsilon)}_{=0}  = \sigma^2$
+in \@ref(eq:bias-var2), we get:
 
-$$\begin{aligned}
- \label{eq:bias-var3}
+\begin{equation}
+\begin{aligned}
 \mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] & = Var(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + Var(\hat{f}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2[\mathbb{E}_\mathcal{T}(f)\mathbb{E}_\mathcal{T}(\hat{f}) + Cov(f,\hat{f})] \\ \nonumber
-& = \underbrace{Var(f) + Var(\hat{f}) - 2Cov(f,\hat{f})}_{Var(f-\hat{f})} + \sigma^2 + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\ \nonumber
-& = Var(f-\hat{f}) + \sigma^2 + \mathbb{E}_\mathcal{T}^2(\mathrm{Y}) + \mathbb{E}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f})\end{aligned}$$
+& = Var(f) + Var(\hat{f}) - 2Cov(f,\hat{f}) + \sigma^2 + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\ \nonumber
+& = Var(\hat{f}) + \sigma^2 + \mathbb{E}_\mathcal{T}^2(\mathrm{Y}) + \mathbb{E}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f})\
+\end{aligned}
+(\#eq:bias-var3)
+\end{equation}
 
 Knowing that
 $\mathbb{E}_\mathcal{T}^2(\mathrm{Y}) = \mathbb{E}_\mathcal{T}^2(f + \epsilon) = \mathbb{E}^2(f)$
-and replacing in \[eq:bias-var3\], we finally obtain:
+and replacing in \@ref(eq:bias-var3), we finally obtain:
 
 $$\begin{aligned}
  \label{eq:bias-var4}
-\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] & = Var(f-\hat{f}) + \sigma^2 + \mathbb{E}^2(f) + \mathbb{E}_\mathcal{T}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\ \nonumber
-& = \underbrace{Var(f - \hat{f})}_{Variance} + \underbrace{[\mathbb{E}(f) - \mathbb{E}_\mathcal{T}(\hat{f})]^2}_{Bias} + \underbrace{\sigma^2}_{noise}\end{aligned}$$
+\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] & = Var(\hat{f}) + \sigma^2 + \mathbb{E}^2(f) + \mathbb{E}_\mathcal{T}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\ \nonumber
+& = \underbrace{Var(\hat{f})}_{Variance} + \underbrace{[\mathbb{E}(f) - \mathbb{E}_\mathcal{T}(\hat{f})]^2}_{Bias^2} + \underbrace{\sigma^2}_{noise}\end{aligned}$$
 
 # Linear smoother [@buja_linear_1989] {#linsmooth}
 

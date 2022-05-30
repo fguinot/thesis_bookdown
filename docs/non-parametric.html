@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>2.4 Splines and generalized additive models: Moving beyond linearit | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.4 Splines and generalized additive models: Moving beyond linearit | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.4 Splines and generalized additive models: Moving beyond linearit | book.utf8.md />
+  <meta property="og:title" content="2.4 Splines and generalized additive models: Moving beyond linearit | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.4 Splines and generalized additive models: Moving beyond linearit | book.utf8.md />
+  <meta name="twitter:title" content="2.4 Splines and generalized additive models: Moving beyond linearit | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="parametric.html">
-<link rel="next" href="combining-cluster-analysis-and-variable-selection.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="parametric.html"/>
+<link rel="next" href="combining-cluster-analysis-and-variable-selection.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,10 +250,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="non-parametric" class="section level2">
-<h2><span class="header-section-number">2.4</span> Splines and generalized additive models: Moving beyond linearit</h2>
-<div id="introduction" class="section level3">
-<h3><span class="header-section-number">2.4.1</span> Introduction</h3>
+<div id="non-parametric" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.4</span> Splines and generalized additive models: Moving beyond linearit<a href="non-parametric.html#non-parametric" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introduction" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.4.1</span> Introduction<a href="non-parametric.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>So far, we have been interested in estimating a function <span class="math inline">\(\hat{f}\)</span>
 linear in <span class="math inline">\(\mathbf{X}\)</span>, but in reality, it is unlikely to be true. Linear
 models have the advantage of being easily interpretable and the
@@ -287,10 +292,10 @@ splines are methods applied to a univariate function <span class="math inline">\
 generalized additive models extend the uses of splines and other
 non-linear functions to the multivariate case.</p>
 </div>
-<div id="splines" class="section level3">
-<h3><span class="header-section-number">2.4.2</span> Regression splines</h3>
-<div id="piecewise-polynomials-regression-splines" class="section level4 unnumbered">
-<h4>Piecewise polynomials regression splines</h4>
+<div id="splines" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.4.2</span> Regression splines<a href="non-parametric.html#splines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="piecewise-polynomials-regression-splines" class="section level4 unnumbered hasAnchor">
+<h4>Piecewise polynomials regression splines<a href="non-parametric.html#piecewise-polynomials-regression-splines" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Here the data are divided into different regions, each being defined by
 a polynomial function and separated by a sequence of knots,
 <span class="math inline">\(\xi_1, \xi_2, \dots, \xi_K\)</span> and each piece are smoothly joined at those
@@ -311,8 +316,8 @@ regression on an appropriate set of basis vectors. These vectors are the
 basis functions representing the family of piecewise cubic polynomials,
 evaluated at the observed values of the predictor <span class="math inline">\(x\)</span>.</p>
 </div>
-<div id="cubic-regression-splines" class="section level4 unnumbered">
-<h4>Cubic regression splines</h4>
+<div id="cubic-regression-splines" class="section level4 unnumbered hasAnchor">
+<h4>Cubic regression splines<a href="non-parametric.html#cubic-regression-splines" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A simple choice of basis functions for piecewise-cubic splines
 (truncated power series basis) derives from the parametric expression
 for the smooth</p>
@@ -348,8 +353,8 @@ at the three quartiles).</p>
 <p>The choice of a third-order polynomial allows the function <span class="math inline">\(s(x)\)</span> to be
 continuous at the knots.</p>
 </div>
-<div id="natural-splines" class="section level4 unnumbered">
-<h4>Natural splines</h4>
+<div id="natural-splines" class="section level4 unnumbered hasAnchor">
+<h4>Natural splines<a href="non-parametric.html#natural-splines" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A variant of polynomial splines are the natural splines: these are
 simply splines with an additional constraint that forces the function to
 be linear beyond the boundary knots. It is common to supply an
@@ -363,7 +368,7 @@ when fitting regular regression splines.</p>
 <p>Figure <a href="non-parametric.html#fig:natcubspline">2.3</a> illustrates the use of natural cubic splines
 for the construction of an interpolating smooth curve.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:natcubspline"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:natcubspline"></span>
 <img src="book_files/figure-html/natcubspline-1.png" alt="The black dashed line corresponds to the true distribution \(y = \frac{1}{1+x^2}\) and each \(n = 11\) black dots correspond to observations drawn from this distribution (with a little noise). In (A) we have represented the polynomial functions at each \(K = 11\) knots, constituting the natural cubic splines basis and (B) the truncated polynomials to construct the smoother." width="90%" />
 <p class="caption">
 Figure 2.3: The black dashed line corresponds to the true distribution <span class="math inline">\(y = \frac{1}{1+x^2}\)</span> and each <span class="math inline">\(n = 11\)</span> black dots correspond to observations drawn from this distribution (with a little noise). In (A) we have represented the polynomial functions at each <span class="math inline">\(K = 11\)</span> knots, constituting the natural cubic splines basis and (B) the truncated polynomials to construct the smoother.
@@ -371,8 +376,8 @@ Figure 2.3: The black dashed line corresponds to the true distribution <span cla
 </div>
 </div>
 </div>
-<div id="mathrmb-splines" class="section level3">
-<h3><span class="header-section-number">2.4.3</span> <span class="math inline">\(\mathrm{B}\)</span>-splines</h3>
+<div id="mathrmb-splines" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.4.3</span> <span class="math inline">\(\mathrm{B}\)</span>-splines<a href="non-parametric.html#mathrmb-splines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <span class="math inline">\(\mathrm{B}\)</span>-spline basis functions provide a numerically superior
 alternative basis to the truncated power series. Their main feature is
 that any given basis function <span class="math inline">\(\mathit{B}_k(x)\)</span> is non-zero over a span
@@ -403,15 +408,15 @@ and</p>
 for a representation of <span class="math inline">\(\mathrm{B}\)</span>-spline functions see Figure
 <a href="non-parametric.html#fig:Bspline">2.4</a>.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:Bspline"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Bspline"></span>
 <img src="book_files/figure-html/Bspline-1.png" alt="Quadratic \(\mathrm{B}\)-spline basis function representation (for \(m = 2\) and with \(K=4\) internal knots). Each \(B_k(\boldsymbol{x})\) functions are piecewise cubic and \(K+4 = 8\) of them are need to span the entire space." width="90%" />
 <p class="caption">
 Figure 2.4: <strong>Quadratic <span class="math inline">\(\mathrm{B}\)</span>-spline basis function representation</strong> (for <span class="math inline">\(m = 2\)</span> and with <span class="math inline">\(K=4\)</span> internal knots). Each <span class="math inline">\(B_k(\boldsymbol{x})\)</span> functions are piecewise cubic and <span class="math inline">\(K+4 = 8\)</span> of them are need to span the entire space.
 </p>
 </div>
 </div>
-<div id="smoothing" class="section level3">
-<h3><span class="header-section-number">2.4.4</span> Cubic smoothing splines</h3>
+<div id="smoothing" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.4.4</span> Cubic smoothing splines<a href="non-parametric.html#smoothing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This smoother is constructed as the solution to an optimization problem:
 among all function <span class="math inline">\(f(x)\)</span> with two continuous derivatives, find one that
 minimizes the penalized residual sum of squares</p>
@@ -481,15 +486,15 @@ parameter <span class="math inline">\(\lambda\)</span>, see Annexe @ref(#lambda_
 illustration of the cubic smoothing spline fit see Figure
 <a href="non-parametric.html#fig:smoothspline">2.5</a>.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:smoothspline"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:smoothspline"></span>
 <img src="book_files/figure-html/smoothspline-1.png" alt="Cubic smoothing splines with different values of the regularization parameter \(\lambda\). The black dashed line corresponds to the true distribution \(y = \frac{1}{1+x^2}\) and each black dot corresponds to observations drawn from this distribution (with a little noise). In red is represented the fit at the best value of \(\lambda\) (chosen by GCV), in blue the fit with a value of lambda close to \(0\) and in green the fit with a high value for \(\lambda\). We can see that, as \(\lambda\) increase, the fit pass from a ’wiggly’ interpolating curve (as in Figure 2.5 to a very smoothed curve, which will eventually lead to a straight line as \(\lambda\) become very large." width="90%" />
 <p class="caption">
 Figure 2.5: <strong>Cubic smoothing splines</strong> with different values of the regularization parameter <span class="math inline">\(\lambda\)</span>. The black dashed line corresponds to the true distribution <span class="math inline">\(y = \frac{1}{1+x^2}\)</span> and each black dot corresponds to observations drawn from this distribution (with a little noise). In red is represented the fit at the best value of <span class="math inline">\(\lambda\)</span> (chosen by GCV), in blue the fit with a value of lambda close to <span class="math inline">\(0\)</span> and in green the fit with a high value for <span class="math inline">\(\lambda\)</span>. We can see that, as <span class="math inline">\(\lambda\)</span> increase, the fit pass from a ’wiggly’ interpolating curve (as in Figure <a href="non-parametric.html#fig:smoothspline">2.5</a> to a very smoothed curve, which will eventually lead to a straight line as <span class="math inline">\(\lambda\)</span> become very large.
 </p>
 </div>
 </div>
-<div id="gam" class="section level3">
-<h3><span class="header-section-number">2.4.5</span> Generalized additive models (GAM)</h3>
+<div id="gam" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.4.5</span> Generalized additive models (GAM)<a href="non-parametric.html#gam" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A generalized additive model <span class="citation">(Hastie and Tibshirani <a href="#ref-hastie_generalized_1990">1990</a>)</span> is a generalized
 linear model with a linear predictor involving a sum of smooth functions
 of <span class="math inline">\(D\)</span> covariates.</p>
@@ -511,8 +516,8 @@ described in Section <a href="non-parametric.html#smoothing">2.4.4</a> and the g
 fitted with several methods such as backfitting or P-IRLS
 (Penalized-Iteratively Reweighted Least Squares)
 <span class="citation">(Hastie and Tibshirani <a href="#ref-hastie_generalized_1990">1990</a>)</span>.</p>
-<div id="fitting-gams-by-backfitting" class="section level4 unnumbered">
-<h4>Fitting GAMs by backfitting</h4>
+<div id="fitting-gams-by-backfitting" class="section level4 unnumbered hasAnchor">
+<h4>Fitting GAMs by backfitting<a href="non-parametric.html#fitting-gams-by-backfitting" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Backfitting is a simple procedure to fit generalized additive models
 which allow to use a large range of smooth function to represent the
 non-linear part of the model. Each smooth component is estimate by
@@ -529,8 +534,8 @@ Algorithm 1.</p>
 <p><img src="book_files/figure-html/algo_backfitting-1.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="hgam" class="section level3">
-<h3><span class="header-section-number">2.4.6</span> High-dimensional generalized additive models (HGAM)</h3>
+<div id="hgam" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.4.6</span> High-dimensional generalized additive models (HGAM)<a href="non-parametric.html#hgam" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We consider an additive regression models in an high-dimensional setting
 with a continuous response <span class="math inline">\(\mathbf{y} \in \mathbb{R}^n\)</span> and <span class="math inline">\(D \gg n\)</span>
 covariates <span class="math inline">\(\boldsymbol{x}_1, \dots, \boldsymbol{x}_D \in \mathbb{R}^D\)</span> connected through
@@ -541,8 +546,8 @@ the model</p>
 <span class="math inline">\(s_d : \mathbb{R} \rightarrow \mathbb{R}\)</span> are smooth univariate
 functions. For identification purposes, we assume that all <span class="math inline">\(s_d\)</span> are
 centered to have zero mean.</p>
-<div id="sparsity-smoothness-penalty" class="section level4 unnumbered">
-<h4>Sparsity-smoothness penalty</h4>
+<div id="sparsity-smoothness-penalty" class="section level4 unnumbered hasAnchor">
+<h4>Sparsity-smoothness penalty<a href="non-parametric.html#sparsity-smoothness-penalty" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In order to get sparse and sufficiently smooth function estimates,
 <span class="citation">(Meier, Geer, and Buhlmann <a href="#ref-meier_high-dimensional_2009">2009</a>)</span>, proposed the sparsity-smoothness penalty</p>
 <p><span class="math display">\[J(s_d) = \lambda_1\sqrt{||s_d||^2_n + \lambda_2\int[s&#39;&#39;_d(\boldsymbol{x}_d)]^2d\boldsymbol{x}}.\]</span></p>
@@ -553,8 +558,8 @@ penalized least squares problem:</p>
 where <span class="math inline">\(\mathcal{F}\)</span> is a suitable class of functions and the same level
 of regularity for each function <span class="math inline">\(s_d\)</span> is assumed.</p>
 </div>
-<div id="computational-algorithm" class="section level4 unnumbered">
-<h4>Computational algorithm</h4>
+<div id="computational-algorithm" class="section level4 unnumbered hasAnchor">
+<h4>Computational algorithm<a href="non-parametric.html#computational-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For each functions <span class="math inline">\(s_d\)</span> we can use a cubic <span class="math inline">\(\mathrm{B}\)</span>-spline
 parametrization with <span class="math inline">\(K\)</span> interior knots placed at the empirical quantile
 of <span class="math inline">\(\boldsymbol{x}_d\)</span>. <span class="math display">\[s_d(\boldsymbol{x}) = \sum_{k=1}^K\beta_{dk}b_{dk}(\boldsymbol{x}_d),\]</span> where
@@ -596,19 +601,16 @@ properties.</p>
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
 <div id="ref-de_boor_practical_1975">
 <p>Boor, Carl de. 1975. <em>A Practical Guide to Splines</em>. Springer. Springer. <a href="http://www.springer.com/gb/book/9780387953663">http://www.springer.com/gb/book/9780387953663</a>.</p>
 </div>
-<div id="ref-reinsch_smoothing_1967">
-<p>Reinsch, Christian H. 1967. “Smoothing by Spline Functions.” <em>Numer. Math.</em> 10 (3): 177–83. <a href="http://dx.doi.org/10.1007/BF02162161">http://dx.doi.org/10.1007/BF02162161</a>.</p>
+<div id="ref-buja_linear_1989">
+<p>Buja, Andreas, Trevor Hastie, and Robert Tibshirani. 1989. “Linear Smoothers and Additive Models.” <em>The Annals of Statistics</em> 17 (2): 453–510. <a href="http://www.jstor.org/stable/2241560">http://www.jstor.org/stable/2241560</a>.</p>
 </div>
 <div id="ref-gu_smoothing_2002">
 <p>Gu, Chong. 2002. <em>Smoothing Spline ANOVA Models</em>. Springer Series in Statistics. New York, NY: Springer New York. <a href="http://link.springer.com/10.1007/978-1-4757-3683-0">http://link.springer.com/10.1007/978-1-4757-3683-0</a>.</p>
-</div>
-<div id="ref-buja_linear_1989">
-<p>Buja, Andreas, Trevor Hastie, and Robert Tibshirani. 1989. “Linear Smoothers and Additive Models.” <em>The Annals of Statistics</em> 17 (2): 453–510. <a href="http://www.jstor.org/stable/2241560">http://www.jstor.org/stable/2241560</a>.</p>
 </div>
 <div id="ref-hastie_generalized_1990">
 <p>Hastie, T. J., and R. J. Tibshirani. 1990. <em>Generalized Additive Models</em>. CRC Press.</p>
@@ -618,6 +620,9 @@ properties.</p>
 </div>
 <div id="ref-meier_group_2008">
 <p>Meier, Lukas, Sara Van De Geer, and Peter Buhlmann. 2008. “The Group Lasso for Logistic Regression.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 70 (1): 53–71. <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1467-9868.2007.00627.x/abstract">http://onlinelibrary.wiley.com/doi/10.1111/j.1467-9868.2007.00627.x/abstract</a>.</p>
+</div>
+<div id="ref-reinsch_smoothing_1967">
+<p>Reinsch, Christian H. 1967. “Smoothing by Spline Functions.” <em>Numer. Math.</em> 10 (3): 177–83. <a href="http://dx.doi.org/10.1007/BF02162161">http://dx.doi.org/10.1007/BF02162161</a>.</p>
 </div>
 <div id="ref-yuan_model_2006">
 <p>Yuan, Ming, and Yi Lin. 2006. “Model Selection and Estimation in Regression with Grouped Variables.” <em>JOURNAL OF THE ROYAL STATISTICAL SOCIETY, SERIES B</em> 68: 49–67.</p>
@@ -633,12 +638,13 @@ properties.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -646,12 +652,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -663,7 +669,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -682,8 +696,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

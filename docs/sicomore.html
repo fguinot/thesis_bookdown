@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 5 Selection of interaction effects in compressed multiple omics representation | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Selection of interaction effects in compressed multiple omics representation | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Selection of interaction effects in compressed multiple omics representation | book.utf8.md />
+  <meta property="og:title" content="Chapter 5 Selection of interaction effects in compressed multiple omics representation | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Selection of interaction effects in compressed multiple omics representation | book.utf8.md />
+  <meta name="twitter:title" content="Chapter 5 Selection of interaction effects in compressed multiple omics representation | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="discussions.html">
-<link rel="next" href="introduction-3.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="discussions.html"/>
+<link rel="next" href="introduction-3.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,14 +250,14 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sicomore" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Selection of interaction effects in compressed multiple omics representation</h1>
+<div id="sicomore" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 5</span> Selection of interaction effects in compressed multiple omics representation<a href="sicomore.html#sicomore" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This chapter is organized as follows. Section <a href="modelsicomore.html#modelsicomore">5.2</a>
 introduces the setting related to linear models of interactions and
 proposes a framework to learn with complementary
 datasets. Section <a href="implementation.html#implementation">5.3</a> describes the method, entitled <strong>SICOMORE</strong> for <strong>S</strong>election of <strong>I</strong>nteraction effects in <strong>CO</strong>mpressed <strong>M</strong>ultiple <strong>O</strong>mics <strong>RE</strong>presentation,
 which combines hierarchical clustering, data compression, variable selection with a lasso procedure and model testing for recovering relevant interactions.
-Our approach is illustrated with numerical simulations in Section <a href="XPsimu.html#XPsimu">5.4</a> and with an application to study the interactions between the genome of the species <em>Medicago truncatula</em> and the microbial community of its rhizosphere in Section <a href="XPINRA.html#XPINRA">5.5</a>.</p> 
+Our approach is illustrated with numerical simulations in Section <a href="XPsimu.html#XPsimu">5.4</a> and with an application to study the interactions between the genome of the species <em>Medicago truncatula</em> and the microbial community of its rhizosphere in Section <a href="XPINRA.html#XPINRA">5.5</a>.</p>
 </div>
             </section>
 
@@ -264,12 +269,13 @@ Our approach is illustrated with numerical simulations in Section <a href="XPsim
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -277,12 +283,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -294,7 +300,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -313,8 +327,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

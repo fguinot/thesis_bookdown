@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>2.6 Statistical testing of significance | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.6 Statistical testing of significance | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.6 Statistical testing of significance | book.utf8.md />
+  <meta property="og:title" content="2.6 Statistical testing of significance | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.6 Statistical testing of significance | book.utf8.md />
+  <meta name="twitter:title" content="2.6 Statistical testing of significance | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="combining-cluster-analysis-and-variable-selection.html">
-<link rel="next" href="asso.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="combining-cluster-analysis-and-variable-selection.html"/>
+<link rel="next" href="asso.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,10 +250,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hypothesis" class="section level2">
-<h2><span class="header-section-number">2.6</span> Statistical testing of significance</h2>
-<div id="introduction-1" class="section level3">
-<h3><span class="header-section-number">2.6.1</span> Introduction</h3>
+<div id="hypothesis" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.6</span> Statistical testing of significance<a href="hypothesis.html#hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introduction-1" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.6.1</span> Introduction<a href="hypothesis.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In statistical hypothesis testing, statistical significance refers to
 the acceptance or reject of the null hypothesis and corresponds to the
 likelihood that the difference between a given variation and the
@@ -299,25 +304,25 @@ cut-off was later taken over by Jezzy Neyman and Egon Pearson in
 <caption><span id="tab:confusion">Table 2.1: </span>Confusion matrix</caption>
 <tbody>
 <tr class="odd">
-<td></td>
+<td align="left"></td>
 <td align="left"><span class="math inline">\(H_0\)</span> true</td>
 <td align="left"><span class="math inline">\(H_1\)</span> true</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(H_0\)</span> accepted</td>
+<td align="left"><span class="math inline">\(H_0\)</span> accepted</td>
 <td align="left">True Positive</td>
 <td align="left">False Positive</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(H_1\)</span> accepted</td>
+<td align="left"><span class="math inline">\(H_1\)</span> accepted</td>
 <td align="left">False Negative</td>
 <td align="left">True Negative</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="chi2" class="section level3">
-<h3><span class="header-section-number">2.6.2</span> <span class="math inline">\(\chi^2\)</span> test</h3>
+<div id="chi2" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.6.2</span> <span class="math inline">\(\chi^2\)</span> test<a href="hypothesis.html#chi2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The chi-squared test, also written as <span class="math inline">\(\chi^2\)</span> test, is a statistical
 hypothesis test developed by Karl Pearson and first published in
 <span class="citation">(Pearson <a href="#ref-pearson1900on">1900</a>)</span>. It is used when the sampling distribution of the test
@@ -338,8 +343,8 @@ distribution arise from an assumption of independent normally
 distributed data, which is valid in many cases due to the central limit
 theorem.</p>
 </div>
-<div id="LRT" class="section level3">
-<h3><span class="header-section-number">2.6.3</span> Likelihood ratio test</h3>
+<div id="LRT" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.6.3</span> Likelihood ratio test<a href="hypothesis.html#LRT" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The likelihood ratio test is used for comparing the goodness of fit of
 two statistical models, a null model against an alternative model. The
 log-likelihood ratio statistic is generally used to compute a <em>p</em>-value
@@ -358,8 +363,8 @@ T &amp; = -2 \log \left( \frac{l(\theta_0 | \boldsymbol{x})}{l(\theta_1 | \bolds
 the likelihood ratio test is the most powerful test at a significance
 level <span class="math inline">\(\alpha\)</span>.</p>
 </div>
-<div id="pvalGAM" class="section level3">
-<h3><span class="header-section-number">2.6.4</span> Calculation of <em>p</em>-values in GAM</h3>
+<div id="pvalGAM" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.6.4</span> Calculation of <em>p</em>-values in GAM<a href="hypothesis.html#pvalGAM" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let <span class="math inline">\(\boldsymbol{\beta}^j \in \mathbb{R}^K\)</span> be the coefficients vector of the <span class="math inline">\(k\)</span>
 covariates for a single smooth term <span class="math inline">\(j\)</span> and <span class="math inline">\(\mathbf{V}_{\boldsymbol{\beta}_j}\)</span> the
 covariance matrix of <span class="math inline">\(\boldsymbol{\beta}_j\)</span>. In the context of generalized additive
@@ -390,8 +395,8 @@ that case, to obtain more accurate <em>p</em>-values, it may be preferable to
 perform test on overspecified unpenalized models even if it induces a
 cost in terms of statistical power.</p>
 </div>
-<div id="multiple" class="section level3">
-<h3><span class="header-section-number">2.6.5</span> Multiple testing comparison</h3>
+<div id="multiple" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.6.5</span> Multiple testing comparison<a href="hypothesis.html#multiple" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In some context, as it is the case with the analysis of genes expression
 data or in Genome-Wide Association Studies (GWASs) for instance, we may
 need to perform simultaneously a very large number, <span class="math inline">\(d \in [1,\dots,D]\)</span>,
@@ -409,8 +414,8 @@ average 500 false positives. It is therefore necessary to adjust the
 threshold <span class="math inline">\(u_{\alpha}\)</span> at which we reject the null hypothesis in order
 to control for the number of false positives while not losing too much
 power.</p>
-<div id="controlling-the-family-wise-error-rate" class="section level4 unnumbered">
-<h4>Controlling the Family-Wise Error Rate</h4>
+<div id="controlling-the-family-wise-error-rate" class="section level4 unnumbered hasAnchor">
+<h4>Controlling the Family-Wise Error Rate<a href="hypothesis.html#controlling-the-family-wise-error-rate" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>There exist many adjustments methods for multiple testing, including
 controls of the Family-Wise Error Rate (FWER), i.e. the probability of
 rejecting <span class="math inline">\(H_0\)</span> when it is true at least one time, noted as
@@ -447,8 +452,8 @@ tends to be very conservative in the sense that the number of type II
 error is increased resulting in a loss of power. That is why less
 conservative methods are preferred in high-dimensional settings.</p>
 </div>
-<div id="BH" class="section level4 unnumbered">
-<h4>Controlling the False Discovery Rate</h4>
+<div id="BH" class="section level4 unnumbered hasAnchor">
+<h4>Controlling the False Discovery Rate<a href="hypothesis.html#BH" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The False Discovery Proportion (FDP) corresponds to the proportion of
 false positives among the positive FP/(FP+TP). The False Discovery Rate,
 introduced in the seminal paper of <span class="citation">(BH, Benjamini and Hochberg <a href="#ref-benjamini_controlling_1995">1995</a>)</span>, is
@@ -482,10 +487,19 @@ and references therein for more details).</p>
 </div>
 </div>
 <!-- </div> -->
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
+<div id="ref-benjamini_controlling_1995">
+<p>Benjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” <em>Journal of the Royal Statistical Society: Series B</em> 57 (1): 289–300.</p>
+</div>
+<div id="ref-bonferroni1936teoria">
+<p>Bonferroni, C. 1936. “Teoria Statistica Delle Classi E Calcolo Delle Probabilita.” <em>Pubblicazioni Del R Istituto Superiore Di Scienze Economiche E Commericiali Di Firenze</em> 8: 3–62.</p>
+</div>
 <div id="ref-fisher1935statistical">
 <p>Fisher, Ronald A. 1935. “Statistical Methods for Research Workers.” <em>Edinburgh: Oliver and Boyd, 1934 and the Logic of Inductive Interence; Royal Statistical Society</em> 98: S–39.</p>
+</div>
+<div id="ref-holm1979simple">
+<p>Holm, Sture. 1979a. “A Simple Sequentially Rejective Multiple Test Procedure.” <em>Scandinavian Journal of Statistics</em>, 65–70.</p>
 </div>
 <div id="ref-neyman1933testing">
 <p>Neyman, Jerzy, and Egon S Pearson. 1933. “The Testing of Statistical Hypotheses in Relation to Probabilities a Priori.” In <em>Mathematical Proceedings of the Cambridge Philosophical Society</em>, 29:492–510. Cambridge University Press.</p>
@@ -493,23 +507,14 @@ and references therein for more details).</p>
 <div id="ref-pearson1900on">
 <p>Pearson, Karl. 1900. “On the Criterion That a Given System of Deviations from the Probable in the Case of a Correlated System of Variables Is Such That It Can Be Reasonably Supposed to Have Arisen from Random Sampling.” <em>The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science</em> 50 (302): 157–75.</p>
 </div>
-<div id="ref-wood_generalized_2006">
-<p>Wood, Simon N. 2006. <em>Generalized Additive Models: An Introduction with R</em>. crcpress. <a href="https://www.crcpress.com/Generalized-Additive-Models-An-Introduction-with-R/Wood/p/book/9781584884743">https://www.crcpress.com/Generalized-Additive-Models-An-Introduction-with-R/Wood/p/book/9781584884743</a>.</p>
-</div>
-<div id="ref-bonferroni1936teoria">
-<p>Bonferroni, C. 1936. “Teoria Statistica Delle Classi E Calcolo Delle Probabilita.” <em>Pubblicazioni Del R Istituto Superiore Di Scienze Economiche E Commericiali Di Firenze</em> 8: 3–62.</p>
+<div id="ref-roquain2010type">
+<p>Roquain, Etienne. 2010. “Type I Error Rate Control for Testing Many Hypotheses: A Survey with Proofs.” <em>arXiv Preprint arXiv:1012.4078</em>.</p>
 </div>
 <div id="ref-sidak1967rectangular">
 <p>Šidák, Zbyněk. 1967. “Rectangular Confidence Regions for the Means of Multivariate Normal Distributions.” <em>Journal of the American Statistical Association</em> 62 (318): 626–33.</p>
 </div>
-<div id="ref-holm1979simple">
-<p>Holm, Sture. 1979a. “A Simple Sequentially Rejective Multiple Test Procedure.” <em>Scandinavian Journal of Statistics</em>, 65–70.</p>
-</div>
-<div id="ref-benjamini_controlling_1995">
-<p>Benjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” <em>Journal of the Royal Statistical Society: Series B</em> 57 (1): 289–300.</p>
-</div>
-<div id="ref-roquain2010type">
-<p>Roquain, Etienne. 2010. “Type I Error Rate Control for Testing Many Hypotheses: A Survey with Proofs.” <em>arXiv Preprint arXiv:1012.4078</em>.</p>
+<div id="ref-wood_generalized_2006">
+<p>Wood, Simon N. 2006. <em>Generalized Additive Models: An Introduction with R</em>. crcpress. <a href="https://www.crcpress.com/Generalized-Additive-Models-An-Introduction-with-R/Wood/p/book/9781584884743">https://www.crcpress.com/Generalized-Additive-Models-An-Introduction-with-R/Wood/p/book/9781584884743</a>.</p>
 </div>
 </div>
             </section>
@@ -522,12 +527,13 @@ and references therein for more details).</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -535,12 +541,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -552,7 +558,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -571,8 +585,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>4.2 Method | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4.2 Method | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.2 Method | book.utf8.md />
+  <meta property="og:title" content="4.2 Method | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.2 Method | book.utf8.md />
+  <meta name="twitter:title" content="4.2 Method | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introleos.html">
-<link rel="next" href="numsim.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="introleos.html"/>
+<link rel="next" href="numsim.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,8 +250,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="leosmethod" class="section level2">
-<h2><span class="header-section-number">4.2</span> Method</h2>
+<div id="leosmethod" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.2</span> Method<a href="leosmethod.html#leosmethod" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this section we describe a new method for performing GWAS using a
 four-step method that combines unsupervised and supervised learning
 techniques. This method improves the detection power of genomic regions
@@ -272,8 +277,8 @@ associations with a disease phenotype <span class="math inline">\(\mathbf{y}\)</
 <p>We entitled this method <strong>LEOS</strong> for <strong>LE</strong>arning the <strong>O</strong>ptimale
 <strong>S</strong>cale in GWAS, implemented in a web server too available at
 <a href="http://stat.genopole.cnrs.fr/leos" class="uri">http://stat.genopole.cnrs.fr/leos</a>.</p>
-<div id="CHAC" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> Step 1. Constrained-HAC</h3>
+<div id="CHAC" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.1</span> Step 1. Constrained-HAC<a href="leosmethod.html#CHAC" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To take into account the structure of the genome in haplotype blocks, we
 group the predictors (SNP) according to their LD in order to create a
 new predictor matrix which reflects the structure of the genome. We use
@@ -303,8 +308,8 @@ hierarchical clustering. The main features of this algorithm are the
 constant-time calculation of each of the Ward’s linkage involved in the
 spatially-constrained HAC and the storage of the candidate merges in a
 min-heap.</p>
-<div id="wards-linkage-as-a-function-of-pre-calculated-sums." class="section level4">
-<h4><span class="header-section-number">4.2.1.1</span> Ward’s linkage as a function of pre-calculated sums.</h4>
+<div id="wards-linkage-as-a-function-of-pre-calculated-sums." class="section level4 hasAnchor">
+<h4><span class="header-section-number">4.2.1.1</span> Ward’s linkage as a function of pre-calculated sums.<a href="leosmethod.html#wards-linkage-as-a-function-of-pre-calculated-sums." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To decrease the complexity in the calculation of each of the Ward’s
 linkage, the trick is to note the sum of all similarities in any cluster
 <span class="math inline">\(K=\{u, \dots , v-1\}\)</span> of size <span class="math inline">\(k = v-u\)</span> as a sum of elements in the
@@ -316,7 +321,7 @@ block of <span class="math inline">\(S\)</span> as
 symmetrically, <span class="math inline">\(\bar{P}(r, l) = P(p+1-r, l)\)</span>. Because <span class="math inline">\(P\)</span> and <span class="math inline">\(\bar{P}\)</span>
 are sums of elements in pencil-shaped areas, they are called <em>forward pencil</em> and <em>backward pencil</em>, as illustrated in Figure <a href="leosmethod.html#fig:penciltrick">4.1</a>.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:penciltrick"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:penciltrick"></span>
 <img src="book_files/figure-html/penciltrick-1.png" alt="Example of forward pencils (in yellow and green) and backward pencils (in green and blue), and illustration of Equation (4.1) for cluster \(K=\{u, \dots , v-1\}\). Left: cluster smaller than bandwidth (\(k \leq h\)); right: cluster larger than bandwidth \(k \geq h\)." width="90%" />
 <p class="caption">
 Figure 4.1: Example of forward pencils (in yellow and green) and backward pencils (in green and blue), and illustration of Equation <a href="leosmethod.html#eq:pencilsums">(4.1)</a> for cluster <span class="math inline">\(K=\{u, \dots , v-1\}\)</span>. Left: cluster smaller than bandwidth (<span class="math inline">\(k \leq h\)</span>); right: cluster larger than bandwidth <span class="math inline">\(k \geq h\)</span>.
@@ -338,8 +343,8 @@ pencils to calculate and stored is less than <span class="math inline">\(2ph\)</
 pencils recursively using cumulative sums, the time complexity of the
 pre-calculation step is <span class="math inline">\(ph\)</span> (see proof in <span class="citation">(Alia Dehman <a href="#ref-dehman2015spatial">2015</a><a href="#ref-dehman2015spatial">a</a>)</span>).</p>
 </div>
-<div id="storing-candidate-fusions-in-a-min-heap." class="section level4">
-<h4><span class="header-section-number">4.2.1.2</span> Storing candidate fusions in a min-heap.</h4>
+<div id="storing-candidate-fusions-in-a-min-heap." class="section level4 hasAnchor">
+<h4><span class="header-section-number">4.2.1.2</span> Storing candidate fusions in a min-heap.<a href="leosmethod.html#storing-candidate-fusions-in-a-min-heap." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Each iteration <span class="math inline">\(i\)</span> of the hierarchical agglomerative clustering
 (Algorithm 1, Section <a href="combining-cluster-analysis-and-variable-selection.html#CAH">2.5.1</a>, consists in finding the
 minimum of <span class="math inline">\(D-i\)</span> elements, corresponding to the candidate fusions
@@ -376,8 +381,8 @@ simulations <a href="numsim.html#perfeval">4.3.2</a> and real data application (
 that higher values had no impact on the performance of the method.</p>
 </div>
 </div>
-<div id="Dstar" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Step 2. Dimension reduction function</h3>
+<div id="Dstar" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.2</span> Step 2. Dimension reduction function<a href="leosmethod.html#Dstar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One way of addressing issues related to high-dimensional statistics (and
 in particular the multiple testing burden that we mentioned in Section
 <a href="hypothesis.html#multiple">2.6.5</a>) is to reduce the dimensionality of the predictor
@@ -407,15 +412,15 @@ effect of group size by centering and scaling the matrix <span class="math inlin
 to unit variance. In the remainder of the paper we will refer to the
 covariates in <span class="math inline">\(\tilde{\mathbf{X}}\)</span> as <em>aggregated-SNP</em> variables.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:step2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:step2"></span>
 <img src="book_files/figure-html/step2-1.png" alt="Schematic view of Step 2 of the algorithm to calculate the matrix of predictors \(\tilde{\mathbf{X}}^s\) at a given level \(s\) of the hierarchy." width="100%" />
 <p class="caption">
 Figure 4.2: Schematic view of Step 2 of the algorithm to calculate the matrix of predictors <span class="math inline">\(\tilde{\mathbf{X}}^s\)</span> at a given level <span class="math inline">\(s\)</span> of the hierarchy.
 </p>
 </div>
 </div>
-<div id="cutree" class="section level3">
-<h3><span class="header-section-number">4.2.3</span> Step 3. Optimal number of groups estimation</h3>
+<div id="cutree" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.3</span> Step 3. Optimal number of groups estimation<a href="leosmethod.html#cutree" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Estimating the optimal number of groups to select, i.e. the level at
 which the hierarchical clustering tree should be cut, is a fundamental
 matter which impacts the relevance of the association analysis. As we
@@ -464,8 +469,8 @@ prediction accuracy criterion.</p></li>
 apply the function to each selected group and construct the matrix
 <span class="math inline">\(\tilde{\mathbf{X}}^{(s^*)}\)</span>.</p>
 </div>
-<div id="step4" class="section level3">
-<h3><span class="header-section-number">4.2.4</span> Step 4. Multiple testing on aggregated-SNP variables</h3>
+<div id="step4" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.4</span> Step 4. Multiple testing on aggregated-SNP variables<a href="leosmethod.html#step4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here we use a standard Single Marker Analysis, has described in Section
 <a href="SMA.html#SMA">3.4</a>, to find associations with the phenotype, but instead of
 calculating <span class="math inline">\(p\)</span>-value for each SNP in <span class="math inline">\(\mathbf{Z}\)</span>, we calculate <span class="math inline">\(p\)</span>-value for
@@ -484,22 +489,22 @@ use the Benjamini-Hochberg procedure described in Section <a href="hypothesis.ht
 adjust the significance threshold.</p>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
+<div id="ref-bousquet_stability_2002">
+<p>Bousquet, O., and A. Elisseeff. 2002. “Stability and Generalization.” <em>Journal of Machine Learning Research</em> 2: 499–526.</p>
+</div>
 <div id="ref-dehman_performance_2015">
 <p>Dehman, A., C. Ambroise, and P. Neuvial. 2015. “Performance of a Blockwise Approach in Variable Selection Using Linkage Disequilibrium Information.” <em>BMC Bioinformatics</em> 16: 148.</p>
-</div>
-<div id="ref-grimm1987coniss">
-<p>Grimm, Eric C. 1987. “CONISS: A Fortran 77 Program for Stratigraphically Constrained Cluster Analysis by the Method of Incremental Sum of Squares.” <em>Computers &amp; Geosciences</em> 13 (1): 13–35.</p>
 </div>
 <div id="ref-dehman2015spatial">
 <p>Dehman, Alia. 2015a. “Spatial Clustering of Linkage Disequilibrium Blocks for Genome-Wide Association Studies.” PhD thesis, Université d’Evry Val d’Essonne; Université Paris-Saclay; Laboratoire de Mathématiques et Modélisation d’Evry.</p>
 </div>
+<div id="ref-grimm1987coniss">
+<p>Grimm, Eric C. 1987. “CONISS: A Fortran 77 Program for Stratigraphically Constrained Cluster Analysis by the Method of Incremental Sum of Squares.” <em>Computers &amp; Geosciences</em> 13 (1): 13–35.</p>
+</div>
 <div id="ref-williams1964algorithm">
 <p>Williams, J. W. J. 1964. “Algorithm 232: Heapsort.” <em>Communications of the ACM</em> 7 (6): 347â348.</p>
-</div>
-<div id="ref-bousquet_stability_2002">
-<p>Bousquet, O., and A. Elisseeff. 2002. “Stability and Generalization.” <em>Journal of Machine Learning Research</em> 2: 499–526.</p>
 </div>
 </div>
             </section>
@@ -512,12 +517,13 @@ adjust the significance threshold.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -525,12 +531,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -542,7 +548,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -561,8 +575,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

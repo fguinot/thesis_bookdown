@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>3.2 Genotype quality control | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.2 Genotype quality control | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.2 Genotype quality control | book.utf8.md />
+  <meta property="og:title" content="3.2 Genotype quality control | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.2 Genotype quality control | book.utf8.md />
+  <meta name="twitter:title" content="3.2 Genotype quality control | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduction-2.html">
-<link rel="next" href="OR.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="introduction-2.html"/>
+<link rel="next" href="OR.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,8 +250,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="genoquality" class="section level2">
-<h2><span class="header-section-number">3.2</span> Genotype quality control</h2>
+<div id="genoquality" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.2</span> Genotype quality control<a href="genoquality.html#genoquality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In GWAS, the data filtering step used to identify genotyping mistakes is
 of primary importance since it can determine whether real discoveries
 are made or just false positives wrongly interpreted. With such large
@@ -263,8 +268,8 @@ in the presence of rare alleles
 <span class="citation">(Clayton et al. <a href="#ref-clayton2005population">2005</a>; Barrett and Cardon <a href="#ref-barrett2006evaluating">2006</a>)</span>. The following
 paragraphs describe some of the filtering procedures designed to
 identify issues on specific SNP.</p>
-<div id="deviation-from-hwe." class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Deviation from HWE.</h3>
+<div id="deviation-from-hwe." class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.2.1</span> Deviation from HWE.<a href="genoquality.html#deviation-from-hwe." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Neutral genetic variants in a large random-mating population are
 expected to display Hardy–Weinberg Equilibrium (see Section
 <a href="basic-concepts-in-population-genetics.html#HWE">1.5.1</a>). However, observed frequencies might be modified by
@@ -283,8 +288,8 @@ important deviations by setting an extreme significance threshold such
 as <span class="math inline">\(1.10^{-7}\)</span> or less, and using exact tests for rare alleles
 <span class="citation">(Weir et al. <a href="#ref-weir2005measures">2005</a>)</span>.</p>
 </div>
-<div id="missing-data." class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Missing data.</h3>
+<div id="missing-data." class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.2.2</span> Missing data.<a href="genoquality.html#missing-data." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In case-control studies, markers having large differences in missing
 data rates between cases and controls often yield false positives
 <span class="citation">(Clayton et al. <a href="#ref-clayton2005population">2005</a>)</span>. One can use the normal approximation to the
@@ -296,8 +301,8 @@ respectively, <span class="math inline">\(n_0\)</span> and <span class="math inl
 non-missing data and <span class="math inline">\(m\)</span> the overall missing genotype rate at the
 marker.</p>
 </div>
-<div id="distribution-of-test-statistics." class="section level3">
-<h3><span class="header-section-number">3.2.3</span> Distribution of test statistics.</h3>
+<div id="distribution-of-test-statistics." class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.2.3</span> Distribution of test statistics.<a href="genoquality.html#distribution-of-test-statistics." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When there are many significant loci coming out of a particular study it
 may more likely reflect systematic genotype error in some of those
 markers than reflect real discoveries. Indeed, remembering the L-shaped
@@ -311,7 +316,7 @@ plots are constructed by ordering test statistics and plotting them
 against the corresponding ordered expected values (see Figure
 <a href="genoquality.html#fig:qqplot">3.1</a> for an example).</p>
 
-<div class="figure" style="text-align: center"><span id="fig:qqplot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:qqplot"></span>
 <img src="book_files/figure-html/qqplot-1.png" alt="Example of Quantile-Quantile plot (Q-Q plot) representing the distribution of the test statistic for a classical GWAS study (results from GWAS analysis on Bipolar disorder data coming from the Welcome Trust Case-Control Consortium (WTCCC 2007)). In this example we can see that the smallest p-value is equal to \(4.5.10^{-5}\) and there are relatively few data points in the tail. Thus, based solely on the study of this distribution, there is therefore no reason to suspect genotyping errors." width="70%" />
 <p class="caption">
 Figure 3.1: Example of Quantile-Quantile plot (Q-Q plot) representing the distribution of the test statistic for a classical GWAS study (results from GWAS analysis on Bipolar disorder data coming from the Welcome Trust Case-Control Consortium <span class="citation">(WTCCC <a href="#ref-burton_genome-wide_2007">2007</a>)</span>). In this example we can see that the smallest <em>p</em>-value is equal to <span class="math inline">\(4.5.10^{-5}\)</span> and there are relatively few data points in the tail. Thus, based solely on the study of this distribution, there is therefore no reason to suspect genotyping errors.
@@ -319,28 +324,28 @@ Figure 3.1: Example of Quantile-Quantile plot (Q-Q plot) representing the distri
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
-<div id="ref-wright2001complex">
-<p>Wright, Alan F, and Nicholas D Hastie. 2001. “Complex Genetic Diseases: Controversy over the Croesus Code.” <em>Genome Biology</em> 2 (8): comment2007–1.</p>
+<div id="ref-barrett2006evaluating">
+<p>Barrett, Jeffrey C, and Lon R Cardon. 2006. “Evaluating Coverage of Genome-Wide Association Studies.” <em>Nature Genetics</em> 38 (6): 659.</p>
 </div>
 <div id="ref-clayton2005population">
 <p>Clayton, David G, Neil M Walker, Deborah J Smyth, Rebecca Pask, Jason D Cooper, Lisa M Maier, Luc J Smink, et al. 2005. “Population Structure, Differential Bias and Genomic Control in a Large-Scale, Case-Control Association Study.” <em>Nature Genetics</em> 37 (11): 1243.</p>
 </div>
-<div id="ref-barrett2006evaluating">
-<p>Barrett, Jeffrey C, and Lon R Cardon. 2006. “Evaluating Coverage of Genome-Wide Association Studies.” <em>Nature Genetics</em> 38 (6): 659.</p>
+<div id="ref-weir2005measures">
+<p>Weir, Bruce S, Lon R Cardon, Amy D Anderson, Dahlia M Nielsen, and William G Hill. 2005. “Measures of Human Population Structure Show Heterogeneity Among Genomic Regions.” <em>Genome Research</em> 15 (11): 1468–76.</p>
 </div>
 <div id="ref-weir1996genetic">
 <p>Weir, Bruce S, and C Cockerham. 1996. “Genetic Data Analysis Ii: Methods for Discrete Population Genetic Data. Sinauer Assoc.” <em>Inc., Sunderland, MA, USA</em>.</p>
 </div>
-<div id="ref-weir2005measures">
-<p>Weir, Bruce S, Lon R Cardon, Amy D Anderson, Dahlia M Nielsen, and William G Hill. 2005. “Measures of Human Population Structure Show Heterogeneity Among Genomic Regions.” <em>Genome Research</em> 15 (11): 1468–76.</p>
-</div>
-<div id="ref-zondervan2004complex">
-<p>Zondervan, Krina T, and Lon R Cardon. 2004. “The Complex Interplay Among Factors That Influence Allelic Association.” <em>Nature Reviews Genetics</em> 5 (2): 89.</p>
+<div id="ref-wright2001complex">
+<p>Wright, Alan F, and Nicholas D Hastie. 2001. “Complex Genetic Diseases: Controversy over the Croesus Code.” <em>Genome Biology</em> 2 (8): comment2007–1.</p>
 </div>
 <div id="ref-burton_genome-wide_2007">
 <p>WTCCC. 2007. “Genome-Wide Association Study of 14,000 Cases of Seven Common Diseases and 3,000 Shared Controls.” <em>Nature</em> 447 (7145): 661–78.</p>
+</div>
+<div id="ref-zondervan2004complex">
+<p>Zondervan, Krina T, and Lon R Cardon. 2004. “The Complex Interplay Among Factors That Influence Allelic Association.” <em>Nature Reviews Genetics</em> 5 (2): 89.</p>
 </div>
 </div>
             </section>
@@ -353,12 +358,13 @@ Figure 3.1: Example of Quantile-Quantile plot (Q-Q plot) representing the distri
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -366,12 +372,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -383,7 +389,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -402,8 +416,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

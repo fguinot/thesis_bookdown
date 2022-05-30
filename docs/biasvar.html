@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>A Derivation of the MSE bias-variance decomposition | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>A Derivation of the MSE bias-variance decomposition | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Derivation of the MSE bias-variance decomposition | book.utf8.md />
+  <meta property="og:title" content="A Derivation of the MSE bias-variance decomposition | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Derivation of the MSE bias-variance decomposition | book.utf8.md />
+  <meta name="twitter:title" content="A Derivation of the MSE bias-variance decomposition | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="perspectives.html">
-<link rel="next" href="linsmooth.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="perspectives.html"/>
+<link rel="next" href="linsmooth.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,8 +250,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="biasvar" class="section level1">
-<h1><span class="header-section-number">A</span> Derivation of the MSE bias-variance decomposition</h1>
+<div id="biasvar" class="section level1 hasAnchor">
+<h1><span class="header-section-number">A</span> Derivation of the MSE bias-variance decomposition<a href="biasvar.html#biasvar" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>For the sake of brevity, we will abbreviate <span class="math inline">\(f = f(\mathbf{x})\)</span> and
 <span class="math inline">\(\hat{f} = \hat{f}(\mathbf{x})\)</span> estimated on a training set <span class="math inline">\(\mathcal{T}\)</span>.</p>
 <p><span class="math display">\[\begin{aligned}
@@ -260,26 +265,34 @@
 &amp; Var(\mathrm{X} + \mathrm{Y}) = Var(\mathrm{X}) + Var(\mathrm{Y}) + 2Cov(\mathrm{X},\mathrm{Y}),&amp; \\
 &amp; Var(\mathrm{X} - \mathrm{Y}) = Var(\mathrm{X}) + Var(\mathrm{Y}) - 2Cov(\mathrm{X},\mathrm{Y}),&amp; \\
 &amp; Cov(\mathrm{X},\mathrm{Y}) = 0 \text{ if $\mathrm{X}$ and $\mathrm{Y}$ are independent},&amp; \end{aligned}\]</span>
-and using them in we get: <span class="math display">\[\label{eq:bias-var2}
-\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] = Var(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + Var(\hat{f}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}_\mathcal{T}[(f+\epsilon) \hat{f}].\]</span>
-Developing the expression: <span class="math display">\[\begin{aligned}
+and using them in we get:</p>
+<p><span class="math display" id="eq:bias-var2">\[\begin{equation}
+\begin{aligned}
+\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] = Var(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + Var(\hat{f}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}_\mathcal{T}[(f+\epsilon) \hat{f}].
+\end{aligned}
+\tag{A.1}
+\end{equation}\]</span></p>
+<p>Developing the expression: <span class="math display">\[\begin{aligned}
 2\mathbb{E}_\mathcal{T}[(f+\epsilon) \hat{f}] &amp; = 2\mathbb{E}_\mathcal{T}(f\hat{f}) + 2\mathbb{E}_\mathcal{T}(\hat{f}\epsilon) \\
 &amp; = 2\mathbb{E}_\mathcal{T}(f\hat{f}) + 2[\mathbb{E}_\mathcal{T}(\hat{f})\underbrace{\mathbb{E}_\mathcal{T}(\epsilon)}_{=0} + \underbrace{cov(\hat{f},\epsilon)}_{=0}] \\
 &amp; = 2[\mathbb{E}_\mathcal{T}(f)\mathbb{E}_\mathcal{T}(\hat{f}) + Cov(f,\hat{f})],\end{aligned}\]</span>
-and remplacing <span class="math inline">\(Var(\mathrm{Y}) = Var(f) + Var(\epsilon) = Var(f) + \sigma^2\)</span>
-in , we get:</p>
-<p><span class="math display">\[\begin{aligned}
- \label{eq:bias-var3}
+and remplacing <span class="math inline">\(Var(\mathrm{Y}) = \underbrace{Var(f)}_{=0} + Var(\epsilon) + \underbrace{2Cov(f,\epsilon)}_{=0} = \sigma^2\)</span>
+in <a href="biasvar.html#eq:bias-var2">(A.1)</a>, we get:</p>
+<p><span class="math display" id="eq:bias-var3">\[\begin{equation}
+\begin{aligned}
 \mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] &amp; = Var(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + Var(\hat{f}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2[\mathbb{E}_\mathcal{T}(f)\mathbb{E}_\mathcal{T}(\hat{f}) + Cov(f,\hat{f})] \\ \nonumber
-&amp; = \underbrace{Var(f) + Var(\hat{f}) - 2Cov(f,\hat{f})}_{Var(f-\hat{f})} + \sigma^2 + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\ \nonumber
-&amp; = Var(f-\hat{f}) + \sigma^2 + \mathbb{E}_\mathcal{T}^2(\mathrm{Y}) + \mathbb{E}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f})\end{aligned}\]</span></p>
+&amp; = Var(f) + Var(\hat{f}) - 2Cov(f,\hat{f}) + \sigma^2 + \mathbb{E}^2_\mathcal{T}(\mathrm{Y}) + \mathbb{E}^2_\mathcal{T}(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\ \nonumber
+&amp; = Var(\hat{f}) + \sigma^2 + \mathbb{E}_\mathcal{T}^2(\mathrm{Y}) + \mathbb{E}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f})\
+\end{aligned}
+\tag{A.2}
+\end{equation}\]</span></p>
 <p>Knowing that
 <span class="math inline">\(\mathbb{E}_\mathcal{T}^2(\mathrm{Y}) = \mathbb{E}_\mathcal{T}^2(f + \epsilon) = \mathbb{E}^2(f)\)</span>
-and replacing in <span class="math display">\[eq:bias-var3\]</span>, we finally obtain:</p>
+and replacing in <a href="biasvar.html#eq:bias-var3">(A.2)</a>, we finally obtain:</p>
 <p><span class="math display">\[\begin{aligned}
  \label{eq:bias-var4}
-\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] &amp; = Var(f-\hat{f}) + \sigma^2 + \mathbb{E}^2(f) + \mathbb{E}_\mathcal{T}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\ \nonumber
-&amp; = \underbrace{Var(f - \hat{f})}_{Variance} + \underbrace{[\mathbb{E}(f) - \mathbb{E}_\mathcal{T}(\hat{f})]^2}_{Bias} + \underbrace{\sigma^2}_{noise}\end{aligned}\]</span></p>
+\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f})^2] &amp; = Var(\hat{f}) + \sigma^2 + \mathbb{E}^2(f) + \mathbb{E}_\mathcal{T}^2(\hat{f}) - 2\mathbb{E}(f)\mathbb{E}_\mathcal{T}(\hat{f}) \\ \nonumber
+&amp; = \underbrace{Var(\hat{f})}_{Variance} + \underbrace{[\mathbb{E}(f) - \mathbb{E}_\mathcal{T}(\hat{f})]^2}_{Bias^2} + \underbrace{\sigma^2}_{noise}\end{aligned}\]</span></p>
 </div>
             </section>
 
@@ -291,12 +304,13 @@ and replacing in <span class="math display">\[eq:bias-var3\]</span>, we finally 
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -304,12 +318,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -321,7 +335,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -340,8 +362,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

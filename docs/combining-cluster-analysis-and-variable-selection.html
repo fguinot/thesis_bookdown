@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>2.5 Combining cluster analysis and variable selection | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.5 Combining cluster analysis and variable selection | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.5 Combining cluster analysis and variable selection | book.utf8.md />
+  <meta property="og:title" content="2.5 Combining cluster analysis and variable selection | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.5 Combining cluster analysis and variable selection | book.utf8.md />
+  <meta name="twitter:title" content="2.5 Combining cluster analysis and variable selection | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="non-parametric.html">
-<link rel="next" href="hypothesis.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="non-parametric.html"/>
+<link rel="next" href="hypothesis.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,10 +250,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="combining-cluster-analysis-and-variable-selection" class="section level2">
-<h2><span class="header-section-number">2.5</span> Combining cluster analysis and variable selection</h2>
-<div id="CAH" class="section level3">
-<h3><span class="header-section-number">2.5.1</span> Hierarchical clustering</h3>
+<div id="combining-cluster-analysis-and-variable-selection" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.5</span> Combining cluster analysis and variable selection<a href="combining-cluster-analysis-and-variable-selection.html#combining-cluster-analysis-and-variable-selection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="CAH" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.5.1</span> Hierarchical clustering<a href="combining-cluster-analysis-and-variable-selection.html#CAH" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Hierarchical clustering is a method of cluster analysis which aims at
 building a hierarchy of clusters and result in a tree-based
 representation of the observations called a <em>dendrogram</em>. The term
@@ -270,8 +275,8 @@ dissimilarity (metric) on this set, we define a distance <span class="math inlin
 criterion) between the parts of <span class="math inline">\(\Omega\)</span>. The agglomerative hierarchical
 clustering algorithm is described in Algorithm 2.</p>
 <p><img src="book_files/figure-html/algo_CAH-1.png" width="100%" style="display: block; margin: auto;" /></p>
-<div id="metric" class="section level4 unnumbered">
-<h4>Metric</h4>
+<div id="metric" class="section level4 unnumbered hasAnchor">
+<h4>Metric<a href="combining-cluster-analysis-and-variable-selection.html#metric" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The choice of an appropriate metric will influence the shape of the
 clusters, as some clusters may be similar according to one distance or
 farther away according to another. Given two sets of observations
@@ -284,8 +289,8 @@ farther away according to another. Given two sets of observations
 <span class="math inline">\(||A - B||_{\infty} = \underset{i}{\text{max}} |A_i - B_i|\)</span></p></li>
 </ul>
 </div>
-<div id="linkage-criteria" class="section level4 unnumbered">
-<h4>Linkage criteria</h4>
+<div id="linkage-criteria" class="section level4 unnumbered hasAnchor">
+<h4>Linkage criteria<a href="combining-cluster-analysis-and-variable-selection.html#linkage-criteria" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The linkage criterion determines the distance between sets of
 observations as a function of the pairwise distances between
 observations. Some commonly used linkage criteria between two sets of
@@ -303,8 +308,8 @@ groups:
 <span class="math display">\[LC(A,B) = \frac{\sum_{i \in A}\sum_{i&#39;\in B} dist(i,i&#39;)}{\text{card}(A).\text{card}(B)}\]</span></p></li>
 </ul>
 </div>
-<div id="wards-method" class="section level4 unnumbered">
-<h4>Ward’s method</h4>
+<div id="wards-method" class="section level4 unnumbered hasAnchor">
+<h4>Ward’s method<a href="combining-cluster-analysis-and-variable-selection.html#wards-method" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>When the set <span class="math inline">\(\Omega \in \mathbb{R}^D\)</span> to classify is measured by <span class="math inline">\(D\)</span> variables
 and where each element of <span class="math inline">\(\Omega\)</span> is represented by a vector <span class="math inline">\(\boldsymbol{x}\)</span>, we
 could use the method developed by <span class="citation">(Ward <a href="#ref-ward_hierarchical_1963">1963</a>)</span> to construct
@@ -333,8 +338,8 @@ criterion:</p>
 where <span class="math inline">\(\bar{\boldsymbol{x}}_g\)</span> and <span class="math inline">\(\bar{\boldsymbol{x}}_{g&#39;}\)</span> are the centroids of groups
 <span class="math inline">\(\mathcal{G}^s_g\)</span> and <span class="math inline">\(\mathcal{G}^s_{g&#39;}\)</span> respectively.</p>
 </div>
-<div id="estimation-of-the-number-of-clusters" class="section level4 unnumbered">
-<h4>Estimation of the number of clusters</h4>
+<div id="estimation-of-the-number-of-clusters" class="section level4 unnumbered hasAnchor">
+<h4>Estimation of the number of clusters<a href="combining-cluster-analysis-and-variable-selection.html#estimation-of-the-number-of-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The choice of the number of groups in cluster analysis is often
 ambiguous and depends on many parameters of the dataset. Several model
 selection criteria have already been investigated to makes such a
@@ -371,8 +376,8 @@ define <span class="math inline">\(SD_s = sd(\mathcal{G}^s) \sqrt{1 + 1/B}\)</sp
 <span class="math display">\[\hat{G}_s^* = \text{smallest } G_s \text{ such that } \text{Gap}(G_s) \geq  \text{Gap}(G_{s+1}) - SD_{s+1}.\]</span></p>
 </div>
 </div>
-<div id="HCAR" class="section level3">
-<h3><span class="header-section-number">2.5.2</span> Hierarchical Clustering and Averaging Regression</h3>
+<div id="HCAR" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.5.2</span> Hierarchical Clustering and Averaging Regression<a href="combining-cluster-analysis-and-variable-selection.html#HCAR" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Hierarchical Clustering and Averaging Regression (HCAR) is a method
 developed by <span class="citation">(Park, Hastie, and Tibshirani <a href="#ref-park_averaged_2007">2007</a>)</span> that combines hierarchical clustering
 and penalized regression in the context of gene expression measurement.</p>
@@ -399,8 +404,8 @@ be generalized to a block-diagonal correlation structure. The average
 features within each block may yield a more accurate fit than the
 individual predictors.</p>
 </div>
-<div id="MLGL" class="section level3">
-<h3><span class="header-section-number">2.5.3</span> Multi-Layer Group-Lasso (MLGL)</h3>
+<div id="MLGL" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.5.3</span> Multi-Layer Group-Lasso (MLGL)<a href="combining-cluster-analysis-and-variable-selection.html#MLGL" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span class="citation">(Grimonprez <a href="#ref-grimonprez_selection_2016">2016</a>)</span> define the Multi-layer Group-Lasso (MLGL)
 as a two-step procedure that combines a hierarchical clustering with a
 Group-Lasso regression. It is a weighted version of the overlapping
@@ -434,19 +439,16 @@ the consequence of less penalizing in the groups at the origin of large
 gaps in the hierarchy.</p>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
-<div id="ref-rokach2005clustering">
-<p>Rokach, Lior, and Oded Maimon. 2005. “Clustering Methods.” In <em>Data Mining and Knowledge Discovery Handbook</em>, 321–52. Springer.</p>
-</div>
-<div id="ref-ward_hierarchical_1963">
-<p>Ward, J. H. 1963. “Hierarchical Grouping to Optimize an Objective Function.” <em>Journal of the American Statistical Association</em> 58 (301): 236–44.</p>
-</div>
-<div id="ref-tibshirani_estimating_2001">
-<p>Tibshirani, R., G. Walther, and T. Hastie. 2001. “Estimating the Number of Clusters in a Data Set via the Gap Statistic.” <em>Journal of the Royal Statistical Society: Series B</em> 63 (2): 411–23.</p>
-</div>
 <div id="ref-calinski_dendrite_1974">
 <p>Caliński, T., and J. Harabasz. 1974. “A Dendrite Method for Cluster Analysis.” <em>Communications in Statistics</em> 3 (1): 1–27.</p>
+</div>
+<div id="ref-grimonprez_selection_2016">
+<p>Grimonprez, Quentin. 2016. “Selection de Groupes de Variables corrÃÂ©lÃÂ©es En Grande Dimension.” PhD thesis, Université de Lille; Lille 1.</p>
+</div>
+<div id="ref-jacob2009group">
+<p>Jacob, Laurent, Guillaume Obozinski, and Jean-Philippe Vert. 2009. “Group LAsso with Overlap and Graph LAsso.” In <em>Proceedings of the 26th Annual International Conference on Machine Learning</em>, 433–40. Montreal, Quebec, Canada.</p>
 </div>
 <div id="ref-krzanowski_criterion_1988">
 <p>Krzanowski, W. J., and Y. T. Lai. 1988. “A Criterion for Determining the Number of Groups in a Data Set Using Sum-of-Squares Clustering.” <em>Biometrics</em> 44 (1): 23–34.</p>
@@ -454,11 +456,14 @@ gaps in the hierarchy.</p>
 <div id="ref-park_averaged_2007">
 <p>Park, Mee Young, Trevor Hastie, and Robert Tibshirani. 2007. “Averaged Gene Expressions for Regression.” <em>Biostatistics</em> 8 (2): 212–27.</p>
 </div>
-<div id="ref-grimonprez_selection_2016">
-<p>Grimonprez, Quentin. 2016. “Selection de Groupes de Variables corrÃÂ©lÃÂ©es En Grande Dimension.” PhD thesis, Université de Lille; Lille 1.</p>
+<div id="ref-rokach2005clustering">
+<p>Rokach, Lior, and Oded Maimon. 2005. “Clustering Methods.” In <em>Data Mining and Knowledge Discovery Handbook</em>, 321–52. Springer.</p>
 </div>
-<div id="ref-jacob2009group">
-<p>Jacob, Laurent, Guillaume Obozinski, and Jean-Philippe Vert. 2009. “Group LAsso with Overlap and Graph LAsso.” In <em>Proceedings of the 26th Annual International Conference on Machine Learning</em>, 433–40. Montreal, Quebec, Canada.</p>
+<div id="ref-tibshirani_estimating_2001">
+<p>Tibshirani, R., G. Walther, and T. Hastie. 2001. “Estimating the Number of Clusters in a Data Set via the Gap Statistic.” <em>Journal of the Royal Statistical Society: Series B</em> 63 (2): 411–23.</p>
+</div>
+<div id="ref-ward_hierarchical_1963">
+<p>Ward, J. H. 1963. “Hierarchical Grouping to Optimize an Objective Function.” <em>Journal of the American Statistical Association</em> 58 (301): 236–44.</p>
 </div>
 </div>
             </section>
@@ -471,12 +476,13 @@ gaps in the hierarchy.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -484,12 +490,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -501,7 +507,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -520,8 +534,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>2.2 Concepts of statistical learning | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.2 Concepts of statistical learning | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.2 Concepts of statistical learning | book.utf8.md />
+  <meta property="og:title" content="2.2 Concepts of statistical learning | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.2 Concepts of statistical learning | book.utf8.md />
+  <meta name="twitter:title" content="2.2 Concepts of statistical learning | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="notations-1.html">
-<link rel="next" href="parametric.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="notations-1.html"/>
+<link rel="next" href="parametric.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,8 +250,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="concepts-of-statistical-learning" class="section level2">
-<h2><span class="header-section-number">2.2</span> Concepts of statistical learning</h2>
+<div id="concepts-of-statistical-learning" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.2</span> Concepts of statistical learning<a href="concepts-of-statistical-learning.html#concepts-of-statistical-learning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Assuming that there is some relationship between an observed response
 vector <span class="math inline">\(\mathbf{y} \in \mathbb{R}^n\)</span> and <span class="math inline">\(D\)</span> different predictors in
 <span class="math inline">\(\mathbf{X} \in \mathbb{R}^{n \times D}\)</span>, we can write this relationship in the very
@@ -257,8 +262,8 @@ term, independent of <span class="math inline">\(\mathbf{X}\)</span> and with <s
 identity matrix.</p>
 <p>By definition, statistical learning refers to a set of approaches
 designed to estimate <span class="math inline">\(f\)</span> for 2 main reasons: prediction and explanation.</p>
-<div id="prediction" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Prediction</h3>
+<div id="prediction" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.2.1</span> Prediction<a href="concepts-of-statistical-learning.html#prediction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the setting where we have a set of input variables <span class="math inline">\(\mathbf{X}\)</span> easily
 observable but where the output response <span class="math inline">\(\mathbf{y}\)</span> cannot be readily
 obtained, then, since the error term averages to zero, <span class="math inline">\(\mathbf{y}\)</span> can be
@@ -279,8 +284,8 @@ functions are also used in machine learning, depending on the task
 considered such as classification, regression or ranking (see for
 example the log loss, relative entropy, hinge loss, mean absolute
 error).</p>
-<div id="bias-variance-decomposition-of-mean-squared-error" class="section level4 unnumbered">
-<h4>Bias-variance decomposition of mean squared error</h4>
+<div id="bias-variance-decomposition-of-mean-squared-error" class="section level4 unnumbered hasAnchor">
+<h4>Bias-variance decomposition of mean squared error<a href="concepts-of-statistical-learning.html#bias-variance-decomposition-of-mean-squared-error" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Considering a couple of random variables <span class="math inline">\((\mathrm{X}, \mathrm{Y})\)</span> defined on a
 training set <span class="math inline">\(\mathcal{T}\)</span>, then it can be shown that the expected mean
 squared error <span class="math inline">\(\mathbb{E}_\mathcal{T}[(\mathrm{Y} - \hat{f}(\mathrm{X}))^2]\)</span>,
@@ -308,7 +313,7 @@ the model fit too closely the data, going so far as to interpolate them
 in the most extreme case (see Figure <a href="concepts-of-statistical-learning.html#fig:biasvar">2.1</a> for an
 illustration of bias-variance trade-off).</p>
 
-<div class="figure" style="text-align: center"><span id="fig:biasvar"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:biasvar"></span>
 <img src="book_files/figure-html/biasvar-1.png" alt="Bias and variance contribution to the total error. The bias (red curve) decreases as the model complexity increases unlike variance, which increases. The vertical dotted line shows the optimal model complexity, i.e. where the error criterion is minimized (image taken from http://scott.fortmann-roe.com/docs/BiasVariance.html)." width="70%" />
 <p class="caption">
 Figure 2.1: Bias and variance contribution to the total error. The bias (red curve) decreases as the model complexity increases unlike variance, which increases. The vertical dotted line shows the optimal model complexity, i.e. where the error criterion is minimized (image taken from <a href="http://scott.fortmann-roe.com/docs/BiasVariance.html" class="uri">http://scott.fortmann-roe.com/docs/BiasVariance.html</a>).
@@ -321,8 +326,8 @@ using the observations. Since all terms are non-negative, this error
 forms a lower bound on the expected error on unseen samples
 <span class="citation">(Friedman, Hastie, and Tibshirani <a href="#ref-friedman2001elements">2001</a>)</span>.</p>
 </div>
-<div id="explanation" class="section level4 unnumbered">
-<h4>Explanation</h4>
+<div id="explanation" class="section level4 unnumbered hasAnchor">
+<h4>Explanation<a href="concepts-of-statistical-learning.html#explanation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can also be interested in understanding the relationship between
 <span class="math inline">\(\mathrm{Y}\)</span> and <span class="math inline">\(\mathrm{X}\)</span>. In this situation we are more interested by the exact
 form of <span class="math inline">\(\hat{f}\)</span> and we may want to answer the following questions:
@@ -335,8 +340,8 @@ hypothesis testing developed by <span class="citation">(Neyman and Pearson <a hr
 the theory of hypothesis testing and the most common tests in Section
 <a href="hypothesis.html#hypothesis">2.6</a>.</p>
 </div>
-<div id="estimation-of-f" class="section level4 unnumbered">
-<h4>Estimation of <span class="math inline">\(f\)</span></h4>
+<div id="estimation-of-f" class="section level4 unnumbered hasAnchor">
+<h4>Estimation of <span class="math inline">\(f\)</span><a href="concepts-of-statistical-learning.html#estimation-of-f" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>All statistical learning methods can be roughly characterized as either
 parametric or non-parametric.</p>
 <ul>
@@ -369,7 +374,7 @@ regression splines and the generalized additive model<a href="#fn5" class="footn
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
 <div id="ref-friedman2001elements">
 <p>Friedman, Jerome, Trevor Hastie, and Robert Tibshirani. 2001. <em>The Elements of Statistical Learning</em>. Vol. 1. Springer series in statistics New York.</p>
@@ -395,12 +400,13 @@ these models using a linear basis expansion.<a href="concepts-of-statistical-lea
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -408,12 +414,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -425,7 +431,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -444,8 +458,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>1.5 Basic concepts in population genetics | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.5 Basic concepts in population genetics | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.5 Basic concepts in population genetics | book.utf8.md />
+  <meta property="og:title" content="1.5 Basic concepts in population genetics | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.5 Basic concepts in population genetics | book.utf8.md />
+  <meta name="twitter:title" content="1.5 Basic concepts in population genetics | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="linkage.html">
-<link rel="next" href="LD.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="linkage.html"/>
+<link rel="next" href="LD.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,10 +250,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="basic-concepts-in-population-genetics" class="section level2">
-<h2><span class="header-section-number">1.5</span> Basic concepts in population genetics</h2>
-<div id="HWE" class="section level3">
-<h3><span class="header-section-number">1.5.1</span> Hardy-Weinberg equilibrium in large population</h3>
+<div id="basic-concepts-in-population-genetics" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.5</span> Basic concepts in population genetics<a href="basic-concepts-in-population-genetics.html#basic-concepts-in-population-genetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="HWE" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.5.1</span> Hardy-Weinberg equilibrium in large population<a href="basic-concepts-in-population-genetics.html#HWE" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We consider a biallelic locus with alleles <span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span> present in a
 population at frequencies <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> respectively. If we assume that
 the two copies of the gene that an individual carries are inherited
@@ -276,6 +281,12 @@ rather than to distort the equilibrium distribution
 <span class="citation">(Thomas <a href="#ref-thomas2004statistical">2004</a>)</span>.</p>
 <table>
 <caption><span id="tab:HW">Table 1.1: </span>Expected frequency of an allele transmitted from an individual sampled from a population in Hardy-Weinberg Equilibrium</caption>
+<colgroup>
+<col width="20%" />
+<col width="24%" />
+<col width="34%" />
+<col width="20%" />
+</colgroup>
 <tbody>
 <tr class="odd">
 <td align="left">Parental Genotype</td>
@@ -310,8 +321,8 @@ rather than to distort the equilibrium distribution
 </tbody>
 </table>
 </div>
-<div id="genetic-drift-in-small-population" class="section level3">
-<h3><span class="header-section-number">1.5.2</span> Genetic drift in small population</h3>
+<div id="genetic-drift-in-small-population" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.5.2</span> Genetic drift in small population<a href="basic-concepts-in-population-genetics.html#genetic-drift-in-small-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In small populations, the results presented above will still be true in
 expectation, but the allele frequencies will vary from generation to
 generation simply as a result of chance (sampling error). It follows
@@ -335,15 +346,15 @@ of the founders in the field of population genetics,
 frequencies for 2 alleles <span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span> at 1 locus for different
 population neither subject to selection nor mutation.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:drift"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:drift"></span>
 <img src="book_files/figure-html/drift-1.png" alt="Illustration of genetic drift in finite, small, populations. The plots show the evolution of allelic frequencies for 2 alleles \(A\) and \(a\) at 1 locus over 1000 generations for 3 population sizes (100, 500 and 1000). The 2 alleles are set to have the same proportions in the 3 populations at generation 1 (\(p = q = 1/2\)) and the frequencies of both allele evolve to be either fixed or extinct more or less quickly depending on the size of the population." width="80%" />
 <p class="caption">
 Figure 1.7: Illustration of genetic drift in finite, small, populations. The plots show the evolution of allelic frequencies for 2 alleles <span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span> at 1 locus over 1000 generations for 3 population sizes (100, 500 and 1000). The 2 alleles are set to have the same proportions in the 3 populations at generation 1 (<span class="math inline">\(p = q = 1/2\)</span>) and the frequencies of both allele evolve to be either fixed or extinct more or less quickly depending on the size of the population.
 </p>
 </div>
 </div>
-<div id="concept-of-heritability" class="section level3">
-<h3><span class="header-section-number">1.5.3</span> Concept of heritability</h3>
+<div id="concept-of-heritability" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.5.3</span> Concept of heritability<a href="basic-concepts-in-population-genetics.html#concept-of-heritability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sewall Wright and Ronald Fisher first introduced the concept of
 heritability in the context of family studies. Wright’s heritability is
 based on the analysis of correlation and its estimate is based on the
@@ -379,28 +390,34 @@ resort on the use of the generalized linear mixed model (GLMM<a href="#fn4" clas
 heritability is known as the genomic heritability <span class="citation">(Dandine-Roulland and Perdry <a href="#ref-dandine2015use">2015</a>)</span>.</p>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
-<div id="ref-weinberg1908ber">
-<p>Weinberg, Wilhelm. 1908. “Ber Den Nachweis Der Vererbung Beim Menschen.” <em>Jahres. Wiertt. Ver. Vaterl. Natkd.</em> 64: 369–82.</p>
-</div>
-<div id="ref-thomas2004statistical">
-<p>Thomas, Duncan C. 2004. <em>Statistical Methods in Genetic Epidemiology</em>. Oxford University Press.</p>
-</div>
-<div id="ref-wright1929evolution">
-<p>Wright, Sewall. 1929. “The Evolution of Dominance.” <em>The American Naturalist</em> 63 (689): 556–61.</p>
-</div>
-<div id="ref-wright1921correlation">
-<p>Wright, Sewall. 1921. “Correlation and Causation.” <em>Journal of Agricultural Research</em> 20 (7): 557–85.</p>
+<div id="ref-dandine2015use">
+<p>Dandine-Roulland, Claire, and Herve Perdry. 2015. “The Use of the Linear Mixed Model in Human Genetics.” <em>Human Heredity</em> 80 (4): 196–206.</p>
 </div>
 <div id="ref-fisher1919xv">
 <p>Fisher, Ronald A. 1919. “XV.âThe Correlation Between Relatives on the Supposition of Mendelian Inheritance.” <em>Earth and Environmental Science Transactions of the Royal Society of Edinburgh</em> 52 (2): 399–433.</p>
 </div>
+<div id="ref-mc_cullagh_generalized_1989">
+<p>Mc Cullagh, Peter, and J. A. Nelder. 1989. “Generalized Linear Models, Second Edition.” <em>CRC Press</em>. <a href="https://www.crcpress.com/Generalized-Linear-Models-Second-Edition/McCullagh-Nelder/p/book/9780412317606">https://www.crcpress.com/Generalized-Linear-Models-Second-Edition/McCullagh-Nelder/p/book/9780412317606</a>.</p>
+</div>
+<div id="ref-stroup2012generalized">
+<p>Stroup, Walter W. 2012. <em>Generalized Linear Mixed Models: Modern Concepts, Methods and Applications</em>. CRC press.</p>
+</div>
+<div id="ref-thomas2004statistical">
+<p>Thomas, Duncan C. 2004. <em>Statistical Methods in Genetic Epidemiology</em>. Oxford University Press.</p>
+</div>
 <div id="ref-visscher_heritability_2008">
 <p>Visscher, Peter M., William G. Hill, and Naomi R. Wray. 2008. “Heritability in the Genomics Era-Concepts and Misconceptions.” <em>Nature Reviews Genetics</em> 9 (4): 255–66.</p>
 </div>
-<div id="ref-dandine2015use">
-<p>Dandine-Roulland, Claire, and Herve Perdry. 2015. “The Use of the Linear Mixed Model in Human Genetics.” <em>Human Heredity</em> 80 (4): 196–206.</p>
+<div id="ref-weinberg1908ber">
+<p>Weinberg, Wilhelm. 1908. “Ber Den Nachweis Der Vererbung Beim Menschen.” <em>Jahres. Wiertt. Ver. Vaterl. Natkd.</em> 64: 369–82.</p>
+</div>
+<div id="ref-wright1921correlation">
+<p>Wright, Sewall. 1921. “Correlation and Causation.” <em>Journal of Agricultural Research</em> 20 (7): 557–85.</p>
+</div>
+<div id="ref-wright1929evolution">
+<p>Wright, Sewall. 1929. “The Evolution of Dominance.” <em>The American Naturalist</em> 63 (689): 556–61.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -423,12 +440,13 @@ introduction to GLMMs).<a href="basic-concepts-in-population-genetics.html#fnref
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -436,12 +454,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -453,7 +471,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -472,8 +498,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

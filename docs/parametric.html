@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>2.3 Parametric methods | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.3 Parametric methods | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 Parametric methods | book.utf8.md />
+  <meta property="og:title" content="2.3 Parametric methods | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 Parametric methods | book.utf8.md />
+  <meta name="twitter:title" content="2.3 Parametric methods | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="concepts-of-statistical-learning.html">
-<link rel="next" href="non-parametric.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="concepts-of-statistical-learning.html"/>
+<link rel="next" href="non-parametric.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,10 +250,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="parametric" class="section level2">
-<h2><span class="header-section-number">2.3</span> Parametric methods</h2>
-<div id="linmod" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Linear models</h3>
+<div id="parametric" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.3</span> Parametric methods<a href="parametric.html#parametric" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="linmod" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.3.1</span> Linear models<a href="parametric.html#linmod" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Linear models are statistical models where a univariate response
 <span class="math inline">\(\mathbf{y} \in \mathbb{R}^n\)</span> is modelled as the sum of <span class="math inline">\(D\)</span> linear predictor
 <span class="math inline">\(\mathbf{X} \in \mathbb{R}^{n \times D}\)</span> weighted by some unknown parameters,
@@ -277,8 +282,8 @@ have rank <span class="math inline">\(D\)</span>. As <span class="math inline">\
 particular that <span class="math inline">\(n \geqslant D\)</span>, i.e. that the number of parameters is
 smaller than or equal to the number of observations.</p>
 </div>
-<div id="penalized" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Penalized linear regression</h3>
+<div id="penalized" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.3.2</span> Penalized linear regression<a href="parametric.html#penalized" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Gauss-Markov theorem <span class="citation">(Aitkin <a href="#ref-aitkin1935least">1935</a>)</span> asserts that the least
 squares estimates <span class="math inline">\(\hat{\boldsymbol{\beta}}^{OLS}\)</span> have the smallest variance among
 all linear unbiased estimates. However, there may well exist biased
@@ -290,8 +295,8 @@ least Squares are useful approaches if we want to obtain such biased
 estimates with smaller variance. In this section we will only detailed
 the most commonly used shrinkage methods, as they are the ones used in
 association genetics.</p>
-<div id="ridge-regression" class="section level4 unnumbered">
-<h4>Ridge regression</h4>
+<div id="ridge-regression" class="section level4 unnumbered hasAnchor">
+<h4>Ridge regression<a href="parametric.html#ridge-regression" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The least squares estimates are the best unbiased linear estimators but
 this estimation procedure is valid only if the correlation matrix
 <span class="math inline">\(\mathbf{X}^T\mathbf{X}\)</span> is close to a unit matrix or full-rank, i.e. when the
@@ -333,8 +338,8 @@ advantageous to take a little bias to substantially reduce the variance
 and thereby improving the mean square error of estimation and
 prediction.</p>
 </div>
-<div id="lasso" class="section level4 unnumbered">
-<h4>Lasso</h4>
+<div id="lasso" class="section level4 unnumbered hasAnchor">
+<h4>Lasso<a href="parametric.html#lasso" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <em>lasso</em> <span class="citation">(Tibshirani <a href="#ref-tibshirani_regression_1996">1996</a>)</span> is also a shrinkage method but
 unlike ridge regression, it may set some coefficients to zero and thus
 perform variable selection. The lasso estimate is close to the ridge
@@ -373,15 +378,15 @@ value of <span class="math inline">\(\lambda\)</span>. We then select the tuning
 value of the cross-validation error is minimized and re-fit the model
 using all the available observations with the best <span class="math inline">\(\lambda\)</span>.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:sparsity"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sparsity"></span>
 <img src="book_files/figure-html/sparsity-1.png" alt="Geometrical representation of sparsity in penalized linear regression. (A) A 2-dimensional representation of space of the coefficients \(\beta_1\) and \(\beta_2\). The blue geometric form represents two types of constraints, \(||\beta||_1\) and \(||\beta||^2_2\), applied to the coefficients. The circular coloured lines represent the contour of the cost function and the red dotted point is the true parameter \(\beta\) we seek to reach. (B) 3-dimensional view of (A) where the constraints are represented as a tube in which the penalized methods are forced to stay to estimate the coefficients \(\beta_1\) and \(\beta_2\) (Image credit: Yves Grandvalet)." width="90%" />
 <p class="caption">
 Figure 2.2: Geometrical representation of sparsity in penalized linear regression. (A) A 2-dimensional representation of space of the coefficients <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>. The blue geometric form represents two types of constraints, <span class="math inline">\(||\beta||_1\)</span> and <span class="math inline">\(||\beta||^2_2\)</span>, applied to the coefficients. The circular coloured lines represent the contour of the cost function and the red dotted point is the true parameter <span class="math inline">\(\beta\)</span> we seek to reach. (B) 3-dimensional view of (A) where the constraints are represented as a tube in which the penalized methods are forced to stay to estimate the coefficients <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> (Image credit: Yves Grandvalet).
 </p>
 </div>
 </div>
-<div id="group-lasso" class="section level4 unnumbered">
-<h4>Group-Lasso</h4>
+<div id="group-lasso" class="section level4 unnumbered hasAnchor">
+<h4>Group-Lasso<a href="parametric.html#group-lasso" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In some problems, the predictors belong to pre-identified groups; for
 instance genes that belong to the same biological pathway, SNP included
 in the same haplotype block or collections of indicator (dummy)
@@ -405,8 +410,8 @@ at the group level.</p>
 predictors <span class="citation">(Jacob, Obozinski, and Vert <a href="#ref-jacob2009group">2009</a>; Jenatton, Audibert, and Bach <a href="#ref-jenatton2011structured">2011</a>)</span>.</p>
 </div>
 </div>
-<div id="glm" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> Generalized linear models</h3>
+<div id="glm" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.3.3</span> Generalized linear models<a href="parametric.html#glm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Generalized linear models (GLMs) <span class="citation">(Nelder and Wedderburn <a href="#ref-nelder_generalized_1972">1972</a>)</span> are an
 extension of linear models where the strict linearity assumption of
 linear models is somewhat relaxed by allowing the expected value of the
@@ -449,8 +454,8 @@ well-known Newton-Raphson method <span class="citation">(Fletcher <a href="#ref-
 scoring method <span class="citation">(Longford <a href="#ref-longford1987fast">1987</a>)</span> which is a form of Newton’s method or
 the Iteratively Reweighted Least Squares method developed by
 <span class="citation">(Nelder and Wedderburn <a href="#ref-nelder_generalized_1972">1972</a>)</span>.</p>
-<div id="logistic-regression" class="section level4 unnumbered">
-<h4>Logistic regression</h4>
+<div id="logistic-regression" class="section level4 unnumbered hasAnchor">
+<h4>Logistic regression<a href="parametric.html#logistic-regression" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The logistic regression model <span class="citation">(Cox <a href="#ref-cox1958regression">1958</a>)</span> is a generalized
 linear model where the logit function, defined as
 <span class="math display">\[\text{logit}(t) = \log \left( \frac{t}{1-t} \right), \text{ with } t \in [0,1],\]</span>
@@ -483,34 +488,28 @@ l(\boldsymbol{\beta}) &amp; = \sum_{i=1}^n \left[ y_i \log \left( \frac{e^{\bold
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
-<div id="ref-gauss1809theoria">
-<p>Gauss, Carl Friedrich. 1809. <em>Theoria Motus Corporum Coelestium in Sectionibus Conicis Solem Ambientium Auctore Carolo Friderico Gauss</em>. sumtibus Frid. Perthes et IH Besser.</p>
-</div>
 <div id="ref-aitkin1935least">
 <p>Aitkin, AC. 1935. “On Least Squares and Linear Combination of Observations.” <em>Proceedings of the Royal Society of Edinburgh</em> 55: 42–48.</p>
 </div>
-<div id="ref-hoerl1970ridge">
-<p>Hoerl, Arthur E, and Robert W Kennard. 1970. “Ridge Regression: Biased Estimation for Nonorthogonal Problems.” <em>Technometrics</em> 12 (1): 55–67.</p>
-</div>
-<div id="ref-golub1979generalized">
-<p>Golub, Gene H, Michael Heath, and Grace Wahba. 1979. “Generalized Cross-Validation as a Method for Choosing a Good Ridge Parameter.” <em>Technometrics</em> 21 (2): 215–23.</p>
-</div>
-<div id="ref-tibshirani_regression_1996">
-<p>Tibshirani, Robert. 1996. “Regression Shrinkage and Selection via the Lasso.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 58 (1): 267–88.</p>
-</div>
-<div id="ref-osborne2000new">
-<p>Osborne, Michael R, Brett Presnell, and Berwin A Turlach. 2000. “A New Approach to Variable Selection in Least Squares Problems.” <em>IMA Journal of Numerical Analysis</em> 20 (3): 389–403.</p>
+<div id="ref-cox1958regression">
+<p>Cox, David R. 1958. “The Regression Analysis of Binary Sequences.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em>, 215–42.</p>
 </div>
 <div id="ref-efron2004least">
 <p>Efron, Bradley, Trevor Hastie, Iain Johnstone, Robert Tibshirani, and others. 2004. “Least Angle Regression.” <em>The Annals of Statistics</em> 32 (2): 407–99.</p>
 </div>
-<div id="ref-parikh2014proximal">
-<p>Parikh, Neal, Stephen Boyd, and others. 2014. “Proximal Algorithms.” <em>Foundations and Trends in Optimization</em> 1 (3): 127–239.</p>
+<div id="ref-fletcher1987practical">
+<p>Fletcher, Roger. 1987. “Practical Methods of Optimization John Wiley &amp; Sons.” <em>New York</em> 80.</p>
 </div>
-<div id="ref-yuan_model_2006">
-<p>Yuan, Ming, and Yi Lin. 2006. “Model Selection and Estimation in Regression with Grouped Variables.” <em>JOURNAL OF THE ROYAL STATISTICAL SOCIETY, SERIES B</em> 68: 49–67.</p>
+<div id="ref-gauss1809theoria">
+<p>Gauss, Carl Friedrich. 1809. <em>Theoria Motus Corporum Coelestium in Sectionibus Conicis Solem Ambientium Auctore Carolo Friderico Gauss</em>. sumtibus Frid. Perthes et IH Besser.</p>
+</div>
+<div id="ref-golub1979generalized">
+<p>Golub, Gene H, Michael Heath, and Grace Wahba. 1979. “Generalized Cross-Validation as a Method for Choosing a Good Ridge Parameter.” <em>Technometrics</em> 21 (2): 215–23.</p>
+</div>
+<div id="ref-hoerl1970ridge">
+<p>Hoerl, Arthur E, and Robert W Kennard. 1970. “Ridge Regression: Biased Estimation for Nonorthogonal Problems.” <em>Technometrics</em> 12 (1): 55–67.</p>
 </div>
 <div id="ref-jacob2009group">
 <p>Jacob, Laurent, Guillaume Obozinski, and Jean-Philippe Vert. 2009. “Group LAsso with Overlap and Graph LAsso.” In <em>Proceedings of the 26th Annual International Conference on Machine Learning</em>, 433–40. Montreal, Quebec, Canada.</p>
@@ -518,23 +517,29 @@ l(\boldsymbol{\beta}) &amp; = \sum_{i=1}^n \left[ y_i \log \left( \frac{e^{\bold
 <div id="ref-jenatton2011structured">
 <p>Jenatton, Rodolphe, Jean-Yves Audibert, and Francis Bach. 2011. “Structured Variable Selection with Sparsity-Inducing Norms.” <em>Journal of Machine Learning Research</em> 12 (Oct): 2777–2824.</p>
 </div>
-<div id="ref-nelder_generalized_1972">
-<p>Nelder, J. A., and R. W. M. Wedderburn. 1972. “Generalized Linear Models.” <em>Journal of the Royal Statistical Society: Series A</em> 135 (3): 370–84.</p>
+<div id="ref-longford1987fast">
+<p>Longford, Nicholas T. 1987. “A Fast Scoring Algorithm for Maximum Likelihood Estimation in Unbalanced Mixed Models with Nested Random Effects.” <em>Biometrika</em> 74 (4): 817–27.</p>
 </div>
 <div id="ref-mc_cullagh_generalized_1989">
 <p>Mc Cullagh, Peter, and J. A. Nelder. 1989. “Generalized Linear Models, Second Edition.” <em>CRC Press</em>. <a href="https://www.crcpress.com/Generalized-Linear-Models-Second-Edition/McCullagh-Nelder/p/book/9780412317606">https://www.crcpress.com/Generalized-Linear-Models-Second-Edition/McCullagh-Nelder/p/book/9780412317606</a>.</p>
 </div>
+<div id="ref-nelder_generalized_1972">
+<p>Nelder, J. A., and R. W. M. Wedderburn. 1972. “Generalized Linear Models.” <em>Journal of the Royal Statistical Society: Series A</em> 135 (3): 370–84.</p>
+</div>
+<div id="ref-osborne2000new">
+<p>Osborne, Michael R, Brett Presnell, and Berwin A Turlach. 2000. “A New Approach to Variable Selection in Least Squares Problems.” <em>IMA Journal of Numerical Analysis</em> 20 (3): 389–403.</p>
+</div>
+<div id="ref-parikh2014proximal">
+<p>Parikh, Neal, Stephen Boyd, and others. 2014. “Proximal Algorithms.” <em>Foundations and Trends in Optimization</em> 1 (3): 127–239.</p>
+</div>
 <div id="ref-ra1922mathematical">
 <p>RA Fisher, MA. 1922. “On the Mathematical Foundations of Theoretical Statistics.” <em>Phil. Trans. R. Soc. Lond. A</em> 222 (594-604): 309–68.</p>
 </div>
-<div id="ref-fletcher1987practical">
-<p>Fletcher, Roger. 1987. “Practical Methods of Optimization John Wiley &amp; Sons.” <em>New York</em> 80.</p>
+<div id="ref-tibshirani_regression_1996">
+<p>Tibshirani, Robert. 1996. “Regression Shrinkage and Selection via the Lasso.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 58 (1): 267–88.</p>
 </div>
-<div id="ref-longford1987fast">
-<p>Longford, Nicholas T. 1987. “A Fast Scoring Algorithm for Maximum Likelihood Estimation in Unbalanced Mixed Models with Nested Random Effects.” <em>Biometrika</em> 74 (4): 817–27.</p>
-</div>
-<div id="ref-cox1958regression">
-<p>Cox, David R. 1958. “The Regression Analysis of Binary Sequences.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em>, 215–42.</p>
+<div id="ref-yuan_model_2006">
+<p>Yuan, Ming, and Yi Lin. 2006. “Model Selection and Estimation in Regression with Grouped Variables.” <em>JOURNAL OF THE ROYAL STATISTICAL SOCIETY, SERIES B</em> 68: 49–67.</p>
 </div>
 </div>
             </section>
@@ -547,12 +552,13 @@ l(\boldsymbol{\beta}) &amp; = \sum_{i=1}^n \left[ y_i \log \left( \frac{e^{\bold
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -560,12 +566,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -577,7 +583,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -596,8 +610,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

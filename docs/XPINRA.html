@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>5.5 Application on real data: rhizosphere of Medicago truncatula | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5.5 Application on real data: rhizosphere of Medicago truncatula | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.5 Application on real data: rhizosphere of Medicago truncatula | book.utf8.md />
+  <meta property="og:title" content="5.5 Application on real data: rhizosphere of Medicago truncatula | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.5 Application on real data: rhizosphere of Medicago truncatula | book.utf8.md />
+  <meta name="twitter:title" content="5.5 Application on real data: rhizosphere of Medicago truncatula | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="XPsimu.html">
-<link rel="next" href="discussions-1.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="XPsimu.html"/>
+<link rel="next" href="discussions-1.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,10 +250,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="XPINRA" class="section level2">
-<h2><span class="header-section-number">5.5</span> Application on real data: rhizosphere of <em>Medicago truncatula</em></h2>
-<div id="material" class="section level3">
-<h3><span class="header-section-number">5.5.1</span> Material</h3>
+<div id="XPINRA" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.5</span> Application on real data: rhizosphere of <em>Medicago truncatula</em><a href="XPINRA.html#XPINRA" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="material" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.5.1</span> Material<a href="XPINRA.html#material" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to study the interactions between <em>Medicago truncatula</em> and the
 microbial community of its rhizosphere, a core collection of 154
 accessions have been analysed. The purpose of the study is to identify
@@ -266,7 +271,7 @@ total amount of nitrogen and below-ground biomass</p></li>
 <p>The distributions of the phenotypic values are shown in Figure
 <a href="XPINRA.html#fig:histopheno">5.7</a>.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:histopheno"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:histopheno"></span>
 <img src="book_files/figure-html/histopheno-1.png" alt="Distribution of the phenotypic values for the BMtot, RTR and SNU traits." width="100%" />
 <p class="caption">
 Figure 5.7: Distribution of the phenotypic values for the BMtot, RTR and SNU traits.
@@ -280,7 +285,7 @@ extraction and shotgun sequencing. A total of 848 different species were
 found in the rhizosphere of the plants (repartition shown in Figure
 <a href="XPINRA.html#fig:piechart1">5.8</a>).</p>
 
-<div class="figure" style="text-align: center"><span id="fig:piechart1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:piechart1"></span>
 <img src="book_files/figure-html/piechart1-1.png" alt="Distribution of the phenotypic values for the BMtot, RTR and SNU traits." width="80%" />
 <p class="caption">
 Figure 5.8: Distribution of the phenotypic values for the BMtot, RTR and SNU traits.
@@ -297,15 +302,15 @@ size of the data to 2 148 505 SNP. We also looked at the linkage
 disequilibrium level among some SNP to get an overview of the genome
 structure (Figure <a href="XPINRA.html#fig:heatmapchr4">5.9</a>).</p>
 
-<div class="figure" style="text-align: center"><span id="fig:heatmapchr4"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:heatmapchr4"></span>
 <img src="book_files/figure-html/heatmapchr4-1.png" alt="Heatmap of LD level among SNP of chromosome 4 (position 17448921 to 22706884)." width="80%" />
 <p class="caption">
 Figure 5.9: Heatmap of LD level among SNP of chromosome 4 (position 17448921 to 22706884).
 </p>
 </div>
 </div>
-<div id="analysis" class="section level3">
-<h3><span class="header-section-number">5.5.2</span> Analysis</h3>
+<div id="analysis" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.5.2</span> Analysis<a href="XPINRA.html#analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The algorithm SICOMORE requires that we choose several hyper-parameters
 in order to run properly:</p>
 <ul>
@@ -335,10 +340,10 @@ setting different parameters:</p>
 <p><strong>Option 3</strong> : Hierarchical clustering on metagenomic data + spatially constrained hierarchical clustering on all genomic data (2 148 505 SNP) + chromosome by chromosome.</p>
 <p><strong>Option 4</strong> : Phylogenetic clustering using taxonomic information on metagenomic data + spatially constrained hierarchical clustering on subset of genomic data (214 851 SNP) + chromosome by chromosome.</p>
 </div>
-<div id="results-1" class="section level3">
-<h3><span class="header-section-number">5.5.3</span> Results</h3>
-<div id="results-on-total-biomass" class="section level4">
-<h4><span class="header-section-number">5.5.3.1</span> Results on Total Biomass</h4>
+<div id="results-1" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.5.3</span> Results<a href="XPINRA.html#results-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="results-on-total-biomass" class="section level4 hasAnchor">
+<h4><span class="header-section-number">5.5.3.1</span> Results on Total Biomass<a href="XPINRA.html#results-on-total-biomass" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <img src="book_files/figure-html/tabBMtotfig-1.png" width="80%" style="display: block; margin: auto;" />
 <table>
 <caption>
@@ -365,8 +370,8 @@ confounded:</p>
 </table>
 </div>
 </div>
-<div id="results-on-root-shoot-ratio" class="section level3">
-<h3><span class="header-section-number">5.5.4</span> Results on Root Shoot Ratio</h3>
+<div id="results-on-root-shoot-ratio" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.5.4</span> Results on Root Shoot Ratio<a href="XPINRA.html#results-on-root-shoot-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <img src="book_files/figure-html/tabRTRfig-1.png" width="80%" style="display: block; margin: auto;" />
 <table>
 <caption>
@@ -392,8 +397,8 @@ we applied a phylogenetic clustering.</p>
 </ol>
 <p><img src="book_files/figure-html/tabresRTR2-1.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="results-on-specific-nitrogen-uptake" class="section level3">
-<h3><span class="header-section-number">5.5.5</span> Results on Specific Nitrogen Uptake</h3>
+<div id="results-on-specific-nitrogen-uptake" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.5.5</span> Results on Specific Nitrogen Uptake<a href="XPINRA.html#results-on-specific-nitrogen-uptake" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <img src="book_files/figure-html/tabSNUfig-1.png" width="80%" style="display: block; margin: auto;" />
 <table>
 <caption>
@@ -414,7 +419,7 @@ and 5 are the same species. The repartition in phylum of these species
 are illustrated in Figure <a href="XPINRA.html#fig:piechart2">5.10</a>, there is a total of 13
 phylum represented with a vast majority of Proteobacteria.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:piechart2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:piechart2"></span>
 <img src="book_files/figure-html/piechart2-1.png" alt="Microbial phylum found in interaction with chromosome 2 and chromosome 5 of Medicago truncatula for the Specific Nitrogen Uptake phenotype." width="70%" />
 <p class="caption">
 Figure 5.10: Microbial phylum found in interaction with chromosome 2 and chromosome 5 of <em>Medicago truncatula</em> for the Specific Nitrogen Uptake phenotype.
@@ -432,12 +437,13 @@ Figure 5.10: Microbial phylum found in interaction with chromosome 2 and chromos
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -445,12 +451,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -462,7 +468,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -481,8 +495,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

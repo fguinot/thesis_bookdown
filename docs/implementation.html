@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>5.3 Method | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5.3 Method | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.3 Method | book.utf8.md />
+  <meta property="og:title" content="5.3 Method | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.3 Method | book.utf8.md />
+  <meta name="twitter:title" content="5.3 Method | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="modelsicomore.html">
-<link rel="next" href="XPsimu.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="modelsicomore.html"/>
+<link rel="next" href="XPsimu.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,8 +250,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="implementation" class="section level2">
-<h2><span class="header-section-number">5.3</span> Method</h2>
+<div id="implementation" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.3</span> Method<a href="implementation.html#implementation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this section, we provide some elements to enhance Problem  for
 biological problems involving metagenomic and genomic data. After a
 brief discussion related to the preprocessing of the data, we explain
@@ -259,16 +264,16 @@ recover the relevant interactions.</p>
 <p>We entitled the proposed approach SICOMORE for Selection of Interaction
 effects in COmpressed Multiple Omics REpresentations, implemented in the
 R package <code>SICoMORe</code> available at <a href="https://github.com/fguinot/sicomore-pkg" class="uri">https://github.com/fguinot/sicomore-pkg</a>.</p>
-<div id="preprocess" class="section level3">
-<h3><span class="header-section-number">5.3.1</span> Preprocessing of the data</h3>
+<div id="preprocess" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.1</span> Preprocessing of the data<a href="implementation.html#preprocess" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To tackle problems that involve genomic and metagenomic interactions,
 some prior transformations are mandatory. Also, a first attempt to
 reduce the dimension may be achieved at this step.</p>
 </div>
-<div id="preprocessing-of-metagenomic-data" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> Preprocessing of metagenomic data</h3>
-<div id="normalization." class="section level4">
-<h4><span class="header-section-number">5.3.2.1</span> Normalization.</h4>
+<div id="preprocessing-of-metagenomic-data" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.2</span> Preprocessing of metagenomic data<a href="implementation.html#preprocessing-of-metagenomic-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="normalization." class="section level4 hasAnchor">
+<h4><span class="header-section-number">5.3.2.1</span> Normalization.<a href="implementation.html#normalization." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In shotgun metagenomics,<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> microorganisms are studied by sequencing
 DNA fragments directly from samples, without the need for cultivation of
 individual isolates <span class="citation">(Sharpton <a href="#ref-sharpton2014introduction">2014</a>)</span>.</p>
@@ -305,8 +310,8 @@ normalization scaling factor.</p>
 then divided by the scaling factor to obtain the normalized counts:
 <span class="math display">\[\tilde{x}_{ij}^{\mathit{M}} = x_{ij}^{\mathit{M}}/\psi_i .\]</span></p>
 </div>
-<div id="transformation." class="section level4">
-<h4><span class="header-section-number">5.3.2.2</span> Transformation.</h4>
+<div id="transformation." class="section level4 hasAnchor">
+<h4><span class="header-section-number">5.3.2.2</span> Transformation.<a href="implementation.html#transformation." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Metagenomic shotgun sequencing results in features which take the form
 of proportions in different samples, referred in the statistical
 literature as compositional data <span class="citation">(Aitchison <a href="#ref-Aitchison:JRSSB82">1982</a>)</span>. These data are
@@ -338,8 +343,8 @@ centered log ratio (CLR) transformation for compositional data
 \ln\left( \frac{p_{nj}}{g(\mathbf{p}_j)}\right)  \right],\]</span> where
 <span class="math inline">\(g(\mathbf{p}_j)\)</span> is the geometric mean of <span class="math inline">\(\mathbf{p}_j\)</span>.</p>
 </div>
-<div id="a-first-selection-of-variables" class="section level4">
-<h4><span class="header-section-number">5.3.2.3</span> A first selection of variables</h4>
+<div id="a-first-selection-of-variables" class="section level4 hasAnchor">
+<h4><span class="header-section-number">5.3.2.3</span> A first selection of variables<a href="implementation.html#a-first-selection-of-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As seen in Section <a href="modelsicomore.html#modelsicomore">5.2</a>, we assume strong
 dependencies on interactions, which means that an interaction can be
 effective only if the two simple effects making up the interaction are
@@ -355,13 +360,13 @@ with a screening rule ensemble. Once the screening is done, the
 optimization of a Lasso problem gives the final set of variables.</p>
 </div>
 </div>
-<div id="structure" class="section level3">
-<h3><span class="header-section-number">5.3.3</span> Structuring the data</h3>
+<div id="structure" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.3</span> Structuring the data<a href="implementation.html#structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Once the data are preprocessed, we can resort to hierarchical clustering
 using Ward criterion with appropriate distances to uncover the tree
 structures.</p>
-<div id="clustering-of-metagenomic-data" class="section level4">
-<h4><span class="header-section-number">5.3.3.1</span> Clustering of metagenomic data</h4>
+<div id="clustering-of-metagenomic-data" class="section level4 hasAnchor">
+<h4><span class="header-section-number">5.3.3.1</span> Clustering of metagenomic data<a href="implementation.html#clustering-of-metagenomic-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A common approach to analyse metagenomic data is to group sequences into
 taxonomic units. The features stemming from metagenome sequencing are
 often modelled as Operational Taxonomic Units (OTU), each OTU
@@ -374,8 +379,8 @@ such as the Ward criterion, to define a hierarchy based on the
 abundances of OTU. In our application we use an agglomerative
 hierarchical clustering with the Ward criterion (see Section <a href="combining-cluster-analysis-and-variable-selection.html#CAH">2.5.1</a>).</p>
 </div>
-<div id="clustering-of-genomic-markers" class="section level4">
-<h4><span class="header-section-number">5.3.3.2</span> Clustering of genomic markers</h4>
+<div id="clustering-of-genomic-markers" class="section level4 hasAnchor">
+<h4><span class="header-section-number">5.3.3.2</span> Clustering of genomic markers<a href="implementation.html#clustering-of-genomic-markers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>On the other hand, when the genomic information is available through
 SNP, the tree structure on <span class="math inline">\(\mathit{G}\)</span> will be defined using a Ward spatially
 constrained hierarchical clustering algorithm which integrates the
@@ -383,8 +388,8 @@ linkage disequilibrium as the measure of dissimilarity using the
 <em>adjclust</em> algorithm <span class="citation">(A. Dehman, Ambroise, and Neuvial <a href="#ref-dehman_performance_2015">2015</a>)</span>.</p>
 </div>
 </div>
-<div id="using-the-structure-efficiently" class="section level3">
-<h3><span class="header-section-number">5.3.4</span> Using the structure efficiently</h3>
+<div id="using-the-structure-efficiently" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.4</span> Using the structure efficiently<a href="implementation.html#using-the-structure-efficiently" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Different approaches related to the problem of finding an optimal number
 of clusters may be envisioned to find the optimal cut in a tree
 structure obtained with hierarchical clustering (see for instance
@@ -410,22 +415,22 @@ Figure <a href="implementation.html#fig:hierarchy">5.1</a>, from the original t
 Figure <a href="implementation.html#fig:hierarchy">5.1</a>(a) to a final flatten, weighted and compressed
 representation in Figure <a href="implementation.html#fig:hierarchy">5.1</a>(c).</p>
 
-<div class="figure" style="text-align: center"><span id="fig:hierarchy"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hierarchy"></span>
 <img src="book_files/figure-html/hierarchy-1.png" alt="Dimension reduction strategy. (a) Original hierarchical tree with an example for 5 variables. (b) Expanded representation of the tree with all possible weighted groups derived from the original hierarchy. (c) Compressed representation of the tree after construction of the supervariables." width="100%" />
 <p class="caption">
 Figure 5.1: Dimension reduction strategy. (a) Original hierarchical tree with an example for 5 variables. (b) Expanded representation of the tree with all possible weighted groups derived from the original hierarchy. (c) Compressed representation of the tree after construction of the supervariables.
 </p>
 </div>
-<div id="expanding-the-hierarchy" class="section level4 unnumbered">
-<h4>Expanding the hierarchy</h4>
+<div id="expanding-the-hierarchy" class="section level4 unnumbered hasAnchor">
+<h4>Expanding the hierarchy<a href="implementation.html#expanding-the-hierarchy" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To reduce the dimension involved in Problem , the first step consists in
 flattening the respective tree structures obtained on views <span class="math inline">\(\mathit{G}\)</span> and
 <span class="math inline">\(\mathit{M}\)</span> so that only a group structure remains. Thus, each group of
 variables defined at the deepest level may be included in other groups
 of larger scales, as shown in Figure <a href="implementation.html#fig:hierarchy">5.1</a>(b).</p>
 </div>
-<div id="assigning-weights-to-the-groups" class="section level4 unnumbered">
-<h4>Assigning weights to the groups</h4>
+<div id="assigning-weights-to-the-groups" class="section level4 unnumbered hasAnchor">
+<h4>Assigning weights to the groups<a href="implementation.html#assigning-weights-to-the-groups" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To keep track of the tree structure, we may integrate an additional
 measure quantifying the quality of the groups on two successive levels.
 More specifically, for a tree structure of height <span class="math inline">\(H\)</span> and for
@@ -435,8 +440,8 @@ the Multi-Layer Group-Lasso described in Section <a href="combining-cluster-anal
 define this quantity as <span class="math inline">\(\displaystyle{\rho_h = 1 / \sqrt{s_h}}\)</span>. The
 process is shown in Figure <a href="implementation.html#fig:hierarchy">5.1</a>(a) and <a href="implementation.html#fig:hierarchy">5.1</a>(c).</p>
 </div>
-<div id="compressing-the-data" class="section level4 unnumbered">
-<h4>Compressing the data</h4>
+<div id="compressing-the-data" class="section level4 unnumbered hasAnchor">
+<h4>Compressing the data<a href="implementation.html#compressing-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To summarize each group of variables, the mean, the median or other
 quantiles may be used as well as more sophisticated representations
 based on eigen values decompositions such as the first factor obtained
@@ -444,12 +449,12 @@ with a PCA. This step is similar to the dimension reduction step of the
 method presented in Section <a href="leosmethod.html#Dstar">4.2.2</a>.</p>
 </div>
 </div>
-<div id="identification-of-relevant-supervariables" class="section level3">
-<h3><span class="header-section-number">5.3.5</span> Identification of relevant supervariables</h3>
+<div id="identification-of-relevant-supervariables" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.5</span> Identification of relevant supervariables<a href="implementation.html#identification-of-relevant-supervariables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>With this compressed representation at hand, we can recover relevant
 interactions with a multiple testing strategy.</p>
-<div id="selection-of-supervariables" class="section level4 unnumbered">
-<h4>Selection of supervariables</h4>
+<div id="selection-of-supervariables" class="section level4 unnumbered hasAnchor">
+<h4>Selection of supervariables<a href="implementation.html#selection-of-supervariables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The compression is a key ingredient to reduce significantly the
 dimension involved in Problem . Yet, we are going a step further with an
 additional feature selection process applied to the compressed
@@ -472,8 +477,8 @@ penalty factors being defined by
 <span class="math inline">\(\displaystyle{\rho_m = 1 / \sqrt{s_m}}\)</span> as explained in
 Section <a href="implementation.html#structure">5.3.3</a>.</p>
 </div>
-<div id="linear-model-testing" class="section level4 unnumbered">
-<h4>Linear model testing</h4>
+<div id="linear-model-testing" class="section level4 unnumbered hasAnchor">
+<h4>Linear model testing<a href="implementation.html#linear-model-testing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In a feature selection perspective, the relevant interactions may be
 recovered separately considering each selected group <span class="math inline">\(g \in \mathcal{G}\)</span>
 coupled with each selected group <span class="math inline">\(m \in \mathcal{M}\)</span> in a linear model of
@@ -494,46 +499,10 @@ strong dependencies by construction.</p>
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
-<div id="ref-sharpton2014introduction">
-<p>Sharpton, Thomas J. 2014. “An Introduction to the Analysis of Shotgun Metagenomic Data.” <em>Frontiers in Plant Science</em> 5: 209.</p>
-</div>
-<div id="ref-pereira2018comparison">
-<p>Pereira, Mariana Buongermino, Mikael Wallroth, Viktor Jonsson, and Erik Kristiansson. 2018. “Comparison of Normalization Methods for the Analysis of Metagenomic Gene Abundance Data.” <em>BMC Genomics</em> 19 (1): 274.</p>
-</div>
-<div id="ref-jonsson2017variability">
-<p>Jonsson, Viktor, Tobias Österlund, Olle Nerman, and Erik Kristiansson. 2017. “Variability in Metagenomic Count Data and Its Influence on the Identification of Differentially Abundant Genes.” <em>Journal of Computational Biology</em> 24 (4): 311–26.</p>
-</div>
-<div id="ref-wooley2010primer">
-<p>Wooley, John C, Adam Godzik, and Iddo Friedberg. 2010. “A Primer on Metagenomics.” <em>PLoS Computational Biology</em> 6 (2): e1000667.</p>
-</div>
-<div id="ref-robinson2010scaling">
-<p>Robinson, Mark D, and Alicia Oshlack. 2010. “A Scaling Normalization Method for Differential Expression Analysis of Rna-Seq Data.” <em>Genome Biology</em> 11 (3): R25.</p>
-</div>
 <div id="ref-Aitchison:JRSSB82">
 <p>Aitchison, Jonh. 1982. “The Statistical Analysis of Compositional Data.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 44 (2): 139–77.</p>
-</div>
-<div id="ref-Pearson:RSL1896">
-<p>Pearson, Karl. 1896. “Mathematical Contributions to the Theory of Evolution. On a Form of Spurious Correlation Which May Arise When Indices Are Used in the Measurement of Organs.” <em>Proceedings of the Royal Society of London</em> 60: 489–98.</p>
-</div>
-<div id="ref-tibshirani1988estimating">
-<p>Tibshirani, Robert. 1988. “Estimating Transformations for Regression via Additivity and Variance Stabilization.” <em>Journal of the American Statistical Association</em> 83 (402): 394–405.</p>
-</div>
-<div id="ref-huber2003parameter">
-<p>Huber, Wolfgang, Anja von Heydebreck, Holger Sültmann, Annemarie Poustka, and Martin Vingron. 2003. “Parameter Estimation for the Calibration and Variance Stabilization of Microarray Data.” <em>Statistical Applications in Genetics and Molecular Biology</em> 2 (1).</p>
-</div>
-<div id="ref-law2014voom">
-<p>Law, Charity W, Yunshun Chen, Wei Shi, and Gordon K Smyth. 2014. “Voom: Precision Weights Unlock Linear Model Analysis Tools for Rna-Seq Read Counts.” <em>Genome Biology</em> 15 (2): R29.</p>
-</div>
-<div id="ref-love2014moderated">
-<p>Love, Michael I, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for Rna-Seq Data with Deseq2.” <em>Genome Biology</em> 15 (12): 550.</p>
-</div>
-<div id="ref-rau2017transformation">
-<p>Rau, Andrea, and Cathy Maugis-Rabusseau. 2017. “Transformation and Model Choice for Rna-Seq Co-Expression Analysis.” <em>Briefings in Bioinformatics</em> 19 (3): 425–36.</p>
-</div>
-<div id="ref-Lee:PAMI17">
-<p>Lee, Seunghak, Nico Görnitz, Eric P. Xing, David Heckerman, and Christoph Lippert. 2017. “Ensembles of LAsso Screening Rules.” <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em> PP (99): 1–1.</p>
 </div>
 <div id="ref-chen2013OTU">
 <p>Chen, Wei, Clarence K. Zhang, Yongmei Cheng, Shaowu Zhang, and Hongyu Zhao. 2013. “A Comparison of Methods for Clustering 16S rRNA Sequences into OTUs.” <em>PLoS ONE</em> 8 (8): e70837.</p>
@@ -541,14 +510,50 @@ strong dependencies by construction.</p>
 <div id="ref-dehman_performance_2015">
 <p>Dehman, A., C. Ambroise, and P. Neuvial. 2015. “Performance of a Blockwise Approach in Variable Selection Using Linkage Disequilibrium Information.” <em>BMC Bioinformatics</em> 16: 148.</p>
 </div>
-<div id="ref-Milligan:Ps1985">
-<p>Milligan, Glenn W., and Martha C. Cooper. 1985. “An Examination of Procedures for Determining the Number of Clusters in a Data Set.” <em>Psychometrika</em> 50 (2): 159–79.</p>
-</div>
 <div id="ref-Gordon:1999">
 <p>Gordon, Aharon D. 1999. <em>Classification</em>. Monographs on Statistics and Applied Probability. Chapman &amp; Hall.</p>
 </div>
 <div id="ref-grimonprez_selection_2016">
 <p>Grimonprez, Quentin. 2016. “Selection de Groupes de Variables corrÃÂ©lÃÂ©es En Grande Dimension.” PhD thesis, Université de Lille; Lille 1.</p>
+</div>
+<div id="ref-huber2003parameter">
+<p>Huber, Wolfgang, Anja von Heydebreck, Holger Sültmann, Annemarie Poustka, and Martin Vingron. 2003. “Parameter Estimation for the Calibration and Variance Stabilization of Microarray Data.” <em>Statistical Applications in Genetics and Molecular Biology</em> 2 (1).</p>
+</div>
+<div id="ref-jonsson2017variability">
+<p>Jonsson, Viktor, Tobias Österlund, Olle Nerman, and Erik Kristiansson. 2017. “Variability in Metagenomic Count Data and Its Influence on the Identification of Differentially Abundant Genes.” <em>Journal of Computational Biology</em> 24 (4): 311–26.</p>
+</div>
+<div id="ref-law2014voom">
+<p>Law, Charity W, Yunshun Chen, Wei Shi, and Gordon K Smyth. 2014. “Voom: Precision Weights Unlock Linear Model Analysis Tools for Rna-Seq Read Counts.” <em>Genome Biology</em> 15 (2): R29.</p>
+</div>
+<div id="ref-Lee:PAMI17">
+<p>Lee, Seunghak, Nico Görnitz, Eric P. Xing, David Heckerman, and Christoph Lippert. 2017. “Ensembles of LAsso Screening Rules.” <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em> PP (99): 1–1.</p>
+</div>
+<div id="ref-love2014moderated">
+<p>Love, Michael I, Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for Rna-Seq Data with Deseq2.” <em>Genome Biology</em> 15 (12): 550.</p>
+</div>
+<div id="ref-Milligan:Ps1985">
+<p>Milligan, Glenn W., and Martha C. Cooper. 1985. “An Examination of Procedures for Determining the Number of Clusters in a Data Set.” <em>Psychometrika</em> 50 (2): 159–79.</p>
+</div>
+<div id="ref-Pearson:RSL1896">
+<p>Pearson, Karl. 1896. “Mathematical Contributions to the Theory of Evolution. On a Form of Spurious Correlation Which May Arise When Indices Are Used in the Measurement of Organs.” <em>Proceedings of the Royal Society of London</em> 60: 489–98.</p>
+</div>
+<div id="ref-pereira2018comparison">
+<p>Pereira, Mariana Buongermino, Mikael Wallroth, Viktor Jonsson, and Erik Kristiansson. 2018. “Comparison of Normalization Methods for the Analysis of Metagenomic Gene Abundance Data.” <em>BMC Genomics</em> 19 (1): 274.</p>
+</div>
+<div id="ref-rau2017transformation">
+<p>Rau, Andrea, and Cathy Maugis-Rabusseau. 2017. “Transformation and Model Choice for Rna-Seq Co-Expression Analysis.” <em>Briefings in Bioinformatics</em> 19 (3): 425–36.</p>
+</div>
+<div id="ref-robinson2010scaling">
+<p>Robinson, Mark D, and Alicia Oshlack. 2010. “A Scaling Normalization Method for Differential Expression Analysis of Rna-Seq Data.” <em>Genome Biology</em> 11 (3): R25.</p>
+</div>
+<div id="ref-sharpton2014introduction">
+<p>Sharpton, Thomas J. 2014. “An Introduction to the Analysis of Shotgun Metagenomic Data.” <em>Frontiers in Plant Science</em> 5: 209.</p>
+</div>
+<div id="ref-tibshirani1988estimating">
+<p>Tibshirani, Robert. 1988. “Estimating Transformations for Regression via Additivity and Variance Stabilization.” <em>Journal of the American Statistical Association</em> 83 (402): 394–405.</p>
+</div>
+<div id="ref-wooley2010primer">
+<p>Wooley, John C, Adam Godzik, and Iddo Friedberg. 2010. “A Primer on Metagenomics.” <em>PLoS Computational Biology</em> 6 (2): e1000667.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -567,12 +572,13 @@ strong dependencies by construction.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -580,12 +586,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -597,7 +603,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -616,8 +630,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

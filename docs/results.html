@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>4.4 Results | book.utf8.md</title>
-  <meta name="description" content="PdD thesis">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4.4 Results | book.knit</title>
+  <meta name="description" content="PdD thesis" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.4 Results | book.utf8.md />
+  <meta property="og:title" content="4.4 Results | book.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="PdD thesis" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.4 Results | book.utf8.md />
+  <meta name="twitter:title" content="4.4 Results | book.knit" />
   
   <meta name="twitter:description" content="PdD thesis" />
   
@@ -25,26 +23,33 @@
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="numsim.html">
-<link rel="next" href="leosgam.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="numsim.html"/>
+<link rel="next" href="leosgam.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
 
 
 
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -245,12 +250,12 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="results" class="section level2">
-<h2><span class="header-section-number">4.4</span> Results</h2>
-<div id="results-and-discussions-of-the-numerical-simulations" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> Results and discussions of the numerical simulations</h3>
-<div id="area-under-the-roc-curve" class="section level4">
-<h4><span class="header-section-number">4.4.1.1</span> Area Under the ROC Curve</h4>
+<div id="results" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.4</span> Results<a href="results.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="results-and-discussions-of-the-numerical-simulations" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.4.1</span> Results and discussions of the numerical simulations<a href="results.html#results-and-discussions-of-the-numerical-simulations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="area-under-the-roc-curve" class="section level4 hasAnchor">
+<h4><span class="header-section-number">4.4.1.1</span> Area Under the ROC Curve<a href="results.html#area-under-the-roc-curve" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For each simulation, the cut level algorithm was applied. We recall that
 this algorithm calculates a prediction error on a test set for several
 levels in a constrained-HAC tree with a ridge regression model and
@@ -260,7 +265,7 @@ the level for which AUC-ROC is the greatest. The results from the
 simulation scenario <em>clusSNP</em> and <em>singleSNP</em> described in Section
 <a href="numsim.html#simupheno">4.3.1</a> are shown in Figure <a href="results.html#fig:AUCcurvesimu">4.3</a>.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:AUCcurvesimu"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:AUCcurvesimu"></span>
 <img src="book_files/figure-html/AUCcurvesimu-1.png" alt="Area under ROC curves according to the number of clusters in the clusSNP and singleSNP scenarios: the vertical lines indicate the number of aggregated-SNP (clusters) obtained with Algorithm 4, i.e. the level where the prediction error is minimized (AUC-ROC at its maximum)." width="90%" />
 <p class="caption">
 Figure 4.3: <strong>Area under ROC curves according to the number of clusters in the <em>clusSNP</em> and <em>singleSNP</em> scenarios</strong>: the vertical lines indicate the number of aggregated-SNP (clusters) obtained with Algorithm 4, i.e. the level where the prediction error is minimized (AUC-ROC at its maximum).
@@ -277,8 +282,8 @@ that are representative of the initial SNP matrix and strongly linked to
 the phenotype.</p>
 </div>
 </div>
-<div id="performance-results-for-simulated-data." class="section level3">
-<h3><span class="header-section-number">4.4.2</span> Performance results for simulated data.</h3>
+<div id="performance-results-for-simulated-data." class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.4.2</span> Performance results for simulated data.<a href="results.html#performance-results-for-simulated-data." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As previously described, we evaluate and compare the methods using two
 metrics, namely <em>Recall</em> and <em>Precision</em>.</p>
 <p>Here the precision metric is somewhat relaxed compared to its true
@@ -296,7 +301,7 @@ more precision and more power (SASA and SKAT<em>tree</em>) than using an
 arbitrary group definition (SKAT<em>notree</em>) or no definition of groups at
 all (SMA).</p>
 
-<div class="figure" style="text-align: center"><span id="fig:scatterperfsimu"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterperfsimu"></span>
 <img src="book_files/figure-html/scatterperfsimu-1.png" alt="Recall vs Precision for each method (shape and colours in plot). In rows are the simulation scenarios. In columns, we evaluate performance using Benjamini-Hochberg threshold (left) and bonferroni correction threshold (right). The second row illustrates the performance to retrieve the true causal genomic region under the SNPclus scenario, thus only group-based approaches are considered (SASA, SKATtree and SKATnotree). The numbers inside the points correspond to the number of causal predictors and each point is the average value of 5 replicates." width="90%" />
 <p class="caption">
 Figure 4.4: <strong>Recall vs Precision for each method</strong> (shape and colours in plot). In rows are the simulation scenarios. In columns, we evaluate performance using Benjamini-Hochberg threshold (left) and bonferroni correction threshold (right). The second row illustrates the performance to retrieve the true causal genomic region under the <em>SNPclus</em> scenario, thus only group-based approaches are considered (SASA, SKAT<em>tree</em> and SKAT<em>notree</em>). The numbers inside the points correspond to the number of causal predictors and each point is the average value of 5 replicates.
@@ -328,8 +333,8 @@ SKAT<em>tree</em> seems able to detect significant genomic regions associated
 with the phenotype with a higher degree of certainty than standard
 approaches.</p>
 </div>
-<div id="leosappli" class="section level3">
-<h3><span class="header-section-number">4.4.3</span> Application in Wellcome Trust Case Control Consortium(WTCCC) and Ankylosing Spondylitis (AS) studies</h3>
+<div id="leosappli" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.4.3</span> Application in Wellcome Trust Case Control Consortium(WTCCC) and Ankylosing Spondylitis (AS) studies<a href="results.html#leosappli" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To evaluate the performance of our method on real data, we performed
 GWAS analysis on datasets made available by <span class="citation">(WTCCC <a href="#ref-burton_genome-wide_2007">2007</a>)</span>.
 The WTCCC data collection contains 17000 genotypes, composed of 3000
@@ -362,7 +367,7 @@ each SNP.</p>
 MAF greater than <span class="math inline">\(5\%\)</span>. The minor allele frequencies of each dataset are
 represented in Figure <a href="results.html#fig:histomaf">4.5</a>.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:histomaf"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:histomaf"></span>
 <img src="book_files/figure-html/histomaf-1.png" alt="Histograms of Minor Allele Frequencies (MAF) distribution in each datasets. (BD) Bipolar disorders; (CAD) Coronary artery disease; (IBD) Inflammatory bowel disease; (HT) Hypertension; (RA) Rheumatoid arthritis; (T1D) Type I diabetes; (T2D) Type II diabetes." width="90%" />
 <p class="caption">
 Figure 4.5: Histograms of Minor Allele Frequencies (MAF) distribution in each datasets. (BD) Bipolar disorders; (CAD) Coronary artery disease; (IBD) Inflammatory bowel disease; (HT) Hypertension; (RA) Rheumatoid arthritis; (T1D) Type I diabetes; (T2D) Type II diabetes.
@@ -372,10 +377,10 @@ Figure 4.5: Histograms of Minor Allele Frequencies (MAF) distribution in each da
 we performed single marker analysis on single SNP (SMA) and on groups of
 SNP (SASA, SKAT<em>tree</em>, SKAT<em>notree</em>).</p>
 </div>
-<div id="realdata" class="section level3">
-<h3><span class="header-section-number">4.4.4</span> Results in WTCCC and AS studies</h3>
-<div id="auc-roc-curves" class="section level4">
-<h4><span class="header-section-number">4.4.4.1</span> AUC-ROC curves</h4>
+<div id="realdata" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.4.4</span> Results in WTCCC and AS studies<a href="results.html#realdata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="auc-roc-curves" class="section level4 hasAnchor">
+<h4><span class="header-section-number">4.4.4.1</span> AUC-ROC curves<a href="results.html#auc-roc-curves" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In this section, we compare the AUC-ROC curves generated by our cut
 level algorithm for each disease (WTCCC and AS data).</p>
 <p>Concerning the WTCCC diseases, given that patients were all genotyped
@@ -386,7 +391,7 @@ Figure <a href="results.html#fig:WTCCC">4.6</a> (WTCCC diseases), the shapes of
 are closely similar, with a chosen cut level located around 100 000
 clusters of SNP, suggesting a shared LD pattern among patients.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:WTCCC"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:WTCCC"></span>
 <img src="book_files/figure-html/WTCCC-1.png" alt="AUC-ROC for different cut levels in a HAC-tree of 7 WTCCC diseases after quality control filters. Each point corresponds to an AUC value computed on a test set from a logistic ridge regression model for a given level in the constrained-HAC tree." width="90%" />
 <p class="caption">
 Figure 4.6: AUC-ROC for different cut levels in a HAC-tree of 7 WTCCC diseases after quality control filters. Each point corresponds to an AUC value computed on a test set from a logistic ridge regression model for a given level in the constrained-HAC tree.
@@ -400,7 +405,7 @@ the cut level algorithm). It is relevant to note that the pattern we
 observe on this real dataset is similar to the pattern we observed in
 the numerical simulations, especially under the <em>clusSNP</em> scenario.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:spondy"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:spondy"></span>
 <img src="book_files/figure-html/spondy-1.png" alt="AUC-ROC for different cut levels in a HAC-tree of the spondylitis arthritis disease (Immunochip micro-array). Each point corresponds to an AUC value computed on a test set from a logistic ridge regression model for a given level in the constrained-HAC tree." width="90%" />
 <p class="caption">
 Figure 4.7: AUC-ROC for different cut levels in a HAC-tree of the spondylitis arthritis disease (Immunochip micro-array). Each point corresponds to an AUC value computed on a test set from a logistic ridge regression model for a given level in the constrained-HAC tree.
@@ -427,15 +432,15 @@ on the LD level among variables.</p>
 </tbody>
 </table>
 
-<div class="figure" style="text-align: center"><span id="fig:ggheat"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ggheat"></span>
 <img src="book_files/figure-html/ggheat-1.png" alt="Comparison of linkage disequilibrium level among SNP for 3 different types of dataset: WTCCC, simulated and ankylosing spondylitis datasets. LD computation is based on \(R^2\) between SNP." width="90%" />
 <p class="caption">
 Figure 4.8: Comparison of linkage disequilibrium level among SNP for 3 different types of dataset: WTCCC, simulated and ankylosing spondylitis datasets. LD computation is based on <span class="math inline">\(R^2\)</span> between SNP.
 </p>
 </div>
 </div>
-<div id="gwas-analysis-on-as-and-wtccc-datasets" class="section level4">
-<h4><span class="header-section-number">4.4.4.2</span> GWAS analysis on AS and WTCCC datasets</h4>
+<div id="gwas-analysis-on-as-and-wtccc-datasets" class="section level4 hasAnchor">
+<h4><span class="header-section-number">4.4.4.2</span> GWAS analysis on AS and WTCCC datasets<a href="results.html#gwas-analysis-on-as-and-wtccc-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To evaluate the ability of our procedure to discover new associations
 between SNP and ankylosing spondylitis, we compare our procedure with
 the univariate approach (SMA) and SKAT model with our group definition
@@ -446,7 +451,7 @@ Figure <a href="results.html#fig:manhattanspondy">4.9</a> presents the results 
 analysis. For each method the logarithm of the <span class="math inline">\(p\)</span>-value of the
 different predictors is plotted along their position on the genome.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:manhattanspondy"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:manhattanspondy"></span>
 <img src="book_files/figure-html/manhattanspondy-1.png" alt="Manhattan plots showing results of GWAS analysis on ankylosing spondylitis data. For each Manhattan plot, the Benjamini-Hochberg (BH) threshold is represented by the blue line and the Bonferroni threshold by the red line. According to the BH threshold, there are: (A) 64 significantly associated aggregated-SNP; (B) 602 significantly associated single SNP; (C) 80 significantly associated groups of SNP and (D) 138 significantly associated groups of SNP." width="100%" />
 <p class="caption">
 Figure 4.9: Manhattan plots showing results of GWAS analysis on ankylosing spondylitis data. For each Manhattan plot, the Benjamini-Hochberg (BH) threshold is represented by the blue line and the Bonferroni threshold by the red line. According to the BH threshold, there are: (A) 64 significantly associated aggregated-SNP; (B) 602 significantly associated single SNP; (C) 80 significantly associated groups of SNP and (D) 138 significantly associated groups of SNP.
@@ -465,7 +470,7 @@ Figure <a href="results.html#fig:qqplotWTCCC">4.10</a>, by plotting the expecte
 the observed <span class="math inline">\(p\)</span>-value. We perform the analysis using the approach SASA
 only.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:qqplotWTCCC"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:qqplotWTCCC"></span>
 <img src="book_files/figure-html/qqplotWTCCC-1.png" alt="Q-Q plots of group-based genome-wide analysis on WTCCC data using the SASA approach. For each Manhattan plot, the Benjamini-Hochberg (BH) threshold is represented by the green dotted line and the Bonferroni threshold by the red dashed line. (A) Bipolar disorder - 13 significant clusters of SNP; (B) Coronary artery disease - 4 significant clusters of SNP; (C) Inflammatory bowel disease - 356 significant clusters of SNP ; (D) Hypertension - 47 significant clusters of SNP ; (E) Rheumatoid arthritis - 202 significant clusters of SNP ; (F) Type I diabetes - 358 significant clusters of SNP ; (G) Type II diabetes - 28 significant clusters of SNP." width="100%" />
 <p class="caption">
 Figure 4.10: Q-Q plots of group-based genome-wide analysis on WTCCC data using the SASA approach. For each Manhattan plot, the Benjamini-Hochberg (BH) threshold is represented by the green dotted line and the Bonferroni threshold by the red dashed line. (A) Bipolar disorder - 13 significant clusters of SNP; (B) Coronary artery disease - 4 significant clusters of SNP; (C) Inflammatory bowel disease - 356 significant clusters of SNP ; (D) Hypertension - 47 significant clusters of SNP ; (E) Rheumatoid arthritis - 202 significant clusters of SNP ; (F) Type I diabetes - 358 significant clusters of SNP ; (G) Type II diabetes - 28 significant clusters of SNP.
@@ -474,16 +479,16 @@ Figure 4.10: Q-Q plots of group-based genome-wide analysis on WTCCC data using t
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references">
-<div id="ref-burton_genome-wide_2007">
-<p>WTCCC. 2007. “Genome-Wide Association Study of 14,000 Cases of Seven Common Diseases and 3,000 Shared Controls.” <em>Nature</em> 447 (7145): 661–78.</p>
-</div>
 <div id="ref-IGAS_2013_identification">
 <p>International Genetics of Ankylosing Spondylitis Consortium (IGAS), Adrian Cortes, Johanna Hadler, Jenny P. Pointon, Philip C. Robinson, and others. 2013. “Identification of Multiple Risk Variants for Ankylosing Spondylitis Through High-Density Genotyping of Immune-Related Loci.” <em>Nature Genetics</em> 45 (7): 730–38.</p>
 </div>
 <div id="ref-woodrow_HLA_1978">
 <p>Woodrow, J. C., and C. J Eastmond. 1978. “HLA B27 and the Genetics of Ankylosing Spondylitis.” <em>Annals of the Rheumatic Diseases</em> 37 (6): 504–9.</p>
+</div>
+<div id="ref-burton_genome-wide_2007">
+<p>WTCCC. 2007. “Genome-Wide Association Study of 14,000 Cases of Seven Common Diseases and 3,000 Shared Controls.” <em>Nature</em> 447 (7145): 661–78.</p>
 </div>
 </div>
             </section>
@@ -496,12 +501,13 @@ Figure 4.10: Q-Q plots of group-based genome-wide analysis on WTCCC data using t
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -509,12 +515,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -526,7 +532,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["book.epub", "book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
@@ -545,8 +559,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
